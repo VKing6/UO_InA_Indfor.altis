@@ -669,7 +669,7 @@ AW_fnc_spawnUnits = {
 		_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
 		if(random 1 > 0.70) then {
-			_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Armored" >> "OIA_TankPlatoon_AA"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+			_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Armored" >> "OIA_TankSection"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 		} else {
 			_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Mechanized" >> "OIA_MechInf_AT"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 		};
