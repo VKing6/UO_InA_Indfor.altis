@@ -79,7 +79,9 @@ vas_r_items = [
 	"H_HelmetO_ocamo","H_HelmetLeaderO_ocamo","H_HelmetO_oucamo","H_HelmetLeaderO_oucamo","H_HelmetSpecO_ocamo","H_HelmetSpecO_blk","H_HelmetCrew_O","H_PilotHelmetFighter_O","H_CrewHelmetHeli_O","H_PilotHelmetHeli_O",
 	"H_HelmetCrew_B","H_CrewHelmetHeli_B","H_PilotHelmetFighter_B","H_PilotHelmetHeli_B",
 	"H_StrawHat","H_StrawHat_dark","H_Hat_blue","H_Hat_brown","H_Hat_camo","H_Hat_grey","H_Hat_checker","H_Hat_tan",
-	"H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_khk","H_ShemagOpen_tan"
+	"H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_khk","H_ShemagOpen_tan","H_Shemag_olive_hs",
+	// Silly hats
+	"H_Booniehat_khk","H_Cap_red","H_Cap_blu","H_MilCap_ocamo","H_Cap_tan","H_Cap_blk_CMMG","H_Cap_brn_SPECOPS","H_Cap_tan_specops_US","H_Cap_khaki_specops_UK","H_Cap_grn","H_Cap_grn_BI","H_Cap_blk_Raven","H_Cap_blk_ION","H_BandMask_blk","H_BandMask_khk","H_BandMask_reaper","H_BandMask_demon","H_MilCap_oucamo","H_MilCap_rucamo","H_MilCap_gry","H_MilCap_blue","H_Bandanna_surfer","H_Bandanna_khk","H_Bandanna_khk","H_Bandanna_sgg","H_Bandanna_gry","H_Bandanna_camo","H_Bandanna_mcamo","H_Beret_blk_POLICE","H_Beret_red","H_Beret_grn_SF","H_Beret_brn_SF","H_Beret_ocamo","H_Watchcap_blk","H_Watchcap_khk","H_Watchcap_camo","H_Watchcap_sgg","H_TurbanO_blk","H_Beret_02","H_Bandanna_khk_hs","H_Booniehat_khk_hs"
 ];
 //Goggles to remove from VAS
 vas_r_glasses = [];
