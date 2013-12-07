@@ -31,7 +31,9 @@ class Mission
 		"A3_Structures_F_Mil_Flags",
 		"A3_Armor_F_Panther",
 		"A3_Air_F_Heli_Light_02",
-		"A3_Misc_F_Helpers"
+		"A3_Misc_F_Helpers",
+		"a3_air_f_epb_heli_light_03",
+		"a3_armor_f_epb_apc_tracked_03"
 	};
 	addOnsAuto[]=
 	{
@@ -42,13 +44,12 @@ class Mission
 		"A3_Air_F_Gamma_UAV_02",
 		"A3_Static_F_Gamma",
 		"A3_Air_F_Beta_Heli_Transport_02",
-		"A3_Air_F_Heli_Light_02",
+		"a3_air_f_epb_heli_light_03",
 		"A3_Weapons_F_Beta_Ammoboxes",
 		"A3_Soft_F_Quadbike",
 		"a3_soft_f_beta_quadbike",
 		"A3_Soft_F_MRAP_03",
-		"A3_Armor_F_APC_Wheeled_03",
-		"A3_Air_F_Heli_Light_01",
+		"a3_armor_f_epb_apc_tracked_03",
 		"A3_Structures_F_System",
 		"A3_Soft_F_Gamma_TruckHeavy",
 		"A3_Structures_F_Walls",
@@ -64,7 +65,7 @@ class Mission
 	randomSeed=12935265;
 	class Intel
 	{
-		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.75";
+		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.8";
 		overviewText="Domi-esque Seeder Mission";
 		timeOfChanges=3600;
 		startWeather=0;
@@ -874,7 +875,7 @@ class Mission
 		items=83;
 		class Item0
 		{
-			position[]={11669.248,22.78784,11846.876};
+			position[]={11684.331,22.295689,11814.514};
 			azimut=300;
 			offsetY=0.5;
 			id=46;
@@ -887,12 +888,12 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={11679.739,22.849541,11864.655};
+			position[]={11669.436,22.784462,11844.719};
 			azimut=300;
 			offsetY=0.5;
 			id=47;
 			side="EMPTY";
-			vehicle="O_Heli_Light_02_F";
+			vehicle="I_Heli_light_03_F";
 			leader=1;
 			skill=0.60000002;
 			text="heli_2";
@@ -988,11 +989,11 @@ class Mission
 		};
 		class Item10
 		{
-			position[]={11580.653,23.619129,11989.851};
-			azimut=121.40199;
+			position[]={11579.912,23.620117,11990.054};
+			azimut=121.402;
 			id=56;
 			side="EMPTY";
-			vehicle="I_APC_Wheeled_03_cannon_F";
+			vehicle="I_APC_tracked_03_cannon_F";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="ifv_1";
@@ -1077,27 +1078,27 @@ class Mission
 		};
 		class Item18
 		{
-			position[]={11700.818,23.121668,11900.071};
+			position[]={11693.859,22.950548,11883.818};
 			azimut=300;
 			offsetY=0.5;
 			id=64;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_armed_F";
+			vehicle="I_Heli_light_03_unarmed_F";
 			skill=0.60000002;
 			text="heli_3";
-			init="veh = [this, 300, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
+			init="veh = [this, 300, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep; this setObjectTexture [0,""\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa""];";
 		};
 		class Item19
 		{
-			position[]={11694.867,23.022047,11890.416};
+			position[]={11686.879,22.879635,11872.363};
 			azimut=300;
 			offsetY=0.5;
 			id=65;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_F";
+			vehicle="I_Heli_light_03_unarmed_F";
 			skill=0.60000002;
 			text="heli_4";
-			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
+			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep; this setObjectTexture [0,""\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa""];";
 		};
 		class Item20
 		{
@@ -1173,23 +1174,23 @@ class Mission
 		};
 		class Item26
 		{
-			position[]={11688.586,22.92347,11880.371};
+			position[]={11676.396,22.817217,11857.008};
 			azimut=300;
 			offsetY=0.5;
 			id=72;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_F";
+			vehicle="I_Heli_light_03_F";
 			skill=0.60000002;
 			text="heli_5";
 			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
 		};
 		class Item27
 		{
-			position[]={11583.216,23.609806,11993.713};
-			azimut=121.40199;
+			position[]={11582.475,23.611511,11993.916};
+			azimut=121.402;
 			id=73;
 			side="EMPTY";
-			vehicle="I_APC_Wheeled_03_cannon_F";
+			vehicle="I_APC_tracked_03_cannon_F";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="ifv_2";
@@ -1197,11 +1198,11 @@ class Mission
 		};
 		class Item28
 		{
-			position[]={11585.835,23.5975,11997.703};
-			azimut=121.40199;
+			position[]={11585.094,23.599207,11997.906};
+			azimut=121.402;
 			id=74;
 			side="EMPTY";
-			vehicle="I_APC_Wheeled_03_cannon_F";
+			vehicle="I_APC_tracked_03_cannon_F";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="ifv_3";
@@ -1209,11 +1210,11 @@ class Mission
 		};
 		class Item29
 		{
-			position[]={11588.359,23.574293,12001.84};
-			azimut=121.40199;
+			position[]={11587.618,23.575901,12002.043};
+			azimut=121.402;
 			id=75;
 			side="EMPTY";
-			vehicle="I_APC_Wheeled_03_cannon_F";
+			vehicle="I_APC_tracked_03_cannon_F";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="ifv_4";
