@@ -410,7 +410,7 @@ AW_fnc_minefield = {
 	_unitsArray = [];
 	for "_x" from 0 to 79 do
 	{
-		_mine = createMine ["SLAMDirectionalMine", _centralPos, [], 50];
+		_mine = createMine ["APERSBoundingMine", _centralPos, [], 50];
 		_unitsArray = _unitsArray + [_mine];
 	};
 
