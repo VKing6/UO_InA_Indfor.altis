@@ -204,7 +204,7 @@ while {true} do
 		publicVariable "debugMessage";
 
 		// hqSideChat = _firingMessages call BIS_fnc_selectRandom; 
-		GlobalHint = format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid</br><t color='#b60000'>%1</t>",mapGridPosition _targetPos];
+		GlobalHint = format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid<t color='#b60000'>%1</t>",mapGridPosition _targetPos];
 		publicVariable "GlobalHint"; hint parseText GlobalHint;
 		// [-1, {[Independent,"Firefinder Battery"] SideChat _this}, _mortarChat] call CBA_fnc_globalExecute;
 		
