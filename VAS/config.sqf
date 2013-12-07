@@ -48,7 +48,7 @@ vas_glasses = [];
 
 //Below are variables you can use to restrict certain items from being used.
 //Remove Weapon
-vas_r_weapons = ["launch_RPG32_F","LMG_Zafir_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F","launch_B_Titan_F","launch_B_Titan_short_F","launch_O_Titan_F","launch_O_Titan_short_F","hgun_Pistol_heavy_02_F","arifle_MXC_F","arifle_MX_F","arifle_MX_GL_F","arifle_MX_SW_F","arifle_MXM_F","srifle_DMR_01_F"];
+vas_r_weapons = ["launch_RPG32_F","LMG_Zafir_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F","launch_B_Titan_F","launch_B_Titan_short_F","launch_O_Titan_F","launch_O_Titan_short_F","arifle_MXC_F","arifle_MX_F","arifle_MX_GL_F","arifle_MX_SW_F","arifle_MXM_F","srifle_DMR_01_F"];
 // modified by naong
 vas_r_backpacks = [
 	"B_UAV_01_backpack_F","O_UAV_01_backpack_F",
@@ -56,7 +56,7 @@ vas_r_backpacks = [
 	"O_Mortar_01_support_F","O_Mortar_01_weapon_F","O_HMG_01_weapon_F","O_HMG_01_support_F","O_HMG_01_high_weapon_F","O_HMG_01_support_high_F","O_GMG_01_weapon_F","O_GMG_01_high_weapon_F"
 ];
 //Magazines to remove from VAS
-vas_r_magazines = ["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","RPG32_F","RPG32_HE_F","TMR_RPG32_TB_F","TMR_RPG32_Smoke_F","150Rnd_762x51_Box","150Rnd_762x51_Box_Tracer","NLAW_F","TMR_NLAW_MPV_F","INKO_NLAW_USED","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_caseless_mag","100Rnd_65x39_caseless_mag_Tracer","6Rnd_45ACP_Cylinder","3Rnd_HE_Grenade_shell","3Rnd_Smoke_Grenade_shell","3Rnd_SmokeRed_Grenade_shell","3Rnd_SmokeGreen_Grenade_shell","3Rnd_SmokeYellow_Grenade_shell","3Rnd_SmokePurple_Grenade_shell","3Rnd_SmokeBlue_Grenade_shell","3Rnd_SmokeOrange_Grenade_shell","3Rnd_UGL_FlareWhite_F","3Rnd_UGL_FlareGreen_F","3Rnd_UGL_FlareRed_F","3Rnd_UGL_FlareYellow_F","3Rnd_UGL_FlareCIR_F","HandGrenade_Stone","10Rnd_762x51_Mag"];
+vas_r_magazines = ["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","RPG32_F","RPG32_HE_F","TMR_RPG32_TB_F","TMR_RPG32_Smoke_F","150Rnd_762x51_Box","150Rnd_762x51_Box_Tracer","NLAW_F","TMR_NLAW_MPV_F","INKO_NLAW_USED","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_caseless_mag","100Rnd_65x39_caseless_mag_Tracer","3Rnd_HE_Grenade_shell","3Rnd_Smoke_Grenade_shell","3Rnd_SmokeRed_Grenade_shell","3Rnd_SmokeGreen_Grenade_shell","3Rnd_SmokeYellow_Grenade_shell","3Rnd_SmokePurple_Grenade_shell","3Rnd_SmokeBlue_Grenade_shell","3Rnd_SmokeOrange_Grenade_shell","3Rnd_UGL_FlareWhite_F","3Rnd_UGL_FlareGreen_F","3Rnd_UGL_FlareRed_F","3Rnd_UGL_FlareYellow_F","3Rnd_UGL_FlareCIR_F","HandGrenade_Stone","10Rnd_762x51_Mag"];
 //Items to remove from VAS1
 vas_r_items = [
 	// Items
