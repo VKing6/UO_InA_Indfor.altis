@@ -892,7 +892,6 @@ while {count _targets > 0} do
 		"<t align='center' size='2.2'>Radio Tower</t><br/><t size='1.5' color='#08b000' align='center'>DESTROYED</t><br/>____________________<br/>The enemy radio tower has been destroyed! Fantastic job, lads! You're now all free to use your Personal UAVs!<br/><br/>Keep up the good work, lads; we're countin' on you.";
 	GlobalHint = _radioTowerDownText; publicVariable "GlobalHint"; hint parseText GlobalHint;
 	showNotification = ["CompletedSub", "Enemy radio tower destroyed."]; publicVariable "showNotification";
-	showNotification = ["Reward", "Personal UAVs now available."]; publicVariable "showNotification";
 
 	waitUntil {sleep 5; count list _dt < PARAMS_EnemyLeftThreshhold};
 
