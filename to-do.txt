@@ -1,0 +1,5 @@
+Make variant of or replace CSAT with FIA Files to edit:
+	Edit server initialisation stuff: Lines 341/2 (init.sqf)
+	Edit function: AW_fnc_spawnUnits (init.sqf)
+	Edit AO Detection trigger: Lines 821-5 (init.sqf)
+	Edit other spawning stuff, priority targets? Possibly make it either mortar site or sam site (that'll be a laugh)
