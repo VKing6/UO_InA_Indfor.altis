@@ -10,11 +10,9 @@
 		<br/>
 		<br/>Most vehicles respawn after being abandoned for 60 minutes.
 		<br/>
-		<br/>The CRV can be used to service ground vehicles in the field. The trucks can be used to service all vehicles.
-		<br/>
 		<br/>This mission uses standard medical.
 		<br/>
-		<br/>This version of Invade and Annex modified by TinfoilHate for play at United Operations. Invade and Annex is a custom-made domination-esque mission for ArmA 3, lovingly crafted by Rarek at Ahoy World...at least before I got my hands on it.
+		<br/>This version of Invade and Annex modified by TinfoilHate, ToadBall and VKing for play at United Operations. Invade and Annex is a custom-made domination-esque mission for ArmA 3, lovingly crafted by Rarek at Ahoy World...at least before we got our hands on it.
 	"]];
 
 	player createDiaryRecord ["Diary",["COMMAND AND SIGNAL","
@@ -35,8 +33,11 @@
 		<br/> Air Transport Section - Channel 7, 2405.0
 		<br/>
 		<br/>Long Range:
-		<br/> 1 Platoon Net   - Channel 1, 36.625
-		<br/> Air Net         - Channel 2, 37.775
+		<br/> 1 Platoon Net   		- 036.625
+		<br/>    1 Platoon Aux Net  - 036.650
+		<br/>
+		<br/> Ground : Air Net		- 037.775
+		<br/> Air : Air Net         - 037.800
 		<br/>
 		<br/>b. Callsigns
 		<br/>
@@ -49,8 +50,13 @@
 		<br/>  Goshawk 1'A 	- Armored Section 1
 		<br/>  Goshawk 1'B 	- Armored Section 2
 		<br/>
-		<br/>  Mako 1 	    - Air Transport Section
-		<br/>  Archer 	    - Mortar Section
+		<br/>	Shikra 4'1 - FAC Officer
+		<br/>	Shikra 4'1 - FAC SNCO
+		<br/>
+		<br/>  Mako 1'1, 1'2, 1'3, 1'4 - Rotary Wing Transport Callsigns
+		<br/>  Shark 2'1, 2'2, 2'3, 2'4 - Rotary Wing Attack Callsigns
+		<br/>  Ray 3'1, 3'2, 3'3, 3'4 - Fast Jet Attack Callsigns
+		<br/>
 
 	"]];
 
