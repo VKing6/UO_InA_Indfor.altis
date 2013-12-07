@@ -347,10 +347,11 @@ sideObj = objNull;
 smRewards =
 [
 	["an AH-99 Blackfoot", "B_Heli_Attack_01_F"],
-	["an M2A1 Slammer", "B_MBT_01_cannon_F"],
-	["an M4 Scorcher", "B_MBT_01_arty_F"],
-	["an M5 Sandstorm MLRS", "B_MBT_01_mlrs_F"],
-	["an IFV-6a Cheetah", "B_APC_Tracked_01_AA_F"],
+	["an AH-9 Pawnee", "B_Heli_Light_01_armed_F"],	
+	["a MH-9 Hummingbird", "B_Heli_Light_01_F"],	
+	["a MBT-52 Kuma", "I_MBT_03_cannon_F"],
+	["a M4 Scorcher", "B_MBT_01_arty_F"],
+	["an IFV-4 Gorgon", "B_APC_Tracked_01_AA_F"],
 	["an A-143 Buzzard", "I_Plane_Fighter_03_CAS_F"]
 ];
 smMarkerList = ["smReward1","smReward2","smReward3","smReward4","smReward5","smReward6","smReward7","smReward8","smReward9","smReward10","smReward11","smReward12","smReward13","smReward14","smReward15"];
