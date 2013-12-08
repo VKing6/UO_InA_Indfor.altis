@@ -522,24 +522,34 @@ while {true} do
 			sideObj setPos [(getPos sideObj select 0), (getPos sideObj select 1), ((getPos sideObj select 2) - 0.5)];
 			sideObj setVectorUp [0,0,1];
 			
-			//Spawn some enemies around the objective
+			//Spawn units to garrison the objective
 			_unitsArray = [sideObj];
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to 0 do
 			{
-				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
+				_randomPos = [[[getPos sideObj, 20]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-				[_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
+				// [_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
+				[_spawnGroup, 50, _flatPos] call tin_aiGarrison;
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			
+			//Spawn units to patrol the objective area
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to 1 do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
+				
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
+			};
+			//Spawn units to patrol the perimeter
+			for "_x" from 0 to 1 do
+			{
+				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
+				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
+				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
