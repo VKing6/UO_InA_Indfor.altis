@@ -92,7 +92,7 @@
 		<br/>
 		<br/>4. Tasks to Maneuver Units
 		<br/>
-		<br/>C Company:
+		<br/>G Company:
 		<br/>
 		<br/>Platoon is to seize objectives as indicated by higher.
 	"]];
