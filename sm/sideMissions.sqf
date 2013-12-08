@@ -534,7 +534,7 @@ while {true} do
 			_unitsArray = [sideObj];
 			//Spawn some AA yo!
 			if /*(_aaLevel >= 1 || {random 1 > 0.85})*/(true) then {
-				_spawnGroup = createVehicle [];
+				_spawnGroup = "O_HMG_01_high_F" createVehicle _flatpos;
 				_spawnGroup setpos (sideObj modelToWorld [0,0,-1.3]);
 				createVehicleCrew (_spawnGroup);
 				_spawnGroup = group (gunner _spawnGroup);
@@ -543,7 +543,7 @@ while {true} do
 			};
 			//Spawn units to patrol the objective area
 			_x = 0;
-			for "_x" from 1 to _spawnLevel do
+			for "_x" from 0 to (_spawnLevel + 1) do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -552,7 +552,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the perimeter
-			for "_x" from 1 to (_spawnLevel + 1) do
+			for "_x" from 0 to (_spawnLevel + 1) do
 			{
 				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -562,7 +562,7 @@ while {true} do
 			};
 			//Spawn units to garrison the objective
 			_x = 0;
-			for "_x" from 1 to _spawnLevel do
+			for "_x" from 0 to _spawnLevel do
 			{
 				_randomPos = [[[getPos sideObj, 20]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
