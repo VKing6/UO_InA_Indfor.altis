@@ -25,7 +25,7 @@ _sideMissions =
 [
 	"destroyChopper",
 	"destroySmallRadar",
-	"destroyExplosivesCoast"
+	"destroyOutpost"
 ];
 
 _mission = "";
@@ -533,9 +533,10 @@ while {true} do
 			
 			_unitsArray = [sideObj];
 			//Spawn some AA yo!
-			if /*(_aaLevel >= 1 || {random 1 > 0.85})*/(true) then {
+			if (_aaLevel >= 1 || {random 1 > 0.85}) then {
 				_spawnGroup = "O_HMG_01_high_F" createVehicle _flatpos;
 				_spawnGroup setpos (sideObj modelToWorld [0,0,-1.3]);
+				_spawnGroup disableTIEquipment true;
 				createVehicleCrew (_spawnGroup);
 				_spawnGroup = group (gunner _spawnGroup);
 				
@@ -592,7 +593,7 @@ while {true} do
 			publicVariable "sideObj";
 			
 			//Throw briefing hint
-			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText GlobalHint;
+			GlobalHint = format [_briefing, mapgridPosition _fuzzyPos]; publicVariable "GlobalHint"; hint parseText GlobalHint;
 			showNotification = ["NewSideMission", "Destroy HQ"]; publicVariable "showNotification";
 			
 			sideMissionUp = true;
