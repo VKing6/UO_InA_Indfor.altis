@@ -1,6 +1,6 @@
 //by Rarek [AW]
 
-private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_spotted","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount"];
+private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_spotted","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_inMinRange"];
 _firstRun = true;
 _unitsArray = [objNull];
 _completeText =
@@ -64,7 +64,7 @@ while {true} do
 	_flatPos = [0];
 	_accepted = false;
 	_debugCounter = 1;
-	_isFlatEmptyArray = if (_SPG) then {[10, 0, 0.4, 10, 0, true]} else {[5, 0, 0.2, 5, 0, false]};
+	_isFlatEmptyArray = if (_SPG) then {[10, 0, 0.4, 10, 0, false]} else {[5, 0, 0.2, 5, 0, false]};
 	
 	while {!_accepted} do
 	{
@@ -100,7 +100,7 @@ while {true} do
 	publicVariable "debugMessage";
 
 	//Spawn units
-	_spawnMagnitude = if (_SPG) then {5} else {2};
+	_spawnMagnitude = if (_SPG) then {8} else {2};
 	_spawnVehicleType = if (_SPG) then {"O_MBT_02_arty_F"} else {"O_Mortar_01_F"};
 	_flatPosAlt = [(_flatPos select 0) - _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
 	_flatPosClose = [(_flatPos select 0) + _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
@@ -122,7 +122,7 @@ while {true} do
 	_unitsArray = [PriorityTarget1, PriorityTarget2, priorityVeh1, priorityVeh2];
 
 	//Spawn H-Barrier cover "Land_HBarrierBig_F"
-	_distance = if (_SPG) then {24} else {12};
+	_distance = if (_SPG) then {20} else {12};
 	_dir = 0;
 	for "_c" from 0 to 15 do
 	{
@@ -138,9 +138,10 @@ while {true} do
 	//Spawn some enemies protecting the units
 	for "_c" from 0 to 0 do
 	{
-		_randomPos = [[[_flatPos, 50]],["water","out"]] call BIS_fnc_randomPos;
+		_randomPos = [[[_flatPos, 85]],["water","out"]] call BIS_fnc_randomPos;
 		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_AT")] call BIS_fnc_spawnGroup;
-		[_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
+		// [_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
+		[_spawnGroup, _flatPos, 250] call aw_fnc_spawn2_perimeterPatrol;
 
 		_unitsArray = _unitsArray + [_spawnGroup];
 	};
@@ -179,7 +180,7 @@ while {true} do
 	publicVariable "debugMessage";
 
 	//Wait for 1-2 minutes while the mortars "set up"
-	sleep if (_SPG) then {(random 300) max 60} else {random 60};
+	sleep (if (_SPG) then {(random 300) max 60} else {random 60});
 
 	//Set mortars attacking while still alive
 	_firingMessages =
@@ -192,7 +193,7 @@ while {true} do
 		"They're zeroing in! Incoming mortar fire; heads down!"
 	];
 	// _radius = 100; //Declared here so we can "zero in" gradually
-	_radius = 60 + if (_SPG) then {random 80 max 40} else {random 40};
+	_radius = 60 + random 40;
 	while {alive priorityTarget1 || alive priorityTarget2} do
 	{
 		_accepted = false;
@@ -205,10 +206,16 @@ while {true} do
 
 			_unit = (playableUnits select (floor (random (count playableUnits))));
 			_targetPos = getPos _unit;
-
-			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 && vehicle _unit == _unit && side _unit != EAST && EAST knowsAbout _unit > 2) then { _accepted = true; };
+			
+			if (_SPG) then {
+				_inMinRange = ((_targetpos distance _flatpos) < 840);
+			} else {
+				_inMinRange = false;
+			};
+			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 2 && !_inMinRange) then { _accepted = true; };
 
 			_debugCount = _debugCount + 1;
+			sleep 2;
 		};
 
 		debugMessage = "PT: Valid target found; warning players and beginning fire sequence.";
@@ -216,9 +223,9 @@ while {true} do
 
 		// hqSideChat = _firingMessages call BIS_fnc_selectRandom; 
 		_firingMessage = if (_SPG) then {
-			format ["<t align='center' size='1.5'>Artillery Firing</t><br/>Four rounds incoming to grid<t color='#b60000'>%1</t>",mapGridPosition _targetPos];
+			format ["<t align='center' size='1.5'>Artillery Firing</t><br/>Four rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
 		} else {
-			format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid<t color='#b60000'>%1</t>",mapGridPosition _targetPos];
+			format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
 		};
 		GlobalHint = _firingMessage;
 		publicVariable "GlobalHint"; hint parseText GlobalHint;
@@ -241,7 +248,7 @@ while {true} do
 						(_targetPos select 1) - _radius + (2 * random _radius),
 						0
 					];
-					_x doArtilleryFire [_pos, _ammo, 1]; //update so parameter customises mortar rounds?
+					_x doArtilleryFire [_pos, _ammo, 1];
 					sleep 5;
 				};
 			};
@@ -249,7 +256,7 @@ while {true} do
 
 		if (_radius > 10) then { _radius = _radius - 10; }; /* zeroing in */
 
-		sleep if (_radius > 50) then {150} else {300};
+		sleep (if (_radius > 50) then {150} else {300});
 	};
 
 	//Send completion hint
