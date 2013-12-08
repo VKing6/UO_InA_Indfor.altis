@@ -48,7 +48,7 @@ vas_glasses = [];
 
 //Below are variables you can use to restrict certain items from being used.
 //Remove Weapon
-vas_r_weapons = ["launch_RPG32_F","LMG_Zafir_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F","launch_B_Titan_F","launch_B_Titan_short_F","launch_O_Titan_F","launch_O_Titan_short_F","arifle_MXC_F","arifle_MX_F","arifle_MX_GL_F","arifle_MX_SW_F","arifle_MXM_F","srifle_DMR_01_F","srifle_GM6_F","srifle_LRR_F"];
+vas_r_weapons = ["launch_RPG32_F","LMG_Zafir_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F","launch_B_Titan_F","launch_B_Titan_short_F","launch_O_Titan_F","launch_O_Titan_short_F","arifle_MXC_F","arifle_MXC_Black_F","arifle_MX_F","arifle_MX_Black_F","arifle_MX_GL_F","arifle_MX_GL_Black_F","arifle_MX_SW_F","arifle_MX_SW_Black_F","arifle_MXM_F","arifle_MXM_Black_F","srifle_DMR_01_F","srifle_GM6_F","srifle_LRR_F"];
 // modified by naong
 vas_r_backpacks = [
 	"B_UAV_01_backpack_F","O_UAV_01_backpack_F",
