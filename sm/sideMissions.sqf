@@ -19,7 +19,7 @@
 
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_awayFromBase","_road","_position","_deadHint","_civArray","_briefing","_altPosition","_truck","_chosenCiv","_contactPos","_civ","_flatPos","_accepted","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_x","_sideMissions","_completeText","_roadList"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_awayFromBase","_road","_position","_deadHint","_civArray","_briefing","_altPosition","_truck","_chosenCiv","_contactPos","_civ","_flatPos","_accepted","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_x","_sideMissions","_completeText","_roadList","_groupType","_spawnLevel","_aaLevel","_serverPop"];
 _sideMissions = 
 
 [
@@ -85,6 +85,14 @@ while {true} do
 			_skipTimer = false;
 		};
 	};
+	
+	_spawnLevel = 0;
+	_aaLevel = 0;
+	_serverPop = count(playableUnits);
+	if (_serverPop >= 12) then {_spawnLevel = 1};
+	if (_serverPop >= 25) then {_spawnLevel = 2};
+	if (_serverPop >= 35) then {_spawnLevel = 3};
+	if (_spawnLevel >= 2) then {_aaLevel = 1};
 	
 	//Grab the code for the selected mission
 	switch (_mission) do
@@ -472,11 +480,11 @@ while {true} do
 			//provide players with reward. Place an MH-9 in the hangar, maybe? 
 		}; /* case "destroySmallRadar": */
 		
-		case "destroyExplosivesCoast":
+		case "destroyOutpost":
 		{
 			//Set up briefing message
 			_briefing =
-			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Smuggled Explosives</t><br/>____________________<br/>The OPFOR have been smuggling explosives onto the island and hiding them in a Mobile HQ on the coastline.<br/><br/>We've marked the building on your map; head over there and destroy their stock. Keep well back when you blow it; there's a lot of stuff in that building.</t>";
+			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Outpost</t><br/>____________________<br/>The OPFOR have established a mobile coordinating HQ near grid %1<br/><br/>We've marked the building on your map; head over there and destroy it to hamper their command and control.</t>";
 			
 			_flatPos = [0,0,0];
 			_accepted = false;
@@ -491,7 +499,7 @@ while {true} do
 					0.3,
 					1,
 					1,
-					true
+					false
 				];
 
 				while {(count _flatPos) < 1} do
@@ -504,7 +512,7 @@ while {true} do
 						0.3,
 						1,
 						1,
-						true
+						false
 					];
 				};
 
@@ -518,8 +526,8 @@ while {true} do
 			_randomDir = (random 360);
 			sideObj = "Land_Cargo_HQ_V1_F" createVehicle _flatPos;
 			waitUntil {alive sideObj};
+			[sideObj,0] call BIS_fnc_setHeight;
 			sideObj setDir _randomDir;
-			sideObj setPos [(getPos sideObj select 0), (getPos sideObj select 1), ((getPos sideObj select 2) - 0.5)];
 			sideObj setVectorUp [0,0,1];
 			
 			//Spawn units to garrison the objective
@@ -569,17 +577,17 @@ while {true} do
 			];
 
 			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
-			"sideMarker" setMarkerText "Side Mission: Destroy Smuggled Explosives";
+			"sideMarker" setMarkerText "Side Mission: Destroy HQ";
 			publicVariable "sideMarker";
 			publicVariable "sideObj";
 			
 			//Throw briefing hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText GlobalHint;
-			showNotification = ["NewSideMission", "Destroy Smuggled Explosives"]; publicVariable "showNotification";
+			showNotification = ["NewSideMission", "Destroy HQ"]; publicVariable "showNotification";
 			
 			sideMissionUp = true;
 			publicVariable "sideMissionUp";
-			sideMarkerText = "Destroy Smuggled Explosives";
+			sideMarkerText = "Destroy HQ";
 			publicVariable "sideMarkerText";
 			
 			//Wait for boats to be dead
