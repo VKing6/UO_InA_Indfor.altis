@@ -37,6 +37,7 @@ Jack Williams (Rarek) for Ahoy World!
 	respawnDialog = 0;
 	disabledAI = true;
 	enableSaving = [false, false];
+	enableDebugConsole = 2; //2 for all, 1 for logged in only, 0 for disabled.
 
 	class CfgSettings
 	{

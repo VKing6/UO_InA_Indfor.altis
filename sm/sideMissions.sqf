@@ -317,7 +317,7 @@ while {true} do
 			//Spawn some enemies around the objective
 			_unitsArray = [sideObj];
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to _spawnLevel do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -325,9 +325,18 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			
+			//Spawn units to patrol the perimeter
+			for "_x" from 0 to (_spawnLevel + 1) do
+			{
+				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
+				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
+				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
+				
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
+			};
+			//Spawn some enemies to patrol the area
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to (_spawnLevel+1) do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -335,13 +344,14 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			
-			_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
-			_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
-			[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
-			
-			_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
-
+			// Spawn mounted patrol
+			if (_spawnLevel >= 2 || random 1 > 0.85) then {
+				_randomPos = [[[getPos sideObj, 100]],["water","out"]] call BIS_fnc_randomPos;
+				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
+				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
+				
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
+			};
 			//Send new side mission hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText _briefing;
 			showNotification = ["NewSideMission", "Destroy Enemy Chopper"]; publicVariable "showNotification";
@@ -430,7 +440,7 @@ while {true} do
 			//Spawn some enemies around the objective
 			_unitsArray = [sideObj];
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to _spawnLevel do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -438,9 +448,18 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			
+			//Spawn units to patrol the perimeter
+			for "_x" from 0 to (_spawnLevel + 1) do
+			{
+				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
+				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
+				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
+				
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
+			};
+			//Spawn some enemies to patrol the objective area
 			_x = 0;
-			for "_x" from 0 to 2 do
+			for "_x" from 0 to (_spawnLevel+1) do
 			{
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
@@ -448,13 +467,14 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			
-			_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
-			_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
-			[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
-			
-			_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
-
+			// Spawn mounted patrol
+			if (_spawnLevel >= 2 || random 1 > 0.85) then {
+				_randomPos = [[[getPos sideObj, 100]],["water","out"]] call BIS_fnc_randomPos;
+				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
+				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
+				
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
+			};
 			//Throw out objective hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText GlobalHint;
 			showNotification = ["NewSideMission", "Destroy Enemy Radar"]; publicVariable "showNotification";
@@ -572,7 +592,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			// Spawn mounted patrol
-			if (_spawnLevel >= 2) then {
+			if (_spawnLevel >= 2 || random 1 > 0.85) then {
 				_randomPos = [[[getPos sideObj, 100]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
