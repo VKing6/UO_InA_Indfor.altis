@@ -64,12 +64,12 @@ vas_r_items = [
 	"B_UavTerminal","O_UavTerminal","NVGoggles","NVGoggles_OPFOR",
 	// Uniforms
 	"U_BasicBody",
-	"U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_GhillieSuit","U_B_HeliPilotCoveralls","U_B_Wetsuit","U_O_CombatUniform_ocamo","U_O_GhillieSuit","U_B_CombatUniform_mcam_worn","U_B_CombatUniform_wdl",
+	"U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_GhillieSuit","U_B_HeliPilotCoveralls","U_B_Wetsuit","U_O_CombatUniform_ocamo","U_O_GhillieSuit","U_B_CombatUniform_mcam_worn","U_B_CombatUniform_wdl","U_B_survival_uniform",
 	"U_O_CombatUniform_oucamo","U_O_SpecopsUniform_ocamo","U_O_SpecopsUniform_blk","U_O_OfficerUniform_ocamo","U_O_PilotCoveralls","U_O_Wetsuit","U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_stripped",
 	"U_C_Poloshirt_tricolour","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_Rangemaster",
 	"U_B_CombatUniform_wdl_tshirt","U_B_CombatUniform_wdl_vest","U_B_CombatUniform_sgg","U_B_CombatUniform_sgg_tshirt","U_B_CombatUniform_sgg_vest","U_B_SpecopsUniform_sgg","U_B_SpecopsUniform_sgg","U_B_PilotCoveralls",
-	"U_Competitor","U_NikosBody","U_MillerBody","U_KerryBody","U_OrestesBody","U_AttisBody","U_AntigonaBody","U_IG_Menelaos","U_C_Novak","U_OI_Scientist",
-	"U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_Guerilla3_2","U_BG_Guerilla1_1","U_BG_Guerilla2_1","U_IG_leader","U_BG_Guerilla2_2","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_BG_Guerilla3_2","U_BG_leader","U_OG_Guerilla1_1","U_OG_Guerilla2_1","U_OG_Guerilla2_2","U_OG_Guerilla2_3","U_OG_Guerilla3_1","U_OG_Guerilla3_2","U_OG_leader",
+	"U_Competitor","U_NikosBody","U_MillerBody","U_KerryBody","U_OrestesBody","U_AttisBody","U_AntigonaBody","U_IG_Menelaos","U_C_Novak","U_OI_Scientist","U_I_G_Story_Protagonist_F",
+	"U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_Guerilla3_2","U_BG_Guerilla1_1","U_BG_Guerilla2_1","U_IG_leader","U_BG_Guerilla2_2","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_BG_Guerilla3_2","U_BG_leader","U_OG_Guerilla1_1","U_OG_Guerilla2_1","U_OG_Guerilla2_2","U_OG_Guerilla2_3","U_OG_Guerilla3_1","U_OG_Guerilla3_2","U_OG_leader","U_I_G_resistanceLeader_F",
 	"U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3",
 	"U_C_Poor_1","U_C_Poor_2","U_C_Scavenger_1","U_C_Scavenger_2","U_C_Farmer","U_C_Fisherman","U_C_WorkerOveralls","U_C_FishermanOveralls","U_C_WorkerCoveralls","U_C_HunterBody_grn","U_C_HunterBody_brn","U_C_Commoner1_1","U_C_Commoner1_2","U_C_Commoner1_3","U_C_Commoner2_1","U_C_Commoner2_2","U_C_Commoner2_3","U_C_PriestBody","U_C_Poor_shorts_1","U_C_Poor_shorts_2","U_C_Commoner_shorts","U_C_ShirtSurfer_shorts","U_C_TeeSurfer_shorts_1","U_C_TeeSurfer_shorts_2",
 	// Vests
