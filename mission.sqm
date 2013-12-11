@@ -38,9 +38,9 @@ class Mission
 		"A3_Characters_F_INDEP",
 		"A3_Characters_F_Gamma",
 		"a3_uav_f_characters_f_gamma",
-		"A3_Soft_F_Crusher_UGV",
 		"A3_Air_F_Gamma_UAV_02",
 		"A3_Static_F_Gamma",
+		"A3_Soft_F_Crusher_UGV",
 		"A3_Air_F_Beta_Heli_Transport_02",
 		"a3_air_f_epb_heli_light_03",
 		"A3_Weapons_F_Beta_Ammoboxes",
@@ -780,17 +780,18 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11586.132,23.621824,11976.829};
-					azimut=31.986317;
+					position[]={11697.558,23.149378,11935.087};
+					azimut=213;
+					offsetY=0.5;
 					special="NONE";
 					id=42;
 					side="GUER";
-					vehicle="I_UGV_01_rcws_F";
+					vehicle="I_UAV_02_CAS_F";
 					isUAV=1;
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
-					text="uav_1";
+					text="uav_2";
 					init="veh = [this, 300, 300, 0, FALSE] execVM ""vehicle.sqf"";";
 					description="  Platoon UAV Operator";
 				};
@@ -804,36 +805,11 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11697.558,23.149378,11935.087};
-					azimut=213;
-					offsetY=0.5;
-					special="NONE";
-					id=43;
-					side="GUER";
-					vehicle="I_UAV_02_CAS_F";
-					isUAV=1;
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-					text="uav_2";
-					init="veh = [this, 300, 300, 0, FALSE] execVM ""vehicle.sqf"";";
-					description="  Platoon UAV Operator";
-				};
-			};
-		};
-		class Item11
-		{
-			side="GUER";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
 					position[]={11590.072,23.300816,12060.898};
 					azimut=305;
 					offsetY=8.1999998;
 					special="NONE";
-					id=44;
+					id=43;
 					side="GUER";
 					vehicle="I_HMG_01_A_F";
 					isUAV=1;
@@ -845,7 +821,7 @@ class Mission
 				};
 			};
 		};
-		class Item12
+		class Item11
 		{
 			side="LOGIC";
 			class Vehicles
@@ -856,7 +832,7 @@ class Mission
 					position[]={11569.348,23.568583,12018.607};
 					azimut=121;
 					special="NONE";
-					id=45;
+					id=44;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
@@ -864,6 +840,30 @@ class Mission
 					skill=0.60000002;
 					text="skyBunkerLogic";
 					description="Company";
+				};
+			};
+		};
+		class Item12
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={11586.132,23.621824,11976.829};
+					azimut=31.9863;
+					special="NONE";
+					id=45;
+					side="GUER";
+					vehicle="I_UGV_01_rcws_F";
+					isUAV=1;
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="uav_1";
+					init="veh = [this, 300, 300, 0, FALSE] execVM ""vehicle.sqf"";";
+					description="  Platoon UAV Operator";
 				};
 			};
 		};
@@ -2171,7 +2171,7 @@ class Mission
 		};
 		class Item38
 		{
-			position[]={11671.352,21.789078,11767.56};
+			position[]={-1531.7101,0,281.03735};
 			name="Rewards";
 			text="Rewards";
 			type="b_service";
@@ -2179,7 +2179,7 @@ class Mission
 		};
 		class Item39
 		{
-			position[]={11660.346,21.612211,11778.106};
+			position[]={11673.678,21.916254,11775.438};
 			name="smRewardH1";
 			type="Empty";
 			angle=305;
@@ -2257,84 +2257,84 @@ class Mission
 		};
 		class Item50
 		{
-			position[]={11683.25,21.828184,11765.912};
+			position[]={11660.318,21.139872,11756.489};
 			name="smRewardH2";
 			type="Empty";
 			angle=305;
 		};
 		class Item51
 		{
-			position[]={11639.094,21.15176,11749.941};
+			position[]={11647.982,21.116772,11737.495};
 			name="smRewardH3";
 			type="Empty";
 			angle=305;
 		};
 		class Item52
 		{
-			position[]={11657.071,21.064514,11739.557};
+			position[]={11633.962,21.538038,11717.158};
 			name="smRewardH4";
 			type="Empty";
 			angle=305;
 		};
 		class Item53
 		{
-			position[]={11555.056,23.777685,11931.336};
+			position[]={11568.003,23.736523,11932.103};
 			name="smReward1";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item54
 		{
-			position[]={11546.564,24.091658,11919.2};
+			position[]={11558.124,23.764149,11918.427};
 			name="smReward5";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item55
 		{
-			position[]={11565.652,23.736536,11924.146};
+			position[]={11580.758,23.689394,11923.373};
 			name="smReward2";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item56
 		{
-			position[]={11557.037,23.668346,11911.8};
+			position[]={11570.755,23.285721,11909.486};
 			name="smReward6";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item57
 		{
-			position[]={11576.789,23.580469,11917.152};
+			position[]={11594.669,23.264391,11914.682};
 			name="smReward3";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item58
 		{
-			position[]={11568.367,23.254606,11904.751};
+			position[]={11584.859,23.149385,11900.74};
 			name="smReward7";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item59
 		{
-			position[]={11587.58,23.178476,11909.754};
+			position[]={11609.621,22.833286,11905.28};
 			name="smReward4";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item60
 		{
-			position[]={11579.158,23.166862,11897.353};
+			position[]={11599.812,23.0756,11891.339};
 			name="smReward8";
 			type="Empty";
 			angle=31.8967;
 		};
 		class Item61
 		{
-			position[]={11637.153,21.518858,11726.589};
+			position[]={11565.104,22.712942,11813.778};
 			name="smReward0";
 			type="Empty";
 			angle=300;

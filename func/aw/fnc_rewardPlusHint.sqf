@@ -12,30 +12,27 @@ private ["_veh","_vehName","_vehVarname","_completeText","_reward","_dir"];
 	if (!(_vehVarname isKindOf "Plane") && !(_vehVarname isKindOf "Helicopter") && count smMarkerList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
 
 	if (_vehVarname isKindOf "Plane") then {
-		_rewardPos = smHangarList call BIS_fnc_selectRandom;
+		_rewardPos = smHangarList select 0;
 		smHangarList = smHangarList - [_rewardPos];
 		_dir = 121;
 	} else {
 		if (_vehVarname isKindOf "Helicopter") then {
-			_rewardPos = smHeliList call BIS_fnc_selectRandom;
+			_rewardPos = smHeliList select 0;
 			smHeliList = smHeliList - [_rewardPos];
 			_dir = 300;
 		} else {
-			_rewardPos = smMarkerList call BIS_fnc_selectRandom;
+			_rewardPos = smMarkerList select 0;
 			smMarkerList = smMarkerList - [_rewardPos];
 			_dir = 38;
 		};
 	};
 
-	_rewardPos = [_rewardPos];
-
-	_reward = createVehicle [_vehVarname, getMarkerPos "smReward0",_rewardPos,0,"NONE"];
+	_reward = createVehicle [_vehVarname, getMarkerPos _rewardPos,[],0,"NONE"];
 	waitUntil {alive _reward};
 	_reward setDir _dir;
 	_reward setPosATL [(getPosATL _reward select 0),(getPosATL _reward select 1),0.5];
 	_rewardName = "reward_" + str(floor random 500000);
 	_reward SetVehicleVarName _rewardName;
-	[_reward] call tin_vehiclePrep;
 
 	if (_reward isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};
 	if (_reward isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTexture [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};
