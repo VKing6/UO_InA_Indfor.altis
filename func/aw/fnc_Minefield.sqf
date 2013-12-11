@@ -1,9 +1,8 @@
-//AW_fnc_minefield
-//extracted and modified by Toadball
-private ["_centralPos","_unitsArray","_mine","_unitsArray","_distance","_dir","_pos","_flatPos"
+// AW_fnc_minefield
+// extracted and modified by Toadball
+private ["_centralPos","_unitsArray","_mine","_unitsArray","_distance","_dir","_pos"];
 
 _centralPos = _this select 0;
-_flatPos = _this select 1;
 _unitsArray = [];
 
 for "_x" from 0 to 79 do {
@@ -14,7 +13,7 @@ for "_x" from 0 to 79 do {
 _distance = 50;
 _dir = 0;
 for "_c" from 0 to 7 do {
-	_pos = [_flatPos, _distance, _dir] call BIS_fnc_relPos;
+	_pos = [_centralPos, _distance, _dir] call BIS_fnc_relPos;
 	_sign = "Land_Sign_Mines_F" createVehicle _pos;
 	waitUntil {alive _sign};
 	_sign setDir _dir;
