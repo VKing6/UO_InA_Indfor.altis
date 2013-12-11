@@ -164,7 +164,13 @@ while {true} do
 	];
 
 	{ _x setMarkerPos _fuzzyPos; } forEach ["priorityMarker", "priorityCircle"];
-	if (_SPG) then {"priorityMarker" setMarkerText "Priority Target: Artillery Unit"} else {"priorityMarker" setMarkerText "Priority Target: Mortar Team"};
+	if (_SPG) then {
+		"priorityMarker" setMarkerText "Priority Target: Artillery Unit";
+		"priorityMarker" setMarkerType "o_art";
+	} else {
+		"priorityMarker" setMarkerText "Priority Target: Mortar Team";
+		"priorityMarker" setMarkerType "o_mortar";
+	};
 	publicVariable "priorityMarker";
 	priorityTargetUp = true;
 	priorityTargetText = if (_SPG) then {"Artillery Unit"} else {"Mortar Team"};
