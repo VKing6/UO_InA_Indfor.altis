@@ -258,8 +258,9 @@ smRewards =
 	["an M4 Scorcher", "B_MBT_01_arty_F"],
 	["an A-143 Buzzard", "I_Plane_Fighter_03_CAS_F"]
 ];
-smMarkerList = ["smReward1","smReward2","smReward3","smReward4","smReward5","smReward6","smReward7","smReward8","smReward9","smReward10","smReward11","smReward12","smReward13","smReward14","smReward15"];
-smHangarList = ["smRewardH1","smRewardH2"];
+smMarkerList = ["smReward1","smReward2","smReward3","smReward4","smReward5","smReward6","smReward7","smReward8"];
+smHangarList = ["smRewardP1","smRewardP2"];
+smHeliList = ["smRewardH1","smRewardH2","smRewardH3","smRewardH4"];
 
 /*---------------------------------------------------------------------------
 Disabled while Alpha bug is present
