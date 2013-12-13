@@ -156,12 +156,18 @@ while {true} do
 	};
 
 	//Set marker up
-	_fuzzyPos =
-	[
-		((_flatPos select 0) - 300) + (random 600),
-		((_flatPos select 1) - 300) + (random 600),
-		0
-	];
+	_accepted = false;
+	while {!_accepted} do {
+		_fuzzyPos =
+		[
+			((_flatPos select 0) - 300) + (random 600),
+			((_flatPos select 1) - 300) + (random 600),
+			0
+		];
+		if (!surfaceisWater _fuzzyPos) then {
+			_accepted = true;
+		};
+	};
 
 	{ _x setMarkerPos _fuzzyPos; } forEach ["priorityMarker", "priorityCircle"];
 	if (_SPG) then {
