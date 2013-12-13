@@ -56,12 +56,12 @@ vas_r_backpacks = [
 	"O_Mortar_01_support_F","O_Mortar_01_weapon_F","O_HMG_01_weapon_F","O_HMG_01_support_F","O_HMG_01_high_weapon_F","O_HMG_01_support_high_F","O_GMG_01_weapon_F","O_GMG_01_high_weapon_F"
 ];
 //Magazines to remove from VAS
-vas_r_magazines = ["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","RPG32_F","RPG32_HE_F","TMR_RPG32_TB_F","TMR_RPG32_Smoke_F","150Rnd_762x51_Box","150Rnd_762x51_Box_Tracer","NLAW_F","TMR_NLAW_MPV_F","INKO_NLAW_USED","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_caseless_mag","100Rnd_65x39_caseless_mag_Tracer","3Rnd_HE_Grenade_shell","3Rnd_Smoke_Grenade_shell","3Rnd_SmokeRed_Grenade_shell","3Rnd_SmokeGreen_Grenade_shell","3Rnd_SmokeYellow_Grenade_shell","3Rnd_SmokePurple_Grenade_shell","3Rnd_SmokeBlue_Grenade_shell","3Rnd_SmokeOrange_Grenade_shell","3Rnd_UGL_FlareWhite_F","3Rnd_UGL_FlareGreen_F","3Rnd_UGL_FlareRed_F","3Rnd_UGL_FlareYellow_F","3Rnd_UGL_FlareCIR_F","HandGrenade_Stone","10Rnd_762x51_Mag","5Rnd_127x108_Mag","5Rnd_127x108_APDS_Mag","7Rnd_408_Mag"];
+vas_r_magazines = ["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","RPG32_F","RPG32_HE_F","TMR_RPG32_TB_F","TMR_RPG32_Smoke_F","150Rnd_762x51_Box","150Rnd_762x51_Box_Tracer","NLAW_F","TMR_NLAW_MPV_F","INKO_NLAW_USED","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_caseless_mag","100Rnd_65x39_caseless_mag_Tracer","3Rnd_HE_Grenade_shell","3Rnd_Smoke_Grenade_shell","3Rnd_SmokeRed_Grenade_shell","3Rnd_SmokeGreen_Grenade_shell","3Rnd_SmokeYellow_Grenade_shell","3Rnd_SmokePurple_Grenade_shell","3Rnd_SmokeBlue_Grenade_shell","3Rnd_SmokeOrange_Grenade_shell","3Rnd_UGL_FlareWhite_F","3Rnd_UGL_FlareGreen_F","3Rnd_UGL_FlareRed_F","3Rnd_UGL_FlareYellow_F","3Rnd_UGL_FlareCIR_F","HandGrenade_Stone","10Rnd_762x51_Mag","5Rnd_127x108_Mag","5Rnd_127x108_APDS_Mag","7Rnd_408_Mag","B_IR_Grenade","O_IR_Grenade"];
 //Items to remove from VAS1
 vas_r_items = [
 	// Items
-	"optic_Nightstalker","optic_tws","optic_tws_mg",
-	"B_UavTerminal","O_UavTerminal","NVGoggles","NVGoggles_OPFOR",
+	"optic_Nightstalker","optic_tws","optic_tws_mg","muzzle_snds_H","muzzle_snds_H_MG","muzzle_snds_B",
+	"B_UavTerminal","O_UavTerminal",
 	// Uniforms
 	"U_BasicBody",
 	"U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_GhillieSuit","U_B_HeliPilotCoveralls","U_B_Wetsuit","U_O_CombatUniform_ocamo","U_O_GhillieSuit","U_B_CombatUniform_mcam_worn","U_B_CombatUniform_wdl","U_B_survival_uniform",
