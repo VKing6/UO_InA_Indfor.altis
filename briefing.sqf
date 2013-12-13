@@ -41,6 +41,8 @@
 		<br/>
 		<br/>b. Callsigns
 		<br/>
+		<br/>  Goshawk 1    - 1 Platoon, G Coy
+		<br/>  Goshawk 1'0  - HQ Section
 		<br/>  Goshawk 1'1 	- 1 Section
 		<br/>  Goshawk 1'2 	- 2 Section
 		<br/>  Goshawk 1'3 	- 3 Section
@@ -50,8 +52,8 @@
 		<br/>  Goshawk 1'A 	- Armored Section 1
 		<br/>  Goshawk 1'B 	- Armored Section 2
 		<br/>
-		<br/>	Shikra 4'1 - FAC Officer
-		<br/>	Shikra 4'2 - FAC SNCO
+		<br/>  Shikra 4'1 - FAC Officer
+		<br/>  Shikra 4'2 - FAC SNCO
 		<br/>
 		<br/>  Mako 1'1, 1'2, 1'3, 1'4 - Rotary Wing Transport Callsigns
 		<br/>  Shark 2'1, 2'2, 2'3, 2'4 - Rotary Wing Attack Callsigns
