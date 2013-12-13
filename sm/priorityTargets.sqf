@@ -220,11 +220,13 @@ while {true} do
 			_targetPos = getPos _unit;
 			
 			if (_SPG) then {
-				_inMinRange = ((_targetpos distance _flatpos) < 840);
+				_minRange = ((_targetpos distance _flatpos) < 840);
+				_maxRange = false;
 			} else {
-				_inMinRange = false;
+				_minRange = false;
+				_maxRange = ((_targetpos distance _flatpos) > 4075);
 			};
-			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 2 && !_inMinRange) then { _accepted = true; };
+			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then { _accepted = true; };
 
 			_debugCount = _debugCount + 1;
 			sleep 2;
@@ -250,10 +252,8 @@ while {true} do
 		_roundCount = if (_SPG) then {2} else {3};
 		sleep 5;
 		{
-			if (alive _x) then
-			{
-				for "_c" from 1 to _roundCount do
-				{
+			if (alive _x) then {
+				for "_c" from 1 to _roundCount do {
 					_pos =
 					[
 						(_targetPos select 0) - _radius + (2 * random _radius),
