@@ -34,7 +34,7 @@ vas_weapons = [
 //Want to limit VAS to specific magazines? Place the classnames in the array!
 vas_magazines = [
 	// Rifle Magazines
-	"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Red","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+	"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Red","30Rnd_556x45_Stanag_Tracer_Green","30Rnd_556x45_Stanag_Tracer_Yellow","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
 	// Pistol Magazines
 	"30Rnd_9x21_Mag","16Rnd_9x21_Mag","9Rnd_45ACP_Mag",
 	// GL Magazines
