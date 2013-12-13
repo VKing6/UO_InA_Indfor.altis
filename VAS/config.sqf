@@ -23,13 +23,50 @@ vas_customslots = 19; //9 is actually 10 slots, starts from 0 to whatever you se
 
 //If the arrays below are empty (as they are now) all weapons, magazines, items, backpacks and goggles will be available
 //Want to limit VAS to specific weapons? Place the classnames in the array!
-vas_weapons = [];
+vas_weapons = [
+	// Rifles
+	"srifle_EBR_F","LMG_Mk200_F","arifle_SDAR_F","arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
+	// Pistols
+	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
+	// Launchers
+	"launch_NLAW_F","launch_I_Titan_F","launch_I_Titan_short_F","tmr_nlaw_mpv_f"
+];
 //Want to limit VAS to specific magazines? Place the classnames in the array!
-vas_magazines = [];
+vas_magazines = [
+	// Rifle Magazines
+	"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Red","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+	// Pistol Magazines
+	"30Rnd_9x21_Mag","16Rnd_9x21_Mag","9Rnd_45ACP_Mag",
+	// GL Magazines
+	"1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeYellow_Grenade_shell","1Rnd_SmokePurple_Grenade_shell","1Rnd_SmokeBlue_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareYellow_F","UGL_FlareCIR_F"
+	// Launcher Magazines
+	"Titan_AA","Titan_AP","Titan_AT"
+	// Thrown
+	"HandGrenade","MiniGrenade","SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellYellow","SmokeShellPurple","SmokeShellBlue","SmokeShellOrange","Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue","I_IR_Grenade",
+	// Put
+	"ATMine_Range_Mag","APERSMine_Range_Mag","APERSBoundingMine_Range_Mag","SLAMDirectionalMine_Wire_Mag","APERSTripMine_Wire_Mag","ClaymoreDirectionalMine_Remote_Mag","SatchelCharge_Remote_Mag","DemoCharge_Remote_Mag","Laserbatteries"
+];
 //Want to limit VAS to specific items? Place the classnames in the array!
-vas_items = [];
+vas_items = [
+	// Accsessories
+	"acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","optic_Aco","optic_ACO_grn","optic_ACO_grn_smg","optic_Aco_smg","optic_Arco","optic_DMS","optic_Hamr","optic_Holosight","optic_Holosight_smg","optic_LRPS","optic_MRCO","optic_MRD","optic_NVS","optic_Yorris",
+	// Binoculars
+	"Binocular","Laserdesignator","Rangefinder",
+	// NV Goggles
+	"NVGoggles","NVGoggles_INDEP",
+	// Items 
+	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ItemWatch","Medikit","MineDetector","ToolKit",
+	// Uniforms
+	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","  	U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
+	// Vests
+	"V_BandollierB_rgr""V_BandollierB_blk","V_Chestrig_blk","  	V_Chestrig_oli","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_RebreatherIA","V_TacVest_oli",
+	// Helmets
+	"H_Beret_blk","H_Beret_grn","H_Booniehat_dgtl","H_CrewHelmetHeli_I","H_HelmetB","H_HelmetB_camo","H_HelmetB_grass","H_HelmetB_light","H_HelmetCrew_I","H_HelmetIA","H_HelmetIA_camo","H_HelmetIA_net","H_MilCap_dgtl","H_PilotHelmetFighter_I","H_PilotHelmetHeli_I"
+];
 //Want to limit backpacks? Place the classnames in the array!
-vas_backpacks = [];
+vas_backpacks = [
+	"B_AssaultPack_dgtl","B_AssaultPack_rgr","B_Kitbag_rgr"
+];
 //Want to limit goggles? Place the classnames in the array!
 vas_glasses = [];
 
@@ -48,40 +85,12 @@ vas_glasses = [];
 
 //Below are variables you can use to restrict certain items from being used.
 //Remove Weapon
-vas_r_weapons = ["launch_RPG32_F","LMG_Zafir_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F","launch_B_Titan_F","launch_B_Titan_short_F","launch_O_Titan_F","launch_O_Titan_short_F","arifle_MXC_F","arifle_MXC_Black_F","arifle_MX_F","arifle_MX_Black_F","arifle_MX_GL_F","arifle_MX_GL_Black_F","arifle_MX_SW_F","arifle_MX_SW_Black_F","arifle_MXM_F","arifle_MXM_Black_F","srifle_DMR_01_F","srifle_GM6_F","srifle_LRR_F"];
+vas_r_weapons = [];
 // modified by naong
-vas_r_backpacks = [
-	"B_UAV_01_backpack_F","O_UAV_01_backpack_F",
-	"B_Mortar_01_support_F","B_Mortar_01_weapon_F","B_HMG_01_weapon_F","B_HMG_01_support_F","B_HMG_01_high_weapon_F","B_HMG_01_support_high_F","B_HMG_01_A_weapon_F","B_GMG_01_weapon_F","B_GMG_01_high_weapon_F","B_GMG_01_A_weapon_F",// "B_AA_01_weapon_F","B_AT_01_weapon_F",
-	"O_Mortar_01_support_F","O_Mortar_01_weapon_F","O_HMG_01_weapon_F","O_HMG_01_support_F","O_HMG_01_high_weapon_F","O_HMG_01_support_high_F","O_GMG_01_weapon_F","O_GMG_01_high_weapon_F"
-];
+vas_r_backpacks = [];
 //Magazines to remove from VAS
-vas_r_magazines = ["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green_mag_Tracer","RPG32_F","RPG32_HE_F","TMR_RPG32_TB_F","TMR_RPG32_Smoke_F","150Rnd_762x51_Box","150Rnd_762x51_Box_Tracer","NLAW_F","TMR_NLAW_MPV_F","INKO_NLAW_USED","30Rnd_65x39_caseless_mag","30Rnd_65x39_caseless_mag_Tracer","100Rnd_65x39_caseless_mag","100Rnd_65x39_caseless_mag_Tracer","3Rnd_HE_Grenade_shell","3Rnd_Smoke_Grenade_shell","3Rnd_SmokeRed_Grenade_shell","3Rnd_SmokeGreen_Grenade_shell","3Rnd_SmokeYellow_Grenade_shell","3Rnd_SmokePurple_Grenade_shell","3Rnd_SmokeBlue_Grenade_shell","3Rnd_SmokeOrange_Grenade_shell","3Rnd_UGL_FlareWhite_F","3Rnd_UGL_FlareGreen_F","3Rnd_UGL_FlareRed_F","3Rnd_UGL_FlareYellow_F","3Rnd_UGL_FlareCIR_F","HandGrenade_Stone","10Rnd_762x51_Mag","5Rnd_127x108_Mag","5Rnd_127x108_APDS_Mag","7Rnd_408_Mag","B_IR_Grenade","O_IR_Grenade"];
+vas_r_magazines = [];
 //Items to remove from VAS1
-vas_r_items = [
-	// Items
-	"optic_Nightstalker","optic_tws","optic_tws_mg","muzzle_snds_H","muzzle_snds_H_MG","muzzle_snds_B",
-	"B_UavTerminal","O_UavTerminal",
-	// Uniforms
-	"U_BasicBody",
-	"U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest","U_B_GhillieSuit","U_B_HeliPilotCoveralls","U_B_Wetsuit","U_O_CombatUniform_ocamo","U_O_GhillieSuit","U_B_CombatUniform_mcam_worn","U_B_CombatUniform_wdl","U_B_survival_uniform",
-	"U_O_CombatUniform_oucamo","U_O_SpecopsUniform_ocamo","U_O_SpecopsUniform_blk","U_O_OfficerUniform_ocamo","U_O_PilotCoveralls","U_O_Wetsuit","U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_stripped",
-	"U_C_Poloshirt_tricolour","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_Rangemaster",
-	"U_B_CombatUniform_wdl_tshirt","U_B_CombatUniform_wdl_vest","U_B_CombatUniform_sgg","U_B_CombatUniform_sgg_tshirt","U_B_CombatUniform_sgg_vest","U_B_SpecopsUniform_sgg","U_B_SpecopsUniform_sgg","U_B_PilotCoveralls",
-	"U_Competitor","U_NikosBody","U_MillerBody","U_KerryBody","U_OrestesBody","U_AttisBody","U_AntigonaBody","U_IG_Menelaos","U_C_Novak","U_OI_Scientist","U_I_G_Story_Protagonist_F",
-	"U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_Guerilla3_1","U_IG_Guerilla3_2","U_BG_Guerilla1_1","U_BG_Guerilla2_1","U_IG_leader","U_BG_Guerilla2_2","U_BG_Guerilla2_3","U_BG_Guerilla3_1","U_BG_Guerilla3_2","U_BG_leader","U_OG_Guerilla1_1","U_OG_Guerilla2_1","U_OG_Guerilla2_2","U_OG_Guerilla2_3","U_OG_Guerilla3_1","U_OG_Guerilla3_2","U_OG_leader","U_I_G_resistanceLeader_F",
-	"U_B_CTRG_1","U_B_CTRG_2","U_B_CTRG_3",
-	"U_C_Poor_1","U_C_Poor_2","U_C_Scavenger_1","U_C_Scavenger_2","U_C_Farmer","U_C_Fisherman","U_C_WorkerOveralls","U_C_FishermanOveralls","U_C_WorkerCoveralls","U_C_HunterBody_grn","U_C_HunterBody_brn","U_C_Commoner1_1","U_C_Commoner1_2","U_C_Commoner1_3","U_C_Commoner2_1","U_C_Commoner2_2","U_C_Commoner2_3","U_C_PriestBody","U_C_Poor_shorts_1","U_C_Poor_shorts_2","U_C_Commoner_shorts","U_C_ShirtSurfer_shorts","U_C_TeeSurfer_shorts_1","U_C_TeeSurfer_shorts_2",
-	// Vests
-    "V_RebreatherB","V_RebreatherIR",
-	"V_HarnessOSpec_gry","V_HarnessOSpec_brn","V_HarnessOGL_gry","V_HarnessO_gry","V_TacVestCamo_khk","V_TacVestIR_blk","V_TacVest_blk_POLICE","V_TacVest_camo","V_PlateCarrierSpec_rgr","V_PlateCarrier1_blk","V_BandollierB_cbr","V_BandollierB_khk","V_BandollierB_blk","V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","V_PlateCarrier3_rgr","V_PlateCarrierGL_rgr","V_Chestrig_khk","V_Chestrig_blk","V_TacVest_khk","V_TacVest_brn","V_TacVest_blk","V_HarnessO_brn","V_HarnessOGL_brn","V_PlateCarrier_Kerry","V_PlateCarrierL_CTRG","V_PlateCarrierH_CTRG","V_I_G_resistanceLeader_F",
-	// Helmet
-	"H_HelmetO_ocamo","H_HelmetLeaderO_ocamo","H_HelmetO_oucamo","H_HelmetLeaderO_oucamo","H_HelmetSpecO_ocamo","H_HelmetSpecO_blk","H_HelmetCrew_O","H_PilotHelmetFighter_O","H_CrewHelmetHeli_O","H_PilotHelmetHeli_O",
-	"H_HelmetCrew_B","H_CrewHelmetHeli_B","H_PilotHelmetFighter_B","H_PilotHelmetHeli_B",
-	"H_StrawHat","H_StrawHat_dark","H_Hat_blue","H_Hat_brown","H_Hat_camo","H_Hat_grey","H_Hat_checker","H_Hat_tan",
-	"H_Shemag_khk","H_Shemag_tan","H_Shemag_olive","H_ShemagOpen_khk","H_ShemagOpen_tan","H_Shemag_olive_hs",
-	// Silly hats
-	"H_Booniehat_khk","H_Cap_red","H_Cap_blu","H_MilCap_ocamo","H_Cap_tan","H_Cap_blk_CMMG","H_Cap_brn_SPECOPS","H_Cap_tan_specops_US","H_Cap_khaki_specops_UK","H_Cap_grn","H_Cap_grn_BI","H_Cap_blk_Raven","H_Cap_blk_ION","H_BandMask_blk","H_BandMask_khk","H_BandMask_reaper","H_BandMask_demon","H_MilCap_oucamo","H_MilCap_rucamo","H_MilCap_gry","H_MilCap_blue","H_Bandanna_surfer","H_Bandanna_khk","H_Bandanna_khk","H_Bandanna_sgg","H_Bandanna_gry","H_Bandanna_camo","H_Bandanna_mcamo","H_Beret_blk_POLICE","H_Beret_red","H_Beret_grn_SF","H_Beret_brn_SF","H_Beret_ocamo","H_Watchcap_blk","H_Watchcap_khk","H_Watchcap_camo","H_Watchcap_sgg","H_TurbanO_blk","H_Beret_02","H_Bandanna_khk_hs","H_Booniehat_khk_hs"
-];
+vas_r_items = [];
 //Goggles to remove from VAS
 vas_r_glasses = [];
