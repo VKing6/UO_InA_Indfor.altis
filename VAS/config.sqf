@@ -24,6 +24,8 @@ vas_customslots = 19; //9 is actually 10 slots, starts from 0 to whatever you se
 //If the arrays below are empty (as they are now) all weapons, magazines, items, backpacks and goggles will be available
 //Want to limit VAS to specific weapons? Place the classnames in the array!
 vas_weapons = [
+	// Binoculars
+	"Binocular","Laserdesignator","Rangefinder",
 	// Rifles
 	"arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
 	// Pistols
@@ -48,8 +50,6 @@ vas_magazines = [
 ];
 //Want to limit VAS to specific items? Place the classnames in the array!
 vas_items = [
-	// Binoculars
-	"Binocular","Laserdesignator","Rangefinder",
 	// NV Goggles
 	"NVGoggles","NVGoggles_INDEP",
 	// Items 
