@@ -29,7 +29,7 @@ vas_weapons = [
 	// Pistols
 	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
 	// Launchers
-	"launch_NLAW_F","tmr_nlaw_mpv_f","launch_I_Titan_short_F","launch_I_Titan_F"
+	"launch_NLAW_F","TMR_launch_NLAW_MPV_F","launch_I_Titan_short_F","launch_I_Titan_F"
 ];
 //Want to limit VAS to specific magazines? Place the classnames in the array!
 vas_magazines = [
