@@ -38,9 +38,9 @@ vas_magazines = [
 	// Pistol Magazines
 	"30Rnd_9x21_Mag","16Rnd_9x21_Mag","9Rnd_45ACP_Mag",
 	// GL Magazines
-	"1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeYellow_Grenade_shell","1Rnd_SmokePurple_Grenade_shell","1Rnd_SmokeBlue_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareYellow_F","UGL_FlareCIR_F"
+	"1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeYellow_Grenade_shell","1Rnd_SmokePurple_Grenade_shell","1Rnd_SmokeBlue_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareYellow_F","UGL_FlareCIR_F",
 	// Launcher Magazines
-	"Titan_AA","Titan_AP","Titan_AT"
+	"Titan_AA","Titan_AP","Titan_AT",
 	// Thrown
 	"HandGrenade","MiniGrenade","SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellYellow","SmokeShellPurple","SmokeShellBlue","SmokeShellOrange","Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue","I_IR_Grenade",
 	// Put
@@ -57,15 +57,15 @@ vas_items = [
 	// Items 
 	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ItemWatch","Medikit","MineDetector","ToolKit",
 	// Uniforms
-	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","  	U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
+	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
 	// Vests
-	"V_BandollierB_rgr""V_BandollierB_blk","V_Chestrig_blk","  	V_Chestrig_oli","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_RebreatherIA","V_TacVest_oli",
+	"V_BandollierB_rgr""V_BandollierB_blk","V_Chestrig_blk","V_Chestrig_oli","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_RebreatherIA","V_TacVest_oli",
 	// Helmets
 	"H_Beret_blk","H_Beret_grn","H_Booniehat_dgtl","H_CrewHelmetHeli_I","H_HelmetB","H_HelmetB_camo","H_HelmetB_grass","H_HelmetB_light","H_HelmetCrew_I","H_HelmetIA","H_HelmetIA_camo","H_HelmetIA_net","H_MilCap_dgtl","H_PilotHelmetFighter_I","H_PilotHelmetHeli_I"
 ];
 //Want to limit backpacks? Place the classnames in the array!
 vas_backpacks = [
-	"B_AssaultPack_dgtl","B_AssaultPack_rgr","B_Kitbag_rgr"
+	"B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_blk","B_Kitbag_sgg","B_TacticalPack_rgr","B_TacticalPack_blk","B_TacticalPack_oli","B_FieldPack_blk","B_Carryall_khk","B_Parachute","B_FieldPack_oli","B_Carryall_oli","I_UAV_01_backpack_F","I_Mortar_01_support_F","I_Mortar_01_weapon_F","I_HMG_01_support_F","I_HMG_01_support_high_F","I_HMG_01_weapon_F","I_GMG_01_weapon_F","I_HMG_01_high_weapon_F","I_GMG_01_high_weapon_F"
 ];
 //Want to limit goggles? Place the classnames in the array!
 vas_glasses = [];
