@@ -2449,9 +2449,9 @@ class Mission
 		};
 		class Item61
 		{
-			position[]={11647.312,23.041002,11983.504};
-			name="BaseRespawn";
-			text="Respawn";
+			position[]={11649.431,23.047724,11980.909};
+			name="Platoon";
+			text="1/G Staging Area";
 			type="n_hq";
 			colorName="ColorGUER";
 		};
