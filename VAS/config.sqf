@@ -25,11 +25,11 @@ vas_customslots = 19; //9 is actually 10 slots, starts from 0 to whatever you se
 //Want to limit VAS to specific weapons? Place the classnames in the array!
 vas_weapons = [
 	// Rifles
-	"srifle_EBR_F","LMG_Mk200_F","arifle_SDAR_F","arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
+	"arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
 	// Pistols
 	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
 	// Launchers
-	"launch_NLAW_F","launch_I_Titan_F","launch_I_Titan_short_F","tmr_nlaw_mpv_f"
+	"launch_NLAW_F","tmr_nlaw_mpv_f","launch_I_Titan_short_F","launch_I_Titan_F"
 ];
 //Want to limit VAS to specific magazines? Place the classnames in the array!
 vas_magazines = [
@@ -48,14 +48,14 @@ vas_magazines = [
 ];
 //Want to limit VAS to specific items? Place the classnames in the array!
 vas_items = [
-	// Accsessories
-	"acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","optic_Aco","optic_ACO_grn","optic_ACO_grn_smg","optic_Aco_smg","optic_Arco","optic_DMS","optic_Hamr","optic_Holosight","optic_Holosight_smg","optic_LRPS","optic_MRCO","optic_MRD","optic_NVS","optic_Yorris",
 	// Binoculars
 	"Binocular","Laserdesignator","Rangefinder",
 	// NV Goggles
 	"NVGoggles","NVGoggles_INDEP",
 	// Items 
 	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ItemWatch","Medikit","MineDetector","ToolKit",
+	// Accsessories
+	"acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","optic_Aco","optic_ACO_grn","optic_ACO_grn_smg","optic_Aco_smg","optic_Arco","optic_DMS","optic_Hamr","optic_Holosight","optic_Holosight_smg","optic_LRPS","optic_MRCO","optic_MRD","optic_NVS","optic_Yorris",
 	// Uniforms
 	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
 	// Vests
@@ -65,7 +65,7 @@ vas_items = [
 ];
 //Want to limit backpacks? Place the classnames in the array!
 vas_backpacks = [
-	"B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_blk","B_Kitbag_sgg","B_TacticalPack_rgr","B_TacticalPack_blk","B_TacticalPack_oli","B_FieldPack_blk","B_Carryall_khk","B_Parachute","B_FieldPack_oli","B_Carryall_oli","I_UAV_01_backpack_F","I_Mortar_01_support_F","I_Mortar_01_weapon_F","I_HMG_01_support_F","I_HMG_01_support_high_F","I_HMG_01_weapon_F","I_GMG_01_weapon_F","I_HMG_01_high_weapon_F","I_GMG_01_high_weapon_F"
+	"B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_blk","B_TacticalPack_rgr","B_TacticalPack_blk","B_TacticalPack_oli","B_FieldPack_blk","B_FieldPack_oli","B_Carryall_oli","B_Carryall_khk","B_Kitbag_sgg","I_UAV_01_backpack_F","B_Parachute","I_Mortar_01_support_F","I_Mortar_01_weapon_F","I_HMG_01_support_F","I_HMG_01_support_high_F","I_HMG_01_weapon_F","I_GMG_01_weapon_F","I_HMG_01_high_weapon_F","I_GMG_01_high_weapon_F"
 ];
 //Want to limit goggles? Place the classnames in the array!
 vas_glasses = [];
