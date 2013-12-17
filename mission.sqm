@@ -63,7 +63,7 @@ class Mission
 	randomSeed=12935265;
 	class Intel
 	{
-		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.8";
+		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.81";
 		overviewText="Domi-esque Seeder Mission";
 		timeOfChanges=3600;
 		startWeather=0;
