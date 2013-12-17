@@ -268,7 +268,7 @@ while {true} do
 
 		if (_radius > 10) then { _radius = _radius - 10; }; /* zeroing in */
 
-		sleep (if (_radius > 50) then {150} else {300});
+		sleep 300; //(if (_radius > 50) then {150} else {300});
 	};
 
 	//Send completion hint
