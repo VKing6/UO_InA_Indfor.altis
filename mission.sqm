@@ -107,7 +107,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="Platoon Leader";
 				};
 				class Item1
@@ -122,7 +122,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="  Platoon Sergeant";
 				};
 				class Item2
@@ -135,8 +135,9 @@ class Mission
 					vehicle="I_soldier_UAV_F";
 					player="PLAY CDG";
 					lock="UNLOCKED";
+					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="  FAC Officer";
 				};
 				class Item3
@@ -149,8 +150,9 @@ class Mission
 					vehicle="I_soldier_UAV_F";
 					player="PLAY CDG";
 					lock="UNLOCKED";
+					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="  FAC SNCO";
 				};
 				class Item4
@@ -164,7 +166,8 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					rank="CORPORAL";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="  Assault Pioneer";
 				};
 				class Item5
@@ -178,7 +181,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'6""];";
+					init="(group this) setGroupId [""Goshawk 1'0""];";
 					description="  Assault Pioneer";
 				};
 			};
