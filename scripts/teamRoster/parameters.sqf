@@ -11,7 +11,7 @@ GVAR(parameters) = [
 
 	true,					// 0  - ArmaGroup - Toggles whether to show Arma Group ID (ex. B 1-1-A or anything else set by the MM) (DEFAULT: true)
 	"    ",					// 1  - BeginningChar - Leading character to seperate Squad Members from their leaders, like an indent (DEFAULT: "    ")
-	60,					// 2  - CycleTime - Time between each update of the list in seconds (DEFAULT: 300)
+	60,						// 2  - CycleTime - Time between each update of the list in seconds (DEFAULT: 300)
 	"Team Roster1",			// 3  - SubjectText - Text to be shown as the subject in the Map Screen(DEFAULT: "Team Roster")
 	"true",					// 4  - LoopCondition - Condition to end loop on return false (DEFAULT: true)
 	"",						// 5  - StartingString - The initial string for all lines logged to the roster (DEFAULT: "")
