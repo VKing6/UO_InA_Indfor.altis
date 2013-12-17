@@ -156,6 +156,7 @@ aPEH = [] execVM "scripts\addPublicVariableEventHandlers.sqf";
 [player] execVM "scripts\crew\crew.sqf";
 //0 = [] execVM 'group_manager.sqf';
 _null = [] execVM "taw_vd\init.sqf";
+_null = [] execVM "scripts\teamRoster\init.sqf";
 
 if (isNil "radioTowerAlive") then {radioTowerAlive = false;};
 if (isNil "sideMissionUp") then {sideMissionUp = false;};
