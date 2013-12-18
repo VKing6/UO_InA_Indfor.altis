@@ -175,6 +175,8 @@ while {_run} do
 			_unit setVehicleVarName _unitname;
         };
 		
+		if (_unit isKindOf "MRAP_03_hmg_base_F") then {[-2,{{_unit addMagazine "200Rnd_127x99_mag_Tracer_Yellow"} forEach [1,2]}] call CBA_fnc_globalExecute};
+		
 		if (_unit isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};
 		
 		if (_unit isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTexture [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};

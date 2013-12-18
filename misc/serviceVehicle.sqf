@@ -75,6 +75,7 @@
 				ACK(_veh,_x,_srcVeh,"Reloading %1");
 				sleep 0.1;
 				[-2, {(_this select 0) addMagazine (_this select 1)},[_veh,_x]] call CBA_fnc_globalExecute;
+				if (_unit isKindOf "MRAP_03_hmg_base_F") then {[-2,{{_unit addMagazine "200Rnd_127x99_mag_Tracer_Yellow"} forEach [1,2]}] call CBA_fnc_globalExecute};
 			} forEach _magArray;
 		};
 
