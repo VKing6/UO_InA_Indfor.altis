@@ -67,6 +67,13 @@
 				_unit addBackpackCargoGlobal ["B_Mortar_01_support_F",1];
 			};
 
+			if (_unit isKindOf "I_MRAP_03_hmg_F") then {
+				[-2,{
+					_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+					_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+				},_unit] call CBA_fnc_globalExecute;
+			};
+			
 			if (_unit isKindOf "MRAP_03_base_F") then {
 				_unit addWeaponCargoGlobal ["launch_NLAW_F",2];
 				

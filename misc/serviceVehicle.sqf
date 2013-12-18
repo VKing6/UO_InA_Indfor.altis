@@ -59,9 +59,10 @@
 	///// Rearming Module //////////////////
 	if (_srcReammo == 1) then {
 		_magazines = getArray(configFile >> "CfgVehicles" >> typeOf _veh >> "magazines");
-
+		
 		tin_reload = {
 			_magArray = _this select 0;
+			if (_veh isKindOf "I_MRAP_03_hmg_F") then {_magArray = _magArray + ["200Rnd_127x99_mag_Tracer_Yellow","200Rnd_127x99_mag_Tracer_Yellow"]};
 
 			_removed = [];
 			{
@@ -75,8 +76,8 @@
 				ACK(_veh,_x,_srcVeh,"Reloading %1");
 				sleep 0.1;
 				[-2, {(_this select 0) addMagazine (_this select 1)},[_veh,_x]] call CBA_fnc_globalExecute;
-				if (_unit isKindOf "MRAP_03_hmg_base_F") then {[-2,{{_unit addMagazine "200Rnd_127x99_mag_Tracer_Yellow"} forEach [1,2]}] call CBA_fnc_globalExecute};
 			} forEach _magArray;
+			
 		};
 
 		if (count _magazines > 0) then {
