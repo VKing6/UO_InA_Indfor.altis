@@ -62,7 +62,6 @@
 		
 		tin_reload = {
 			_magArray = _this select 0;
-			if (_veh isKindOf "I_MRAP_03_hmg_F") then {_magArray = _magArray + ["200Rnd_127x99_mag_Tracer_Yellow","200Rnd_127x99_mag_Tracer_Yellow"]};
 
 			_removed = [];
 			{
@@ -110,7 +109,16 @@
 		for "_x" from 25 to 100 step 25 do {sleep 5; ACK(_veh,_x,_srcVeh,"Rearming (%1%)...");};
 
 		_veh setVehicleAmmo 1;	// Reload turrets / drivers magazine
+		
+		if (_veh isKindOf "I_MRAP_03_hmg_F") then {
+			[-2,{
+				_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+				_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+			},_veh] call CBA_fnc_globalExecute;
+		};
+		
 		ACK(_veh,_vehType,_srcVeh,"%1 Rearmed!");
+		
 
 		sleep 5;
 	};
