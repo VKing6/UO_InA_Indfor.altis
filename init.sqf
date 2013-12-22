@@ -163,9 +163,6 @@ if (isNil "currentAOUp") then {currentAOUp = false;};
 
 call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
 
-if (PARAMS_MedicMarkers == 1) then { _null = [] execVM "misc\medicMarkers.sqf"; };
-if (PARAMS_PlayerMarkers == 1) then { _null = [] execVM "misc\playerMarkers.sqf"; };
-
 [] spawn {
 	scriptName "initMission.hpp: mission start";
 	//["rsc\FinalComp.ogv", false] spawn BIS_fnc_titlecard;
@@ -250,9 +247,8 @@ smRewards =
 	["an AH-99 Blackfoot", "B_Heli_Attack_01_F"],
 	["an AH-9 Pawnee", "B_Heli_Light_01_armed_F"],
 	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
+	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
 	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
-	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
-	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an M4 Scorcher", "B_MBT_01_arty_F"],
 	["an A-143 Buzzard", "I_Plane_Fighter_03_CAS_F"]

@@ -52,8 +52,21 @@ while {true} do
 	} else {
 		if (!_skipTimer) then
 		{
-			//Wait between 15-30 minutes before assigning a mission
-			sleep (900 + (random 900));
+			switch (PARAMS_SmIntervalTime) do {
+				case 0: {
+					//Wait between 5-10 minutes before assigning a mission
+					sleep (300 + (random 300));
+				};
+				case 1: {
+					//Wait between 10-20 minutes before assigning a mission
+					sleep (600 + (random 600));
+				};
+				case 2: {
+					//Wait between 15-30 minutes before assigning a mission
+					sleep (900 + (random 900));
+				};
+				default {sleep (900 + (random 900))};
+			};
 			
 			//Delete old PT objects
 			for "_c" from 0 to (count _unitsArray) do
