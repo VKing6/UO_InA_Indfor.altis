@@ -1496,7 +1496,7 @@ class Mission
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="ammo2";
-			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addWeaponCargo [""ACRE_PRC148_UHF"",10];";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addItemCargo [""ACRE_PRC148"",10];";
 		};
 		class Item3
 		{
@@ -1507,7 +1507,7 @@ class Mission
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="ammo1";
-			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addWeaponCargo [""ACRE_PRC148_UHF"",10];";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addItemCargo [""ACRE_PRC148"",10];";
 		};
 		class Item4
 		{
@@ -1518,7 +1518,7 @@ class Mission
 			vehicle="I_supplyCrate_F";
 			skill=0.60000002;
 			text="ammo3";
-			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addWeaponCargo [""ACRE_PRC148_UHF"",10];";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false; this addItemCargo [""ACRE_PRC148"",10];";
 		};
 		class Item5
 		{
@@ -2521,7 +2521,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=64;
+		items=113;
 		class Item0
 		{
 			position[]={-1391.4594,-0.01276912,580.14929};
@@ -2710,7 +2710,7 @@ class Mission
 		};
 		class Item26
 		{
-			position[]={4681.1514,72.162094,16177.334};
+			position[]={4681.1514,67.316025,16206.309};
 			name="Negades";
 			type="Empty";
 		};
@@ -2968,6 +2968,300 @@ class Mission
 			text="Bonus Vehicles";
 			type="n_armor";
 			colorName="ColorGUER";
+		};
+		class Item64
+		{
+			position[]={9967.2998,72.732422,21194.885};
+			name="smallTarget_1";
+			type="Empty";
+		};
+		class Item65
+		{
+			position[]={-894.04822,-0.25531873,3344.6995};
+			name="smallTarget";
+			type="Empty";
+		};
+		class Item66
+		{
+			position[]={7935.5244,85.571976,21339.736};
+			name="smallTarget_2";
+			type="Empty";
+		};
+		class Item67
+		{
+			position[]={8533.8643,68.646179,20895.508};
+			name="smallTarget_3";
+			type="Empty";
+		};
+		class Item68
+		{
+			position[]={11040.402,57.218212,15581.255};
+			name="smallTarget_4";
+			type="Empty";
+		};
+		class Item69
+		{
+			position[]={9533.1563,121.3146,15049.967};
+			name="smallTarget_5";
+			type="Empty";
+		};
+		class Item70
+		{
+			position[]={7244.8921,4.6066022,11027.596};
+			name="smallTarget_6";
+			type="Empty";
+		};
+		class Item71
+		{
+			position[]={5781.0186,39.903843,10968.568};
+			name="smallTarget_7";
+			type="Empty";
+		};
+		class Item72
+		{
+			position[]={3625.1936,14.715458,10278.365};
+			name="smallTarget_8";
+			type="Empty";
+		};
+		class Item73
+		{
+			position[]={3532.0718,249.41029,19979.037};
+			name="smallTarget_9";
+			type="Empty";
+		};
+		class Item74
+		{
+			position[]={3220.3806,20.128677,18294.537};
+			name="smallTarget_10";
+			type="Empty";
+		};
+		class Item75
+		{
+			position[]={11749.158,52.619553,18255.305};
+			name="smallTarget_11";
+			type="Empty";
+		};
+		class Item76
+		{
+			position[]={12807.244,43.577599,19645.195};
+			name="smallTarget_12";
+			type="Empty";
+		};
+		class Item77
+		{
+			position[]={17824.348,1.9789917,18132.875};
+			name="smallTarget_13";
+			type="Empty";
+		};
+		class Item78
+		{
+			position[]={23176.711,14.265796,19990.01};
+			name="smallTarget_14";
+			type="Empty";
+		};
+		class Item79
+		{
+			position[]={23960.799,14.63334,20150.852};
+			name="smallTarget_15";
+			type="Empty";
+		};
+		class Item80
+		{
+			position[]={23224.217,34.148262,21809.947};
+			name="smallTarget_16";
+			type="Empty";
+		};
+		class Item81
+		{
+			position[]={26917.117,22.712133,24292.467};
+			name="smallTarget_17";
+			type="Empty";
+		};
+		class Item82
+		{
+			position[]={27159.727,13.242783,24183.592};
+			name="smallTarget_18";
+			type="Empty";
+		};
+		class Item83
+		{
+			position[]={26717.449,15.318266,21216.395};
+			name="smallTarget_19";
+			type="Empty";
+		};
+		class Item84
+		{
+			position[]={26614.148,13.439269,20752.227};
+			name="smallTarget_20";
+			type="Empty";
+		};
+		class Item85
+		{
+			position[]={24758.184,3.9734888,19141.963};
+			name="smallTarget_21";
+			type="Empty";
+		};
+		class Item86
+		{
+			position[]={22628.467,20.668396,21655.313};
+			name="smallTarget_22";
+			type="Empty";
+		};
+		class Item87
+		{
+			position[]={19718.016,23.211224,18792.158};
+			name="smallTarget_23";
+			type="Empty";
+		};
+		class Item88
+		{
+			position[]={21697.752,13.644058,14059.72};
+			name="smallTarget_24";
+			type="Empty";
+		};
+		class Item89
+		{
+			position[]={22209.086,16.58493,18365.514};
+			name="smallTarget_25";
+			type="Empty";
+		};
+		class Item90
+		{
+			position[]={6137.1479,26.723412,14959.862};
+			name="smallTarget_26";
+			type="Empty";
+		};
+		class Item91
+		{
+			position[]={5729.2397,26.800505,15132.196};
+			name="smallTarget_27";
+			type="Empty";
+		};
+		class Item92
+		{
+			position[]={5560.9678,48.128571,15377.092};
+			name="smallTarget_28";
+			type="Empty";
+		};
+		class Item93
+		{
+			position[]={4170.3276,5.4205003,16964.324};
+			name="smallTarget_29";
+			type="Empty";
+		};
+		class Item94
+		{
+			position[]={3770.594,23.911434,17772.18};
+			name="smallTarget_30";
+			type="Empty";
+		};
+		class Item95
+		{
+			position[]={4181.209,317.14063,20124.715};
+			name="smallTarget_31";
+			type="Empty";
+		};
+		class Item96
+		{
+			position[]={3781.5425,187.33322,21492.615};
+			name="smallTarget_32";
+			type="Empty";
+		};
+		class Item97
+		{
+			position[]={3130.7712,14.895078,21970.568};
+			name="smallTarget_33";
+			type="Empty";
+		};
+		class Item98
+		{
+			position[]={3441.001,194.49716,20256.27};
+			name="smallTarget_34";
+			type="Empty";
+		};
+		class Item99
+		{
+			position[]={6518.0718,69.174034,14463.446};
+			name="smallTarget_35";
+			type="Empty";
+		};
+		class Item100
+		{
+			position[]={8122.0352,169.51807,17843.115};
+			name="smallTarget_36";
+			type="Empty";
+		};
+		class Item101
+		{
+			position[]={7530.4927,134.29089,18357.264};
+			name="smallTarget_37";
+			type="Empty";
+		};
+		class Item102
+		{
+			position[]={9190.0674,14.624912,21642.447};
+			name="smallTarget_38";
+			type="Empty";
+		};
+		class Item103
+		{
+			position[]={8704.7959,28.229687,21218.5};
+			name="smallTarget_39";
+			type="Empty";
+		};
+		class Item104
+		{
+			position[]={10588.305,19.746834,22141.576};
+			name="smallTarget_40";
+			type="Empty";
+		};
+		class Item105
+		{
+			position[]={11552.38,78.275154,7052.6494};
+			name="smallTarget_41";
+			type="Empty";
+		};
+		class Item106
+		{
+			position[]={9242.04,43.352268,8075.8115};
+			name="smallTarget_42";
+			type="Empty";
+		};
+		class Item107
+		{
+			position[]={12047.094,31.847603,8259.2158};
+			name="smallTarget_43";
+			type="Empty";
+		};
+		class Item108
+		{
+			position[]={10169.177,24.886471,8863.1689};
+			name="smallTarget_44";
+			type="Empty";
+		};
+		class Item109
+		{
+			position[]={9715.0039,16.154842,8722.877};
+			name="smallTarget_45";
+			type="Empty";
+		};
+		class Item110
+		{
+			position[]={11522.386,20.439693,9424.8145};
+			name="smallTarget_46";
+			type="Empty";
+		};
+		class Item111
+		{
+			position[]={10790.688,4.7678857,10862.408};
+			name="smallTarget_47";
+			type="Empty";
+		};
+		class Item112
+		{
+			position[]={10077.598,20.177467,11316.623};
+			name="smallTarget_48";
+			type="Empty";
 		};
 	};
 	class Sensors
