@@ -26,3 +26,6 @@ _getADDist = {
 	};
 	_retList
 };
+
+_spawnLevel = [] call vk_getSpawnLevel select 0;
+_aaLevel = [] call vk_getSpawnLevel select 1;

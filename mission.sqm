@@ -2521,7 +2521,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=113;
+		items=140;
 		class Item0
 		{
 			position[]={-1391.4594,-0.01276912,580.14929};
@@ -3263,10 +3263,172 @@ class Mission
 			name="smallTarget_48";
 			type="Empty";
 		};
+		class Item113
+		{
+			position[]={10629.133,93.133301,14150.016};
+			name="ada01";
+			type="Empty";
+		};
+		class Item114
+		{
+			position[]={9471.3096,130.13258,15235.539};
+			name="ada02";
+			type="Empty";
+		};
+		class Item115
+		{
+			position[]={12061.11,41.683285,14768.93};
+			name="ada03";
+			type="Empty";
+		};
+		class Item116
+		{
+			position[]={12856.257,85.576523,16734.426};
+			name="ada05";
+			type="Empty";
+		};
+		class Item117
+		{
+			position[]={14660.172,17.888748,16439.281};
+			name="ada06";
+			type="Empty";
+		};
+		class Item118
+		{
+			position[]={16030.285,34.450771,16368.34};
+			name="ada07";
+			type="Empty";
+		};
+		class Item119
+		{
+			position[]={16681.918,14.387709,13593.116};
+			name="ada08";
+			type="Empty";
+		};
+		class Item120
+		{
+			position[]={17620.855,83.304047,17281.541};
+			name="ada09";
+			type="Empty";
+		};
+		class Item121
+		{
+			position[]={17550.529,71.425644,15361.725};
+			name="ada10";
+			type="Empty";
+		};
+		class Item122
+		{
+			position[]={18278.816,121.38312,12142.918};
+			name="ada11";
+			type="Empty";
+		};
+		class Item123
+		{
+			position[]={17239.641,79.092636,11556.672};
+			name="ada12";
+			type="Empty";
+		};
+		class Item124
+		{
+			position[]={7899.7339,277.92743,14619.565};
+			name="adm01";
+			type="Empty";
+		};
+		class Item125
+		{
+			position[]={8183.5996,68.730095,12730.122};
+			name="ada13";
+			type="Empty";
+		};
+		class Item126
+		{
+			position[]={8223.5234,77.172089,10037.03};
+			name="ada14";
+			type="Empty";
+		};
+		class Item127
+		{
+			position[]={9211.9512,109.79,11471.449};
+			name="ada15";
+			type="Empty";
+		};
+		class Item128
+		{
+			position[]={6561.2998,71.139679,11218.885};
+			name="adm02";
+			type="Empty";
+		};
+		class Item129
+		{
+			position[]={7311.8945,172.82271,13946.147};
+			name="ada16";
+			type="Empty";
+		};
+		class Item130
+		{
+			position[]={6070.3174,106.59175,12729.668};
+			name="ada17";
+			type="Empty";
+		};
+		class Item131
+		{
+			position[]={5298.522,53.860798,13618.51};
+			name="ada18";
+			type="Empty";
+		};
+		class Item132
+		{
+			position[]={10741.074,51.3643,16771.021};
+			name="ada04";
+			type="Empty";
+		};
+		class Item133
+		{
+			position[]={12141.75,74.228813,18573.256};
+			name="ada19";
+			type="Empty";
+		};
+		class Item134
+		{
+			position[]={10348.545,67.725418,8710.4932};
+			name="ada20";
+			type="Empty";
+		};
+		class Item135
+		{
+			position[]={7469.0483,188.93394,17541.721};
+			name="ada21";
+			type="Empty";
+		};
+		class Item136
+		{
+			position[]={6905.7959,77.335045,15907.722};
+			name="ada22";
+			type="Empty";
+		};
+		class Item137
+		{
+			position[]={4228.9907,12.821476,14940.099};
+			name="ada23";
+			type="Empty";
+		};
+		class Item138
+		{
+			position[]={15405.645,77.717155,19207.127};
+			name="ada24";
+			type="Empty";
+		};
+		class Item139
+		{
+			position[]={15214.889,28.460651,11387.898};
+			name="ada25";
+			type="Empty";
+		};
 	};
 	class Sensors
 	{
-		items=4;
+		items=8;
 		class Item0
 		{
 			position[]={15917.867,16.434958,16467.947};
@@ -3329,6 +3491,54 @@ class Mission
 			name="airTrigger_2_1_2";
 			expCond="this and ((getPos (thisList select 0)) select 2 < 1)";
 			expActiv="_handle = [thisList,[2,1.0],1,1,true] execVM ""misc\serviceVehicle.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item4
+		{
+			position[]={8400.6621,104.17422,12104.512};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="southwest";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={8249.4551,156.33224,17742.414};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="northwest";
+			class Effects
+			{
+			};
+		};
+		class Item6
+		{
+			position[]={19352.453,53.913818,11089.255};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="southeast";
+			class Effects
+			{
+			};
+		};
+		class Item7
+		{
+			position[]={21188.557,0.00030775857,20680.174};
+			a=8000;
+			b=8000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="northeast";
 			class Effects
 			{
 			};
