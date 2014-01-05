@@ -100,13 +100,9 @@ while {true} do
 		};
 	};
 	
-	_spawnLevel = 0;
-	_aaLevel = 0;
-	_serverPop = count(playableUnits);
-	if (_serverPop >= 12) then {_spawnLevel = 1};
-	if (_serverPop >= 25) then {_spawnLevel = 2};
-	if (_serverPop >= 35) then {_spawnLevel = 3};
-	if (_spawnLevel >= 2) then {_aaLevel = 1};
+	_spawnLevel = [] call vk_getSpawnLevel select 0;
+	_aaLevel = [] call vk_getSpawnLevel select 1;
+	
 	switch (PARAMS_SMArea) do {
 		case 0: {_posArray = []};
 		case 1: {_posArray = [southWest]};
