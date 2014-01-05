@@ -109,19 +109,6 @@
 		};
 	};
 
-	vk_getSpawnLevel = {
-		private ["_spawnLevel","_aaLevel","_serverPop"];
-		_spawnLevel = 0;
-		_aaLevel = 0;
-		_serverPop = count(playableUnits);
-		if (_serverPop >= 12) then {_spawnLevel = 1};
-		if (_serverPop >= 25) then {_spawnLevel = 2};
-		if (_serverPop >= 35) then {_spawnLevel = 3};
-
-		if (_spawnLevel >= 2) then {_aaLevel = 1};
-		[_spawnLevel,_aaLevel]
-	};
-	
 	///// awFunctions.sqf /////
 	aw_fnc_loiter =
 	{
