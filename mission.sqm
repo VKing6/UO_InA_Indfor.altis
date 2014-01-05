@@ -2571,10 +2571,10 @@ class Mission
 			name="sideCircle";
 			markerType="ELLIPSE";
 			type="Empty";
-			colorName="ColorOPFOR";
+			colorName="ColorEAST";
 			fillName="Border";
-			a=300;
-			b=300;
+			a=500;
+			b=500;
 			drawBorder=1;
 		};
 		class Item6
@@ -2583,10 +2583,10 @@ class Mission
 			name="priorityCircle";
 			markerType="ELLIPSE";
 			type="Empty";
-			colorName="ColorOPFOR";
+			colorName="ColorEAST";
 			fillName="Border";
-			a=300;
-			b=300;
+			a=500;
+			b=500;
 			drawBorder=1;
 		};
 		class Item7
