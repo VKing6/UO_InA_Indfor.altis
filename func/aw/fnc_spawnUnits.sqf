@@ -1,19 +1,13 @@
 
-private ["_randomPos","_spawnGroup","_pos","_x","_spawnLevel","_aaLevel","_serverPop"];
+private ["_randomPos","_spawnGroup","_pos","_x","_spawnLevel","_aaLevel"];
 _pos = getMarkerPos (_this select 0);
 _enemiesArray = [grpNull];
 _aiSkill = [0.3,0.3,0.3];
 if (PARAMS_AISkill == 1) then {_aiSkill = [0.3,0.4,0.3]};
 if (PARAMS_AISkill == 2) then {_aiSkill = [0.3,0.7,0.3]};
 
-_spawnLevel = 0;
-_aaLevel = 0;
-_serverPop = count(playableUnits);
-if (_serverPop >= 12) then {_spawnLevel = 1};
-if (_serverPop >= 25) then {_spawnLevel = 2};
-if (_serverPop >= 35) then {_spawnLevel = 3};
-
-if (_spawnLevel >= 2) then {_aaLevel = 1};
+_spawnLevel = [] call vk_getSpawnLevel select 0;
+_aaLevel = [] call vk_getSpawnLevel select 1;
 
 //spawn patrolling infantry squad
 _x = 0;
