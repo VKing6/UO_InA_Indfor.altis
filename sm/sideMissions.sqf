@@ -39,6 +39,12 @@ _firstRun = true; //debug
 _skipTimer = false;
 _contactPos = [0,0,0];
 _unitsArray = [sideObj];
+	
+switch (PARAMS_SMArea) do {
+	case 0: {_posArray = []};
+	case 1: {_posArray = [southWest]};
+	default {_posArray = []};
+};
 
 while {true} do
 {	
@@ -102,12 +108,6 @@ while {true} do
 	
 	_spawnLevel = [] call vk_getSpawnLevel select 0;
 	_aaLevel = [] call vk_getSpawnLevel select 1;
-	
-	switch (PARAMS_SMArea) do {
-		case 0: {_posArray = []};
-		case 1: {_posArray = [southWest]};
-		default {};
-	};
 	
 	//Grab the code for the selected mission
 	switch (_mission) do
