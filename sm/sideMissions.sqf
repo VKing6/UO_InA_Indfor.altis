@@ -16,7 +16,8 @@
 		Using []spawn { }; will run code that then ignores the rest of the script!
 		AWESOME!
 */
-
+// #define DEBUG_MODE_FULL
+#include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
 private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_awayFromBase","_road","_position","_deadHint","_civArray","_briefing","_altPosition","_truck","_chosenCiv","_contactPos","_civ","_flatPos","_accepted","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_x","_sideMissions","_completeText","_roadList","_groupType","_spawnLevel","_aaLevel","_serverPop"];
@@ -36,7 +37,6 @@ _completeText =
 //Set up some vars
 _firstRun = true; //debug
 _skipTimer = false;
-_roadList = island nearRoads 4000; //change this to the BIS function that creates a trigger covering the map
 _contactPos = [0,0,0];
 _unitsArray = [sideObj];
 
@@ -50,8 +50,8 @@ while {true} do
 		//Select random mission from the SM list
 		_mission = _sideMissions call BIS_fnc_selectRandom;
 	} else {
-		if (!_skipTimer) then
-		{
+		if (!_skipTimer) then {
+		
 			switch (PARAMS_SmIntervalTime) do {
 				case 0: {
 					//Wait between 5-10 minutes before assigning a mission
@@ -67,11 +67,12 @@ while {true} do
 				};
 				default {sleep (900 + (random 900))};
 			};
-			
+		
 			//Delete old PT objects
 			for "_c" from 0 to (count _unitsArray) do
 			{
 				_obj = _unitsArray select _c;
+				if (isNil "_obj") then {_obj = objNull};
 				_isGroup = false;
 				if (_obj in allGroups) then { _isGroup = true; } else { _isGroup = false; };
 				if (_isGroup) then
@@ -106,6 +107,11 @@ while {true} do
 	if (_serverPop >= 25) then {_spawnLevel = 2};
 	if (_serverPop >= 35) then {_spawnLevel = 3};
 	if (_spawnLevel >= 2) then {_aaLevel = 1};
+	switch (PARAMS_SMArea) do {
+		case 0: {_posArray = []};
+		case 1: {_posArray = [southWest]};
+		default {};
+	};
 	
 	//Grab the code for the selected mission
 	switch (_mission) do
@@ -265,8 +271,8 @@ while {true} do
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Clear Mines</t><br/>____________________<br/>OPFOR forces have been placing mines along the roads in Stratis in a desperate attempt to slow us down. Thermal imaging scans have picked up a lot of troop movement around the area we've marked on your map and we suspect they've been planting mines.<br/><br/>Head over to the marker on the map and disarm any mines you find. We've got convoys waiting, soldier; get going!</t>";
 		}; /* case "clearMines": */
 
-		case "destroyChopper":
-		{
+		case "destroyChopper": {
+		
 			//Set up briefing message
 			_briefing =
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Chopper</t><br/>____________________<br/>OPFOR forces have been provided with a new prototype attack chopper and they're keeping it in a hangar somewhere on the island.<br/><br/>We've marked the suspected location on your map; head to the hangar and destroy that chopper. Fly it into the sea if you have to, just get rid of it.</t>";
@@ -275,20 +281,20 @@ while {true} do
 			_accepted = false;
 			while {!_accepted} do
 			{
-				_position = [] call BIS_fnc_randomPos;
+				_position = [_posArray] call BIS_fnc_randomPos;
 				_flatPos = _position isFlatEmpty
 				[
-					5,
-					0,
-					0.3,
-					10,
-					0,
-					false
+					5,		//--- Minimal distance from another object
+					0,		//--- If 0, just check position. If >0, select new one
+					0.3,	//--- Max gradient
+					10,		//--- Gradient area
+					0,		//--- 0 for restricted water, 2 for required water
+					false	//--- True if some water can be in 25m radius
 				];
 
 				while {(count _flatPos) < 3} do
 				{
-					_position = [] call BIS_fnc_randomPos;
+					_position = [_posArray] call BIS_fnc_randomPos;
 					_flatPos = _position isFlatEmpty
 					[
 						5,
@@ -300,7 +306,7 @@ while {true} do
 					];
 				};
 
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 500) then //DEBUG - set >500 from AO to (PARAMS_AOSize * 2)
+				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
 				{
 					_accepted = true;
 				};
@@ -391,8 +397,7 @@ while {true} do
 			//PROCESS REWARD HERE
 		}; /* case "destroyChopper": */
 		
-		case "destroySmallRadar":
-		{
+		case "destroySmallRadar": {
 			//Set up briefing message
 			_briefing =
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Radar</t><br/>____________________<br/>OPFOR forces have erected a small radar on the island as part of a project to keep friendly air support at bay.<br/><br/>We've marked the position on your map; head over there and take down that radar.</t>";
@@ -402,7 +407,7 @@ while {true} do
 			while {!_accepted} do
 			{
 				//Get random safe position somewhere on the island
-				_position = [] call BIS_fnc_randomPos;
+				_position = [_posArray] call BIS_fnc_randomPos;
 				_flatPos = _position isFlatEmpty 
 				[
 					5, //minimal distance from another object
@@ -415,7 +420,7 @@ while {true} do
 			
 				while {(count _flatPos) < 1} do
 				{
-					_position = [] call BIS_fnc_randomPos;
+					_position = [_posArray] call BIS_fnc_randomPos;
 					_flatPos = _position isFlatEmpty 
 					[
 						10, //minimal distance from another object
@@ -427,7 +432,7 @@ while {true} do
 					];
 				};
 				
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 500) then //DEBUG - set >500 from AO to (PARAMS_AOSize * 2)
+				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
 				{
 					_accepted = true;
 				};
@@ -513,8 +518,8 @@ while {true} do
 			//provide players with reward. Place an MH-9 in the hangar, maybe? 
 		}; /* case "destroySmallRadar": */
 		
-		case "destroyOutpost":
-		{
+		case "destroyOutpost": {
+		
 			//Set up briefing message
 			_briefing =
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Outpost</t><br/>____________________<br/>The OPFOR have established a mobile coordinating HQ near grid %1<br/><br/>We've marked the building on your map; head over there and destroy it to hamper their command and control.</t>";
@@ -524,7 +529,7 @@ while {true} do
 
 			while {!_accepted} do
 			{
-				_position = [[[getPos island,4000]],["water","out"]] call BIS_fnc_randomPos;
+				_position = [_posArray] call BIS_fnc_randomPos;
 				_flatPos = _position isFlatEmpty
 				[
 					2,
@@ -537,7 +542,7 @@ while {true} do
 
 				while {(count _flatPos) < 1} do
 				{
-					_position = [[[getPos island,4000]],["water","out"]] call BIS_fnc_randomPos;
+					_position = [_posArray] call BIS_fnc_randomPos;
 					_flatPos = _position isFlatEmpty
 					[
 						2,
@@ -549,7 +554,7 @@ while {true} do
 					];
 				};
 
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 500) then //DEBUG - set >500 from AO to (PARAMS_AOSize * 2)
+				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
 				{
 					_accepted = true;
 				};

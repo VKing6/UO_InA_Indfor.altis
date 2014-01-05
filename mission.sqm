@@ -3266,7 +3266,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=4;
+		items=8;
 		class Item0
 		{
 			position[]={15917.867,16.434958,16467.947};
@@ -3329,6 +3329,54 @@ class Mission
 			name="airTrigger_2_1_2";
 			expCond="this and ((getPos (thisList select 0)) select 2 < 1)";
 			expActiv="_handle = [thisList,[2,1.0],1,1,true] execVM ""misc\serviceVehicle.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item4
+		{
+			position[]={9269.9717,24.873302,13577.916};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="southwest";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={8249.4551,156.33224,17742.414};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="northwest";
+			class Effects
+			{
+			};
+		};
+		class Item6
+		{
+			position[]={19352.453,53.913818,11089.255};
+			a=7000;
+			b=7000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="southeast";
+			class Effects
+			{
+			};
+		};
+		class Item7
+		{
+			position[]={21188.557,0.00030775857,20680.174};
+			a=8000;
+			b=8000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="northeast";
 			class Effects
 			{
 			};
