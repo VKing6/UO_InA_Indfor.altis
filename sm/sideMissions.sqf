@@ -47,7 +47,7 @@ switch (PARAMS_SMArea) do {
 */
 
 _smPos = westSideMissions;
-_smRadius = 8000
+_smRadius = 8000;
 
 while {true} do
 {	
