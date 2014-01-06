@@ -226,7 +226,7 @@ while {true} do
 				_smRadius,
 				sizeOf "Land_Radar_small_F",
 				0,
-				0.4,
+				0.7,
 				0,
 				[base,aoTrigger]
 			] call bis_fnc_findSafePos;
