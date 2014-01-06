@@ -57,7 +57,6 @@ _beginTargets = [
 	"Syrta",
 	"Frini",
 	"Athira",
-	"Outpost Kilo",
 	"Factory"
 ];
 
