@@ -37,7 +37,7 @@ Jack Williams (Rarek) for Ahoy World!
 	respawnDialog = 0;
 	disabledAI = true;
 	enableSaving = [false, false];
-	// enableDebugConsole = 2; //2 for all, 1 for logged in only, 0 for disabled.
+	enableDebugConsole = 2; //2 for all, 1 for logged in only, 0 for disabled.
 
 	class CfgSettings
 	{
@@ -140,9 +140,9 @@ Jack Williams (Rarek) for Ahoy World!
 		};
 		
 		class SMArea {
-			title = "Area of Side missions";
+			title = "Side missions appear in";
 			values[] = {0,1};
-			texts[] = {"All of Altis","Some of Altis"};
+			texts[] = {"All of Altis","WSW Altis"};
 			default = 1;
 		};
 		/*

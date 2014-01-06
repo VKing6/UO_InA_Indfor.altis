@@ -53,7 +53,7 @@ vas_items = [
 	// NV Goggles
 	"NVGoggles","NVGoggles_INDEP",
 	// Items 
-	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ItemWatch","Medikit","MineDetector","ToolKit",
+	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ACRE_PRC148","ACRE_PRC119","ItemWatch","Medikit","MineDetector","ToolKit",
 	// Accsessories
 	"optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Arco","optic_MRCO","optic_Hamr","optic_DMS","optic_LRPS","optic_MRD","optic_NVS","optic_Yorris","acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","muzzle_snds_M",
 	// Uniforms

@@ -3428,7 +3428,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=8;
+		items=10;
 		class Item0
 		{
 			position[]={15917.867,16.434958,16467.947};
@@ -3539,6 +3539,30 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="northeast";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={11662.771,23.73093,11917.136};
+			a=2000;
+			b=2000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="base";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={-1603.1246,0,2487.7021};
+			a=1000;
+			b=1000;
+			interruptable=1;
+			age="UNKNOWN";
+			name="aoTrigger";
 			class Effects
 			{
 			};

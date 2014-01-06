@@ -235,14 +235,13 @@
 	aw_fnc_spawn2_randomPatrol =
 	{
 		if(!isServer) exitWith{};
-		private["_group","_center","_radius","_wp","_checkDist","_angle","_currentAngle","_pos","_wp1","_x"];
+		private["_group","_center","_radius","_wp","_checkDist","_angle","_currentAngle","_pos","_wp1"];
 		_group = _this select 0;
 		_center = _this select 1;
 		_radius = _this select 2;
 		_waypointNumbers = if(count _this > 3) then {_this select 3} else {20 + floor ((random 10))};
 
-		for [{_x=1},{_x<=_waypointNumbers},{_x=_x+1}] do
-		{
+		for "_i" from 1 to _waypointNumbers do {
 			_pos = [_center,(random _radius),(random 360)] call aw_fnc_radPos;
 			_wp = _group addWaypoint [_pos,0];
 			_wp setWaypointType "MOVE";
@@ -251,7 +250,7 @@
 			_wp setWaypointBehaviour "SAFE";
 			_wp setWaypointTimeOut [0,10,40];
 
-			if(_x == 1) then {_wp1 = _wp};
+			if(_i == 1) then {_wp1 = _wp};
 		};
 
 		_wp = _group addWaypoint [waypointPosition _wp1,0];
@@ -266,7 +265,7 @@
 	aw_fnc_spawn2_perimeterPatrol =
 	{
 		if(!isServer) exitWith{};
-		private["_group","_center","_radius","_wp","_angle","_currentAngle","_wp1","_pos","_x","_toCenter"];
+		private["_group","_center","_radius","_wp","_angle","_currentAngle","_wp1","_pos","_toCenter"];
 		_group = _this select 0;
 		_center = _this select 1;
 		_radius = _this select 2;
@@ -276,8 +275,7 @@
 		_angle = 360 / _waypointNumbers;
 		_currentAngle = _angle + (random 360);
 
-		for [{_x=1},{_x<=_waypointNumbers},{_x=_x+1}] do
-		{
+		for "_i" from 1 to _waypointNumbers do {
 			_pos = [_center,_radius,_currentAngle] call aw_fnc_radPos;
 			_wp = _group addWaypoint [_pos,0];
 			_wp setWaypointType "MOVE";
@@ -286,7 +284,7 @@
 			_wp setWaypointBehaviour "SAFE";
 			_wp setWaypointTimeOut [0,10,40];
 
-			if(_x == 1) then {_wp1 = _wp};
+			if(_i == 1) then {_wp1 = _wp};
 			_currentAngle = _currentAngle + _angle;
 		};
 
@@ -346,26 +344,25 @@
 	aw_serverRespawn =
 	{
 		if(!serverCommandAvailable "#kick") exitWith{};
-		private ["_x","_y"];
+		private ["_y"];
 		{
 			_x setVelocity [0,0,0];
 			_x setPos [getPos _x select 0,getPos _x select 1,0];
 
 			hint format["Deleting %1",typeOf _x];
 
-			for[{_y=0},{_y<(count (crew _x))},{_y=_y+1}] do
-			{
+			for "_y" from 0 to (count (crew _x) -1) do {
 				moveOut ((crew _x) select _y);
 				((crew _x) select _y) setPos [getPos ((crew _x) select _y) select 0,(getPos ((crew _x) select _y) select 1) + 5,0];
 			};
 			_x setPos [0,0,0];
 			_x setDamage 1;
-		}forEach ((getPos trg_aw_admin) nearEntities [["Air","Car","Motorcycle","Tank"],5000]);
+		} forEach ((getPos trg_aw_admin) nearEntities [["Air","Car","Motorcycle","Tank"],5000]);
 	};
 
 	aw_serverSingleRespawn =
 	{
-		private ["_x","_y","_pos","_units"];
+		private ["_unit","_pos","_units"];
 
 		if(!serverCommandAvailable "#kick") exitWith{};
 
@@ -373,21 +370,19 @@
 
 		_units = _pos nearEntities [["Car","Air","Tank","Ship","Motorcycle"],5];
 
-		if(count _units > 0) then
-		{
-			_x =_units select 0;
-			_x setVelocity [0,0,0];
-			_x setPos [getPos _x select 0,getPos _x select 1,0];
+		if(count _units > 0) then {
+			_unit =_units select 0;
+			_unit setVelocity [0,0,0];
+			_unit setPos [getPos _unit select 0,getPos _unit select 1,0];
 
-			hint format["Deleting %1",typeOf _x];
+			hint format["Deleting %1",typeOf _unit];
 
-			for[{_y=0},{_y<(count (crew _x))},{_y=_y+1}] do
-			{
-				moveOut ((crew _x) select _y);
-				((crew _x) select _y) setPos [getPos ((crew _x) select _y) select 0,(getPos ((crew _x) select _y) select 1) + 5,0];
+			for "_i" from 0 to (count (crew _unit) -1) do {
+				moveOut ((crew _unit) select _i);
+				((crew _unit) select _i) setPos [getPos ((crew _unit) select _i) select 0,(getPos ((crew _unit) select _i) select 1) + 5,0];
 			};
-			_x setPos [0,0,0];
-			_x setDamage 1;
+			_unit setPos [0,0,0];
+			_unit setDamage 1;
 		};
 	};
 
