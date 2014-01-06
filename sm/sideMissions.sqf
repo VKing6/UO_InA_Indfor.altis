@@ -20,7 +20,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos"];
 _sideMissions = 
 
 [
@@ -125,7 +125,7 @@ while {true} do
 				_smRadius,
 				10,
 				0,
-				0.4,
+				0.2,
 				0,
 				[base,aoTrigger]
 			] call bis_fnc_findSafePos;
@@ -323,7 +323,7 @@ while {true} do
 				_smRadius,
 				sizeOf "Land_Cargo_HQ_V1_F",
 				0,
-				0.4,
+				0.35,
 				0,
 				[base,aoTrigger]
 			] call bis_fnc_findSafePos;
