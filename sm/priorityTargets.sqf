@@ -1,6 +1,9 @@
-//by Rarek [AW]
+//by Rarek [AW] with modifications by VKing
 
-private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_spotted","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_inMinRange"];
+// #define DEBUG_MODE_FULL
+#include "\x\cba\addons\main\script_macros_common.hpp"
+
+private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_spotted","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_minRange","_maxRange","_fuzzyPos"];
 _firstRun = true;
 _unitsArray = [objNull];
 _completeText =
@@ -157,6 +160,7 @@ while {true} do
 
 	//Set marker up
 	_accepted = false;
+	_fuzzyPos = _flatPos;
 	while {!_accepted} do {
 		_fuzzyPos =
 		[
@@ -206,30 +210,34 @@ while {true} do
 	];
 	// _radius = 100; //Declared here so we can "zero in" gradually
 	_radius = 60 + random 40;
-	while {alive priorityTarget1 || alive priorityTarget2} do
-	{
+	while {alive priorityTarget1 || alive priorityTarget2} do {
 		_accepted = false;
 		_unit = objNull;
 		_targetPos = [0,0,0];
 		_debugCount = 1;
+		_minRange = false;
+		_maxRange = false;
 		while {!_accepted} do
 		{
 			debugMessage = format["PT: Finding valid target.<br/><br/>Attempt #%1",_debugCount]; publicVariable "debugMessage";
-
-			_unit = (playableUnits select (floor (random (count playableUnits))));
-			_targetPos = getPos _unit;
 			
-			if (_SPG) then {
-				_minRange = ((_targetpos distance _flatpos) < 840);
-				_maxRange = false;
-			} else {
-				_minRange = false;
-				_maxRange = ((_targetpos distance _flatpos) > 4075);
-			};
-			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then { _accepted = true; };
+			if (count playableUnits > 0) then {
+				_unit = (playableUnits select (floor (random (count playableUnits))));
+				_targetPos = getPos _unit;
+				
+				if (_SPG) then {
+					_minRange = ((_targetPos distance _flatPos) < 840);
+					_maxRange = false;
+				} else {
+					_minRange = false;
+					_maxRange = ((_targetPos distance _flatPos) > 4075);
+				};
+				
+				if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then { _accepted = true; };
 
-			_debugCount = _debugCount + 1;
-			sleep 2;
+				_debugCount = _debugCount + 1;
+			};
+			sleep 4;
 		};
 
 		debugMessage = "PT: Valid target found; warning players and beginning fire sequence.";
