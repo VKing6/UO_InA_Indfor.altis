@@ -182,6 +182,7 @@ while {_run} do
 		if (_unit isKindOf "I_Heli_light_03_unarmed_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa"]}, _unit] call CBA_fnc_globalExecute;};
 		
 		if (_unit isKindOf "I_UAV_02_CAS_F" || _unit isKindOf "I_UGV_01_rcws_F") then {createVehicleCrew vehicle _unit};
+		
 		[_unit] call tin_vehiclePrep;
 		
         _dead = false;

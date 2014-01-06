@@ -59,7 +59,7 @@
 	///// Rearming Module //////////////////
 	if (_srcReammo == 1) then {
 		_magazines = getArray(configFile >> "CfgVehicles" >> typeOf _veh >> "magazines");
-
+		
 		tin_reload = {
 			_magArray = _this select 0;
 
@@ -76,6 +76,7 @@
 				sleep 0.1;
 				[-2, {(_this select 0) addMagazine (_this select 1)},[_veh,_x]] call CBA_fnc_globalExecute;
 			} forEach _magArray;
+			
 		};
 
 		if (count _magazines > 0) then {
@@ -105,10 +106,19 @@
 			};
 		};
 
-		for "_x" from 25 to 100 step 25 do {sleep 5; ACK(_veh,_x,_srcVeh,"Rearming (%1%)...");};
+		for "_i" from 25 to 100 step 25 do {sleep 5; ACK(_veh,_i,_srcVeh,"Rearming (%1%)...");};
 
 		_veh setVehicleAmmo 1;	// Reload turrets / drivers magazine
+		
+		if (_veh isKindOf "I_MRAP_03_hmg_F") then {
+			[-2,{
+				_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+				_this addMagazineTurret ["200Rnd_127x99_mag_Tracer_Yellow", [0]];
+			},_veh] call CBA_fnc_globalExecute;
+		};
+		
 		ACK(_veh,_vehType,_srcVeh,"%1 Rearmed!");
+		
 
 		sleep 5;
 	};

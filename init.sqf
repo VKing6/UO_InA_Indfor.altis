@@ -164,9 +164,6 @@ if (isNil "currentAOUp") then {currentAOUp = false;};
 
 call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
 
-if (PARAMS_MedicMarkers == 1) then { _null = [] execVM "misc\medicMarkers.sqf"; };
-if (PARAMS_PlayerMarkers == 1) then { _null = [] execVM "misc\playerMarkers.sqf"; };
-
 [] spawn {
 	scriptName "initMission.hpp: mission start";
 	//["rsc\FinalComp.ogv", false] spawn BIS_fnc_titlecard;
@@ -184,6 +181,8 @@ if (!isServer) then
 			{
 				_x setMarkerPosLocal (getMarkerPos currentAO);
 			} forEach ["aoCircle","aoMarker"];
+			aoTrigger setPos getMarkerPos currentAO;
+			
 			"aoMarker" setMarkerTextLocal format["Take %1",currentAO];
 			
 			waitUntil {sleep 5; !currentAOUp};
@@ -191,6 +190,7 @@ if (!isServer) then
 			{
 				_x setMarkerPosLocal [0,0,0];
 			} forEach ["aoCircle","aoMarker"];
+			aoTrigger setPos [0,0,0];
 		};
 	};	
 	
@@ -251,9 +251,8 @@ smRewards =
 	["an AH-99 Blackfoot", "B_Heli_Attack_01_F"],
 	["an AH-9 Pawnee", "B_Heli_Light_01_armed_F"],
 	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
+	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
 	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
-	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
-	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an M4 Scorcher", "B_MBT_01_arty_F"],
 	["an A-143 Buzzard", "I_Plane_Fighter_03_CAS_F"]
@@ -392,6 +391,7 @@ while {count _targets > 0} do
 	//Edit and place markers for new target
 	//_marker = [currentAO] call AW_fnc_markerActivate
 	{_x setMarkerPos (getMarkerPos currentAO);} forEach ["aoCircle","aoMarker"];
+	aoTrigger setPos getMarkerPos currentAO;
 	"aoMarker" setMarkerText format["Take %1",currentAO];
 	sleep 5;
 	publicVariable "refreshMarkers";
@@ -526,7 +526,8 @@ while {count _targets > 0} do
 	];
 
 	{_x setMarkerPos [0,0,0];} forEach ["aoCircle","aoMarker","radioMineCircle"];
-
+	aoTrigger setPos [0,0,0];
+	
 	//Show global target completion hint
 	GlobalHint = _targetCompleteText; publicVariable "GlobalHint"; hint parseText GlobalHint;
 	showNotification = ["CompletedMain", currentAO]; publicVariable "showNotification";

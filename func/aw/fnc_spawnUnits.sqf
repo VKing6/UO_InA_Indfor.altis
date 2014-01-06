@@ -1,23 +1,16 @@
 
-private ["_randomPos","_spawnGroup","_pos","_x","_spawnLevel","_aaLevel","_serverPop"];
+private ["_randomPos","_spawnGroup","_pos","_spawnLevel","_aaLevel"];
 _pos = getMarkerPos (_this select 0);
 _enemiesArray = [grpNull];
 _aiSkill = [0.3,0.3,0.3];
 if (PARAMS_AISkill == 1) then {_aiSkill = [0.3,0.4,0.3]};
 if (PARAMS_AISkill == 2) then {_aiSkill = [0.3,0.7,0.3]};
 
-_spawnLevel = 0;
-_aaLevel = 0;
-_serverPop = count(playableUnits);
-if (_serverPop >= 12) then {_spawnLevel = 1};
-if (_serverPop >= 25) then {_spawnLevel = 2};
-if (_serverPop >= 35) then {_spawnLevel = 3};
-
-if (_spawnLevel >= 2) then {_aaLevel = 1};
+_spawnLevel = [] call vk_getSpawnLevel select 0;
+_aaLevel = [] call vk_getSpawnLevel select 1;
 
 //spawn patrolling infantry squad
-_x = 0;
-for "_x" from 1 to _spawnLevel do {
+for "_i" from 1 to _spawnLevel do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, _pos, 50] call aw_fnc_spawn2_perimeterPatrol;
@@ -30,8 +23,7 @@ for "_x" from 1 to _spawnLevel do {
 };
 
 //spawn units to garrison buildings: number of squads = spawn level (1 to 3) + 2, maximum of 5 squads.
-_x = 0;
-for "_x" from 0 to (_spawnLevel + 2) do {
+for "_i" from 0 to (_spawnLevel + 2) do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, PARAMS_AOSize, _pos] call tin_aiGarrison;
@@ -44,8 +36,7 @@ for "_x" from 0 to (_spawnLevel + 2) do {
 };
 
 //spawn patrolling infantry team: Number of teams = 2(SL+2) Maximum of 10 teams, minimum of 6
-_x = 0;
-for "_x" from 0 to ((_spawnLevel + 2) * 2) do {
+for "_i" from 0 to ((_spawnLevel + 2) * 2) do {
 	_randomPos = [[[getMarkerPos currentAO, 20],_dt],["water","out"]] call BIS_fnc_randomPos;
 	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, getMarkerPos currentAO, PARAMS_AOSize] call aw_fnc_spawn2_randomPatrol;		
@@ -57,8 +48,7 @@ for "_x" from 0 to ((_spawnLevel + 2) * 2) do {
 	diag_log format["%1 Patrol Team",_spawnGroup];
 };
 //spawning patrolling vehicles, 50% chance for either IFV or Tank to spawn instead of a motor inf team, maximum should be 3 of each.
-_x = 0;
-for "_x" from 0 to _spawnLevel do {
+for "_i" from 0 to _spawnLevel do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
 	if(random 1 > 0.50) then {
@@ -81,8 +71,7 @@ for "_x" from 0 to _spawnLevel do {
 };
 
 //spawn armour, 30% chance for up to 6 tanks
-_x = 0;
-for "_x" from 0 to (floor(_spawnLevel/1.5)) do {
+for "_i" from 0 to (floor(_spawnLevel/1.5)) do {
 
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
@@ -104,8 +93,7 @@ for "_x" from 0 to (floor(_spawnLevel/1.5)) do {
 };
 
 //Spawn Air threats 
-_x = 0;
-for "_x" from 0 to _aaLevel do {
+for "_i" from 0 to _aaLevel do {
 
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
