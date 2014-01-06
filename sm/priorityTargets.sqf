@@ -3,11 +3,12 @@
 // #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
-private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_spotted","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_minRange","_maxRange","_fuzzyPos"];
+private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_minRange","_maxRange","_fuzzyPos"];
 _firstRun = true;
 _unitsArray = [objNull];
 _completeText =
 "<t align='center' size='2.2'>Priority Target</t><br/><t size='1.5' color='#08b000'>NEUTRALISED</t><br/>____________________<br/>Incredible job, boys! Make sure you jump on those priority targets quickly; they can really cause havoc if they're left to their own devices.<br/><br/>Keep on with the main objective; we'll tell you if anything comes up.";
+
 while {true} do {
 	LOG("Start");
 	_randomWait = (random 1200);
