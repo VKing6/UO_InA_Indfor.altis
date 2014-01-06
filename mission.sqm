@@ -2385,7 +2385,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=69;
+		items=68;
 		class Item0
 		{
 			position[]={-1391.4594,-0.01276912,580.14929};
@@ -2840,23 +2840,17 @@ class Mission
 		};
 		class Item65
 		{
-			position[]={10588.305,19.746834,22141.576};
-			name="smallTarget_40";
-			type="Empty";
-		};
-		class Item66
-		{
 			position[]={7110.085,111.63389,16434.773};
 			name="Kore";
 			type="Empty";
 		};
-		class Item67
+		class Item66
 		{
 			position[]={10629.12,15.660364,12298.465};
 			name="Therisa";
 			type="Empty";
 		};
-		class Item68
+		class Item67
 		{
 			position[]={4520.7583,301.42035,21439.938};
 			name="Oreokastro";

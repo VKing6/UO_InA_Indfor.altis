@@ -74,7 +74,7 @@ _initialTargets = [
 	"Negades",
 	"Neri",
 	"Panochori",
-	"Agios Dionysios"
+	"Agios Dionysios",
 	"Lakka",
 	"Airfield"
 	
@@ -93,7 +93,7 @@ _targets = [
 	"Negades",
 	"Neri",
 	"Panochori",
-	"Agios Dionysios"
+	"Agios Dionysios",
 	"Lakka",
 	"Airfield",
 	"Zaros",
