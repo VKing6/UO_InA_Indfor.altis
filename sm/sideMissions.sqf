@@ -38,12 +38,16 @@ _completeText =
 _firstRun = true; //debug
 _skipTimer = false;
 _unitsArray = [sideObj];
-	
+/*	
 switch (PARAMS_SMArea) do {
 	case 0: {_smPos = []; _smRadius = -1};
 	case 1: {_smPos = southWest; _smRadius = 5000};
 	default {_smPos = []};
 };
+*/
+
+_smPos = southWest;
+_smRadius = 8000
 
 while {true} do
 {	
