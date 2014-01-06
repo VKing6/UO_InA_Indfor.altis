@@ -261,7 +261,7 @@ smHangarList = ["smRewardP1","smRewardP2"];
 smHeliList = ["smRewardH1","smRewardH2","smRewardH3","smRewardH4"];
 
 activeAD = [];
-adPositions = ["ada01","ada02","ada03","ada04","ada05","ada06","ada07","ada08","ada09","ada10","ada11","ada12","ada13","ada14","ada15","ada16","ada17","ada18","ada19","ada20","ada21","ada22","ada23","ada24","ada25"]; //,"adm01","adm02"
+adPositions = ["ada01","ada02","ada03","ada04","ada05","ada06","ada07","ada08","ada09","ada10","ada11","ada12","ada13","ada14","ada15","ada16","ada17","ada18","ada19","ada20","ada21","ada22","ada23","ada24","ada25","ada27","ada28","ada29","ada30","ada31","ada32","ada33","ada34","ada35","ada36","ada37","ada38","ada39","ada40","ada41","ada42","ada43","ada44","ada45","ada46","ada47","ada48","ada49","ada50"]; //,"adm01","adm02"
 
 /*---------------------------------------------------------------------------
 Disabled while Alpha bug is present
