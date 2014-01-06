@@ -180,6 +180,8 @@ if (!isServer) then
 			{
 				_x setMarkerPosLocal (getMarkerPos currentAO);
 			} forEach ["aoCircle","aoMarker"];
+			aoTrigger setPos getMarkerPos currentAO;
+			
 			"aoMarker" setMarkerTextLocal format["Take %1",currentAO];
 			
 			waitUntil {sleep 5; !currentAOUp};
@@ -187,6 +189,7 @@ if (!isServer) then
 			{
 				_x setMarkerPosLocal [0,0,0];
 			} forEach ["aoCircle","aoMarker"];
+			aoTrigger setPos [0,0,0];
 		};
 	};	
 	
@@ -387,6 +390,7 @@ while {count _targets > 0} do
 	//Edit and place markers for new target
 	//_marker = [currentAO] call AW_fnc_markerActivate
 	{_x setMarkerPos (getMarkerPos currentAO);} forEach ["aoCircle","aoMarker"];
+	aoTrigger setPos getMarkerPos currentAO;
 	"aoMarker" setMarkerText format["Take %1",currentAO];
 	sleep 5;
 	publicVariable "refreshMarkers";
@@ -521,7 +525,8 @@ while {count _targets > 0} do
 	];
 
 	{_x setMarkerPos [0,0,0];} forEach ["aoCircle","aoMarker","radioMineCircle"];
-
+	aoTrigger setPos [0,0,0];
+	
 	//Show global target completion hint
 	GlobalHint = _targetCompleteText; publicVariable "GlobalHint"; hint parseText GlobalHint;
 	showNotification = ["CompletedMain", currentAO]; publicVariable "showNotification";

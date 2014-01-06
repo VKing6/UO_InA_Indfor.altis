@@ -20,7 +20,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_awayFromBase","_road","_position","_deadHint","_civArray","_briefing","_altPosition","_truck","_chosenCiv","_contactPos","_civ","_flatPos","_accepted","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_x","_sideMissions","_completeText","_groupType","_spawnLevel","_aaLevel","_posArray"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius"];
 _sideMissions = 
 
 [
@@ -37,13 +37,12 @@ _completeText =
 //Set up some vars
 _firstRun = true; //debug
 _skipTimer = false;
-_contactPos = [0,0,0];
 _unitsArray = [sideObj];
 	
 switch (PARAMS_SMArea) do {
-	case 0: {_posArray = []};
-	case 1: {_posArray = [southWest]};
-	default {_posArray = []};
+	case 0: {_smPos = []; _smRadius = -1};
+	case 1: {_smPos = southWest; _smRadius = 5000};
+	default {_smPos = []};
 };
 
 while {true} do
@@ -110,8 +109,8 @@ while {true} do
 	_aaLevel = [] call vk_getSpawnLevel select 1;
 	
 	//Grab the code for the selected mission
-	switch (_mission) do
-	{
+	switch (_mission) do {
+	
 		case "destroyChopper": {
 		
 			//Set up briefing message
@@ -119,39 +118,17 @@ while {true} do
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Chopper</t><br/>____________________<br/>OPFOR forces have been provided with a new prototype attack chopper and they're keeping it in a hangar somewhere on the island.<br/><br/>We've marked the suspected location on your map; head to the hangar and destroy that chopper. Fly it into the sea if you have to, just get rid of it.</t>";
 
 			_flatPos = [0,0,0];
-			_accepted = false;
-			while {!_accepted} do
-			{
-				_position = [_posArray] call BIS_fnc_randomPos;
-				_flatPos = _position isFlatEmpty
-				[
-					5,		//--- Minimal distance from another object
-					0,		//--- If 0, just check position. If >0, select new one
-					0.3,	//--- Max gradient
-					10,		//--- Gradient area
-					0,		//--- 0 for restricted water, 2 for required water
-					false	//--- True if some water can be in 25m radius
-				];
-
-				while {(count _flatPos) < 3} do
-				{
-					_position = [_posArray] call BIS_fnc_randomPos;
-					_flatPos = _position isFlatEmpty
-					[
-						5,
-						0,
-						0.3,
-						10,
-						0,
-						false
-					];
-				};
-
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
-				{
-					_accepted = true;
-				};
-			};
+			
+			_flatpos = [
+				getPos _smPos,
+				0,
+				_smRadius,
+				10,
+				0,
+				0.4,
+				0,
+				[base,aoTrigger]
+			] call bis_fnc_findSafePos;
 
 			//Spawn hangar and chopper
 			_randomDir = (random 360);
@@ -244,40 +221,17 @@ while {true} do
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Radar</t><br/>____________________<br/>OPFOR forces have erected a small radar on the island as part of a project to keep friendly air support at bay.<br/><br/>We've marked the position on your map; head over there and take down that radar.</t>";
 			
 			_flatPos = [0,0,0];
-			_accepted = false;
-			while {!_accepted} do
-			{
-				//Get random safe position somewhere on the island
-				_position = [_posArray] call BIS_fnc_randomPos;
-				_flatPos = _position isFlatEmpty 
-				[
-					5, //minimal distance from another object
-					1, //try and find nearby positions if original is incorrect
-					0.5, //30% max gradient
-					sizeOf "Land_Radar_small_F", //gradient must be consistent for entirety of object
-					0, //no water
-					false //don't find positions near the shoreline
-				];
 			
-				while {(count _flatPos) < 1} do
-				{
-					_position = [_posArray] call BIS_fnc_randomPos;
-					_flatPos = _position isFlatEmpty 
-					[
-						10, //minimal distance from another object
-						1, //try and find nearby positions if original is incorrect
-						0.5, //30% max gradient
-						sizeOf "Land_Radar_small_F", //gradient must be consistent for entirety of object
-						0, //no water
-						false //don't find positions near the shoreline
-					];
-				};
-				
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
-				{
-					_accepted = true;
-				};
-			};
+			_flatpos = [
+				getPos _smPos,
+				0,
+				_smRadius,
+				sizeOf "Land_Radar_small_F",
+				0,
+				0.4,
+				0,
+				[base,aoTrigger]
+			] call bis_fnc_findSafePos;
 			
 			//Spawn radar, set vector and add marker
 			sideObj = "Land_Radar_small_F" createVehicle _flatPos;
@@ -366,40 +320,17 @@ while {true} do
 			"<t align='center'><t size='2.2'>New Side Mission</t><br/><t size='1.5' color='#00B2EE'>Destroy Outpost</t><br/>____________________<br/>The OPFOR have established a mobile coordinating HQ near grid %1<br/><br/>We've marked the building on your map; head over there and destroy it to hamper their command and control.</t>";
 			
 			_flatPos = [0,0,0];
-			_accepted = false;
 
-			while {!_accepted} do
-			{
-				_position = [_posArray] call BIS_fnc_randomPos;
-				_flatPos = _position isFlatEmpty
-				[
-					2,
-					0,
-					0.3,
-					1,
-					1,
-					false
-				];
-
-				while {(count _flatPos) < 1} do
-				{
-					_position = [_posArray] call BIS_fnc_randomPos;
-					_flatPos = _position isFlatEmpty
-					[
-						2,
-						0,
-						0.3,
-						1,
-						1,
-						false
-					];
-				};
-
-				if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > PARAMS_AOsize*2) then
-				{
-					_accepted = true;
-				};
-			};
+			_flatpos = [
+				getPos _smPos,
+				0,
+				_smRadius,
+				sizeOf "Land_Cargo_HQ_V1_F",
+				0,
+				0.4,
+				0,
+				[base,aoTrigger]
+			] call bis_fnc_findSafePos;
 			
 			//Spawn Mobile HQ
 			_randomDir = (random 360);
