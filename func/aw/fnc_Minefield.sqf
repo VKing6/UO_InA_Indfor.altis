@@ -5,7 +5,7 @@ private ["_centralPos","_unitsArray","_mine","_unitsArray","_distance","_dir","_
 _centralPos = _this select 0;
 _unitsArray = [];
 
-for "_x" from 0 to 79 do {
+for "_i" from 0 to 79 do {
 	_mine = createMine ["APERSBoundingMine", _centralPos, [], 50];
 	_unitsArray = _unitsArray + [_mine];
 };

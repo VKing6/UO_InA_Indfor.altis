@@ -106,7 +106,7 @@
 			};
 		};
 
-		for "_x" from 25 to 100 step 25 do {sleep 5; ACK(_veh,_x,_srcVeh,"Rearming (%1%)...");};
+		for "_i" from 25 to 100 step 25 do {sleep 5; ACK(_veh,_i,_srcVeh,"Rearming (%1%)...");};
 
 		_veh setVehicleAmmo 1;	// Reload turrets / drivers magazine
 		
