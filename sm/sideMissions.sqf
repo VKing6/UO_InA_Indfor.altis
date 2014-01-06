@@ -74,8 +74,7 @@ while {true} do
 			};
 		
 			//Delete old PT objects
-			for "_c" from 0 to (count _unitsArray) do
-			{
+			for "_c" from 0 to (count _unitsArray) do {
 				_obj = _unitsArray select _c;
 				if (isNil "_obj") then {_obj = objNull};
 				_isGroup = false;

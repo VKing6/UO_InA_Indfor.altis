@@ -1,5 +1,5 @@
 
-private ["_randomPos","_spawnGroup","_pos","_spawnLevel","_aaLevel"];
+private ["_randomPos","_spawnGroup","_pos","_spawnLevel","_aaLevel","_aiSkill","_enemiesArray","_grpUnits"];
 _pos = getMarkerPos (_this select 0);
 _enemiesArray = [grpNull];
 _aiSkill = [0.3,0.3,0.3];

@@ -142,7 +142,7 @@ Jack Williams (Rarek) for Ahoy World!
 		class SMArea {
 			title = "Side missions appear in";
 			values[] = {0,1};
-			texts[] = {"All of Altis","WSW Altis"};
+			texts[] = {"All of Altis","Western Altis"};
 			default = 1;
 		};
 		/*
