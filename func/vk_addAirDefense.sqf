@@ -39,6 +39,7 @@ if (count _adList > 0) then {
 			_adVeh = createVehicle ["O_APC_Tracked_02_AA_F",getMarkerPos _x, [], 0, "NONE"];
 			_adVeh removeWeapon "missiles_titan";
 			_adVeh setFuel 0;
+			_adVeh allowCrewInImmobile true;
 			_adVeh setVariable ["adName",_x];
 			_adVeh setDir floor(random 360);
 			_adVeh addEventHandler ["fired",{_this select 0 setVehicleAmmo 1}];
