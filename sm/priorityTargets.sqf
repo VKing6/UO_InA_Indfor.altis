@@ -222,23 +222,25 @@ while {true} do {
 			
 			if (count playableUnits > 0) then {
 				_unit = (playableUnits select (floor (random (count playableUnits))));
-				_targetPos = getPos _unit;
-				
-				if (_SPG) then {
-					_minRange = ((_targetPos distance _flatPos) < 840);
-					_maxRange = false;
-				} else {
-					_minRange = false;
-					_maxRange = ((_targetPos distance _flatPos) > 4075);
-				};
-				
-				if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
-					_accepted = true;
-					LOG("Targeting Loop Accepted");
-				};
-
-				_debugCount = _debugCount + 1;
+			} else {
+				_unit = player;
 			};
+			_targetPos = getPos _unit;
+			
+			if (_SPG) then {
+				_minRange = ((_targetPos distance _flatPos) < 840);
+				_maxRange = false;
+			} else {
+				_minRange = false;
+				_maxRange = ((_targetPos distance _flatPos) > 4075);
+			};
+			
+			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
+				_accepted = true;
+				LOG("Targeting Loop Accepted");
+			};
+
+			_debugCount = _debugCount + 1;
 			sleep 4;
 		};
 
