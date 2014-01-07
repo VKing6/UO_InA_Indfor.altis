@@ -46,7 +46,7 @@ if (count _adList > 0) then {
 			_adVeh addEventHandler ["killed", {activeAD = activeAD - [(_this select 0) getVariable "adName"]; tin_fifo_bodies = tin_fifo_bodies + [(_this select 0)] + crew (_this select 0)}];
 			createVehicleCrew _adVeh;
 			
-			//_x setMarkerType "o_unknown";
+			_x setMarkerType "o_unknown";
 		};
 	} forEach _adList;
 };
