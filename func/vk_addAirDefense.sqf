@@ -1,4 +1,4 @@
-#define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 _getADList = {
@@ -11,10 +11,12 @@ _getADList = {
 	_list = [] + adPositions;
 	
 	_sortedList = [_list,[_baseLoc],{_input0 distance getMarkerPos _x},"ASCEND",{(_input0 distance getMarkerPos _x < 2500)}] call BIS_fnc_sortBy;
-	
 	TRACE_1("",_sortedList);
-	for "_i" from 0 to _n-1 do {
-		_retList set [_i,_sortedList select _i];
+	
+	if (count _sortedList > 0) then {
+		for "_i" from 0 to _n-1 do {
+			_retList set [_i,_sortedList select _i];
+		};
 	};
 	TRACE_1("",_retList);
 	_retList
@@ -30,7 +32,6 @@ _level = _spawnLevel+_aaLevel;
 _num = 1 + _aaLevel;
 
 _adList = [_pos,_num] call _getADList;
-
 if (count _adList > 0) then {
 	{
 		if !(_x in activeAD) then {
@@ -45,7 +46,7 @@ if (count _adList > 0) then {
 			_adVeh addEventHandler ["killed", {activeAD = activeAD - [(_this select 0) getVariable "adName"]; tin_fifo_bodies = tin_fifo_bodies + [(_this select 0)] + crew (_this select 0)}];
 			createVehicleCrew _adVeh;
 			
-			_x setMarkerType "o_unknown";
+			// _x setMarkerType "o_unknown";
 		};
 	} forEach _adList;
 };
