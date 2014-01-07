@@ -20,7 +20,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos","_accepted"];
 _sideMissions = 
 
 [
@@ -142,12 +142,21 @@ while {true} do
 			waitUntil {alive sideObj};
 			{_x setDir _randomDir} forEach [sideObj,_hangar];
 			sideObj setVehicleLock "LOCKED";
-			_fuzzyPos = 
-			[
-				((_flatPos select 0) - 300) + (random 600),
-				((_flatPos select 1) - 300) + (random 600),
-				0
-			];
+			_accepted = false;
+			_fuzzyPos = _flatPos;
+			while {!_accepted} do {
+				LOG("Start Fuzzy Loop");
+				_fuzzyPos =
+				[
+					((_flatPos select 0) - 300) + (random 600),
+					((_flatPos select 1) - 300) + (random 600),
+					0
+				];
+				if (!surfaceisWater _fuzzyPos) then {
+					_accepted = true;
+					LOG("Fuzzy Loop Accepted");
+				};
+			};
 
 			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
 			"sideMarker" setMarkerText "Side Mission: Destroy Chopper";
@@ -239,12 +248,21 @@ while {true} do
 			waitUntil {alive sideObj};
 			sideObj setPos [(getPos sideObj select 0), (getPos sideObj select 1), ((getPos sideObj select 2) - 2)];
 			sideObj setVectorUp [0,0,1];
-			_fuzzyPos = 
-			[
-				((_flatPos select 0) - 300) + (random 600),
-				((_flatPos select 1) - 300) + (random 600),
-				0
-			];
+			_accepted = false;
+			_fuzzyPos = _flatPos;
+			while {!_accepted} do {
+				LOG("Start Fuzzy Loop");
+				_fuzzyPos =
+				[
+					((_flatPos select 0) - 300) + (random 600),
+					((_flatPos select 1) - 300) + (random 600),
+					0
+				];
+				if (!surfaceisWater _fuzzyPos) then {
+					_accepted = true;
+					LOG("Fuzzy Loop Accepted");
+				};
+			};
 
 			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
 			"sideMarker" setMarkerText "Side Mission: Destroy Radar";
@@ -387,12 +405,21 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Set marker up
-			_fuzzyPos = 
-			[
-				((_flatPos select 0) - 300) + (random 600),
-				((_flatPos select 1) - 300) + (random 600),
-				0
-			];
+			_accepted = false;
+			_fuzzyPos = _flatPos;
+			while {!_accepted} do {
+				LOG("Start Fuzzy Loop");
+				_fuzzyPos =
+				[
+					((_flatPos select 0) - 300) + (random 600),
+					((_flatPos select 1) - 300) + (random 600),
+					0
+				];
+				if (!surfaceisWater _fuzzyPos) then {
+					_accepted = true;
+					LOG("Fuzzy Loop Accepted");
+				};
+			};
 
 			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
 			"sideMarker" setMarkerText "Side Mission: Destroy HQ";
