@@ -8,7 +8,7 @@ _getADList = {
 	_sortedList = [];
 	_retList = [];
 	_dist = 0;
-	_list = adPositions;
+	_list = [] + adPositions;
 	
 	_sortedList = [_list,[_baseLoc],{_input0 distance getMarkerPos _x},"ASCEND",{(_input0 distance getMarkerPos _x < 2500)}] call BIS_fnc_sortBy;
 	
