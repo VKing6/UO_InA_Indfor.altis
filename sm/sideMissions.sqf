@@ -195,6 +195,10 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
+			
+			// Spawn area AAA
+			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			
 			//Send new side mission hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText _briefing;
 			showNotification = ["NewSideMission", "Destroy Enemy Chopper"]; publicVariable "showNotification";
@@ -301,6 +305,10 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
+			
+			// Spawn area AAA
+			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			
 			//Throw out objective hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText GlobalHint;
 			showNotification = ["NewSideMission", "Destroy Enemy Radar"]; publicVariable "showNotification";
@@ -400,6 +408,10 @@ while {true} do
 				
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
+			
+			// Spawn area AAA
+			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			
 			//Set marker up
 			_accepted = false;
 			_fuzzyPos = _flatPos;

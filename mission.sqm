@@ -2521,7 +2521,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=113;
+		items=165;
 		class Item0
 		{
 			position[]={-1391.4594,-0.01276912,580.14929};
@@ -3261,6 +3261,318 @@ class Mission
 		{
 			position[]={10077.598,20.177467,11316.623};
 			name="smallTarget_48";
+			type="Empty";
+		};
+		class Item113
+		{
+			position[]={10629.133,93.133301,14150.016};
+			name="ada01";
+			type="Empty";
+		};
+		class Item114
+		{
+			position[]={9471.3096,130.13258,15235.539};
+			name="ada02";
+			type="Empty";
+		};
+		class Item115
+		{
+			position[]={12061.11,41.683285,14768.93};
+			name="ada03";
+			type="Empty";
+		};
+		class Item116
+		{
+			position[]={12856.257,85.576523,16734.426};
+			name="ada05";
+			type="Empty";
+		};
+		class Item117
+		{
+			position[]={14660.172,17.888748,16439.281};
+			name="ada06";
+			type="Empty";
+		};
+		class Item118
+		{
+			position[]={16030.285,34.450771,16368.34};
+			name="ada07";
+			type="Empty";
+		};
+		class Item119
+		{
+			position[]={16681.918,14.387709,13593.116};
+			name="ada08";
+			type="Empty";
+		};
+		class Item120
+		{
+			position[]={17620.855,83.304047,17281.541};
+			name="ada09";
+			type="Empty";
+		};
+		class Item121
+		{
+			position[]={17550.529,71.425644,15361.725};
+			name="ada10";
+			type="Empty";
+		};
+		class Item122
+		{
+			position[]={18278.816,121.38312,12142.918};
+			name="ada11";
+			type="Empty";
+		};
+		class Item123
+		{
+			position[]={17239.641,79.092636,11556.672};
+			name="ada12";
+			type="Empty";
+		};
+		class Item124
+		{
+			position[]={7899.7339,277.92743,14619.565};
+			name="adm01";
+			type="Empty";
+		};
+		class Item125
+		{
+			position[]={8183.5996,68.730095,12730.122};
+			name="ada13";
+			type="Empty";
+		};
+		class Item126
+		{
+			position[]={8223.5234,77.172089,10037.03};
+			name="ada14";
+			type="Empty";
+		};
+		class Item127
+		{
+			position[]={9211.9512,109.79,11471.449};
+			name="ada15";
+			type="Empty";
+		};
+		class Item128
+		{
+			position[]={6561.2998,71.139679,11218.885};
+			name="adm02";
+			type="Empty";
+		};
+		class Item129
+		{
+			position[]={7311.8945,172.82271,13946.147};
+			name="ada16";
+			type="Empty";
+		};
+		class Item130
+		{
+			position[]={6070.3174,106.59175,12729.668};
+			name="ada17";
+			type="Empty";
+		};
+		class Item131
+		{
+			position[]={5298.522,53.860798,13618.51};
+			name="ada18";
+			type="Empty";
+		};
+		class Item132
+		{
+			position[]={10741.074,51.3643,16771.021};
+			name="ada04";
+			type="Empty";
+		};
+		class Item133
+		{
+			position[]={12141.75,74.228813,18573.256};
+			name="ada19";
+			type="Empty";
+		};
+		class Item134
+		{
+			position[]={10348.545,67.725418,8710.4932};
+			name="ada20";
+			type="Empty";
+		};
+		class Item135
+		{
+			position[]={7469.0483,188.93394,17541.721};
+			name="ada21";
+			type="Empty";
+		};
+		class Item136
+		{
+			position[]={6905.7959,77.335045,15907.722};
+			name="ada22";
+			type="Empty";
+		};
+		class Item137
+		{
+			position[]={4228.9907,12.821476,14940.099};
+			name="ada23";
+			type="Empty";
+		};
+		class Item138
+		{
+			position[]={15405.645,77.717155,19207.127};
+			name="ada24";
+			type="Empty";
+		};
+		class Item139
+		{
+			position[]={15214.889,28.460651,11387.898};
+			name="ada25";
+			type="Empty";
+		};
+		class Item140
+		{
+			position[]={9326.1045,40.579193,13751.184};
+			name="ada26";
+			type="Empty";
+		};
+		class Item141
+		{
+			position[]={3045.2375,1.9364297,12626.842};
+			name="ada27";
+			type="Empty";
+		};
+		class Item142
+		{
+			position[]={4046.1987,42.488636,10179.777};
+			name="ada28";
+			type="Empty";
+		};
+		class Item143
+		{
+			position[]={4917.8423,65.508659,12815.361};
+			name="ada29";
+			type="Empty";
+		};
+		class Item144
+		{
+			position[]={5649.9868,92.672249,16050.754};
+			name="ada30";
+			type="Empty";
+		};
+		class Item145
+		{
+			position[]={6139.7002,237.24286,19801.246};
+			name="ada31";
+			type="Empty";
+		};
+		class Item146
+		{
+			position[]={5151.5527,238.38884,21051.914};
+			name="ada33";
+			type="Empty";
+		};
+		class Item147
+		{
+			position[]={11936.976,137.32817,21129.258};
+			name="ada32";
+			type="Empty";
+		};
+		class Item148
+		{
+			position[]={14295.225,96.878693,21790.471};
+			name="ada34";
+			type="Empty";
+		};
+		class Item149
+		{
+			position[]={4979.2773,330.5184,21854.271};
+			name="ada35";
+			type="Empty";
+		};
+		class Item150
+		{
+			position[]={2261.8706,98.713013,22170.447};
+			name="ada36";
+			type="Empty";
+		};
+		class Item151
+		{
+			position[]={4083.603,265.50922,19232.451};
+			name="ada37";
+			type="Empty";
+		};
+		class Item152
+		{
+			position[]={18608.264,41.745148,14401.892};
+			name="ada38";
+			type="Empty";
+		};
+		class Item153
+		{
+			position[]={17034.098,3.7460644,21986.107};
+			name="ada39";
+			type="Empty";
+		};
+		class Item154
+		{
+			position[]={21786.967,15.462959,19748.953};
+			name="ada40";
+			type="Empty";
+		};
+		class Item155
+		{
+			position[]={23495.883,90.550148,21132.406};
+			name="ada41";
+			type="Empty";
+		};
+		class Item156
+		{
+			position[]={25340.523,11.359927,20391.313};
+			name="ada42";
+			type="Empty";
+		};
+		class Item157
+		{
+			position[]={24811.893,12.970127,22919.504};
+			name="ada43";
+			type="Empty";
+		};
+		class Item158
+		{
+			position[]={26821.832,23.308428,24601.264};
+			name="ada44";
+			type="Empty";
+		};
+		class Item159
+		{
+			position[]={25693.035,25.437761,22968.172};
+			name="ada45";
+			type="Empty";
+		};
+		class Item160
+		{
+			position[]={26754.342,67.740883,22129.914};
+			name="ada46";
+			type="Empty";
+		};
+		class Item161
+		{
+			position[]={25216.547,88.451874,21831.277};
+			name="ada47";
+			type="Empty";
+		};
+		class Item162
+		{
+			position[]={22744.482,19.60955,13539.856};
+			name="ada48";
+			type="Empty";
+		};
+		class Item163
+		{
+			position[]={21033.521,18.43845,7592.9775};
+			name="ada49";
+			type="Empty";
+		};
+		class Item164
+		{
+			position[]={18657.025,209.72014,10203.459};
+			name="ada50";
 			type="Empty";
 		};
 	};
