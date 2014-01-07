@@ -1,4 +1,4 @@
-// #define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 _getADList = {
@@ -8,8 +8,9 @@ _getADList = {
 	_sortedList = [];
 	_retList = [];
 	_dist = 0;
+	_list = adPositions;
 	
-	_sortedList = [adPositions,[_baseLoc],{_input0 distance getMarkerPos _x},"ASCEND",{(_input0 distance getMarkerPos _x < 2500)}] call BIS_fnc_sortBy;
+	_sortedList = [_list,[_baseLoc],{_input0 distance getMarkerPos _x},"ASCEND",{(_input0 distance getMarkerPos _x < 2500)}] call BIS_fnc_sortBy;
 	
 	TRACE_1("",_sortedList);
 	for "_i" from 0 to _n-1 do {
@@ -26,9 +27,7 @@ _spawnLevel = [] call vk_getSpawnLevel select 0;
 _aaLevel = [] call vk_getSpawnLevel select 1;
 
 _level = _spawnLevel+_aaLevel;
-// _num = floor (random (_level)) max 1;
 _num = 1 + _aaLevel;
-TRACE_2("",_level,_num);
 
 _adList = [_pos,_num] call _getADList;
 
