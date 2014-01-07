@@ -2,7 +2,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 _getADList = {
-	private ["_baseLoc","_n","_sortedList","_retList","_dist","_adDebugMarker"];
+	private ["_baseLoc","_n","_sortedList","_retList","_dist","_adDebugMarker","_list"];
 	_baseLoc = _this select 0;
 	_n = _this select 1;
 	_sortedList = [];
@@ -23,12 +23,10 @@ _getADList = {
 };
 
 PARAMS_1(_pos);
-private ["_spawnLevel","_aaLevel","_level","_num","_adList","_adVeh"];
+private ["_aaLevel","_num","_adList","_adVeh"];
 
-_spawnLevel = [] call vk_getSpawnLevel select 0;
 _aaLevel = [] call vk_getSpawnLevel select 1;
 
-_level = _spawnLevel+_aaLevel;
 _num = 1 + _aaLevel;
 
 _adList = [_pos,_num] call _getADList;
