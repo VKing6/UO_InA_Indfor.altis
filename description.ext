@@ -22,7 +22,7 @@ Jack Williams (Rarek) for Ahoy World!
 	{
 	  gameType = COOP;
 	  minPlayers = 1;
-	  maxPlayers = 44;
+	  maxPlayers = 40;
 	};
 	
 	#include "=BTC=_revive\=BTC=_respawn.h"
