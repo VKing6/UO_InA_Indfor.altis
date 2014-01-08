@@ -155,8 +155,8 @@ while {true} do {
 		LOG("Start Fuzzy Loop");
 		_fuzzyPos =
 		[
-			((_flatPos select 0) - 300) + (random 600),
-			((_flatPos select 1) - 300) + (random 600),
+			((_flatPos select 0) - 500) + (random 1000),
+			((_flatPos select 1) - 500) + (random 1000),
 			0
 		];
 		if (!surfaceisWater _fuzzyPos) then {
