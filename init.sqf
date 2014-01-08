@@ -55,12 +55,10 @@ _beginTargets = [
 	"Oreokastro",
 	"Galati",
 	"Syrta",
-	"Frini",
-	"Athira",
-	"Factory"
+	"Frini"
 ];
 
-_initialTargets = [
+_initialtargets = [
 	"Abdera",
 	"Oreokastro",
 	"Galati",
@@ -75,8 +73,14 @@ _initialTargets = [
 	"Panochori",
 	"Agios Dionysios",
 	"Lakka",
-	"Airfield"
-	
+	"Airfield",
+	"Zaros",
+	"Therisa",
+	"Poliakko",
+	"Neochori",
+	"Alikampos",
+	"Dockyard",
+	"Telos Base"
 ];
 
 _targets = [
@@ -105,8 +109,7 @@ _targets = [
 ];
 
 //Grab parameters and put them into readable variables
-for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do
-{
+for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do {
 	call compile format
 	[
 		"PARAMS_%1 = %2",
@@ -142,8 +145,7 @@ call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
 	titleText [WELCOME_MESSAGE, "PLAIN", 3];
 };
 
-if (!isServer) then
-{
+if (!isServer) then {
 	[] spawn {
 		while {true} do {
 			waitUntil {sleep 5; currentAOUp};
@@ -220,12 +222,19 @@ smRewards =
 [
 	["an AH-99 Blackfoot", "B_Heli_Attack_01_F"],
 	["an AH-9 Pawnee", "B_Heli_Light_01_armed_F"],
+	["an AH-9 Pawnee", "B_Heli_Light_01_armed_F"],
 	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
 	["an MH-9 Hummingbird", "B_Heli_Light_01_F"],
 	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
+	["an MBT-52 Kuma", "I_MBT_03_cannon_F"],
+	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an IFV-4 Gorgon", "I_APC_Wheeled_03_cannon_F"],
 	["an M4 Scorcher", "B_MBT_01_arty_F"],
-	["an A-143 Buzzard", "I_Plane_Fighter_03_CAS_F"]
+	["a WY-55 Hellcat", "I_Heli_light_03_unarmed_F"],
+	["a WY-55 Hellcat", "I_Heli_light_03_unarmed_F"],
+	["a WY-55 Hellcat (Armed)", "I_Heli_light_03_F"],
+	["a WY-55 Hellcat (Armed)", "I_Heli_light_03_F"],
+	["an AH-99 Blackfoot", "B_Heli_Attack_01_F"]
 ];
 smMarkerList = ["smReward1","smReward2","smReward3","smReward4","smReward5","smReward6","smReward7","smReward8"];
 smHangarList = ["smRewardP1","smRewardP2"];
@@ -255,8 +264,7 @@ if (PARAMS_Skybunker > 0 && isServer) then {
 
 _isPerpetual = false;
 
-if (PARAMS_Perpetual == 1) then
-{
+if (PARAMS_Perpetual == 1) then {
 	_isPerpetual = true;
 };
 
@@ -279,8 +287,7 @@ skipTime PARAMS_TimeOfDay;
 0 setWindDir random 360;
 0 setGusts random 1;
 
-switch (PARAMS_Weather) do
-{
+switch (PARAMS_Weather) do {
 	case 1: {
 		0 setOvercast 0;
 		0 setRain 0;
@@ -322,23 +329,19 @@ _null = [] execVM "sm\priorityTargets.sqf";
 _firstTarget = true;
 _lastTarget = "Nothing";
 
-while {count _targets > 0} do
-{
+while {count _targets > 0} do {
 	sleep 10;
 
 	//Set new current target and calculate targets left
-	if (_isPerpetual) then
-	{
+	if (_isPerpetual) then {
 		_validTarget = false;
-		while {!_validTarget} do
-		{
+		while {!_validTarget} do {
 			if (count _initialTargets == count _targets) then {
 				currentAO = _beginTargets call BIS_fnc_selectRandom;
 				_validTarget = true;
 			} else {
 				currentAO = _targets call BIS_fnc_selectRandom;
-				if (currentAO != _lastTarget) then
-				{
+				if (currentAO != _lastTarget) then {
 					_validTarget = true;
 				};
 
@@ -379,8 +382,7 @@ while {count _targets > 0} do
 	_position = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 	_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
 
-	while {(count _flatPos) < 1} do
-	{
+	while {(count _flatPos) < 1} do	{
 		_position = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 		_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
 	};
@@ -394,8 +396,7 @@ while {count _targets > 0} do
 
 	//Spawn mines
 	_chance = random 10;
-	if (_chance < PARAMS_RadioTowerMineFieldChance) then
-	{
+	if (_chance < PARAMS_RadioTowerMineFieldChance) then {
 		_mines = [_flatPos] call AW_fnc_minefield;
 		_enemiesArray = _enemiesArray + _mines;
 		"radioMineCircle" setMarkerPos (getPos radioTower);
@@ -413,8 +414,7 @@ while {count _targets > 0} do
 		currentAO
 	];
 
-	if (!_isPerpetual) then
-	{
+	if (!_isPerpetual) then	{
 		_targetStartText = format
 		[
 			"%1 Only %2 more targets to go!",
@@ -447,11 +447,9 @@ while {count _targets > 0} do
 	[_enemiesArray] spawn AW_fnc_deleteOldAOUnits;
 
 	//Delete markers and trigger
-	/* if (_isPerpetual) then
-	{
+	/* if (_isPerpetual) then {
 		//_perimeterMarker = [currentAO] call AW_fnc_markerDeactivate;
-		if (count _targets == 1) then
-		{
+		if (count _targets == 1) then {
 			_targets = _initialTargets;
 			_lastTarget = currentAO;
 			publicVariable "refreshMarkers";
@@ -463,11 +461,9 @@ while {count _targets > 0} do
 		//deleteMarker currentAO;
 	}; */
 
-	if (_isPerpetual) then
-	{
+	if (_isPerpetual) then {
 		_lastTarget = currentAO;
-		if ((count (_targets)) == 1) then
-		{
+		if ((count (_targets)) == 1) then {
 			_targets = _initialTargets;
 		} else {
 			_targets = _targets - [currentAO];
