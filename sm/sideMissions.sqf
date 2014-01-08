@@ -20,7 +20,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos","_accepted"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos","_accepted","_unit","_hutPos"];
 _sideMissions = 
 
 [
@@ -133,29 +133,28 @@ while {true} do {
 			waitUntil {alive sideObj};
 			{_x setDir _randomDir} forEach [sideObj,_hangar];
 			sideObj setVehicleLock "LOCKED";
-			_accepted = false;
-			_fuzzyPos = _flatPos;
-			while {!_accepted} do {
-				LOG("Start Fuzzy Loop");
-				_fuzzyPos =
-				[
-					((_flatPos select 0) - 500) + (random 1000),
-					((_flatPos select 1) - 500) + (random 1000),
-					0
-				];
-				if (!surfaceisWater _fuzzyPos) then {
-					_accepted = true;
-					LOG("Fuzzy Loop Accepted");
-				};
+			_unitsArray = [sideObj];
+						
+			//Spawn outbuildings
+			for "_i" from 0 to floor(random 2) do {
+				_hutPos = [
+					_flatPos,
+					sizeOf "Land_TentHangar_V1_F" + 5,
+					sizeOf "Land_TentHangar_V1_F" + 20,
+					sizeOf "Land_Cargo_House_V1_F",
+					0,
+					0.35,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+				_spawnGroup = "Land_Cargo_House_V1_F" createVehicle _hutPos;
+				waitUntil {alive _spawnGroup};
+				_spawnGroup setDir (random 360);
+				_spawnGroup setVectorUp [0,0,1];
+				_unitsArray = _unitsArray + [_spawnGroup];
 			};
 
-			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
-			"sideMarker" setMarkerText "Side Mission: Destroy Chopper";
-			publicVariable "sideMarker";
-			publicVariable "sideObj";
-
 			//Spawn some enemies around the objective
-			_unitsArray = [sideObj];
 			for "_i" from 0 to _spawnLevel do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, WEST, (configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfTeam")] call BIS_fnc_spawnGroup;
@@ -190,6 +189,27 @@ while {true} do {
 			
 			// Spawn area AAA
 			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			
+			_accepted = false;
+			_fuzzyPos = _flatPos;
+			while {!_accepted} do {
+				LOG("Start Fuzzy Loop");
+				_fuzzyPos =
+				[
+					((_flatPos select 0) - 500) + (random 1000),
+					((_flatPos select 1) - 500) + (random 1000),
+					0
+				];
+				if (!surfaceisWater _fuzzyPos) then {
+					_accepted = true;
+					LOG("Fuzzy Loop Accepted");
+				};
+			};
+
+			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
+			"sideMarker" setMarkerText "Side Mission: Destroy Chopper";
+			publicVariable "sideMarker";
+			publicVariable "sideObj";
 			
 			//Send new side mission hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText _briefing;
@@ -240,29 +260,27 @@ while {true} do {
 			waitUntil {alive sideObj};
 			sideObj setPos [(getPos sideObj select 0), (getPos sideObj select 1), ((getPos sideObj select 2) - 2)];
 			sideObj setVectorUp [0,0,1];
-			_accepted = false;
-			_fuzzyPos = _flatPos;
-			while {!_accepted} do {
-				LOG("Start Fuzzy Loop");
-				_fuzzyPos =
-				[
-					((_flatPos select 0) - 500) + (random 1000),
-					((_flatPos select 1) - 500) + (random 1000),
-					0
-				];
-				if (!surfaceisWater _fuzzyPos) then {
-					_accepted = true;
-					LOG("Fuzzy Loop Accepted");
-				};
-			};
-
-			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
-			"sideMarker" setMarkerText "Side Mission: Destroy Radar";
-			publicVariable "sideMarker";
-			publicVariable "sideObj";
-
-			//Spawn some enemies around the objective
 			_unitsArray = [sideObj];
+			
+			//Spawn outbuildings
+			for "_i" from 0 to floor(random 2) do {
+				_hutPos = [
+					_flatPos,
+					sizeOf "Land_Radar_small_F" + 5,
+					sizeOf "Land_Radar_small_F" + 20,
+					sizeOf "Land_Cargo_House_V1_F",
+					0,
+					0.35,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+				_spawnGroup = "Land_Cargo_House_V1_F" createVehicle _hutPos;
+				waitUntil {alive _spawnGroup};
+				_spawnGroup setDir (random 360);
+				_spawnGroup setVectorUp [0,0,1];
+				_unitsArray = _unitsArray + [_spawnGroup];
+			};
+			//Spawn some enemies around the objective
 			for "_i" from 0 to _spawnLevel do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, WEST, (configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfTeam")] call BIS_fnc_spawnGroup;
@@ -297,6 +315,27 @@ while {true} do {
 			
 			// Spawn area AAA
 			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			
+			_accepted = false;
+			_fuzzyPos = _flatPos;
+			while {!_accepted} do {
+				LOG("Start Fuzzy Loop");
+				_fuzzyPos =
+				[
+					((_flatPos select 0) - 500) + (random 1000),
+					((_flatPos select 1) - 500) + (random 1000),
+					0
+				];
+				if (!surfaceisWater _fuzzyPos) then {
+					_accepted = true;
+					LOG("Fuzzy Loop Accepted");
+				};
+			};
+
+			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
+			"sideMarker" setMarkerText "Side Mission: Destroy Radar";
+			publicVariable "sideMarker";
+			publicVariable "sideObj";
 			
 			//Throw out objective hint
 			GlobalHint = _briefing; publicVariable "GlobalHint"; hint parseText GlobalHint;
@@ -350,16 +389,38 @@ while {true} do {
 			sideObj setDir _randomDir;
 			sideObj setVectorUp [0,0,1];
 			
-			
 			_unitsArray = [sideObj];
+			
+			//Spawn outbuildings
+			for "_i" from 0 to floor(random 4) do {
+				_hutPos = [
+					_flatPos,
+					sizeOf "Land_Cargo_HQ_V1_F" + 5,
+					sizeOf "Land_Cargo_HQ_V1_F" + 20,
+					sizeOf "Land_Cargo_House_V1_F",
+					0,
+					0.35,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+				_spawnGroup = "Land_Cargo_House_V1_F" createVehicle _hutPos;
+				waitUntil {alive _spawnGroup};
+				_spawnGroup setDir (random 360);
+				_spawnGroup setVectorUp [0,0,1];
+				_unitsArray = _unitsArray + [_spawnGroup];
+			};
 			//Spawn some AA yo!
-			if (_aaLevel >= 1 || {random 1 > 0.85}) then {
-				_spawnGroup = "B_HMG_01_high_F" createVehicle _flatpos;
-				_spawnGroup setpos (sideObj modelToWorld [0,0,-1.3]);
-				_spawnGroup disableTIEquipment true;
-				createVehicleCrew (_spawnGroup);
-				_spawnGroup = group (gunner _spawnGroup);
+			if (_aaLevel >= 1 || {random 1 > 0.75}) then {
+				_spawnGroup = createGroup WEST;
+				_unit = "B_soldier_AA_F" createUnit [_flatPos,_spawnGroup];
+				_unit setpos (sideObj buildingPos 4);
+				_unit setDir (_randomDir + 90);
+				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 				
+				_spawnGroup = createGroup WEST;
+				_unit = "B_soldier_AA_F" createUnit [_flatPos,_spawnGroup];
+				_unit setpos (sideObj buildingPos 6);
+				_unit setDir (_randomDir - 90);
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the objective area
