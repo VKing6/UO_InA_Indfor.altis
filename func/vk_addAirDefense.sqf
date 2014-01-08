@@ -34,7 +34,7 @@ if (count _adList > 0) then {
 	{
 		if !(_x in activeAD) then {
 			PUSH(activeAD,_x);
-			_adVeh = createVehicle ["O_APC_Tracked_02_AA_F",getMarkerPos _x, [], 0, "NONE"];
+			_adVeh = createVehicle ["B_APC_Tracked_01_AA_F",getMarkerPos _x, [], 0, "NONE"];
 			_adVeh removeWeapon "missiles_titan";
 			_adVeh setFuel 0;
 			_adVeh allowCrewInImmobile true;

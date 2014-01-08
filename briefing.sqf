@@ -116,7 +116,7 @@
 		<br/>
 		<br/>b. Composition:
 		<br/>
-		<br/>Enemy forces consist of mechanized and armored CSAT forces. 
+		<br/>Enemy forces consist of mechanized and armored NATO forces. 
 		<br/>
 		<br/>c. Strength:
 		<br/>

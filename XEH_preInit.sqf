@@ -133,9 +133,9 @@
 
 	aw_fnc_fuelMonitor = {
 		if(!isServer OR (vehicle _this == _this)) exitWith {};
-		while{(alive _this) AND (({side _x == east} count (crew _this)) > 0)} do {
-			waitUntil{sleep 2;(fuel _this < 0.1) OR !(alive _this) OR !(({side _x == east} count (crew _this)) > 0)};
-			if((alive _this) AND (({side _x == east} count (crew _this)) > 0)) then {_x setFuel 1};
+		while{(alive _this) AND (({side _x == WEST} count (crew _this)) > 0)} do {
+			waitUntil{sleep 2;(fuel _this < 0.1) OR !(alive _this) OR !(({side _x == WEST} count (crew _this)) > 0)};
+			if((alive _this) AND (({side _x == WEST} count (crew _this)) > 0)) then {_x setFuel 1};
 		};
 	};
 

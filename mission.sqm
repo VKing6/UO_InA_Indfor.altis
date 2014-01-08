@@ -65,6 +65,8 @@ class Mission
 	{
 		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.81";
 		overviewText="Domi-esque Seeder Mission";
+		resistanceWest=0;
+		resistanceEast=1;
 		timeOfChanges=3600;
 		startWeather=0;
 		startWind=0.049999997;

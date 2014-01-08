@@ -97,16 +97,16 @@ while {true} do {
 
 	//Spawn units
 	_spawnMagnitude = if (_SPG) then {8} else {2};
-	_spawnVehicleType = if (_SPG) then {"O_MBT_02_arty_F"} else {"O_Mortar_01_F"};
+	_spawnVehicleType = if (_SPG) then {"B_MBT_01_arty_F"} else {"B_Mortar_01_F"};
 	_flatPosAlt = [(_flatPos select 0) - _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
 	_flatPosClose = [(_flatPos select 0) + _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
-	_priorityGroup = createGroup EAST;
+	_priorityGroup = createGroup WEST;
 	priorityVeh1 = _spawnVehicleType createVehicle _flatPosAlt;
 	priorityVeh2 = _spawnVehicleType createVehicle _flatPosClose;
 	priorityVeh1 addEventHandler["Fired",{if (!isPlayer (gunner priorityVeh1)) then { priorityVeh1 setVehicleAmmo 1; };}];
 	priorityVeh2 addEventHandler["Fired",{if (!isPlayer (gunner priorityVeh2)) then { priorityVeh2 setVehicleAmmo 1; };}];
-	"O_Soldier_F" createUnit [_flatPosAlt, _priorityGroup, "priorityTarget1 = this; this moveInGunner priorityVeh1;"];
-	"O_Soldier_F" createUnit [_flatPosClose, _priorityGroup, "priorityTarget2 = this; this moveInGunner priorityVeh2;"];
+	"B_crew_F" createUnit [_flatPosAlt, _priorityGroup, "priorityTarget1 = this; this moveInGunner priorityVeh1;"];
+	"B_crew_F" createUnit [_flatPosClose, _priorityGroup, "priorityTarget2 = this; this moveInGunner priorityVeh2;"];
 	waitUntil {alive priorityTarget1 && alive priorityTarget2};
 	priorityTargets = [priorityTarget1, priorityTarget2];
 	{ publicVariable _x; } forEach ["priorityTarget1", "priorityTarget2", "priorityTargets", "priorityVeh1", "priorityVeh2"];
@@ -133,7 +133,7 @@ while {true} do {
 	//Spawn some enemies protecting the units
 	for "_c" from 0 to 0 do {
 		_randomPos = [[[_flatPos, 85]],["water","out"]] call BIS_fnc_randomPos;
-		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_AT")] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST, (configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized_MTP" >> "BUS_MotInf_AT")] call BIS_fnc_spawnGroup;
 		// [_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
 		[_spawnGroup, _flatPos, 250] call aw_fnc_spawn2_perimeterPatrol;
 
@@ -142,7 +142,7 @@ while {true} do {
 
 	for "_c" from 0 to 2 do {
 		_randomPos = [[[_flatPos, 50]],["water","out"]] call BIS_fnc_randomPos;
-		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST, (configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfTeam")] call BIS_fnc_spawnGroup;
 		[_spawnGroup, _pos, 100] call bis_fnc_taskPatrol;
 
 		_unitsArray = _unitsArray + [_spawnGroup];
@@ -229,7 +229,7 @@ while {true} do {
 				_maxRange = ((_targetPos distance _flatPos) > 4075);
 			};
 			
-			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
+			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != WEST && WEST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
 				_accepted = true;
 				LOG("Targeting Loop Accepted");
 			};

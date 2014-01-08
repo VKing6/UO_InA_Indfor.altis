@@ -237,7 +237,7 @@ if (!isServer) exitWith
 /* ============ SERVER INITIALISATION ============ */
 
 //Set a few blank variables for event handlers and solid vars for SM
-eastSide = createCenter EAST;
+westSide = createCenter WEST;
 
 sideMissionUp = false;
 currentAOUp = false;
@@ -393,7 +393,7 @@ while {count _targets > 0} do {
 	//Create AO detection trigger
 	_dt = createTrigger ["EmptyDetector", getMarkerPos currentAO];
 	_dt setTriggerArea [PARAMS_AOSize, PARAMS_AOSize, 0, false];
-	_dt setTriggerActivation ["EAST", "PRESENT", false];
+	_dt setTriggerActivation ["WEST", "PRESENT", false];
 	_dt setTriggerStatements ["this","",""];
 
 	//Spawn enemies

@@ -13,7 +13,7 @@ _aaLevel = [] call vk_getSpawnLevel select 1;
 _x = 0;
 for "_x" from 1 to _spawnLevel do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
-	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+	_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, _pos, 50] call aw_fnc_spawn2_perimeterPatrol;
 
 	{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
@@ -27,7 +27,7 @@ for "_x" from 1 to _spawnLevel do {
 _x = 0;
 for "_x" from 0 to (_spawnLevel + 2) do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
-	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+	_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, PARAMS_AOSize, _pos] call tin_aiGarrison;
 
 	{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
@@ -41,7 +41,7 @@ for "_x" from 0 to (_spawnLevel + 2) do {
 _x = 0;
 for "_x" from 0 to ((_spawnLevel + 2) * 2) do {
 	_randomPos = [[[getMarkerPos currentAO, 20],_dt],["water","out"]] call BIS_fnc_randomPos;
-	_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+	_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfTeam"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	[_spawnGroup, getMarkerPos currentAO, PARAMS_AOSize] call aw_fnc_spawn2_randomPatrol;		
 
 	{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
@@ -56,11 +56,11 @@ for "_x" from 0 to _spawnLevel do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
 	if(random 1 > 0.50) then {
-		_angryGroup = ["O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F","O_MBT_02_cannon_F"];
+		_angryGroup = ["B_APC_Tracked_01_rcws_F","B_APC_Wheeled_01_cannon_F","B_MBT_01_cannon_F"];
 		_spawnGroup	= (_angryGroup call BIS_fnc_selectRandom) createVehicle _randomPos;
 		createVehicleCrew vehicle _spawnGroup;
 	} else {
-		_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Motorized_MTP" >> "BUS_MotInf_Team"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	};
 
 	[_spawnGroup, _pos, PARAMS_AOSize] call bis_fnc_taskPatrol;
@@ -81,9 +81,9 @@ for "_x" from 0 to (floor(_spawnLevel/1.5)) do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
 	if(random 1 > 0.70) then {
-		_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Armored" >> "OIA_TankSection"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >>"Armored" >> "BUS_TankSection"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	} else {
-		_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Mechanized" >> "OIA_MechInf_AT"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >>"Mechanized" >> "BUS_MechInf_AT"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	};
 
 	[_spawnGroup, _pos, PARAMS_AOSize] call bis_fnc_taskPatrol;
@@ -104,10 +104,10 @@ for "_x" from 0 to _aaLevel do {
 	_randomPos = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 
 	if(random 1 > 0.70) then {
-		_spawnGroup	= "O_APC_Tracked_02_AA_F" createVehicle _randomPos;
+		_spawnGroup	= "B_APC_Tracked_01_AA_F" createVehicle _randomPos;
 		createVehicleCrew vehicle _spawnGroup;
 	} else {
-		_spawnGroup = [_randomPos, EAST,(configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam_AA"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
+		_spawnGroup = [_randomPos, WEST,(configfile >> "CfgGroups" >> "West" >> "BLU_F" >>"Infantry" >> "BUS_InfTeam"),[],[],_aiSkill] call BIS_fnc_spawnGroup;
 	};
 
 	[_spawnGroup, _pos, PARAMS_AOSize] call bis_fnc_taskPatrol;
