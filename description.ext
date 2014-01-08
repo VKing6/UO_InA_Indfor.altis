@@ -142,7 +142,7 @@ Jack Williams (Rarek) for Ahoy World!
 			default = 0;
 		};
 		*/
-		class AOSize {// Base on player count?
+		class AOSize { // Base on player count? 
 			title = "Main AO Diameter";
 			values[] = {200,300,400,500,600,700,800,900,1000};
 			texts[] = {"200m","300m","400m","500m","600m","700m","800m","900m","1,000m"};
