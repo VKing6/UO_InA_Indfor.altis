@@ -145,6 +145,12 @@ Jack Williams (Rarek) for Ahoy World!
 			texts[] = {"All of Altis","Western Altis"};
 			default = 1;
 		};
+		class SmIntervalTime {
+			title = "Interval between side missions";
+			values[] = {0,1,2};
+			texts[] = {"5-10 minutes","10-20 minutes","15-30 minutes"};
+			default = 1;
+		};
 		/*
 		class AOArea {
 			title = "Area of operations";
@@ -175,12 +181,6 @@ Jack Williams (Rarek) for Ahoy World!
 			values[] = {0,1};
 			texts[] = {"No","Yes"};
 			default = 0;
-		};
-		class SmIntervalTime {
-			title = "Interval between side missions";
-			values[] = {0,1,2};
-			texts[] = {"5-10 minutes","10-20 minutes","15-30 minutes"};
-			default = 1;
 		};
 	};
 
