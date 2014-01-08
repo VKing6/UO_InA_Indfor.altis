@@ -11,8 +11,7 @@ class HudNames {
 	onLoad = "uiNamespace setVariable ['HudNames', _this select 0]";
 	
 	class controlsBackground {
-		class HudNames_1:RscStructuredText
-		{
+		class HudNames_1:RscStructuredText {
 			idc = names_idc;
 			type = CT_STRUCTURED_TEXT;
 			size = 0.040;

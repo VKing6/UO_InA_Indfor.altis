@@ -9,14 +9,12 @@ private["_cfg","_type","_temp","_ret","_master","_class","_details","_displayNam
 _cfg = [_this,0,"",[""]] call BIS_fnc_param;
 if(_cfg == "") exitWith {}; //Bad data passed, exit.
 
-if(VAS_preload) then
-{
+if(VAS_preload) then {
 	if(!isNil {VAS_pre_weapons} && !isNil {VAS_pre_magazines} && !isNil {VAS_pre_items} && !isNil {VAS_pre_backpacks} && !isNil {VAS_pre_glasses}) exitWith {}; //Exit since preload is completed and shouldn't be called again.
 	//If it is called again then why is that? Are you not happy with what I supplied you? I supplied you with wonderful candy! Y U NO LIKE MY CANDY?!?!?
 };
 
-switch(_cfg) do
-{
+switch(_cfg) do {
 	case "CfgWeapons":
 	{
 		if(!isNil {uiNamespace getVariable "VASP_weapons"}) exitWith {["CfgWeapons"] call VAS_fnc_VASP;};
@@ -25,11 +23,9 @@ switch(_cfg) do
 		_ret2 = [];
 		_master = configFile >> _cfg;
 		private["_base","_ret2"];
-		for "_i" from 0 to (count _master)-1 do
-		{
+		for "_i" from 0 to (count _master)-1 do {
 			_class = _master select _i;
-			if(isClass _class) then
-			{
+			if(isClass _class) then {
 				_class = configName _class;
 				_details = [_class,_cfg] call VAS_fnc_fetchCfgDetails;
 				_displayName = _details select 1;
@@ -42,22 +38,17 @@ switch(_cfg) do
 				
 				_str = [_class,4] call VAS_fnc_KRON_StrLeft;
 				
-				if(_scope >= 2 && _str != "ACRE") then
-				{
-					switch (true) do
-					{
+				if(_scope >= 2 && _str != "ACRE") then {
+					switch (true) do {
 						case (_type in [1,2,4,5,4096]):
 						{
-							if(_picture != "" && _displayName != "") then
-							{
-								if(_itemInfo == 616 && _type == 4096) then
-								{
+							if(_picture != "" && _displayName != "") then {
+								if(_itemInfo == 616 && _type == 4096) then {
 									_ret2 set[count _ret2,_class];
 								}
 									else
 								{
-									if(!(_displayName in _temp) && !(_base in VAS_r_weapons) && !(_class in VAS_r_weapons)) then
-									{
+									if(!(_displayName in _temp) && !(_base in VAS_r_weapons) && !(_class in VAS_r_weapons)) then {
 										_temp set[count _temp,_displayName];
 										_ret set[count _ret,_class];
 									};
@@ -67,8 +58,7 @@ switch(_cfg) do
 						
 						case (_type == 131072):
 						{
-							if(_picture != "" && !(_base in VAS_r_items) && !(_class in VAS_r_items)) then
-							{
+							if(_picture != "" && !(_base in VAS_r_items) && !(_class in VAS_r_items)) then {
 								_ret2 set[count _ret2,_class];
 							};
 						};
@@ -88,22 +78,18 @@ switch(_cfg) do
 		_temp = [];
 		_ret = [];
 		_master = configFile >> _cfg;
-		for "_i" from 0 to (count _master)-1 do
-		{
+		for "_i" from 0 to (count _master)-1 do {
 			_class = _master select _i;
-			if(isClass _class) then
-			{
+			if(isClass _class) then {
 				_class = configName _class;
 				_details = [_class,_cfg] call VAS_fnc_fetchCfgDetails;
 				_displayName = _details select 1;
 				_picture = _details select 2;
 				_scope = _details select 3;
 				
-				if(_scope >= 1 && _picture != "" && !(_displayName in _temp)) then
-				{
+				if(_scope >= 1 && _picture != "" && !(_displayName in _temp)) then {
 					_str = [_class,4] call VAS_fnc_KRON_StrLeft;
-					if(_str != "ACRE" && !(_class in VAS_R_magazines)) then
-					{
+					if(_str != "ACRE" && !(_class in VAS_R_magazines)) then {
 						_temp set[count _temp,_displayName];
 						_ret set[count _ret,_class];
 					};
@@ -121,11 +107,9 @@ switch(_cfg) do
 		_ret = [];
 		_master = configFile >> _cfg;
 		private["_base"];
-		for "_i" from 0 to (count _master)-1 do
-		{
+		for "_i" from 0 to (count _master)-1 do {
 			_class = _master select _i;
-			if(isClass _class) then
-			{
+			if(isClass _class) then {
 				_class = configName _class;
 				_details = [_class,_cfg] call VAS_fnc_fetchCfgDetails;
 				_displayName = _details select 1;
@@ -133,11 +117,9 @@ switch(_cfg) do
 				_scope = _details select 3;
 				_type = _details select 4;
 				_base = inheritsFrom (configFile >> _cfg >> _class);
-				if(_scope >= 2 && _type == "Backpacks" && _picture != "") then
-				{
+				if(_scope >= 2 && _type == "Backpacks" && _picture != "") then {
 					_str = [_class,4] call VAS_fnc_KRON_StrLeft;
-					if(_str != "ACRE" && !(_base in VAS_r_backpacks) && !(_class in VAS_r_backpacks)) then
-					{
+					if(_str != "ACRE" && !(_base in VAS_r_backpacks) && !(_class in VAS_r_backpacks)) then {
 						_ret set[count _ret,_class];
 					};
 				};
@@ -154,21 +136,17 @@ switch(_cfg) do
 		_temp = [];
 		_ret = [];
 		_master = configFile >> _cfg;
-		for "_i" from 0 to (count _master)-1 do
-		{
+		for "_i" from 0 to (count _master)-1 do {
 			_class = _master select _i;
-			if(isClass _class) then
-			{
+			if(isClass _class) then {
 				_class = configName _class;
 				_details = [_class,_cfg] call VAS_fnc_fetchCfgDetails;
 				_displayName = _details select 1;
 				_picture = _details select 2;
 				
-				if(_picture != "" && _displayName != "None" && !(_displayName in _temp)) then
-				{
+				if(_picture != "" && _displayName != "None" && !(_displayName in _temp)) then {
 					_str = [_class,4] call VAS_fnc_KRON_StrLeft;
-					if(_str != "ACRE" && !(_class in VAS_r_glasses)) then
-					{
+					if(_str != "ACRE" && !(_class in VAS_r_glasses)) then {
 						_temp set[count _temp,_displayName];
 						_ret set[count _ret,_class];
 					};

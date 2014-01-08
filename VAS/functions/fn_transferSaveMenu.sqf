@@ -14,12 +14,9 @@ disableSerialization;
 (VAS_getControl(VAS_transfer_MainMenu,VAS_transfer_unitsMenu)) ctrlShow false;
 
 _control = VAS_getControl(VAS_transfer_MainMenu,VAS_transfer_save_list);
-if(vas_disableLoadSave) then
-{
-	for "_i" from 0 to vas_customslots do
-	{
-		if(!isNil {missionNamespace getVariable format["vas_gear_new_%1",_i]}) then
-		{
+if(vas_disableLoadSave) then {
+	for "_i" from 0 to vas_customslots do {
+		if(!isNil {missionNamespace getVariable format["vas_gear_new_%1",_i]}) then {
 			_control lbAdd format["%1",(missionNamespace getVariable format["vas_gear_new_%1",_i]) select 0];
 		}
 			else
@@ -30,10 +27,8 @@ if(vas_disableLoadSave) then
 }
 	else
 {
-	for "_i" from 0 to vas_customslots do
-	{
-		if(!isNil {profileNamespace getVariable format["vas_gear_new_%1",_i]}) then
-		{
+	for "_i" from 0 to vas_customslots do {
+		if(!isNil {profileNamespace getVariable format["vas_gear_new_%1",_i]}) then {
 			_control lbAdd format["%1",(profileNamespace getVariable format["vas_gear_new_%1",_i]) select 0];
 		}
 			else

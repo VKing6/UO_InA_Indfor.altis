@@ -22,14 +22,12 @@ if (isDedicated) exitWith {};
 waitUntil {!isNull player};
 
 player addEventHandler ["Fired", {
-	if ({(_this select 0) distance getMarkerPos (_x select 0) < _x select 1} count SAFETY_ZONES > 0) then
-	{
+	if ({(_this select 0) distance getMarkerPos (_x select 0) < _x select 1} count SAFETY_ZONES > 0) then {
 		deleteVehicle (_this select 6);
 		titleText [MESSAGE, "PLAIN", 3];
 	};
 	
-	if (_this select 5 == "RPG32_AA_F") then
-	{
+	if (_this select 5 == "RPG32_AA_F") then {
 		deleteVehicle (_this select 6);
 		titleText [AA_MESSAGE, "PLAIN", 3];
 	};

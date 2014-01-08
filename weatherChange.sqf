@@ -26,12 +26,10 @@ Quick check to see if DEV builds are working...
 
 
 private ["_random"];
-while {true} do
-{
+while {true} do {
 	sleep (3600 + (random 3600));
 	_random = random 1;
-	if (_random <= 0.8) then
-	{
+	if (_random <= 0.8) then {
 		60 setOvercast 0;
 	} else {
 		60 setOvercast (0.7 + random 0.3);

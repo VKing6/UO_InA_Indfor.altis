@@ -22,18 +22,15 @@ while {true} do {
 			if (isNil "_obj") then {_obj = objNull};
 			_isGroup = false;
 			if (_obj in allGroups) then { _isGroup = true; } else { _isGroup = false; };
-			if (_isGroup) then
-			{
+			if (_isGroup) then {
 				{
-					if (!isNull _x) then
-					{
+					if (!isNull _x) then {
 						deleteVehicle _x;
 					};
 				} forEach (units _obj);
 				deleteGroup _obj;
 			} else {
-				if (!isNull _obj) then
-				{
+				if (!isNull _obj) then {
 					deleteVehicle _obj;
 				};
 			};
@@ -123,8 +120,7 @@ while {true} do {
 	//Spawn H-Barrier cover "Land_HBarrierBig_F"
 	_distance = if (_SPG) then {20} else {12};
 	_dir = 0;
-	for "_c" from 0 to 15 do
-	{
+	for "_c" from 0 to 15 do {
 		_pos = [_flatPos, _distance, _dir] call BIS_fnc_relPos;
 		_barrier = "Land_HBarrier_3_F" createVehicle _pos;
 		waitUntil {alive _barrier};
@@ -135,8 +131,7 @@ while {true} do {
 	};
 
 	//Spawn some enemies protecting the units
-	for "_c" from 0 to 0 do
-	{
+	for "_c" from 0 to 0 do {
 		_randomPos = [[[_flatPos, 85]],["water","out"]] call BIS_fnc_randomPos;
 		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_AT")] call BIS_fnc_spawnGroup;
 		// [_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
@@ -145,8 +140,7 @@ while {true} do {
 		_unitsArray = _unitsArray + [_spawnGroup];
 	};
 
-	for "_c" from 0 to 2 do
-	{
+	for "_c" from 0 to 2 do {
 		_randomPos = [[[_flatPos, 50]],["water","out"]] call BIS_fnc_randomPos;
 		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 		[_spawnGroup, _pos, 100] call bis_fnc_taskPatrol;

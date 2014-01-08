@@ -45,10 +45,8 @@ switch (PARAMS_SMArea) do {
 	default {_smPos = []};
 };
 
-while {true} do
-{	
-	if (_firstRun) then
-	{
+while {true} do {	
+	if (_firstRun) then {
 		//Debug if statement only...
 		_firstRun = false;
 		sleep 10;
@@ -79,18 +77,15 @@ while {true} do
 				if (isNil "_obj") then {_obj = objNull};
 				_isGroup = false;
 				if (_obj in allGroups) then { _isGroup = true; } else { _isGroup = false; };
-				if (_isGroup) then
-				{
+				if (_isGroup) then {
 					{
-						if (!isNull _x) then
-						{
+						if (!isNull _x) then {
 							deleteVehicle _x;
 						};
 					} forEach (units _obj);
 					deleteGroup _obj;
 				} else {
-					if (!isNull _obj) then
-					{
+					if (!isNull _obj) then {
 						deleteVehicle _obj;
 					};
 				};
@@ -161,8 +156,7 @@ while {true} do
 
 			//Spawn some enemies around the objective
 			_unitsArray = [sideObj];
-			for "_i" from 0 to _spawnLevel do
-			{
+			for "_i" from 0 to _spawnLevel do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
@@ -170,8 +164,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the perimeter
-			for "_i" from 0 to (_spawnLevel + 1) do
-			{
+			for "_i" from 0 to (_spawnLevel + 1) do {
 				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
@@ -179,8 +172,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn some enemies to patrol the area
-			for "_i" from 0 to (_spawnLevel+1) do
-			{
+			for "_i" from 0 to (_spawnLevel+1) do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
@@ -271,8 +263,7 @@ while {true} do
 
 			//Spawn some enemies around the objective
 			_unitsArray = [sideObj];
-			for "_i" from 0 to _spawnLevel do
-			{
+			for "_i" from 0 to _spawnLevel do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
@@ -280,8 +271,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the perimeter
-			for "_i" from 0 to (_spawnLevel + 1) do
-			{
+			for "_i" from 0 to (_spawnLevel + 1) do {
 				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
@@ -289,8 +279,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn some enemies to patrol the objective area
-			for "_i" from 0 to (_spawnLevel+1) do
-			{
+			for "_i" from 0 to (_spawnLevel+1) do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
@@ -374,8 +363,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the objective area
-			for "_i" from 0 to (_spawnLevel + 1) do
-			{
+			for "_i" from 0 to (_spawnLevel + 1) do {
 				_randomPos = [[[getPos sideObj, 50]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
@@ -383,8 +371,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to patrol the perimeter
-			for "_i" from 0 to (_spawnLevel + 1) do
-			{
+			for "_i" from 0 to (_spawnLevel + 1) do {
 				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 200] call aw_fnc_spawn2_perimeterPatrol;
@@ -392,8 +379,7 @@ while {true} do
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
 			//Spawn units to garrison the objective
-			for "_i" from 0 to _spawnLevel do
-			{
+			for "_i" from 0 to _spawnLevel do {
 				_randomPos = [[[getPos sideObj, 20]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos] call BIS_fnc_taskDefend;

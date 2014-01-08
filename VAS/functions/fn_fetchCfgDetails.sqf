@@ -37,10 +37,8 @@ _itemInfo = -1;
 _muzzles = [];
 _magazines = [];
 if(_entity == "") exitWith {[]};
-_cfg = if(isNil {_this select 1}) then
-{
-	switch (true) do
-	{
+_cfg = if(isNil {_this select 1}) then {
+	switch (true) do {
 		case (isClass (configFile >> "CfgMagazines" >> _entity)) : {"CfgMagazines";};
 		case (isClass (configFile >> "CfgWeapons" >> _entity)) : {"CfgWeapons";};
 		case (isClass (configFile >> "CfgVehicles" >> _entity)) : {"CfgVehicles";};
@@ -65,8 +63,7 @@ _picture = getText(_config >> "picture");
 _desc = getText(_config >> "descriptionshort");
 _base = inheritsFrom _config;
 
-switch (_cfg) do
-{
+switch (_cfg) do {
 	case "CfgVehicles":
 	{
 		_type = getText(_config >> "vehicleClass");
@@ -80,8 +77,7 @@ switch (_cfg) do
 		_desc = getText(_config >> "descriptionshort");
 		
 		//Compatible attachments
-		if(isClass (_config >> "WeaponSlotsInfo")) then
-		{
+		if(isClass (_config >> "WeaponSlotsInfo")) then {
 			_acc_p = getArray(_config >> "WeaponSlotsInfo" >> "PointerSlot" >> "compatibleItems");
 			_acc_o = getArray(_config >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
 			_acc_m = getArray(_config >> "WeaponSlotsInfo" >> "MuzzleSlot" >> "compatibleItems");
@@ -99,20 +95,17 @@ switch (_cfg) do
 
 		};
 		
-		if(isClass (_config >> "ItemInfo")) then
-		{
+		if(isClass (_config >> "ItemInfo")) then {
 			_itemInfo = getNumber(_config >> "ItemInfo" >> "Type");
 		};
 		
 		_muzzles = getArray(_config >> "muzzles");
 		_magazines = getArray(_config >> "magazines");
-		if(!isNil {_muzzles}) then
-		{
+		if(!isNil {_muzzles}) then {
 			private["_tmp"];
 		//	_base = inheritsFrom (configFile >> "CfgWeapons" >> _entity);
 			{
-				if(_x != "this") then
-				{
+				if(_x != "this") then {
 					_tmp = getArray(_base >> _x >> "magazines");
 					{
 						_magazines set[count _magazines, _x];
@@ -128,8 +121,7 @@ switch (_cfg) do
 	};
 };
 
-if(!isNil "_slotclasses") then
-{
+if(!isNil "_slotclasses") then {
 	_slotclasses = _slotclasses - ["MuzzleSlot"];
 	_slotclasses = _slotclasses - ["CowsSlot"];
 	_slotclasses = _slotclasses - ["PointerSlot"];

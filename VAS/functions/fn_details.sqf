@@ -25,8 +25,7 @@ lbClear _control;
 
 {
 	_tmp = [_x,"CfgMagazines"] call VAS_fnc_fetchCfgDetails;
-	if(count _tmp > 0) then
-	{
+	if(count _tmp > 0) then {
 		_control lbAdd format["%1", (_tmp select 1)];
 		_control lbSetData [(lbSize _control)-1,_x];
 		_control lbSetPicture [(lbSize _control)-1,(_tmp select 2)];

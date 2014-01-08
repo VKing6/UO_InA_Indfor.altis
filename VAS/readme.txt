@@ -4,8 +4,7 @@ System is very easy to use, to add this to your mission copy the gear folder fro
 
 #include "VAS\menu.hpp"
 
-class CfgFunctions
-{
+class CfgFunctions {
 	#include "VAS\cfgfunctions.hpp"
 };
 

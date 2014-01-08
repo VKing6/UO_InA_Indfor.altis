@@ -7,8 +7,7 @@ private ["_leader","_LX","_LY","_LZ"];
 
 	if (_leader == player) exitWith {player sideChat "You are the group leader, cannot teleport."};
 
-	if (vehicle _leader == _leader) then
-	{
+	if (vehicle _leader == _leader) then {
 		_LX = (getpos _leader select 0) + (3*sin ((getDir _leader) -180));
 		_LY = (getpos _leader select 1) + (3*cos ((getDir _leader) -180));
 		_LZ = (getpos _leader select 2);
@@ -18,8 +17,7 @@ private ["_leader","_LX","_LY","_LZ"];
 	}
 	else
 	{
-		if ((vehicle _leader) emptyPositions "cargo" == 0) then
-		{
+		if ((vehicle _leader) emptyPositions "cargo" == 0) then {
 			hint "No room in squad leader's vehicle."
 		}
 		else

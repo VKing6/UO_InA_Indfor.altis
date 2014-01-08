@@ -144,8 +144,7 @@ class TAWVD_RscButtonMenu : TAWVD_RscShortcutButton {
 	};
 };
 
-class TAWVD_RscXSliderH 
-{
+class TAWVD_RscXSliderH  {
 	style = 1024;
 	type = 43;
 	shadow = 2;
@@ -168,8 +167,7 @@ class TAWVD_RscXSliderH
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class TAWVD_activeText 
-{
+class TAWVD_activeText  {
 	idc = -1;
 	type = 11;
 	style = 0;
@@ -189,8 +187,7 @@ class TAWVD_activeText
 	text = "";
 };
 
-class TAW_VD 
-{
+class TAW_VD  {
 	idd = 2900;
 	name= "taw_vd";
 	movingEnable = false;
@@ -216,8 +213,7 @@ class TAW_VD
 			h = 0.4 - (22 / 250);
 		};
 		
-		class VDonFoot : TAWVD_RscText
-		{
+		class VDonFoot : TAWVD_RscText {
 			idc = -1;
 			text = "On Foot:";
 			
@@ -225,8 +221,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDinCar : TAWVD_RscText
-		{
+		class VDinCar : TAWVD_RscText {
 			idc = -1;
 			text = "In Car:";
 			
@@ -234,8 +229,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDinAir : TAWVD_RscText
-		{
+		class VDinAir : TAWVD_RscText {
 			idc = -1;
 			text = "In Air:";
 			
@@ -243,8 +237,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDTerrSet : TAWVD_RscText
-		{
+		class VDTerrSet : TAWVD_RscText {
 			idc = -1;
 			text = "Grass Settings";
 			shadow = 0;
@@ -258,8 +251,7 @@ class TAW_VD
 
 	};
 	
-	class controls 
-	{
+	class controls  {
 		class Title : TAWVD_RscTitle {
 			colorBackground[] = {0, 0, 0, 0};
 			idc = -1;
@@ -270,8 +262,7 @@ class TAW_VD
 			h = (1 / 25);
 		};
 		
-		class VD_onfoot_slider : TAWVD_RscXSliderH 
-		{
+		class VD_onfoot_slider : TAWVD_RscXSliderH  {
 			idc = 2901;
 			text = "";
 			onSliderPosChanged = "[_this select 1] call fnc_vd_foot_onsliderchange";
@@ -283,8 +274,7 @@ class TAW_VD
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_onfoot_value : TAWVD_RscText
-		{
+		class VD_onfoot_value : TAWVD_RscText {
 			idc = 2902;
 			text = "";
 			
@@ -292,8 +282,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_car_slider : TAWVD_RscXSliderH 
-		{
+		class VD_car_slider : TAWVD_RscXSliderH  {
 			idc = 2911;
 			text = "";
 			onSliderPosChanged = "[_this select 1] call fnc_vd_car_onsliderchange";
@@ -305,8 +294,7 @@ class TAW_VD
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_car_value : TAWVD_RscText
-		{
+		class VD_car_value : TAWVD_RscText {
 			idc = 2912;
 			text = "";
 			
@@ -314,8 +302,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_air_slider : TAWVD_RscXSliderH 
-		{
+		class VD_air_slider : TAWVD_RscXSliderH  {
 			idc = 2921;
 			text = "";
 			onSliderPosChanged = "[_this select 1] call fnc_vd_air_onsliderchange";
@@ -327,8 +314,7 @@ class TAW_VD
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_air_value : TAWVD_RscText
-		{
+		class VD_air_value : TAWVD_RscText {
 			idc = 2922;
 			text = "";
 			
@@ -336,8 +322,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_none : TAWVD_activeText
-		{
+		class VD_terr_none : TAWVD_activeText {
 			idc = -1;
 			text = "None";
 			action = "['none'] call fnc_terrainchange";
@@ -347,8 +332,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_low : TAWVD_activeText
-		{
+		class VD_terr_low : TAWVD_activeText {
 			idc = -1;
 			text = "Low";
 			action = "['low'] call fnc_terrainchange";
@@ -358,8 +342,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_normal : TAWVD_activeText
-		{
+		class VD_terr_normal : TAWVD_activeText {
 			idc = -1;
 			text = "Normal";
 			action = "['norm'] call fnc_terrainchange";
@@ -369,8 +352,7 @@ class TAW_VD
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_high : TAWVD_activeText
-		{
+		class VD_terr_high : TAWVD_activeText {
 			idc = -1;
 			text = "High";
 			action = "['high'] call fnc_terrainchange";

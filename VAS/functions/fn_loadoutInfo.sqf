@@ -10,8 +10,7 @@ private["_control","_slot","_type","_loadout"];
 _type = _this select 0;
 disableSerialization;
 
-switch (_type) do
-{
+switch (_type) do {
     case 0: {_control = VAS_getControl(VAS_save_Display,VAS_save_fetch); _slot = lbCurSel VAS_save_list;};
     case 1: {_control = VAS_getControl(VAS_load_Display,VAS_load_fetch); _slot = lbCurSel VAS_load_list};
 };
@@ -19,8 +18,7 @@ switch (_type) do
 lbClear _control;
 
 if(_slot == -1) exitWith {hint localize "STR_VAS_Prompt_slotNoInfo";}; //No slot selected
-if(vas_disableLoadSave) then
-{
+if(vas_disableLoadSave) then {
     _loadout = missionNamespace getVariable format["vas_gear_new_%1",_slot];
 }
     else
@@ -29,21 +27,18 @@ if(vas_disableLoadSave) then
 };
 
 if(isNil {_loadout}) exitWith {(VAS_getControl(VAS_save_Display,VAS_save_text)) ctrlSetText localize "STR_VAS_Save_CLN";}; //No information in this slot.
-if(_type == 0) then
-{
+if(_type == 0) then {
     (VAS_getControl(VAS_save_Display,VAS_save_text)) ctrlSetText (_loadout select 0);
 };
 
 // Original Code
 /*
 {
-    switch(typeName _x) do
-    {
+    switch(typeName _x) do {
         case "STRING":
         {
             _details = [_x] call VAS_fnc_fetchCfgDetails;
-            if(count _details > 0) then
-            {
+            if(count _details > 0) then {
                 _control lbAdd format["%1", (_details select 1)];
                 _control lbSetPicture [(lbSize _control)-1,(_details select 2)];
             };
@@ -53,8 +48,7 @@ if(_type == 0) then
         {
             {
                 _details = [_x] call VAS_fnc_fetchCfgDetails;
-                if(count _details > 0) then
-                {
+                if(count _details > 0) then {
                     _control lbAdd format["%1", (_details select 1)];
                     _control lbSetPicture [(lbSize _control)-1,(_details select 2)];
                 };

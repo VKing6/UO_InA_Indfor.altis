@@ -9,8 +9,7 @@ private["_cfg"];
 _cfg = [_this,0,"",[""]] call BIS_fnc_param;
 if(_cfg == "") exitWith {}; //Bad data passed, exit.
 
-switch(_cfg) do
-{
+switch(_cfg) do {
 	case "CfgWeapons":
 	{
 		_arr = uiNamespace getVariable["VASP_weapons",[]];
@@ -25,8 +24,7 @@ switch(_cfg) do
 			_itemInfo = _details select 5;
 			_base = configName(inheritsFrom (configFile >> "CfgWeapons" >> _x));
 			
-			switch(true) do
-			{
+			switch(true) do {
 				case (_type in [1,2,4,5,4096]):
 				{
 					if(!(_base in VAS_r_weapons) && !(_x in VAS_r_weapons)) then {

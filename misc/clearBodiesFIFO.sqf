@@ -1,8 +1,7 @@
 
 	private ["_canDeleteGroup","_group","_groups","_units"];
 
-	while {true} do
-	{
+	while {true} do {
 		sleep 5;
 		debugMessage = "Cleaning dead bodies and deleting groups...";
 		publicVariable "debugMessage";
@@ -18,12 +17,10 @@
 
 		_groups = allGroups;
 
-		for "_c" from 0 to ((count _groups) - 1) do
-		{
+		for "_c" from 0 to ((count _groups) - 1) do {
 			_canDeleteGroup = true;
 			_group = (_groups select _c);
-			if (!isNull _group) then
-			{
+			if (!isNull _group) then {
 				_units = (units _group);
 				{
 					if (alive _x) then { _canDeleteGroup = false; };
