@@ -26,7 +26,7 @@ Jack Williams (Rarek) for Ahoy World!
 	
 	#include "=BTC=_revive\=BTC=_respawn.h"
 
-	author = Rarek [AW];
+	author = Rarek [AW], TinfoilHate, Toadball, Vking;
 	onLoadName = "AW Invade & Annex";
 	loadScreen = "uoLogo.jpg";
 	OnLoadMission = "A domination-esque mission by Ahoy World's Rarek. Support them at www.ahoyworld.co.uk! This edition by United Operations @ www.unitedoperations.net. Be sure to join Teamspeak and have ACRE enabled!";
