@@ -412,13 +412,13 @@ while {true} do {
 			//Spawn some AA yo!
 			if (_aaLevel >= 1 || {random 1 > 0.75}) then {
 				_spawnGroup = createGroup East;
-				_unit = "O_soldier_AA_F" createUnit [_flatPos,_spawnGroup];
+				_unit = _spawnGroup createUnit ["O_soldier_AA_F",_flatPos,[],0,"NONE"];
 				_unit setpos (sideObj buildingPos 4);
 				_unit setDir (_randomDir + 90);
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 				
 				_spawnGroup = createGroup East;
-				_unit = "O_soldier_AA_F" createUnit [_flatPos,_spawnGroup];
+				_unit = _spawnGroup createUnit ["O_soldier_AA_F",_flatPos,[],0,"NONE"];
 				_unit setpos (sideObj buildingPos 6);
 				_unit setDir (_randomDir - 90);
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
