@@ -134,8 +134,7 @@ _targets = [
 ];
 
 //Grab parameters and put them into readable variables
-for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do
-{
+for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do {
 	call compile format
 	[
 		"PARAMS_%1 = %2",
@@ -172,8 +171,7 @@ call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
 	titleText [WELCOME_MESSAGE, "PLAIN", 3];
 };
 
-if (!isServer) then
-{
+if (!isServer) then {
 	[] spawn {
 		while {true} do {
 			waitUntil {sleep 5; currentAOUp};
@@ -261,6 +259,9 @@ smMarkerList = ["smReward1","smReward2","smReward3","smReward4","smReward5","smR
 smHangarList = ["smRewardP1","smRewardP2"];
 smHeliList = ["smRewardH1","smRewardH2","smRewardH3","smRewardH4"];
 
+activeAD = [];
+adPositions = ["ada01","ada02","ada03","ada04","ada05","ada06","ada07","ada08","ada09","ada10","ada11","ada12","ada13","ada14","ada15","ada16","ada17","ada18","ada19","ada20","ada21","ada22","ada23","ada24","ada25","ada27","ada28","ada29","ada30","ada31","ada32","ada33","ada34","ada35","ada36","ada37","ada38","ada39","ada40","ada41","ada42","ada43","ada44","ada45","ada46","ada47","ada48","ada49","ada50"]; //,"adm01","adm02"
+
 /*---------------------------------------------------------------------------
 Disabled while Alpha bug is present
 ---------------------------------------------------------------------------*/
@@ -285,8 +286,7 @@ if (PARAMS_Skybunker > 0 && isServer) then {
 
 _isPerpetual = false;
 
-if (PARAMS_Perpetual == 1) then
-{
+if (PARAMS_Perpetual == 1) then {
 	_isPerpetual = true;
 };
 
@@ -309,8 +309,7 @@ skipTime PARAMS_TimeOfDay;
 0 setWindDir random 360;
 0 setGusts random 1;
 
-switch (PARAMS_Weather) do
-{
+switch (PARAMS_Weather) do {
 	case 1: {
 		0 setOvercast 0;
 		0 setRain 0;
@@ -352,23 +351,19 @@ _null = [] execVM "sm\priorityTargets.sqf";
 _firstTarget = true;
 _lastTarget = "Nothing";
 
-while {count _targets > 0} do
-{
+while {count _targets > 0} do {
 	sleep 10;
 
 	//Set new current target and calculate targets left
-	if (_isPerpetual) then
-	{
+	if (_isPerpetual) then {
 		_validTarget = false;
-		while {!_validTarget} do
-		{
+		while {!_validTarget} do {
 			if (count _initialTargets == count _targets) then {
 				currentAO = _beginTargets call BIS_fnc_selectRandom;
 				_validTarget = true;
 			} else {
 				currentAO = _targets call BIS_fnc_selectRandom;
-				if (currentAO != _lastTarget) then
-				{
+				if (currentAO != _lastTarget) then {
 					_validTarget = true;
 				};
 
@@ -409,8 +404,7 @@ while {count _targets > 0} do
 	_position = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 	_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
 
-	while {(count _flatPos) < 1} do
-	{
+	while {(count _flatPos) < 1} do {
 		_position = [[[getMarkerPos currentAO, PARAMS_AOSize],_dt],["water","out"]] call BIS_fnc_randomPos;
 		_flatPos = _position isFlatEmpty[3, 1, 0.7, 20, 0, false];
 	};
@@ -424,8 +418,7 @@ while {count _targets > 0} do
 
 	//Spawn mines
 	_chance = random 10;
-	if (_chance < PARAMS_RadioTowerMineFieldChance) then
-	{
+	if (_chance < PARAMS_RadioTowerMineFieldChance) then {
 		_mines = [_flatPos] call AW_fnc_minefield;
 		_enemiesArray = _enemiesArray + _mines;
 		"radioMineCircle" setMarkerPos (getPos radioTower);
@@ -443,8 +436,7 @@ while {count _targets > 0} do
 		currentAO
 	];
 
-	if (!_isPerpetual) then
-	{
+	if (!_isPerpetual) then {
 		_targetStartText = format
 		[
 			"%1 Only %2 more targets to go!",
@@ -477,11 +469,9 @@ while {count _targets > 0} do
 	[_enemiesArray] spawn AW_fnc_deleteOldAOUnits;
 
 	//Delete markers and trigger
-	/* if (_isPerpetual) then
-	{
+	/* if (_isPerpetual) then {
 		//_perimeterMarker = [currentAO] call AW_fnc_markerDeactivate;
-		if (count _targets == 1) then
-		{
+		if (count _targets == 1) then {
 			_targets = _initialTargets;
 			_lastTarget = currentAO;
 			publicVariable "refreshMarkers";
@@ -493,11 +483,9 @@ while {count _targets > 0} do
 		//deleteMarker currentAO;
 	}; */
 
-	if (_isPerpetual) then
-	{
+	if (_isPerpetual) then {
 		_lastTarget = currentAO;
-		if ((count (_targets)) == 1) then
-		{
+		if ((count (_targets)) == 1) then {
 			_targets = _initialTargets;
 		} else {
 			_targets = _targets - [currentAO];

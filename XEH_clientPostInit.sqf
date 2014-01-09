@@ -29,8 +29,7 @@
 			if (isNil "tin_hatStore") then {tin_hatStore = "H_Beret_blk"};
 			if ((vehicle player) isKindOf "Wheeled_APC_F" || (vehicle player) isKindOf "Tank_F") then {
 				if (typeOf player != "I_crew_F" && typeOf player != "I_support_Mort_F" && typeOf player != "I_support_AMort_F") then {
-					if ((vehicle player) isKindOf "Tank" || (vehicle player) isKindOf "Wheeled_APC_F") then
-					{
+					if ((vehicle player) isKindOf "Tank" || (vehicle player) isKindOf "Wheeled_APC_F") then {
 						if ((assignedVehicleRole player) select 0 != "Cargo") then {
 							player action ["eject", (vehicle player)];
 							player action ["engineOff", (vehicle player)];
@@ -138,8 +137,7 @@
 	////// Weapon Check ////////////////////
 	tin_weaponCheck = [{
 		if ((player hasWeapon "launch_I_Titan_F") || (player hasWeapon "launch_I_Titan_short_F")) then {
-			if ((playerSide == west && typeOf player != "B_soldier_LAT_F") || (playerside == east && typeOf player != "O_soldier_LAT_F") || (playerside == resistance && typeOf player != "I_soldier_LAT_F")) then
-			{
+			if ((playerSide == west && typeOf player != "B_soldier_LAT_F") || (playerside == east && typeOf player != "O_soldier_LAT_F") || (playerside == resistance && typeOf player != "I_soldier_LAT_F")) then {
 				player removeWeapon "launch_I_Titan_F";
 				player removeWeapon "launch_I_Titan_short_F";
 				player globalChat "Only AT Soldiers are trained in missile launcher operations. Launcher removed.";
@@ -147,8 +145,7 @@
 		};
 
 		if ("B_UavTerminal" in (assignedItems player) || "I_UavTerminal" in (assignedItems player) || "O_UavTerminal" in (assignedItems player)) then {
-			if ((playerSide == west && typeOf player != "B_soldier_UAV_F") || (playerside == east && typeOf player != "O_soldier_UAV_F") || (playerside == resistance && typeOf player != "I_soldier_UAV_F")) then
-			{
+			if ((playerSide == west && typeOf player != "B_soldier_UAV_F") || (playerside == east && typeOf player != "O_soldier_UAV_F") || (playerside == resistance && typeOf player != "I_soldier_UAV_F")) then {
 				player unassignItem "B_UavTerminal";
 				player unassignItem "I_UavTerminal";
 				player unassignItem "O_UavTerminal";
@@ -169,14 +166,12 @@
 
 		if (PARAMS_SpawnProtection == 1) then {
 			player addEventHandler ["Fired", {
-				if ({(_this select 0) distance getMarkerPos (_x select 0) < _x select 1} count SAFETY_ZONES > 0) then
-				{
+				if ({(_this select 0) distance getMarkerPos (_x select 0) < _x select 1} count SAFETY_ZONES > 0) then {
 					deleteVehicle (_this select 6);
 					titleText [MESSAGE, "PLAIN", 3];
 				};
 
-				if (_this select 5 == "RPG32_AA_F") then
-				{
+				if (_this select 5 == "RPG32_AA_F") then {
 					deleteVehicle (_this select 6);
 					titleText [MESSAGE, "PLAIN", 3];
 				};
@@ -227,14 +222,11 @@
 
 						_text = name _x;
 						_veh = vehicle _x;
-						if (_veh != _x) then
-						{
+						if (_veh != _x) then {
 							_crew = crew _veh;
-							if ((count _crew) > 1) then
-							{
+							if ((count _crew) > 1) then {
 								_crewLoopCount = (count _crew) - 1;
-								for "_i" from 1 to _crewLoopCount do
-								{
+								for "_i" from 1 to _crewLoopCount do {
 									_text = format["%1, %2", _text, name (_crew select _i)];
 								};
 							};

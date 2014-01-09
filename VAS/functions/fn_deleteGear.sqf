@@ -9,8 +9,7 @@
 private["_slot","_data"];
 _slot = lbCurSel VAS_load_list;
 if(_slot == -1) exitWith {hint localize "STR_VAS_Prompt_selectSlotFail";};
-if(vas_disableLoadSave) then
-{
+if(vas_disableLoadSave) then {
 	_data = missionNamespace getVariable format["vas_gear_new_%1",_slot];
 }
 	else
@@ -29,10 +28,8 @@ waitUntil {!isNull (findDisplay VAS_prompt_Display)};
 
 waitUntil {!isNil {vas_prompt_choice}};
 
-if(vas_prompt_choice) then
-{
-	if(vas_disableLoadSave) then
-	{
+if(vas_prompt_choice) then {
+	if(vas_disableLoadSave) then {
 		hint format["%2:\n%1",(missionNamespace getVariable format["vas_gear_new_%1",_slot]) select 0,localize "STR_VAS_Prompt_deleteSuccess"];
 		missionNamespace setVariable[format["vas_gear_new_%1",_slot],nil];
 		[1,true] spawn VAS_fnc_SaveLoad;

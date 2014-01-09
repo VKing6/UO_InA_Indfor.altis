@@ -16,8 +16,7 @@ class VAS_RscControlsGroup {
 	shadow = 0;
 	style = 16;
 	
-	class VScrollbar 
-	{
+	class VScrollbar  {
 		color[] = {1, 1, 1, 0.6};
 		width = 0.021;
 		autoScrollSpeed = -1;
@@ -26,8 +25,7 @@ class VAS_RscControlsGroup {
 		shadow = 0;
 	};
 	
-	class HScrollbar 
-	{
+	class HScrollbar  {
 		color[] = {1, 1, 1, 0.6};
 		height = 0.028;
 		shadow = 0;
@@ -430,8 +428,7 @@ class VAS_RscCheckbox {
 	checked_strings[] = {CHECKED};
 };
 
-class VAS_RscProgress 
-{
+class VAS_RscProgress  {
 	type = 8;
 	style = 0;
 	x = 0.344;
@@ -676,10 +673,8 @@ class VAS_RscMapControl {
 		color[] = {0, 0, 0, 1};
 	};
 	
-	class ActiveMarker
-	{
-		color[] =
-		{
+	class ActiveMarker {
+		color[] = {
 			0.3,
 			0.1,
 			0.9,

@@ -1,5 +1,4 @@
-fnc_vd_foot_onsliderchange =
-{
+fnc_vd_foot_onsliderchange = {
 	private["_dialog","_text","_value"];
 	disableSerialization;
 	
@@ -12,8 +11,7 @@ fnc_vd_foot_onsliderchange =
 	[] call fnc_vd_changed;
 };
 	
-fnc_vd_car_onsliderchange =
-{
+fnc_vd_car_onsliderchange = {
 	private["_dialog","_text","_value"];
 	disableSerialization;
 	
@@ -26,8 +24,7 @@ fnc_vd_car_onsliderchange =
 	[] call fnc_vd_changed;
 };
 
-fnc_vd_air_onsliderchange =
-{
+fnc_vd_air_onsliderchange = {
 	private["_dialog","_text","_value"];
 	disableSerialization;
 	
@@ -40,13 +37,11 @@ fnc_vd_air_onsliderchange =
 	[] call fnc_vd_changed;
 };
 
-fnc_terrainchange =
-{
+fnc_terrainchange = {
 	private["_type"];
 	_type = _this select 0;
 	
-	switch (_type) do
-	{
+	switch (_type) do {
 		case "none":
 		{
 			setTerrainGrid 50;
@@ -69,22 +64,18 @@ fnc_terrainchange =
 	};
 };
 
-fnc_vd_changed =
-{
+fnc_vd_changed = {
 	private["_type"];
 	
-	if((vehicle player) isKindOf "Man" && viewdistance != tawvd_foot) then
-	{
+	if((vehicle player) isKindOf "Man" && viewdistance != tawvd_foot) then {
 		setViewDistance tawvd_foot;
 	};
 		
-	if((vehicle player) isKindOf "LandVehicle" || (vehicle player) isKindOf "Ship" && viewdistance != tawvd_car) then
-	{
+	if((vehicle player) isKindOf "LandVehicle" || (vehicle player) isKindOf "Ship" && viewdistance != tawvd_car) then {
 		setViewDistance tawvd_car;
 	};
 		
-	if((vehicle player) isKindOf "Air" && viewdistance != tawvd_air) then
-	{
+	if((vehicle player) isKindOf "Air" && viewdistance != tawvd_air) then {
 		setViewDistance tawvd_air;
 	};
 };

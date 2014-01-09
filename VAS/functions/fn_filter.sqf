@@ -10,21 +10,17 @@ _items = _this select 0;
 _filter = _this select 1;
 _ret = [];
 {
-	if(_x != "") then
-	{
+	if(_x != "") then {
 		_details = [_x] call VAS_fnc_fetchCfgDetails;
 		if(count _details == 0) exitWith {_ret};
 		_type = _details select 4;
 		_itemInfo = _details select 5;
 		
-		switch (true) do
-		{
+		switch (true) do {
 			case ((_details select 6) == "CfgMagazines") :
 			{
-				if(typeName _filter == "STRING") then
-				{
-					if(_filter == "mag") then
-					{
+				if(typeName _filter == "STRING") then {
+					if(_filter == "mag") then {
 						_ret set[count _ret,_x];
 					};
 				};
@@ -32,28 +28,24 @@ _ret = [];
 			
 			case ((_details select 6) == "CfgGlasses" && typeName _filter == "STRING") :
 			{
-				if(_filter == "glass") then
-				{
+				if(_filter == "glass") then {
 					_ret set[count _ret,_x];
 				};
 			};
 			
 			case (_type in [1,2,4,5,4096] && (_itemInfo == 0 OR _itemInfo == -1)) :
 			{
-				switch(typeName _filter) do
-				{
+				switch(typeName _filter) do {
 					case "ARRAY":
 					{
-						if(_type in _filter) then
-						{
+						if(_type in _filter) then {
 							_ret set [count _ret,_x];
 						};
 					};
 					
 					case "SCALAR":
 					{
-						if(_type == _filter) then
-						{
+						if(_type == _filter) then {
 							_ret set [count _ret,_x];
 						};
 					};
@@ -63,20 +55,17 @@ _ret = [];
 			case (_type in [4096,131072]) :
 			{
 				if(_type == 4096 && _itemInfo == 0) exitWith {};
-				switch(typeName _filter) do
-				{
+				switch(typeName _filter) do {
 					case "ARRAY":
 					{
-						if(_itemInfo in _filter) then
-						{
+						if(_itemInfo in _filter) then {
 							_ret set[count _ret,_x];
 						};
 					};
 					
 					case "SCALAR":
 					{
-						switch (true) do
-						{
+						switch (true) do {
 							case (_itemInfo == _filter) : {_ret set[count _ret,_x];};
 							case (_type == _filter) : {_ret set[count _ret,_x];};
 						};
@@ -84,8 +73,7 @@ _ret = [];
 					
 					case "STRING":
 					{
-						if(_filter == "items") then
-						{
+						if(_filter == "items") then {
 							_ret set[count _ret,_x];
 						};
 					};
@@ -94,8 +82,7 @@ _ret = [];
 			
 			case (typeName _type == "STRING" && typeName _filter == "STRING") :
 			{
-				if(_type == "Backpacks" && _filter == "packs") then
-				{
+				if(_type == "Backpacks" && _filter == "packs") then {
 					_ret set[count _ret,_x];
 				};
 			};

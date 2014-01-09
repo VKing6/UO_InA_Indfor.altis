@@ -45,8 +45,7 @@ BTC_objects_actions_east = [BTC_base_flag_east];
 BTC_objects_actions_guer = [BTC_base_flag_guer];
 BTC_objects_actions_civ  = [BTC_base_flag_civ];
 
-if (isServer) then
-{
+if (isServer) then {
 	BTC_vehs_mobile_west = [];//Editable - define mobile west
 	BTC_vehs_mobile_east = [];//Editable - define mobile east
 	BTC_vehs_mobile_guer = [];//Editable - define mobile independent
@@ -57,8 +56,7 @@ if (!isDedicated) then {};
 //FNC
 call compile preprocessFile "=BTC=_revive\=BTC=_functions.sqf";
 
-if (isServer) then
-{
+if (isServer) then {
 	//Mobile
 	BTC_vehs_mobile_west_str = [];
 	BTC_vehs_mobile_east_str = [];
@@ -97,8 +95,7 @@ if (isServer) then
 	BTC_marker_pveh = [];publicVariable "BTC_marker_pveh";
 	BTC_load_pveh = [];publicVariable "BTC_load_pveh";
 	BTC_pullout_pveh = [];publicVariable "BTC_pullout_pveh";
-	if (BTC_r_new_system == 1) then 
-	{
+	if (BTC_r_new_system == 1) then {
 		BTC_anim_pveh = [];publicVariable "BTC_anim_pveh";
 		BTC_cpr_pveh = [];publicVariable "BTC_cpr_pveh";
 		BTC_ban_pveh = [];publicVariable "BTC_ban_pveh";
@@ -132,8 +129,7 @@ BTC_respawn_cond = false;
 	if (BTC_respawn_marker == "respawn_guer") then {BTC_respawn_marker = "respawn_guerrila";};
 	BTC_r_base_spawn = "Land_HelipadEmpty_F" createVehicleLocal getMarkerPos BTC_respawn_marker;
 	if (BTC_pvp == 1) then {if (BTC_respawn_marker == "respawn_civ") then {BTC_respawn_marker = "respawn_civilian";};};
-	if (BTC_r_new_system == 0) then 
-	{
+	if (BTC_r_new_system == 0) then {
 		player addEventHandler ["Killed", BTC_player_killed];if (BTC_respawn_gear == 1) then {player addEventHandler ["HandleDamage", BTC_fnc_handledamage_gear];};
 	} 
 	else 
@@ -167,10 +163,8 @@ BTC_respawn_cond = false;
 	player addAction [("<t color=""#ED2744"">") + ("Drag") + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[],BTC_drag], 8, true, true, "", "[] call BTC_check_action_drag"];
 	player addAction [("<t color=""#ED2744"">") + ("Carry") + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[],BTC_carry], 8, true, true, "", "[] call BTC_check_action_drag"];
 	player addAction [("<t color=""#ED2744"">") + ("Pull out injured") + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[],BTC_pull_out], 8, true, true, "", "[] call BTC_pull_out_check"];
-	if (BTC_active_mobile == 1) then 
-	{
-		switch (true) do
-		{
+	if (BTC_active_mobile == 1) then {
+		switch (true) do {
 			case (BTC_side == west) : {{private ["_veh"];_veh = _x;_spawn = [_x] spawn BTC_mobile_marker;{_x addAction [("<t color=""#ED2744"">") + ("Move to mobile " + _veh) + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[_veh],BTC_move_to_mobile], 8, true, true, "", format ["[""%1""] call BTC_mobile_check",_veh]];} foreach BTC_objects_actions_west;} foreach BTC_vehs_mobile_west_str;};
 			case (BTC_side == east) : {{private ["_veh"];_veh = _x;_spawn = [_x] spawn BTC_mobile_marker;{_x addAction [("<t color=""#ED2744"">") + ("Move to mobile " + _veh) + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[_veh],BTC_move_to_mobile], 8, true, true, "", format ["[""%1""] call BTC_mobile_check",_veh]];} foreach BTC_objects_actions_east;} foreach BTC_vehs_mobile_east_str;};
 			case (str (BTC_side) == "guer") : {{private ["_veh"];_veh = _x;_spawn = [_x] spawn BTC_mobile_marker;{_x addAction [("<t color=""#ED2744"">") + ("Move to mobile " + _veh) + "</t>","=BTC=_revive\=BTC=_addAction.sqf",[[_veh],BTC_move_to_mobile], 8, true, true, "", format ["[""%1""] call BTC_mobile_check",_veh]];} foreach BTC_objects_actions_guer;} foreach BTC_vehs_mobile_guer_str;};

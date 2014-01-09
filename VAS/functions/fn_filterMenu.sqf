@@ -14,12 +14,10 @@ _return = if(count _this > 1) then {true} else {false};
 _filter = uiNamespace getVariable "VAS_UI_FILTER";
 uiNamespace setVariable["VAS_UI_FILTER_VAR",_req];
 
-switch(_filter) do
-{
+switch(_filter) do {
 	case "guns":
 	{
-		switch(_req) do
-		{
+		switch(_req) do {
 			case 0: {_data = [_filter,1] call VAS_fnc_fetchCfg; _myfilter = 1;};
 			case 1: {_data = [_filter,1] call VAS_fnc_fetchCfg; _myfilter = 1;};
 			case 2: {_data = [_filter,5] call VAS_fnc_fetchCfg; _myfilter = 5;};
@@ -30,8 +28,7 @@ switch(_filter) do
 	
 	case "items":
 	{
-		switch(_req) do
-		{
+		switch(_req) do {
 			case 0: {_data = [_filter,801] call VAS_fnc_fetchCfg; _myfilter = 801;};
 			case 1: {_data = [_filter,701] call VAS_fnc_fetchCfg; _myfilter = 701;};
 			case 2: {_data = [_filter,605] call VAS_fnc_fetchCfg; _myfilter = 605;};
@@ -45,8 +42,7 @@ switch(_filter) do
 	};
 };
 
-if(_return) then
-{
+if(_return) then {
 	_info = [([] call VAS_fnc_fetchPlayerGear),_myfilter] call VAS_fnc_filter;
 	_info;
 }
@@ -58,8 +54,7 @@ if(_return) then
 
 	{
 		_details = [_x] call VAS_fnc_fetchCfgDetails;
-		if(count _details > 0) then
-		{
+		if(count _details > 0) then {
 			_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 			_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 			_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
@@ -71,8 +66,7 @@ if(_return) then
 			
 	{
 		_details = [_x] call VAS_fnc_fetchCfgDetails;
-		if(count _details > 0) then
-		{
+		if(count _details > 0) then {
 			_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 			_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 			_control lbSetPicture [(lbSize _control)-1,(_details select 2)];

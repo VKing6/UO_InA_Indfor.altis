@@ -8,8 +8,7 @@
 */
 private["_control","_info","_details"];
 disableSerialization;
-switch((uiNamespace getVariable "VAS_UI_FILTER")) do
-{
+switch((uiNamespace getVariable "VAS_UI_FILTER")) do {
 	case "guns": {_info = [([] call VAS_fnc_fetchPlayerGear),[1,2,4,5,4096]] call VAS_fnc_filter;};
 	case "mags": {_info = [([] call VAS_fnc_fetchPlayerGear),"mag"] call VAS_fnc_filter;};
 	case "items": {_info = [([] call VAS_fnc_fetchPlayerGear),"items"] call VAS_fnc_filter;};
@@ -17,8 +16,7 @@ switch((uiNamespace getVariable "VAS_UI_FILTER")) do
 	case "glass": {_info = [([] call VAS_fnc_fetchPlayerGear),"glass"] call VAS_fnc_filter;};
 };
 
-if(!isNil {(uiNamespace getVariable "VAS_UI_FILTER_VAR")}) then
-{
+if(!isNil {(uiNamespace getVariable "VAS_UI_FILTER_VAR")}) then {
 	_info = [(uiNamespace getVariable "VAS_UI_FILTER_VAR"),true] call VAS_fnc_filterMenu;
 };
 
@@ -27,16 +25,13 @@ waitUntil {typeName _info == "ARRAY"};
 _control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 lbClear _control;
 
-if((uiNamespace getVariable "VAS_UI_FILTER") == "mags") then
-{
+if((uiNamespace getVariable "VAS_UI_FILTER") == "mags") then {
 	private["_mags","_mag"];
 	_mags = [];
 	{
 		_details = [_x,"CfgMagazines"] call VAS_fnc_fetchCfgDetails;
-		if(count _details > 0) then
-		{
-			if(!(_x in _mags)) then
-			{
+		if(count _details > 0) then {
+			if(!(_x in _mags)) then {
 				_mags set[count _mags,_x];
 				_mag = _x;
 				_control lbAdd format["[%1] %2",({_x == _mag} count _info),(_details select 1)]; //Displayname on list
@@ -50,8 +45,7 @@ if((uiNamespace getVariable "VAS_UI_FILTER") == "mags") then
 {
 	{
 		_details = [_x] call VAS_fnc_fetchCfgDetails;
-		if(count _details > 0) then
-		{
+		if(count _details > 0) then {
 			_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 			_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 			_control lbSetPicture [(lbSize _control)-1,(_details select 2)];

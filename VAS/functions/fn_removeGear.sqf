@@ -12,12 +12,10 @@ _fil = uiNamespace getVariable "VAS_UI_FILTER";
 disableSerialization;
 _data = VAS_getSelData(VAS_unit_list);
 
-switch(_all) do
-{
+switch(_all) do {
 	case true:
 	{
-		switch (_fil) do
-		{
+		switch (_fil) do {
 			case "mags": {player removeMagazines _data};
 			case "items": {player removeItems _data};
 		};

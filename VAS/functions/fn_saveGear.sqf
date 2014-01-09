@@ -32,22 +32,19 @@ if(_backpack != "") then {{_bitems set[count _bitems,_x];} foreach (backPackItem
 
 if(goggles player != "") then { _items set[count _items, goggles player]; };
 if(headgear player != "") then { _items set[count _items, headgear player]; };
-if(count (primaryWeaponMagazine player) > 0) then
-{
+if(count (primaryWeaponMagazine player) > 0) then {
 	{
 		_magazines set[count _magazines,_x];
 	} foreach (primaryWeaponMagazine player);
 };
 
-if(count (secondaryWeaponMagazine player) > 0) then
-{
+if(count (secondaryWeaponMagazine player) > 0) then {
 	{
 		_magazines set[count _magazines,_x];
 	} foreach (secondaryWeaponMagazine player);
 };
 
-if(count (handgunMagazine player) > 0) then
-{
+if(count (handgunMagazine player) > 0) then {
 	{
 		_magazines set[count _magazines,_x];
 	} foreach (handgunMagazine player);
@@ -55,16 +52,14 @@ if(count (handgunMagazine player) > 0) then
 
 //Hard code for Laser Desigantor batteries
 _curWep = currentWeapon player;
-if("Laserdesignator" in assignedItems player) then
-{
+if("Laserdesignator" in assignedItems player) then {
 	player selectWeapon "Laserdesignator";
 	if(currentMagazine player != "") then {_magazines set[count _magazines,(currentMagazine player)];};
 };
 
 player selectWeapon _curWep;
 
-if(vas_disableLoadSave) then
-{
+if(vas_disableLoadSave) then {
 	missionNamespace setVariable[format["vas_gear_new_%1",_slot],[_title,_primary,_launcher,_handgun,_magazines,_uniform,_vest,_backpack,_items,_primitems,_secitems,_handgunitems,_uitems,_vitems,_bitems]];
 }
 	else

@@ -9,14 +9,11 @@
 private["_cfgInfo"];
 {
 	_container = _x select 0;
-	if(_container != "") then
-	{
+	if(_container != "") then {
 		_load = _x select 1;
 		_cfgInfo = [_container] call VAS_fnc_fetchCfgDetails;
-		if(count _cfgInfo > 0) then
-		{
-			if(_container == backpack player) then 
-			{
+		if(count _cfgInfo > 0) then {
+			if(_container == backpack player) then {
 				_maxLoad = getNumber(configFile >> "CfgVehicles" >> _container >> "maximumload");
 				if(_maxLoad == 0) then {_load = 1;};
 			};

@@ -123,8 +123,7 @@
 	};
 	
 	///// awFunctions.sqf /////
-	aw_fnc_loiter =
-	{
+	aw_fnc_loiter = {
 		private["_group","_wp","_pos"];
 		_group = _this select 0;
 		_pos = _this select 1;
@@ -132,37 +131,30 @@
 		_wp setWaypointType "LOITER";
 	};
 
-	aw_fnc_fuelMonitor =
-	{
+	aw_fnc_fuelMonitor = {
 		if(!isServer OR (vehicle _this == _this)) exitWith {};
-		while{(alive _this) AND (({side _x == east} count (crew _this)) > 0)} do
-		{
+		while{(alive _this) AND (({side _x == east} count (crew _this)) > 0)} do {
 			waitUntil{sleep 2;(fuel _this < 0.1) OR !(alive _this) OR !(({side _x == east} count (crew _this)) > 0)};
 			if((alive _this) AND (({side _x == east} count (crew _this)) > 0)) then {_x setFuel 1};
 		};
 	};
 
-	aw_fnc_randomPos =
-	{
+	aw_fnc_randomPos = {
 		private["_center","_radius","_exit","_pos","_angle","_posX","_posY","_size","_flatPos"];
 		_center = _this select 0;
 		_size = if(count _this > 2) then {_this select 2};
 		_exit = false;
 
-		while{!_exit} do
-		{
+		while{!_exit} do {
 			_radius = random (_this select 1);
 			_angle = random 360;
 			_posX = (_radius * (sin _angle));
 			_posY = (_radius * (cos _angle));
 			_pos = [_posX + (_center select 0),_posY + (_center select 1),0];
-			if(!surfaceIsWater [_pos select 0,_pos select 1]) then
-			{
-				if(count _this > 2) then
-				{
+			if(!surfaceIsWater [_pos select 0,_pos select 1]) then {
+				if(count _this > 2) then {
 					_flatPos = _pos isFlatEmpty [_size / 2,0,0.7,_size,0,false];
-					if(count _flatPos != 0) then
-					{
+					if(count _flatPos != 0) then {
 						_pos = _flatPos;
 						_exit = true
 					};
@@ -173,14 +165,11 @@
 		_pos;
 	};
 
-	aw_fnc_spawn2_waypointBehaviour =
-	{
+	aw_fnc_spawn2_waypointBehaviour = {
 		if(!isServer) exitWith{};
-		while{({alive _x} count (units _this) > 0)} do
-		{
+		while{({alive _x} count (units _this) > 0)} do {
 			waitUntil{sleep 1;({(_x select 2) == west} count ((leader _this) nearTargets 1000) > 1) OR !({alive _x} count (units _this) > 0)};
-			if({alive _x} count (units _this) > 0) then
-			{
+			if({alive _x} count (units _this) > 0) then {
 				{
 					if(waypointType _x == "MOVE") then {_x setWaypointBehaviour "SAD"};
 					_x setWaypointBehaviour "COMBAT";
@@ -188,8 +177,7 @@
 				}forEach (waypoints _this);
 			};
 			waitUntil{sleep 1;({(_x select 2) == west} count ((leader _this) nearTargets 1600) < 1) OR !({alive _x} count (units _this) > 0)};
-			if({alive _x} count (units _this) > 0) then
-			{
+			if({alive _x} count (units _this) > 0) then {
 				{
 					if(waypointType _x == "SAD") then {_x setWaypointBehaviour "MOVE"};
 					_x setWaypointBehaviour "SAFE";
@@ -199,8 +187,7 @@
 		};
 	};
 
-	aw_fnc_radPos =
-	{
+	aw_fnc_radPos = {
 		if(!isServer) exitWith{};
 		private["_center","_radius","_angle","_pos","_exit","_posX","_posY"];
 		_center = _this select 0;
@@ -208,8 +195,7 @@
 		_angle = _this select 2;
 		_exit = false;
 
-		while{!_exit} do
-		{
+		while{!_exit} do {
 			_posX = (_radius * (sin _angle));
 			_posY = (_radius * (cos _angle));
 			_pos = [_posX + (_center select 0),_posY + (_center select 1),0];
@@ -219,8 +205,7 @@
 		_pos;
 	};
 
-	aw_fnc_spawn2_hold =
-	{
+	aw_fnc_spawn2_hold = {
 		if(!isServer) exitWith{};
 		private["_group","_wp","_pos"];
 		_group = _this select 0;
@@ -232,8 +217,7 @@
 		_wp setWaypointSpeed "LIMITED";
 	};
 
-	aw_fnc_spawn2_randomPatrol =
-	{
+	aw_fnc_spawn2_randomPatrol = {
 		if(!isServer) exitWith{};
 		private["_group","_center","_radius","_wp","_checkDist","_angle","_currentAngle","_pos","_wp1"];
 		_group = _this select 0;
@@ -262,8 +246,7 @@
 		_group spawn aw_fnc_spawn2_waypointBehaviour;
 	};
 
-	aw_fnc_spawn2_perimeterPatrol =
-	{
+	aw_fnc_spawn2_perimeterPatrol = {
 		if(!isServer) exitWith{};
 		private["_group","_center","_radius","_wp","_angle","_currentAngle","_wp1","_pos","_toCenter"];
 		_group = _this select 0;
@@ -288,8 +271,7 @@
 			_currentAngle = _currentAngle + _angle;
 		};
 
-		if(_toCenter) then
-		{
+		if(_toCenter) then {
 			_wp = _group addWaypoint [_center,0];
 			_wp setWaypointType "MOVE";
 			_wp setWaypointSpeed "LIMITED";
@@ -304,8 +286,7 @@
 		_group spawn aw_fnc_spawn2_waypointBehaviour;
 	};
 
-	aw_setGroupSkill =
-	{
+	aw_setGroupSkill = {
 		if(!isServer) exitWith{};
 		{
 			_x setSkill ["aimingAccuracy",0.3];
@@ -317,8 +298,7 @@
 		} forEach (_this select 0);
 	};
 
-	aw_cleanGroups =
-	{
+	aw_cleanGroups = {
 		if(!isServer) exitWith{};
 		{
 			if(count (units _x) == 0) then {deleteGroup _x};
@@ -326,8 +306,7 @@
 
 	};
 
-	aw_deleteUnits =
-	{
+	aw_deleteUnits = {
 		private["_deleteVehicles"];
 		if(!isServer) exitWith{};
 
@@ -341,8 +320,7 @@
 		[] spawn aw_cleanGroups;
 	};
 
-	aw_serverRespawn =
-	{
+	aw_serverRespawn = {
 		if(!serverCommandAvailable "#kick") exitWith{};
 		private ["_y"];
 		{
@@ -360,8 +338,7 @@
 		} forEach ((getPos trg_aw_admin) nearEntities [["Air","Car","Motorcycle","Tank"],5000]);
 	};
 
-	aw_serverSingleRespawn =
-	{
+	aw_serverSingleRespawn = {
 		private ["_unit","_pos","_units"];
 
 		if(!serverCommandAvailable "#kick") exitWith{};
@@ -386,14 +363,12 @@
 		};
 	};
 
-	aw_serverCursorTP =
-	{
+	aw_serverCursorTP = {
 		if(!serverCommandAvailable "#kick") exitWith{};
 		player setPos (screenToWorld [0.5,0.5]);
 	};
 
-	aw_serverMapTP =
-	{
+	aw_serverMapTP = {
 		if(!serverCommandAvailable "#kick") exitWith{};
 		onMapSingleClick "player setPos _pos;onMapSingleClick '';true";
 	};

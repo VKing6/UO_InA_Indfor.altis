@@ -95,20 +95,17 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
-class RscText
-{
+class RscText {
 	access = 0;
 	type = 0;
 	idc = -1;
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		0
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
@@ -122,8 +119,7 @@ class RscText
 	w = 0.3;
 	style = 0;
 	shadow = 1;
-	colorShadow[] = 
-	{
+	colorShadow[] = {
 		0,
 		0,
 		0,
@@ -133,21 +129,18 @@ class RscText
 	SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	linespacing = 1;
 };
-class RscStructuredText
-{
+class RscStructuredText {
 	access = 0;
 	type = 13;
 	idc = -1;
 	style = 0;
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	class Attributes
-	{
+	class Attributes {
 		font = "PuristaMedium";
 		color = "#ffffff";
 		align = "left";
@@ -161,21 +154,18 @@ class RscStructuredText
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 1;
 };
-class RscPicture
-{
+class RscPicture {
 	access = 0;
 	type = 0;
 	idc = -1;
 	style = 48;
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		0
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
@@ -192,30 +182,26 @@ class RscPicture
 	w = 0.2;
 	h = 0.15;
 };
-class RscEdit
-{
+class RscEdit {
 	access = 0;
 	type = 2;
 	x = 0;
 	y = 0;
 	h = 0.04;
 	w = 0.2;
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		0.95,
 		0.95,
 		0.95,
 		1
 	};
-	colorSelection[] = 
-	{
+	colorSelection[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
@@ -228,8 +214,7 @@ class RscEdit
 	font = "PuristaMedium";
 	shadow = 2;
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
@@ -237,75 +222,63 @@ class RscEdit
 	};
 	canModify = 1;
 };
-class RscCombo
-{
+class RscCombo {
 	access = 0;
 	type = 4;
-	colorSelect[] = 
-	{
+	colorSelect[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		0.95,
 		0.95,
 		0.95,
 		1
 	};
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorScrollbar[] = 
-	{
+	colorScrollbar[] = {
 		1,
 		0,
 		0,
 		1
 	};
-	soundSelect[] = 
-	{
+	soundSelect[] = {
 		"",
 		0.1,
 		1
 	};
-	soundExpand[] = 
-	{
+	soundExpand[] = {
 		"",
 		0.1,
 		1
 	};
-	soundCollapse[] = 
-	{
+	soundCollapse[] = {
 		"",
 		0.1,
 		1
 	};
 	maxHistoryDelay = 1;
-	class ScrollBar
-	{
-		color[] = 
-		{
+	class ScrollBar {
+		color[] = {
 			1,
 			1,
 			1,
 			0.6
 		};
-		colorActive[] = 
-		{
+		colorActive[] = {
 			1,
 			1,
 			1,
 			1
 		};
-		colorDisabled[] = 
-		{
+		colorDisabled[] = {
 			1,
 			1,
 			1,
@@ -323,8 +296,7 @@ class RscCombo
 	w = 0.12;
 	h = 0.035;
 	shadow = 0;
-	colorSelectBackground[] = 
-	{
+	colorSelectBackground[] = {
 		1,
 		1,
 		1,
@@ -333,22 +305,19 @@ class RscCombo
 	arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
 	arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
 	wholeHeight = 0.45;
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorActive[] = 
-	{
+	colorActive[] = {
 		1,
 		0,
 		0,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
@@ -357,88 +326,75 @@ class RscCombo
 	font = "PuristaMedium";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 };
-class RscListBox
-{
+class RscListBox {
 	access = 0;
 	type = 5;
 	w = 0.4;
 	h = 0.4;
 	rowHeight = 0;
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorScrollbar[] = 
-	{
+	colorScrollbar[] = {
 		1,
 		0,
 		0,
 		0
 	};
-	colorSelect[] = 
-	{
+	colorSelect[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorSelect2[] = 
-	{
+	colorSelect2[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorSelectBackground[] = 
-	{
+	colorSelectBackground[] = {
 		0.95,
 		0.95,
 		0.95,
 		1
 	};
-	colorSelectBackground2[] = 
-	{
+	colorSelectBackground2[] = {
 		1,
 		1,
 		1,
 		0.5
 	};
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		0.3
 	};
-	soundSelect[] = 
-	{
+	soundSelect[] = {
 		"",
 		0.1,
 		1
 	};
 	arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
 	arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
-	class ScrollBar
-	{
-		color[] = 
-		{
+	class ScrollBar {
+		color[] = {
 			1,
 			1,
 			1,
 			0.6
 		};
-		colorActive[] = 
-		{
+		colorActive[] = {
 			1,
 			1,
 			1,
 			1
 		};
-		colorDisabled[] = 
-		{
+		colorDisabled[] = {
 			1,
 			1,
 			1,
@@ -454,22 +410,19 @@ class RscListBox
 	font = "PuristaMedium";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 0;
-	colorShadow[] = 
-	{
+	colorShadow[] = {
 		0,
 		0,
 		0,
 		0.5
 	};
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
@@ -481,87 +434,74 @@ class RscListBox
 	autoScrollDelay = 5;
 	autoScrollRewind = 0;
 };
-class RscButton
-{
+class RscButton {
 	access = 0;
 	type = 1;
 	text = "";
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		0.4,
 		0.4,
 		0.4,
 		1
 	};
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
 		0.7
 	};
-	colorBackgroundDisabled[] = 
-	{
+	colorBackgroundDisabled[] = {
 		0.95,
 		0.95,
 		0.95,
 		1
 	};
-	colorBackgroundActive[] = 
-	{
+	colorBackgroundActive[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
 		1
 	};
-	colorFocused[] = 
-	{
+	colorFocused[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
 		1
 	};
-	colorShadow[] = 
-	{
+	colorShadow[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorBorder[] = 
-	{
+	colorBorder[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	soundEnter[] = 
-	{
+	soundEnter[] = {
 		"\A3\ui_f\data\sound\onover",
 		0.09,
 		1
 	};
-	soundPush[] = 
-	{
+	soundPush[] = {
 		"\A3\ui_f\data\sound\new1",
 		0,
 		0
 	};
-	soundClick[] = 
-	{
+	soundClick[] = {
 		"\A3\ui_f\data\sound\onclick",
 		0.07,
 		1
 	};
-	soundEscape[] = 
-	{
+	soundEscape[] = {
 		"\A3\ui_f\data\sound\onescape",
 		0.09,
 		1
@@ -580,73 +520,62 @@ class RscButton
 	offsetPressedY = 0.002;
 	borderSize = 0;
 };
-class RscShortcutButton
-{
+class RscShortcutButton {
 	type = 16;
 	x = 0.1;
 	y = 0.1;
-	class HitZone
-	{
+	class HitZone {
 		left = 0;
 		top = 0;
 		right = 0;
 		bottom = 0;
 	};
-	class ShortcutPos
-	{
+	class ShortcutPos {
 		left = 0;
 		top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		w = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		h = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	};
-	class TextPos
-	{
+	class TextPos {
 		left = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
 		bottom = 0;
 	};
-	shortcuts[] = 
-	{
+	shortcuts[] = {
 	};
 	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	color2[] = 
-	{
+	color2[] = {
 		0.95,
 		0.95,
 		0.95,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
 		0.25
 	};
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
 		1
 	};
-	colorBackground2[] = 
-	{
+	colorBackground2[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	class Attributes
-	{
+	class Attributes {
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
@@ -671,75 +600,64 @@ class RscShortcutButton
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	text = "";
-	soundEnter[] = 
-	{
+	soundEnter[] = {
 		"\A3\ui_f\data\sound\onover",
 		0.09,
 		1
 	};
-	soundPush[] = 
-	{
+	soundPush[] = {
 		"\A3\ui_f\data\sound\new1",
 		0,
 		0
 	};
-	soundClick[] = 
-	{
+	soundClick[] = {
 		"\A3\ui_f\data\sound\onclick",
 		0.07,
 		1
 	};
-	soundEscape[] = 
-	{
+	soundEscape[] = {
 		"\A3\ui_f\data\sound\onescape",
 		0.09,
 		1
 	};
 	action = "";
-	class AttributesImage
-	{
+	class AttributesImage {
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 	};
 };
-class RscShortcutButtonMain
-{
+class RscShortcutButtonMain {
 	idc = -1;
 	style = 0;
 	default = 0;
 	w = 0.313726;
 	h = 0.104575;
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
 		0.25
 	};
-	class HitZone
-	{
+	class HitZone {
 		left = 0;
 		top = 0;
 		right = 0;
 		bottom = 0;
 	};
-	class ShortcutPos
-	{
+	class ShortcutPos {
 		left = 0.0145;
 		top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
 		w = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2) * (3/4)";
 		h = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	};
-	class TextPos
-	{
+	class TextPos {
 		left = "(((safezoneW / safezoneH) min 1.2) / 32) * 1.5";
 		top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20)*2 - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
 		right = 0.005;
@@ -756,60 +674,51 @@ class RscShortcutButtonMain
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
 	text = "";
-	soundEnter[] = 
-	{
+	soundEnter[] = {
 		"\A3\ui_f\data\sound\onover",
 		0.09,
 		1
 	};
-	soundPush[] = 
-	{
+	soundPush[] = {
 		"\A3\ui_f\data\sound\new1",
 		0,
 		0
 	};
-	soundClick[] = 
-	{
+	soundClick[] = {
 		"\A3\ui_f\data\sound\onclick",
 		0.07,
 		1
 	};
-	soundEscape[] = 
-	{
+	soundEscape[] = {
 		"\A3\ui_f\data\sound\onescape",
 		0.09,
 		1
 	};
 	action = "";
-	class Attributes
-	{
+	class Attributes {
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
 	};
-	class AttributesImage
-	{
+	class AttributesImage {
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "false";
 	};
 };
-class RscFrame
-{
+class RscFrame {
 	type = 0;
 	idc = -1;
 	style = 64;
 	shadow = 2;
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		0
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
@@ -819,21 +728,18 @@ class RscFrame
 	sizeEx = 0.02;
 	text = "";
 };
-class RscSlider
-{
+class RscSlider {
 	access = 0;
 	type = 3;
 	style = 1024;
 	w = 0.3;
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		0.8
 	};
-	colorActive[] = 
-	{
+	colorActive[] = {
 		1,
 		1,
 		1,
@@ -842,14 +748,12 @@ class RscSlider
 	shadow = 0;
 	h = 0.025;
 };
-class IGUIBack
-{
+class IGUIBack {
 	type = 0;
 	idc = 124;
 	style = 128;
 	text = "";
-	colorText[] = 
-	{
+	colorText[] = {
 		0,
 		0,
 		0,
@@ -862,16 +766,14 @@ class IGUIBack
 	y = 0.1;
 	w = 0.1;
 	h = 0.1;
-	colorbackground[] = 
-	{
+	colorbackground[] = {
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])",
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"
 	};
 };
-class RscCheckbox
-{
+class RscCheckbox {
 	idc = -1;
 	type = 7;
 	style = 0;
@@ -879,57 +781,49 @@ class RscCheckbox
 	y = "LINE_Y";
 	w = "LINE_W(WVAL)";
 	h = 0.029412;
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		0,
 		0,
 		1
 	};
-	color[] = 
-	{
+	color[] = {
 		0,
 		0,
 		0,
 		0
 	};
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		1,
 		1
 	};
-	colorTextSelect[] = 
-	{
+	colorTextSelect[] = {
 		0,
 		0.8,
 		0,
 		1
 	};
-	colorSelectedBg[] = 
-	{
+	colorSelectedBg[] = {
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",
 		1
 	};
-	colorSelect[] = 
-	{
+	colorSelect[] = {
 		0,
 		0,
 		0,
 		1
 	};
-	colorTextDisable[] = 
-	{
+	colorTextDisable[] = {
 		0.4,
 		0.4,
 		0.4,
 		1
 	};
-	colorDisable[] = 
-	{
+	colorDisable[] = {
 		0.4,
 		0.4,
 		0.4,
@@ -939,17 +833,14 @@ class RscCheckbox
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 	rows = 1;
 	columns = 1;
-	strings[] = 
-	{
+	strings[] = {
 		"UNCHECKED"
 	};
-	checked_strings[] = 
-	{
+	checked_strings[] = {
 		"CHECKED"
 	};
 };
-class RscButtonMenu
-{
+class RscButtonMenu {
 	idc = -1;
 	type = 16;
 	style = "0x02 + 0xC0";
@@ -965,43 +856,37 @@ class RscButtonMenu
 	animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
 	animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
-	colorBackground[] = 
-	{
+	colorBackground[] = {
 		0,
 		0,
 		0,
 		0.8
 	};
-	colorBackground2[] = 
-	{
+	colorBackground2[] = {
 		1,
 		1,
 		1,
 		0.5
 	};
-	color[] = 
-	{
+	color[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	color2[] = 
-	{
+	color2[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorText[] = 
-	{
+	colorText[] = {
 		1,
 		1,
 		1,
 		1
 	};
-	colorDisabled[] = 
-	{
+	colorDisabled[] = {
 		1,
 		1,
 		1,
@@ -1012,33 +897,28 @@ class RscButtonMenu
 	periodOver = 1.2;
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	class TextPos
-	{
+	class TextPos {
 		left = "0.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
 		top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
 		bottom = 0;
 	};
-	class Attributes
-	{
+	class Attributes {
 		font = "PuristaLight";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
 	};
-	class ShortcutPos
-	{
+	class ShortcutPos {
 		left = "(6.25 * (((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
 		top = 0.005;
 		w = 0.0225;
 		h = 0.03;
 	};
 };
-class RscButtonMenuOK
-{
+class RscButtonMenuOK {
 	idc = 1;
-	shortcuts[] = 
-	{
+	shortcuts[] = {
 		"0x00050000 + 0",
 		28,
 		57,
@@ -1047,21 +927,16 @@ class RscButtonMenuOK
 	default = 1;
 	text = "OK";
 };
-class RscButtonMenuCancel
-{
+class RscButtonMenuCancel {
 	idc = 2;
-	shortcuts[] = 
-	{
+	shortcuts[] = {
 		"0x00050000 + 1"
 	};
 	text = "Cancel";
 };
-class RscControlsGroup
-{
-	class VScrollbar
-	{
-		color[] = 
-		{
+class RscControlsGroup {
+	class VScrollbar {
+		color[] = {
 			1,
 			1,
 			1,
@@ -1073,10 +948,8 @@ class RscControlsGroup
 		autoScrollRewind = 0;
 		shadow = 0;
 	};
-	class HScrollbar
-	{
-		color[] = 
-		{
+	class HScrollbar {
+		color[] = {
 			1,
 			1,
 			1,
@@ -1085,24 +958,20 @@ class RscControlsGroup
 		height = 0.028;
 		shadow = 0;
 	};
-	class ScrollBar
-	{
-		color[] = 
-		{
+	class ScrollBar {
+		color[] = {
 			1,
 			1,
 			1,
 			0.6
 		};
-		colorActive[] = 
-		{
+		colorActive[] = {
 			1,
 			1,
 			1,
 			1
 		};
-		colorDisabled[] = 
-		{
+		colorDisabled[] = {
 			1,
 			1,
 			1,
@@ -1114,8 +983,7 @@ class RscControlsGroup
 		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
 		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 	};
-	class Controls
-	{
+	class Controls {
 	};
 	type = 15;
 	idc = -1;

@@ -27,8 +27,7 @@ uiNamespace setVariable ["VAS_UI_QuickMag",false];
 
 [] call VAS_fnc_updateLoad;
 
-switch (_request) do
-{
+switch (_request) do {
 	case "guns":
 	{
 		_control = VAS_getControl(VAS_Main_Display,VAS_virt_list);
@@ -36,8 +35,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgWeapons"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetValue [(lbSize _control)-1,(_details select 4)]; //Value for index is type
@@ -50,8 +48,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgWeapons"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetValue [(lbSize _control)-1,(_details select 4)]; //Value for index is type
@@ -67,8 +64,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgMagazines"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
@@ -82,10 +78,8 @@ switch (_request) do
 		_mags = [];
 		{
 			_details = [_x,"CfgMagazines"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
-				if(!(_x in _mags)) then
-				{
+			if(count _details > 0) then {
+				if(!(_x in _mags)) then {
 					_mags set[count _mags,_x];
 					_mag = _x;
 					_control lbAdd format["[%1] %2",({_x == _mag} count _info),(_details select 1)]; //Displayname on list
@@ -103,8 +97,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgWeapons"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetValue [(lbSize _control)-1,(_details select 4)]; //Value for index is type
@@ -117,8 +110,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgWeapons"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetValue [(lbSize _control)-1,(_details select 4)]; //Value for index is type
@@ -134,8 +126,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgVehicles"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
@@ -147,8 +138,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgVehicles"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
@@ -163,8 +153,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgGlasses"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
@@ -176,8 +165,7 @@ switch (_request) do
 		
 		{
 			_details = [_x,"CfgGlasses"] call VAS_fnc_fetchCfgDetails;
-			if(count _details > 0) then
-			{
+			if(count _details > 0) then {
 				_control lbAdd format["%1", (_details select 1)]; //Displayname on list
 				_control lbSetData [(lbSize _control)-1,(_details select 0)]; //Data for index is classname
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
