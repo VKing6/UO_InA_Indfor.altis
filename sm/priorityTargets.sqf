@@ -202,81 +202,83 @@ while {true} do {
 	];
 	// _radius = 100; //Declared here so we can "zero in" gradually
 	_radius = 60 + random 40;
-	while {alive priorityTarget1 || alive priorityTarget2} do {
-		LOG("Start Engagement Loop");
-		_accepted = false;
-		_unit = objNull;
-		_targetPos = [0,0,0];
-		_debugCount = 1;
-		_minRange = false;
-		_maxRange = false;
-		while {!_accepted} do {
-			LOG("Start Targeting Loop");
-			debugMessage = format["PT: Finding valid target.<br/><br/>Attempt #%1",_debugCount]; publicVariable "debugMessage";
-			
-			if (count playableUnits > 0) then {
-				_unit = (playableUnits select (floor (random (count playableUnits))));
-			} else {
-				_unit = player;
-			};
-			_targetPos = getPos _unit;
-			
-			if (_SPG) then {
-				_minRange = ((_targetPos distance _flatPos) < 840);
-				_maxRange = false;
-			} else {
-				_minRange = false;
-				_maxRange = ((_targetPos distance _flatPos) > 4075);
-			};
-			
-			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
-				_accepted = true;
-				LOG("Targeting Loop Accepted");
-			};
-
-			_debugCount = _debugCount + 1;
-			sleep 4;
-		};
-
-		debugMessage = "PT: Valid target found; warning players and beginning fire sequence.";
-		publicVariable "debugMessage";
-
-		// hqSideChat = _firingMessages call BIS_fnc_selectRandom; 
-		_firingMessage = if (_SPG) then {
-			format ["<t align='center' size='1.5'>Artillery Firing</t><br/>Four rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
-		} else {
-			format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
-		};
-		GlobalHint = _firingMessage;
-		publicVariable "GlobalHint"; hint parseText GlobalHint;
-		// [-1, {[Independent,"Firefinder Battery"] SideChat _this}, _mortarChat] call CBA_fnc_globalExecute;
-		
-		LOG("Starting Firing Section");
-		_dir = [_flatPos, _targetPos] call BIS_fnc_dirTo;
-		if (!_SPG) then {{ _x setDir _dir; } forEach [priorityVeh1, priorityVeh2]};
-		_ammo = if (_SPG) then {"32Rnd_155mm_Mo_shells"} else {"8Rnd_82mm_Mo_shells"};
-		_roundCount = if (_SPG) then {2} else {3};
-		sleep 5;
-		{
-			LOG("Start Firing Loop");
-			if (alive _x) then {
-				for "_c" from 1 to _roundCount do {
-					_pos =
-					[
-						(_targetPos select 0) - _radius + (2 * random _radius),
-						(_targetPos select 1) - _radius + (2 * random _radius),
-						0
-					];
-					_x doArtilleryFire [_pos, _ammo, 1];
-					sleep 5;
+	while {alive priorityVeh1 || alive priorityVeh2} do {
+		if !(isNull gunner priorityVeh1 || isNull gunner priorityVeh2) then {
+			LOG("Start Engagement Loop");
+			_accepted = false;
+			_unit = objNull;
+			_targetPos = [0,0,0];
+			_debugCount = 1;
+			_minRange = false;
+			_maxRange = false;
+			while {!_accepted} do {
+				LOG("Start Targeting Loop");
+				debugMessage = format["PT: Finding valid target.<br/><br/>Attempt #%1",_debugCount]; publicVariable "debugMessage";
+				
+				if (count playableUnits > 0) then {
+					_unit = (playableUnits select (floor (random (count playableUnits))));
+				} else {
+					_unit = player;
 				};
+				_targetPos = getPos _unit;
+				
+				if (_SPG) then {
+					_minRange = ((_targetPos distance _flatPos) < 840);
+					_maxRange = false;
+				} else {
+					_minRange = false;
+					_maxRange = ((_targetPos distance _flatPos) > 4075);
+				};
+				
+				if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
+					_accepted = true;
+					LOG("Targeting Loop Accepted");
+				};
+
+				_debugCount = _debugCount + 1;
+				sleep 4;
 			};
-			LOG("Rounds Complete");
-		} forEach priorityTargets;
 
-		if (_radius > 10) then { _radius = _radius - 10; }; /* zeroing in */
+			debugMessage = "PT: Valid target found; warning players and beginning fire sequence.";
+			publicVariable "debugMessage";
 
-		sleep 300; //(if (_radius > 50) then {150} else {300});
+			// hqSideChat = _firingMessages call BIS_fnc_selectRandom; 
+			_firingMessage = if (_SPG) then {
+				format ["<t align='center' size='1.5'>Artillery Firing</t><br/>Four rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
+			} else {
+				format ["<t align='center' size='1.5'>Mortars Firing</t><br/>Six rounds incoming to grid <t color='#b60000'>%1</t>",mapGridPosition _targetPos];
+			};
+			GlobalHint = _firingMessage;
+			publicVariable "GlobalHint"; hint parseText GlobalHint;
+			// [-1, {[Independent,"Firefinder Battery"] SideChat _this}, _mortarChat] call CBA_fnc_globalExecute;
+			
+			LOG("Starting Firing Section");
+			_dir = [_flatPos, _targetPos] call BIS_fnc_dirTo;
+			if (!_SPG) then {{ _x setDir _dir; } forEach [priorityVeh1, priorityVeh2]};
+			_ammo = if (_SPG) then {"32Rnd_155mm_Mo_shells"} else {"8Rnd_82mm_Mo_shells"};
+			_roundCount = if (_SPG) then {2} else {3};
+			sleep 5;
+			{
+				LOG("Start Firing Loop");
+				if (alive _x) then {
+					for "_c" from 1 to _roundCount do {
+						_pos =
+						[
+							(_targetPos select 0) - _radius + (2 * random _radius),
+							(_targetPos select 1) - _radius + (2 * random _radius),
+							0
+						];
+						_x doArtilleryFire [_pos, _ammo, 1];
+						sleep 5;
+					};
+				};
+				LOG("Rounds Complete");
+			} forEach priorityTargets;
+
+			if (_radius > 10) then { _radius = _radius - 10; }; /* zeroing in */
+
+			sleep 300; //(if (_radius > 50) then {150} else {300});
+		};
 	};
 
 	//Send completion hint
