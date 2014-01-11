@@ -274,7 +274,7 @@ _null = [] execVM "misc\clearItems.sqf";
 //_null = [] execVM "misc\mortar\mortarSupportReload.sqf";
 
 if (PARAMS_Skybunker > 0 && isServer) then {
-	tin_skyBunker = "Land_Cargo_Tower_V2_F" createVehicle (position skyBunkerLogic);
+	tin_skyBunker = "Land_Cargo_Tower_V1_No1_F" createVehicle (position skyBunkerLogic);
 	tin_skyBunker setPosATL [(getPosATL skyBunkerLogic select 0),(getPosATL skyBunkerLogic select 1),-0.05];
 	tin_skyBunker setDir (getDir skyBunkerLogic);
 	tin_skyBunker allowDamage false;
