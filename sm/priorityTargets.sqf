@@ -75,7 +75,7 @@ while {true} do {
 			_flatPos = _position isFlatEmpty _isFlatEmptyArray;
 		};
 
-		if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 1000) then {
+		if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 1500) then {
 			_nearUnits = 0;
 			{
 				if ((_flatPos distance (getPos _x)) < 500) then {
@@ -203,42 +203,41 @@ while {true} do {
 	// _radius = 100; //Declared here so we can "zero in" gradually
 	_radius = 60 + random 40;
 	while {alive priorityVeh1 || alive priorityVeh2} do {
-		if !(isNull gunner priorityVeh1 || isNull gunner priorityVeh2) then {
-			LOG("Start Engagement Loop");
-			_accepted = false;
-			_unit = objNull;
-			_targetPos = [0,0,0];
-			_debugCount = 1;
-			_minRange = false;
-			_maxRange = false;
-			while {!_accepted} do {
-				LOG("Start Targeting Loop");
-				debugMessage = format["PT: Finding valid target.<br/><br/>Attempt #%1",_debugCount]; publicVariable "debugMessage";
-				
-				if (count playableUnits > 0) then {
-					_unit = (playableUnits select (floor (random (count playableUnits))));
-				} else {
-					_unit = player;
-				};
-				_targetPos = getPos _unit;
-				
-				if (_SPG) then {
-					_minRange = ((_targetPos distance _flatPos) < 840);
-					_maxRange = false;
-				} else {
-					_minRange = false;
-					_maxRange = ((_targetPos distance _flatPos) > 4075);
-				};
-				
-				if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
-					_accepted = true;
-					LOG("Targeting Loop Accepted");
-				};
-
-				_debugCount = _debugCount + 1;
-				sleep 4;
+		LOG("Start Engagement Loop");
+		_accepted = false;
+		_unit = objNull;
+		_targetPos = [0,0,0];
+		_debugCount = 1;
+		_minRange = false;
+		_maxRange = false;
+		while {!_accepted && !(isNull gunner priorityVeh1 || isNull gunner priorityVeh2)} do {
+			LOG("Start Targeting Loop");
+			debugMessage = format["PT: Finding valid target.<br/><br/>Attempt #%1",_debugCount]; publicVariable "debugMessage";
+			
+			if (count playableUnits > 0) then {
+				_unit = (playableUnits select (floor (random (count playableUnits))));
+			} else {
+				_unit = player;
+			};
+			_targetPos = getPos _unit;
+			
+			if (_SPG) then {
+				_minRange = ((_targetPos distance _flatPos) < 840);
+				_maxRange = false;
+			} else {
+				_minRange = false;
+				_maxRange = ((_targetPos distance _flatPos) > 4075);
+			};
+			
+			if ((_targetPos distance (getMarkerPos "respawn")) > 1000 /* && vehicle _unit == _unit */ && side _unit != EAST && EAST knowsAbout vehicle _unit > 3 && !_minRange && !_maxRange && (_targetPos select 2) < 3) then {
+				_accepted = true;
+				LOG("Targeting Loop Accepted");
 			};
 
+			_debugCount = _debugCount + 1;
+			sleep 4;
+		};
+		if (_accepted) then {
 			debugMessage = "PT: Valid target found; warning players and beginning fire sequence.";
 			publicVariable "debugMessage";
 
