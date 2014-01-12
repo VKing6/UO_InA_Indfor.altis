@@ -165,9 +165,6 @@ call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
 
 [] spawn {
 	scriptName "initMission.hpp: mission start";
-	//["rsc\FinalComp.ogv", false] spawn BIS_fnc_titlecard;
-	//waitUntil {sleep 0.5; !(isNil "BIS_fnc_titlecard_finished")};
-	//[[14600.0,16801.0,100],"We've gotten a foot-hold on the island,|but we need to take the rest.||Listen to HQ and neutralise all enemies designated."] spawn BIS_fnc_establishingShot;
 	titleText [WELCOME_MESSAGE, "PLAIN", 3];
 };
 
@@ -278,7 +275,7 @@ _null = [] execVM "misc\clearItems.sqf";
 //_null = [] execVM "misc\mortar\mortarSupportReload.sqf";
 
 if (PARAMS_Skybunker > 0 && isServer) then {
-	tin_skyBunker = "Land_Cargo_Tower_V2_F" createVehicle (position skyBunkerLogic);
+	tin_skyBunker = "Land_Cargo_Tower_V1_No1_F" createVehicle (position skyBunkerLogic);
 	tin_skyBunker setPosATL [(getPosATL skyBunkerLogic select 0),(getPosATL skyBunkerLogic select 1),-0.05];
 	tin_skyBunker setDir (getDir skyBunkerLogic);
 	tin_skyBunker allowDamage false;
