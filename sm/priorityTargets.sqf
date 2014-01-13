@@ -108,6 +108,8 @@ while {true} do {
 	"O_Soldier_F" createUnit [_flatPosAlt, _priorityGroup, "priorityTarget1 = this; this moveInGunner priorityVeh1;"];
 	"O_Soldier_F" createUnit [_flatPosClose, _priorityGroup, "priorityTarget2 = this; this moveInGunner priorityVeh2;"];
 	waitUntil {alive priorityTarget1 && alive priorityTarget2};
+	priorityVeh1 allowCrewInImmobile true;
+	priorityVeh2 allowCrewInImmobile true;
 	priorityTargets = [priorityTarget1, priorityTarget2];
 	{ publicVariable _x; } forEach ["priorityTarget1", "priorityTarget2", "priorityTargets", "priorityVeh1", "priorityVeh2"];
 	LOG("Vehicles Created");
