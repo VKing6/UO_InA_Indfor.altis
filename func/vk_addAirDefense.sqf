@@ -23,7 +23,7 @@ _getADList = {
 };
 
 PARAMS_1(_pos);
-private ["_aaLevel","_num","_adList","_adVeh"];
+private ["_aaLevel","_num","_adList","_adVeh","_randomPos","_spawnGroup"];
 
 _aaLevel = [] call vk_getSpawnLevel select 1;
 
@@ -43,8 +43,13 @@ if (count _adList > 0) then {
 			_adVeh addEventHandler ["fired",{_this select 0 setVehicleAmmo 1}];
 			_adVeh addEventHandler ["killed", {activeAD = activeAD - [(_this select 0) getVariable "adName"]; tin_fifo_bodies = tin_fifo_bodies + [(_this select 0)] + crew (_this select 0)}];
 			createVehicleCrew _adVeh;
-			
 			// _x setMarkerType "o_unknown";
+			
+			// Spawn guard patrol
+			_randomPos = [[[getPos _adVeh, 30]],["water","out"]] call BIS_fnc_randomPos;
+			_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
+			[_spawnGroup, getPos _adVeh, 100] call aw_fnc_spawn2_perimeterPatrol;
+			{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 		};
 	} forEach _adList;
 };
