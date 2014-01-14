@@ -2,13 +2,16 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 PARAMS_1(_vehicle);
-private ["_warning","_threatList","_relativeBearing","_clock","_direction","_distance","_range"];
+private ["_warning","_threatList","_relativeBearing","_clock","_direction","_distance","_range","_show"];
 while { (player == driver _vehicle || player == gunner _vehicle) && {alive player} && {alive _vehicle} } do {
-	_warning = "";
+	_show = false;
+	_warning = "<t align='center' size='1.2'>RWR</t><br/>";
 	_threatList = (getPos _vehicle) nearEntities ["O_APC_Tracked_02_AA_F", 3500];
 	{
 		if !(terrainIntersect[getPosATL _vehicle,getPosATL _x]) then {
 			_relativeBearing = [_vehicle,_x] call BIS_fnc_relativeDirTo;
+			if (_relativeBearing < 0) then { _relativeBearing = _relativeBearing + 360 };
+			VK_relBearing = _relativeBearing;
 			_clock = switch (true) do {
 				case ((345 < _relativeBearing) || (_relativeBearing <= 15)): { 12 };
 				case (15 < _relativeBearing && _relativeBearing <= 45): { 1 };
@@ -28,25 +31,28 @@ while { (player == driver _vehicle || player == gunner _vehicle) && {alive playe
 				case (_clock == 12): { "↑ " };
 				case (_clock < 6): { "→ " };
 				case (_clock > 6): { "← " };
-				default { "↓ " };
+				case (_clock == 6): { "↓ " };
+				default { "X " };
 			};
 			_distance = _vehicle distance _x;
 			_range = switch (true) do {
-				case (_distance <= 1000): { "Close" };
-				case (1000 < _distance || _distance <= 2000): { "Medium" };
-				case (2000 < _distance): { "Far" };
+				case (_distance <= 1250): { "<t color='#FF0000'>Close</t>" };
+				case (1250 < _distance || _distance <= 2250): { "<t color='#FFFF00'>Medium</t>" };
+				case (2250 < _distance): { "Far" };
+				default { "ERROR" };
 			};
-			
+			_show = true;
 			TRACE_5("",_x,_relativeBearing,_clock,_direction,_range);
 			// _warning = _warning+ "AAA: "+_direction+_clock+" o'clock\n";
-			_warning = format ["%1AAA: %2%3 o'clock %4\n",_warning,_direction,_relativeBearing,_range];
+			_warning = format ["%1<t align='left'><t color='#BFFF00'>AAA:</t> %2%3 o'clock %4</t><br/>",_warning,_direction,_clock,_range];
 			TRACE_1("",_warning);
 		};
 	} forEach _threatList;
-	// _vehicle vehicleChat format["%1",_warning];
 	player sideChat _warning;
-	// if (player == driver _vehicle) then {
-		hint format ["%1",_warning];
-	// };
+	if (player == driver _vehicle || player == gunner _vehicle) then {
+		if (_show) then {
+			hint parseText _warning;
+		};
+	};
 	sleep 0.25;
 };
