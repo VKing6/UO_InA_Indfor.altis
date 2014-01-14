@@ -48,7 +48,7 @@ while { (player == driver _vehicle || player == gunner _vehicle) && {alive playe
 			TRACE_1("",_warning);
 		};
 	} forEach _threatList;
-	player sideChat _warning;
+	// player sideChat _warning;
 	if (player == driver _vehicle || player == gunner _vehicle) then {
 		if (_show) then {
 			hint parseText _warning;
