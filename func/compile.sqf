@@ -7,3 +7,4 @@ AW_fnc_rewardPlusHint = compile (preprocessFileLineNumbers "func\aw\fnc_rewardPl
 AW_fnc_spawnUnits = compile (preprocessFileLineNumbers "func\aw\fnc_spawnUnits.sqf"); 
 tin_aiGarrison = compile (preprocessFileLineNumbers "func\tin_aiGarrison.sqf");
 vk_addAirDefense = compile (preprocessFileLineNumbers "func\vk_addAirDefense.sqf");
+vk_RWR = compile (preprocessFileLineNumbers "func\vk_rwr.sqf");
