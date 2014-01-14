@@ -188,7 +188,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			_accepted = false;
 			_fuzzyPos = _flatPos;
@@ -314,7 +314,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			_accepted = false;
 			_fuzzyPos = _flatPos;
@@ -457,7 +457,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			//Set marker up
 			_accepted = false;
