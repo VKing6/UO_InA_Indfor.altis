@@ -28,7 +28,7 @@ private ["_veh","_vehName","_vehType","_vehVarname","_completeText","_reward","_
 		};
 		case "UAV" : {
 			_rewardPos = smUAVList select 0;
-			smHangarList = smUAVList - [_rewardPos];
+			smUAVList = smUAVList - [_rewardPos];
 			_dir = 120
 		};
 		case "Helicopter" : {
