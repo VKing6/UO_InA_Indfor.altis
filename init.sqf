@@ -27,7 +27,7 @@ Jack Williams (Rarek) for Ahoy World!
 
 #define WELCOME_MESSAGE	"Welcome to Ahoy World's Invade & Annex ~ALTIS~\n" +\
 						"by Rarek (Ahoy World)\n\n" +\
-						"Modification for United Operations by TinfoilHate\n" +\
+						"Modification for United Operations by TinfoilHate, Toadball, and VKing\n" +\
 						"www.unitedoperations.net\n\n"
 
 
