@@ -14,10 +14,10 @@ private ["_veh","_vehName","_vehType","_vehVarname","_completeText","_reward","_
 	if (!(_vehVarname isKindOf "Plane") && !(_vehVarname isKindOf "Helicopter")) then { _vehType = "Ground"; };
 	
 	//makes dis tidier!
-	if ((_vehType = "Plane") && count smHangarList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
-	if ((_vehType = "UAV") && count smUAVList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
-	if ((_vehType = "Helicopter") && count smHeliList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
-	if ((_vehType = "Ground") && count smMarkerList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
+	if ((_vehType == "Plane") && count smHangarList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
+	if ((_vehType == "UAV") && count smUAVList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
+	if ((_vehType == "Helicopter") && count smHeliList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
+	if ((_vehType == "Ground") && count smMarkerList == 0) exitWith {[-1, {"All reward locations full! No reward given."}] call CBA_fnc_globalExecute};
 
 	//switch-a-roo
 	switch (_vehType) do {
