@@ -1,4 +1,4 @@
-// #define DEBUG_MODE_FULL
+﻿// #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 PARAMS_1(_vehicle);
@@ -29,9 +29,13 @@ while { (player == driver _vehicle || player == gunner _vehicle) && {alive playe
 			};
 			_direction = switch (true) do {
 				case (_clock == 12): { "↑ " };
-				case (_clock < 6): { "→ " };
-				case (_clock > 6): { "← " };
+				case (_clock <= 2): { "↗ "};
+				case (_clock == 3): { "→ " };
+				case (_clock <= 5): { "↘ " };
 				case (_clock == 6): { "↓ " };
+				case (_clock <= 8): { "↙ " };
+				case (_clock == 9): { "← " };
+				case (_clock <= 11): { "↖ " };
 				default { "X " };
 			};
 			_distance = _vehicle distance _x;
