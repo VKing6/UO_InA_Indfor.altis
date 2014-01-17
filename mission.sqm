@@ -685,7 +685,7 @@ class Mission
 					rank="CAPTAIN";
 					skill=0.60000002;
 					init="(group this) setGroupId [""Mako 1""];";
-					description="Pilot";
+					description="Pilot (Flight Lead)";
 				};
 				class Item1
 				{
@@ -2331,7 +2331,7 @@ class Mission
 			azimut=54;
 			id=142;
 			side="EMPTY";
-			vehicle="Flag_NATO_F";
+			vehicle="Flag_Altis_F";
 			leader=1;
 			skill=0.60000002;
 			init="this allowDamage false;";

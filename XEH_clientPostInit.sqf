@@ -5,7 +5,8 @@
 	//INDFOR Skins for AH-6 / P-30
 	{_x setObjectTexture [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]} forEach allMissionObjects "Heli_Light_01_base_F";
 	{_x setObjectTexture [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]} forEach allMissionObjects "Heli_Light_02_base_F";
-
+	{_x removeMagazine "2Rnd_GBU12_LGB_MI10"; _x removeWeapon "GBU12BombLauncher"; _x addMagazine "2Rnd_LG_scalpel";} forEach allMissionObjects "I_Plane_Fighter_03_CAS_F";
+	
 	((position hideLogic) nearestObject 872793) hideObject true;
 
 	if (isNil "tin_playerInCRV") then {tin_playerInCRV = false};
