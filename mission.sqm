@@ -3583,7 +3583,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
 			position[]={15917.867,16.434958,16467.947};
@@ -3718,6 +3718,20 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="aoTrigger";
+			class Effects
+			{
+			};
+		};
+		class Item10
+		{
+			position[]={14728.338,17.91,16625.607};
+			a=400;
+			b=900;
+			angle=45;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="Airfield";
 			class Effects
 			{
 			};
