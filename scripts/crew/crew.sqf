@@ -13,8 +13,7 @@ disableSerialization;
     
  
 	   
-    if(player != vehicle player) then
-    {
+    if(player != vehicle player) then {
         _name = "";
         _vehicle = assignedVehicle player;
         _vehname= getText (configFile >> "CfgVehicles" >> (typeOf vehicle player) >> "DisplayName");
@@ -25,11 +24,9 @@ disableSerialization;
 
 					
         {
-            if((driver _vehicle == _x) || (gunner _vehicle == _x)) then
-            {
+            if((driver _vehicle == _x) || (gunner _vehicle == _x)) then {
 	                
-                if(driver _vehicle == _x) then
-                {
+                if(driver _vehicle == _x) then {
 
                     _name = format ["<t size='0.65' color='#FFFFFF' shadow='1'>%1 %2</t> <br/>", _name, (name _x)];
                 }
