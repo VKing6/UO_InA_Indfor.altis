@@ -77,7 +77,7 @@ while {true} do {
 			_flatPos = _position isFlatEmpty _isFlatEmptyArray;
 		};
 
-		if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 1500) then {
+		if (_flatPos select 2 < 3 && {(_flatPos distance (getMarkerPos "respawn")) > 1500 && (_flatPos distance (getMarkerPos currentAO)) > 1500}) then {
 			_nearUnits = 0;
 			{
 				if ((_flatPos distance (getPos _x)) < 500) then {
