@@ -113,16 +113,18 @@ while {true} do {
 
 			_flatPos = [0,0,0];
 			
-			_flatpos = [
-				getPos _smPos,
-				0,
-				_smRadius,
-				10,
-				0,
-				0.2,
-				0,
-				[base,aoTrigger]
-			] call bis_fnc_findSafePos;
+			while {_flatPos select 2 < 3} do {
+				_flatpos = [
+					getPos _smPos,
+					0,
+					_smRadius,
+					10,
+					0,
+					0.2,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+			};
 
 			//Spawn hangar and chopper
 			_randomDir = (random 360);
@@ -188,7 +190,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			_accepted = false;
 			_fuzzyPos = _flatPos;
@@ -244,16 +246,18 @@ while {true} do {
 			
 			_flatPos = [0,0,0];
 			
-			_flatpos = [
-				getPos _smPos,
-				0,
-				_smRadius,
-				sizeOf "Land_Radar_small_F",
-				0,
-				0.7,
-				0,
-				[base,aoTrigger]
-			] call bis_fnc_findSafePos;
+			while {_flatPos select 2 < 3} do {
+				_flatPos = [
+					getPos _smPos,
+					0,
+					_smRadius,
+					sizeOf "Land_Radar_small_F",
+					0,
+					0.7,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+			};
 			
 			//Spawn radar, set vector and add marker
 			sideObj = "Land_Radar_small_F" createVehicle _flatPos;
@@ -314,7 +318,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			_accepted = false;
 			_fuzzyPos = _flatPos;
@@ -370,16 +374,18 @@ while {true} do {
 			
 			_flatPos = [0,0,0];
 
-			_flatpos = [
-				getPos _smPos,
-				0,
-				_smRadius,
-				sizeOf "Land_Cargo_HQ_V1_F",
-				0,
-				0.35,
-				0,
-				[base,aoTrigger]
-			] call bis_fnc_findSafePos;
+			while {_flatPos select 2 < 3} do {
+				_flatPos = [
+					getPos _smPos,
+					0,
+					_smRadius,
+					sizeOf "Land_Cargo_HQ_V1_F",
+					0,
+					0.35,
+					0,
+					[base,aoTrigger]
+				] call bis_fnc_findSafePos;
+			};
 			
 			//Spawn Mobile HQ
 			_randomDir = (random 360);
@@ -457,7 +463,7 @@ while {true} do {
 			};
 			
 			// Spawn area AAA
-			[_flatpos] execVM "func\vk_addAirDefense.sqf";
+			[_flatpos] call vk_addAirDefense;
 			
 			//Set marker up
 			_accepted = false;

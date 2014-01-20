@@ -3,7 +3,7 @@
 // #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
-private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_minRange","_maxRange","_fuzzyPos"];
+private ["_firstRun","_isGroup","_obj","_position","_flatPos","_nearUnits","_accepted","_debugCounter","_pos","_barrier","_dir","_unitsArray","_randomPos","_spawnGroup","_unit","_targetPos","_debugCount","_radius","_randomWait","_briefing","_flatPosAlt","_flatPosClose","_priorityGroup","_distance","_firingMessages","_completeText","_SPG","_isFlatEmptyArray","_spawnMagnitude","_spawnVehicleType","_hintNotification","_ammo","_roundCount","_minRange","_maxRange","_fuzzyPos","_spawnLevel"];
 _firstRun = true;
 _unitsArray = [objNull];
 _completeText =
@@ -45,6 +45,8 @@ while {true} do {
 
 	debugMessage = "Priority Target started.";
 	publicVariable "debugMessage";
+	
+	_spawnLevel = [] call vk_getSpawnLevel select 0;
 
 	_SPG = if (random 1 > 0.9) then {true} else {false};
 	// _SPG = true;
@@ -75,7 +77,7 @@ while {true} do {
 			_flatPos = _position isFlatEmpty _isFlatEmptyArray;
 		};
 
-		if ((_flatPos distance (getMarkerPos "respawn")) > 1000 && (_flatPos distance (getMarkerPos currentAO)) > 1500) then {
+		if (_flatPos select 2 < 3 && {(_flatPos distance (getMarkerPos "respawn")) > 1500 && (_flatPos distance (getMarkerPos currentAO)) > 1500}) then {
 			_nearUnits = 0;
 			{
 				if ((_flatPos distance (getPos _x)) < 500) then {
@@ -96,7 +98,7 @@ while {true} do {
 	publicVariable "debugMessage";
 
 	//Spawn units
-	_spawnMagnitude = if (_SPG) then {8} else {2};
+	_spawnMagnitude = if (_SPG) then {8} else {3};
 	_spawnVehicleType = if (_SPG) then {"O_MBT_02_arty_F"} else {"O_Mortar_01_F"};
 	_flatPosAlt = [(_flatPos select 0) - _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
 	_flatPosClose = [(_flatPos select 0) + _spawnMagnitude, (_flatPos select 1), (_flatPos select 2)];
@@ -108,6 +110,8 @@ while {true} do {
 	"O_Soldier_F" createUnit [_flatPosAlt, _priorityGroup, "priorityTarget1 = this; this moveInGunner priorityVeh1;"];
 	"O_Soldier_F" createUnit [_flatPosClose, _priorityGroup, "priorityTarget2 = this; this moveInGunner priorityVeh2;"];
 	waitUntil {alive priorityTarget1 && alive priorityTarget2};
+	priorityVeh1 allowCrewInImmobile true;
+	priorityVeh2 allowCrewInImmobile true;
 	priorityTargets = [priorityTarget1, priorityTarget2];
 	{ publicVariable _x; } forEach ["priorityTarget1", "priorityTarget2", "priorityTargets", "priorityVeh1", "priorityVeh2"];
 	LOG("Vehicles Created");
@@ -131,21 +135,21 @@ while {true} do {
 	};
 
 	//Spawn some enemies protecting the units
-	for "_c" from 0 to 0 do {
+	for "_c" from 0 to (_spawnLevel+1) do {
 		_randomPos = [[[_flatPos, 85]],["water","out"]] call BIS_fnc_randomPos;
 		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_AT")] call BIS_fnc_spawnGroup;
 		// [_spawnGroup, _flatPos] call BIS_fnc_taskDefend;
 		[_spawnGroup, _flatPos, 250] call aw_fnc_spawn2_perimeterPatrol;
 
-		_unitsArray = _unitsArray + [_spawnGroup];
+		_unitsArray = _unitsArray + [_spawnGroup];{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 	};
 
-	for "_c" from 0 to 2 do {
+	for "_c" from 0 to (_spawnLevel-1 max 0) do {
 		_randomPos = [[[_flatPos, 50]],["water","out"]] call BIS_fnc_randomPos;
 		_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
 		[_spawnGroup, _pos, 100] call bis_fnc_taskPatrol;
 
-		_unitsArray = _unitsArray + [_spawnGroup];
+		_unitsArray = _unitsArray + [_spawnGroup];{_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 	};
 	LOG("Guards Created");
 	//Set marker up
