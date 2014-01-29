@@ -47,7 +47,7 @@ vas_weapons = [
 	// Binoculars
 	"Binocular","Laserdesignator","Rangefinder",
 	// Rifles
-	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
+	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_lmg_mk24","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
 	// Pistols
 	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
 	// Launchers
@@ -56,7 +56,7 @@ vas_weapons = [
 //Want to limit VAS to specific magazines? Place the classnames in the array!
 vas_magazines = [
 	// Rifle Magazines
-	"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Yellow","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer","tb_100Rnd_556x45_box","tb_100Rnd_556x45_box_tracer_yellow","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green","tb_8Rnd_12ga_slug","tb_8Rnd_12ga_buck",
+	"30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Yellow","20Rnd_556x45_UW_mag","20Rnd_762x51_Mag","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer","tb_100Rnd_556x45_box","tb_100Rnd_556x45_box_tracer_yellow","150Rnd_762x51_Box","tb_150Rnd_762x51_Box_Tracer_yellow","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01_Tracer_Green","tb_8Rnd_12ga_slug","tb_8Rnd_12ga_buck",
 	// Pistol Magazines
 	"30Rnd_9x21_Mag","16Rnd_9x21_Mag","9Rnd_45ACP_Mag",
 	// GL Magazines
