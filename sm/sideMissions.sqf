@@ -52,8 +52,8 @@ while {true} do {
 		sleep 10;
 		//Select random mission from the SM list
 		_mission = _sideMissions call BIS_fnc_selectRandom;
-		_lastSM = "Nothing";
-		_validSM = false;
+		 _lastSM = "Nothing";
+		validSM = false;
 	} else {
 		if (!_skipTimer) then {
 		
@@ -96,17 +96,18 @@ while {true} do {
 					};
 				};
 			};
-
-			while {!_validSM} do {
-				//Select random mission from the SM list
-				_mission = _sideMissions call BIS_fnc_selectRandom;
-				if (_mission != _lastSM) then {_validSM = true;};
-			};
 		} else {
 			//Reset skipTimer
 			_skipTimer = false;
 		};
 	};
+	while {!_validSM} do {
+		//Select random mission from the SM list
+		_mission = _sideMissions call BIS_fnc_selectRandom;
+		if (_mission != _lastSM) then {_validSM = true;};
+	};
+	//reset the checker:
+	_validSM = false;
 	
 	_spawnLevel = [] call vk_getSpawnLevel select 0;
 	_aaLevel = [] call vk_getSpawnLevel select 1;
@@ -240,7 +241,7 @@ while {true} do {
 			//Send completion hint
 			[] call AW_fnc_rewardPlusHint;
 			//define last mission completed:
-			_lastSM = "destroyChopper";
+			 _lastSM = "destroyChopper";
 			//Hide SM marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
@@ -367,7 +368,7 @@ while {true} do {
 			
 			//Throw out objective completion hint
 			[] call AW_fnc_rewardPlusHint;
-			_lastSM = "destroySmallRadar";
+			 _lastSM = "destroySmallRadar";
 			//Hide marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
@@ -493,17 +494,17 @@ while {true} do {
 			};
 
 			{ _x setMarkerPos _fuzzyPos; } forEach ["sideMarker", "sideCircle"];
-			"sideMarker" setMarkerText "Side Mission: Destroy HQ";
+			"sideMarker" setMarkerText "Side Mission: Destroy Outpost";
 			publicVariable "sideMarker";
 			publicVariable "sideObj";
 			
 			//Throw briefing hint
 			GlobalHint = format [_briefing, mapgridPosition _fuzzyPos]; publicVariable "GlobalHint"; hint parseText GlobalHint;
-			showNotification = ["NewSideMission", "Destroy HQ"]; publicVariable "showNotification";
+			showNotification = ["NewSideMission", "Destroy Outpost"]; publicVariable "showNotification";
 			
 			sideMissionUp = true;
 			publicVariable "sideMissionUp";
-			sideMarkerText = "Destroy HQ";
+			sideMarkerText = "Destroy Outpost";
 			publicVariable "sideMarkerText";
 			
 			//Wait for boats to be dead
@@ -516,7 +517,7 @@ while {true} do {
 
 			//Throw completion hint
 			[] call AW_fnc_rewardPlusHint;
-			_lastSM = "destroyOutpost";
+			 _lastSM = "destroyOutpost";
 			//Hide marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
