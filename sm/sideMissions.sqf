@@ -53,7 +53,7 @@ while {true} do {
 		//Select random mission from the SM list
 		_mission = _sideMissions call BIS_fnc_selectRandom;
 		 _lastSM = "Nothing";
-		validSM = false;
+		_validSM = false;
 	} else {
 		if (!_skipTimer) then {
 		
