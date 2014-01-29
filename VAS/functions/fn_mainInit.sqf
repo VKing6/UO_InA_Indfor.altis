@@ -7,7 +7,8 @@
 */
 [] spawn
 {
-	if(isNil "VAS_init_complete") then {
+	if(isNil "VAS_init_complete") then
+	{
 		private["_handle"];
 		VAS_init_timeOnStart = time;
 		VAS_init_complete = false;

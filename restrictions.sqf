@@ -3,7 +3,7 @@
 {
 	while {true} do
 	{
-		if ((player hasWeapon "launch_I_Titan_F") || (player hasWeapon "launch_I_Titan_short_F")) then
+		/*if ((player hasWeapon "launch_I_Titan_F") || (player hasWeapon "launch_I_Titan_short_F")) then
 		{
 			if ((playerSide == west && typeOf player != "B_soldier_LAT_F") || (playerside == east && typeOf player != "O_soldier_LAT_F") || (playerside == resistance && typeOf player != "I_soldier_LAT_F")) then
 			{
@@ -12,7 +12,7 @@
 				player removeWeapon "launch_I_Titan_short_F";
 				player globalChat "Only AT Soldiers are trained in missile launcher operations. Launcher removed.";
 			};
-		};
+		};*/
 		if ("B_UavTerminal" in (assignedItems player) || "I_UavTerminal" in (assignedItems player) || "O_UavTerminal" in (assignedItems player)) then
 		{
 			if ((playerSide == west && typeOf player != "B_soldier_UAV_F") || (playerside == east && typeOf player != "O_soldier_UAV_F") || (playerside == resistance && typeOf player != "I_soldier_UAV_F")) then

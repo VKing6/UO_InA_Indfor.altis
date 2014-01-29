@@ -76,6 +76,7 @@ Jack Williams (Rarek) for Ahoy World!
 	#include "VAS\menu.hpp"
 	class CfgFunctions {
 		#include "VAS\cfgfunctions.hpp"
+		#include "taw_vd\CfgFunctions.hpp"
 	};
 
 	/* View Distance includes */
@@ -138,8 +139,8 @@ Jack Williams (Rarek) for Ahoy World!
 		};
 		class SmIntervalTime {
 			title = "Interval between side missions";
-			values[] = {0,1,2};
-			texts[] = {"5-10 minutes","10-20 minutes","15-30 minutes"};
+			values[] = {0,1,2,3};
+			texts[] = {"5-10 minutes","10-20 minutes","15-30 minutes","1 Minute Test"};
 			default = 1;
 		};
 		/*

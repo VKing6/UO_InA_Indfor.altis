@@ -22,7 +22,8 @@ waitUntil {!isNull (findDisplay VAS_prompt_Display)};
 (VAS_getControl(VAS_prompt_Display,VAS_prompt_false)) ctrlSetText localize "STR_VAS_Prompt_deleteNo";
 
 waitUntil {!isNil "vas_prompt_choice"};
-if(vas_prompt_choice) then {
+if(vas_prompt_choice) then
+{
 	[_loadout] spawn VAS_fnc_transferSaveMenu;
 };
 

@@ -1,6 +1,8 @@
-class VAS {
+class VAS
+{
 	tag = "VAS";
-	class functions {
+	class functions
+	{
 		file = "VAS\functions";
 		class onRespawn {description = "Called when a selected loadout is set to be loaded on respawn.";};
 		class deleteGear {description = "Deletes the selected slot from the profileNamespace.";};
@@ -39,5 +41,7 @@ class VAS {
 		class transferSaveMenu {};
 		class transferSaveGear {};
 		class VASP {};
+		class quickAttachment {};
+		class accList {};
 	};
 };

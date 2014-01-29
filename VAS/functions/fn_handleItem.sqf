@@ -36,24 +36,29 @@ if(
 (count VAS_glasses > 0 && !(_item in VAS_glasses))
 ) exitWith {systemChat format["%1 %2",_details select 1,localize "STR_VAS_restricted"]};
 
-if(_bool) then {
-	switch((_details select 6)) do {
+if(_bool) then
+{
+	switch((_details select 6)) do
+	{
 		case "CfgGlasses":
 		{
 			if(_toUniform) exitWith {player addItemToUniform _item;};
 			if(_toVest) exitWith {player addItemToVest _item;};
 			
-			if(_ispack) then {
+			if(_ispack) then
+			{
 				player addItemToBackpack _item;
 			}
 				else
 			{
-				if(_override) then {
+				if(_override) then
+				{
 					player addItem _item;
 				}
 					else
 				{
-					if(goggles player != "") then {
+					if(goggles player != "") then
+					{
 						removeGoggles player;
 					};
 					player addGoggles _item;
@@ -63,13 +68,15 @@ if(_bool) then {
 		
 		case "CfgVehicles":
 		{
-			if(backpack player != "") then {
+			if(backpack player != "") then
+			{
 				_items = (backpackItems player);
 				removeBackpack player;
 			};
 			player addBackpack _item;
 			clearAllItemsFromBackpack player;
-			if(!isNil {_items}) then { 
+			if(!isNil {_items}) then 
+			{ 
 				{[_x,true,true,false,true] spawn VAS_fnc_handleItem; } foreach _items;
 			};
 		};
@@ -90,9 +97,12 @@ if(_bool) then {
 			if(_toVest) exitWith {player addItemToVest _item;};
 			if(_ispack) exitWith {player addItemToBackpack _item;};
 			
-			if((_details select 4) in [1,2,4,5,4096]) then {
-				if((_details select 4) == 4096) then {
-					if((_details select 5) == -1) then {
+			if((_details select 4) in [1,2,4,5,4096]) then
+			{
+				if((_details select 4) == 4096) then
+				{
+					if((_details select 5) == -1) then
+					{
 						_isgun = true;
 					};
 				}
@@ -102,9 +112,11 @@ if(_bool) then {
 				};
 			};
 			
-			if(_isgun) then {
+			if(_isgun) then
+			{
 				if(!_ispack && _override) exitWith {}; //It was in the vest/uniform, try to close to prevent it overriding stuff... (Actual weapon and not an item)
-				if(_item == "MineDetector") then {
+				if(_item == "MineDetector") then
+				{
 					player addItem _item;
 				}
 					else
@@ -114,20 +126,24 @@ if(_bool) then {
 			}
 				else
 			{
-				switch(_details select 5) do {
+				switch(_details select 5) do
+				{
 					case 0: 
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
 							{
-								if(_item in (assignedItems  player)) then {
+								if(_item in (assignedItems  player)) then 
+								{
 									player addItem _item;
 								} 
 									else 
@@ -140,22 +156,26 @@ if(_bool) then {
 					};
 					case 605: 
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
 							{
-								if(headGear player == _item) then {
+								if(headGear player == _item) then
+								{
 									player addItem _item;
 								}
 									else
 								{
-									if(headGear player != "") then {
+									if(headGear player != "") then
+									{
 										removeHeadGear player;
 									};
 									player addHeadGear _item;
@@ -165,29 +185,34 @@ if(_bool) then {
 					};
 					case 801: 
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
 							{
-								if(uniform player == _item) then {
+								if(uniform player == _item) then
+								{
 									player addItem _item;
 								}
 									else
 								{
-									if(uniform player != "") then {
+									if(uniform player != "") then
+									{
 										_items = uniformItems player;
 										removeUniform player;
 									};
 									
 									player addUniform _item;
 									
-									if(!isNil {_items}) then {
+									if(!isNil {_items}) then
+									{
 										{[_x,true,false,false,true] spawn VAS_fnc_handleItem;} foreach _items;
 									};
 								};
@@ -196,29 +221,34 @@ if(_bool) then {
 					};
 					case 701:
 					{
-						if(_ispack) then {
+						if(_ispack) then 
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
 							{
-								if(vest player == _item) then {
+								if(vest player == _item) then
+								{
 									player addItem _item;
 								}
 									else
 								{
-									if(vest player != "") then {
+									if(vest player != "") then
+									{
 										_items = vestItems player;
 										removeVest player;
 									};
 									
 									player addVest _item;
 									
-									if(!isNil {_items}) then {
+									if(!isNil {_items}) then
+									{
 										{[_x,true,false,false,true] spawn VAS_fnc_handleItem;} foreach _items;
 									};
 								};
@@ -228,15 +258,18 @@ if(_bool) then {
 					
 					case 201:
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
 							private["_type"];
 							_type = [_item,201] call VAS_fnc_accType;
-							if(_ongun) then {
-								switch (_type) do {
+							if(_ongun) then
+							{
+								switch (_type) do
+								{
 									case 1: { player addPrimaryWeaponItem _item; };
 									case 2: { player addSecondaryWeaponItem _item; };
 									case 3: { player addHandgunItem _item; };
@@ -244,15 +277,18 @@ if(_bool) then {
 							}
 								else
 							{
-								if(_override) then {
+								if(_override) then
+								{
 									player addItem _item;
 								}
 									else
 								{
 									[] call VAS_fnc_accPrompt;
 									waitUntil {!isNil {vas_prompt_choice}};
-									if(vas_prompt_choice) then {
-										switch (_type) do {
+									if(vas_prompt_choice) then
+									{
+										switch (_type) do
+										{
 											case 1: { player addPrimaryWeaponItem _item; };
 											case 2: { player addSecondaryWeaponItem _item; };
 											case 3: { player addHandgunItem _item; };
@@ -270,7 +306,8 @@ if(_bool) then {
 					
 					case 301:
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
@@ -278,8 +315,10 @@ if(_bool) then {
 							private["_type"];
 							_type = [_item,301] call VAS_fnc_accType;
 							
-							if(_ongun) then { 
-								switch (_type) do {
+							if(_ongun) then
+							{ 
+								switch (_type) do
+								{
 									case 1: { player addPrimaryWeaponItem _item; };
 									case 2: { player addSecondaryWeaponItem _item; };
 									case 3: { player addHandgunItem _item; };
@@ -287,15 +326,18 @@ if(_bool) then {
 							}
 								else
 							{
-								if(_override) then {
+								if(_override) then
+								{
 									player addItem _item;
 								}
 									else
 								{
 									[] call VAS_fnc_accPrompt;
 									waitUntil {!isNil {vas_prompt_choice}};
-									if(vas_prompt_choice) then {
-										switch (_type) do {
+									if(vas_prompt_choice) then
+									{
+										switch (_type) do
+										{
 											case 1: { player addPrimaryWeaponItem _item; };
 											case 2: { player addSecondaryWeaponItem _item; };
 											case 3: { player addHandgunItem _item; };
@@ -313,7 +355,8 @@ if(_bool) then {
 					
 					case 101:
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
@@ -321,8 +364,10 @@ if(_bool) then {
 							private["_type"];
 							_type = [_item,101] call VAS_fnc_accType;
 							
-							if(_ongun) then {
-								switch (_type) do {
+							if(_ongun) then
+							{
+								switch (_type) do
+								{
 									case 1: { player addPrimaryWeaponItem _item; };
 									case 2: { player addSecondaryWeaponItem _item; };
 									case 3: { player addHandgunItem _item; };
@@ -330,15 +375,18 @@ if(_bool) then {
 							}
 								else
 							{
-								if(_override) then {
+								if(_override) then
+								{
 									player addItem _item;
 								}
 									else
 								{
 									[] call VAS_fnc_accPrompt;
 									waitUntil {!isNil {vas_prompt_choice}};
-									if(vas_prompt_choice) then {
-										switch (_type) do {
+									if(vas_prompt_choice) then
+									{
+										switch (_type) do
+										{
 											case 1: { player addPrimaryWeaponItem _item; };
 											case 2: { player addSecondaryWeaponItem _item; };
 											case 3: { player addHandgunItem _item; };
@@ -356,12 +404,14 @@ if(_bool) then {
 					
 					case 621:
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
@@ -374,12 +424,14 @@ if(_bool) then {
 					
 					case 616:
 					{
-						if(_ispack) then {
+						if(_ispack) then
+						{
 							player addItemToBackpack _item;
 						}
 							else
 						{
-							if(_override) then {
+							if(_override) then
+							{
 								player addItem _item;
 							}
 								else
@@ -392,7 +444,8 @@ if(_bool) then {
 					
 					default 
 					{ 
-						if(_ispack) then {
+						if(_ispack) then 
+						{
 							player addItemToBackpack _item;
 						} 
 							else 
@@ -407,7 +460,8 @@ if(_bool) then {
 }
 	else
 {
-	switch((_details select 6)) do {
+	switch((_details select 6)) do
+	{
 		case "CfgVehicles":
 		{
 			removeBackpack player;
@@ -420,7 +474,8 @@ if(_bool) then {
 		
 		case "CfgGlasses":
 		{
-			if(_item == goggles player) then {
+			if(_item == goggles player) then
+			{
 				removeGoggles player;
 			}
 				else
@@ -431,9 +486,12 @@ if(_bool) then {
 		
 		case "CfgWeapons":
 		{
-			if((_details select 4) in [1,2,4,5,4096]) then {
-				if((_details select 4) == 4096) then {
-					if((_details select 5) == -1) then {
+			if((_details select 4) in [1,2,4,5,4096]) then
+			{
+				if((_details select 4) == 4096) then
+				{
+					if((_details select 5) == -1) then
+					{
 						_isgun = true;
 					};
 				}
@@ -443,8 +501,10 @@ if(_bool) then {
 				};
 			};
 			
-			if(_isgun) then {
-				switch(true) do {
+			if(_isgun) then
+			{
+				switch(true) do
+				{
 					case (primaryWeapon player == _item) : {_ispack = false;};
 					case (secondaryWeapon player == _item) : {_ispack = false;};
 					case (handGunweapon player == _item) : {_ispack = false;};
@@ -452,19 +512,23 @@ if(_bool) then {
 					default {_ispack = true;};
 				};
 				
-				if(_item == "MineDetector") then {
+				if(_item == "MineDetector") then
+				{
 					player removeItem _item;
 				}
 					else
 				{
-					if(_ispack) then {
+					if(_ispack) then
+					{
 						player removeItemFromBackpack _item;
 					}
 						else
 					{
-						switch(true) do {
+						switch(true) do
+						{
 							case (_item in (uniformItems player)): {player removeItemFromUniform _item;};
 							case (_item in (vestItems player)) : {player removeItemFromVest _item;};
+							case (_item in (backpackItems player)) : {player removeItemFromBackpack _item;};
 							default {player removeWeapon _item;};
 						};
 					};
@@ -472,7 +536,8 @@ if(_bool) then {
 			}
 				else
 			{
-				switch((_details select 5)) do {
+				switch((_details select 5)) do
+				{
 					case 0: {player unassignItem _item; player removeItem _item;};
 					case 605: {if(headGear player == _item) then {removeHeadgear player} else {player removeItem _item};};
 					case 801: {if(uniform player == _item) then {removeUniform player} else {player removeItem _item};};
@@ -481,7 +546,8 @@ if(_bool) then {
 					case 616: {player unassignItem _item; player removeItem _item;};
 					default 
 					{
-						switch (true) do {
+						switch (true) do
+						{
 							case (_item in (primaryWeaponItems player)) : {player removePrimaryWeaponItem _item;};
 							case (_item in (handgunItems player)) : {player removeHandgunItem _item;};
 							default {player removeItem _item;};
@@ -493,6 +559,7 @@ if(_bool) then {
 	};
 };
 
-if(!isNil "VAS_fnc_updateLoad") then {
+if(!isNil "VAS_fnc_updateLoad") then
+{
 	[] call VAS_fnc_updateLoad;
 };

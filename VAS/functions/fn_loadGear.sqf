@@ -10,7 +10,8 @@ private["_slot","_loadout","_primary","_launcher","_handgun","_magazines","_unif
 if(!isNil {VAS_loadout_ip}) exitWith {};
 _slot = if(isNil {_this select 0}) then {lbCurSel VAS_load_list} else {_this select 0};
 if(_slot == -1) exitWith {hint localize "STR_VAS_Prompt_slotSelFail";};
-if(vas_disableLoadSave) then {
+if(vas_disableLoadSave) then
+{
 	_loadout = missionNamespace getVariable format["vas_gear_new_%1",_slot];
 }
 	else
@@ -69,7 +70,8 @@ if(_handgun != "") then {[_handgun,true,false,false,false] spawn VAS_fnc_handleI
 {[_x,true,false,true,false] call VAS_fnc_handleItem;} foreach (_secitems);
 {[_x,true,false,true,false] call VAS_fnc_handleItem;} foreach (_handgunitems);  
 
-if(primaryWeapon player != "") then {
+if(primaryWeapon player != "") then
+{
 	player selectWeapon (primaryWeapon player);
 };
 VAS_loadout_ip = nil;

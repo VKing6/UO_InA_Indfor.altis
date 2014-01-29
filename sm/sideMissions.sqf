@@ -20,7 +20,7 @@
 #include "\x\cba\addons\main\script_macros_common.hpp"
 //Create base array of differing side missions
 
-private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos","_accepted","_unit","_hutPos"];
+private ["_firstRun","_mission","_isGroup","_obj","_skipTimer","_briefing","_flatPos","_randomPos","_spawnGroup","_unitsArray","_randomDir","_hangar","_sideMissions","_completeText","_spawnLevel","_aaLevel","_smPos","_smRadius","_fuzzyPos","_accepted","_unit","_hutPos","_validSM","_lastSM"];
 _sideMissions = 
 
 [
@@ -52,6 +52,8 @@ while {true} do {
 		sleep 10;
 		//Select random mission from the SM list
 		_mission = _sideMissions call BIS_fnc_selectRandom;
+		_lastSM = "Nothing";
+		_validSM = false;
 	} else {
 		if (!_skipTimer) then {
 		
@@ -67,6 +69,10 @@ while {true} do {
 				case 2: {
 					//Wait between 15-30 minutes before assigning a mission
 					sleep (900 + (random 900));
+				};
+				case 3: {
+					//Wait 1 before assigning a mission
+					sleep (10);
 				};
 				default {sleep (900 + (random 900))};
 			};
@@ -91,8 +97,11 @@ while {true} do {
 				};
 			};
 
-			//Select random mission from the SM list
-			_mission = _sideMissions call BIS_fnc_selectRandom;
+			while {!_validSM} do {
+				//Select random mission from the SM list
+				_mission = _sideMissions call BIS_fnc_selectRandom;
+				if (_mission != _lastSM) then {_validSM = true;};
+			};
 		} else {
 			//Reset skipTimer
 			_skipTimer = false;
@@ -230,7 +239,8 @@ while {true} do {
 			
 			//Send completion hint
 			[] call AW_fnc_rewardPlusHint;
-
+			//define last mission completed:
+			_lastSM = "destroyChopper";
 			//Hide SM marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
@@ -357,7 +367,7 @@ while {true} do {
 			
 			//Throw out objective completion hint
 			[] call AW_fnc_rewardPlusHint;
-
+			_lastSM = "destroySmallRadar";
 			//Hide marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
@@ -502,16 +512,16 @@ while {true} do {
 			sideMissionUp = false;
 			publicVariable "sideMissionUp";
 			
-			//Improve this to do some randomised mortar explosions quite quickly after the killing of the building in a small radius
+		
 
 			//Throw completion hint
 			[] call AW_fnc_rewardPlusHint;
-			
+			_lastSM = "destroyOutpost";
 			//Hide marker
 			"sideMarker" setMarkerPos [0,0,0];
 			"sideCircle" setMarkerPos [0,0,0];
 			sleep 5;
 			publicVariable "sideMarker";
-		}; /* case "destroyExplosivesCoast": */
+		}; /* case "destroyOutpost": */
 	};
 };

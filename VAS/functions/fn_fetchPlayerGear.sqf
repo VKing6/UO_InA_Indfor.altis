@@ -14,19 +14,22 @@ if(secondaryWeapon player != "") then {_ret set[count _ret,secondaryWeapon playe
 if(handgunWeapon player != "") then {_ret set[count _ret,handgunWeapon player];};
 
 //Fetch Current Magazines
-if(count (primaryWeaponMagazine player) > 0) then {
+if(count (primaryWeaponMagazine player) > 0) then
+{
 	{
 		_ret set[count _ret,_x];
 	} foreach (primaryWeaponMagazine player);
 };
 
-if(count (secondaryWeaponMagazine player) > 0) then {
+if(count (secondaryWeaponMagazine player) > 0) then
+{
 	{
 		_ret set[count _ret,_x];
 	} foreach (secondaryWeaponMagazine player);
 };
 
-if(count (handgunMagazine player) > 0) then {
+if(count (handgunMagazine player) > 0) then
+{
 	{
 		_ret set[count _ret,_x];
 	} foreach (handgunMagazine player);
@@ -35,7 +38,8 @@ if(count (handgunMagazine player) > 0) then {
 //Hard code for Laser Desigantor batteries
 _curWep = currentWeapon player;
 
-if("Laserdesignator" in assignedItems player) then {
+if("Laserdesignator" in assignedItems player) then
+{
 	player selectWeapon "Laserdesignator";
 	if(currentMagazine player != "") then {_ret set[count _ret,(currentMagazine player)];};
 };
@@ -43,47 +47,57 @@ if("Laserdesignator" in assignedItems player) then {
 player selectWeapon _curWep;
 
 //Fetch rest of misc information.
-if(uniform player != "") then {
+if(uniform player != "") then 
+{
 	_ret set[count _ret, uniform player]; //Get uniform
 	{_ret set[count _ret,_x];} foreach (uniformItems player); //Get uniform items
 };	
 
-if(vest player != "") then {
+if(vest player != "") then 
+{
 	_ret set[count _ret, vest player]; //Get vest
 	{_ret set[count _ret,_x];} foreach (vestItems player); //Get vest items
 };
 
-if(backpack player != "") then {
+if(backpack player != "") then 
+{
 	_ret set[count _ret,backpack player]; //Get Backpack
 	{_ret set[count _ret,_x];} foreach (backpackItems player); //Get Backpack Items
 };
 
-if(count (assignedItems player) > 0) then {
+if(count (assignedItems player) > 0) then 
+{
 	{
 		_ret set[count _ret,_x];
 	} foreach (assignedItems player);
 };
 
-if(headGear player != "") then {
+if(headGear player != "") then
+{
 	_ret set[count _ret,headGear player];
 };
 
-if(goggles player != "") then {
+if(goggles player != "") then
+{
 	_ret set[count _ret, goggles player];
 };
 
 //Fetch Primary weapon attachments
-if(primaryWeapon player != "") then {
+if(primaryWeapon player != "") then
+{
 	{
-		if(((primaryWeaponItems player) select _x) != "") then {
+		if(((primaryWeaponItems player) select _x) != "") then
+		{
 			_ret set[count _ret,((primaryWeaponItems player) select _x)];
 		};
 	} foreach [0,1,2];
 };
 
-if(handgunWeapon player != "") then {
+if(handgunWeapon player != "") then
+{
 	{
-		if(((handgunItems player) select _x) != "") then {
+		if(((handgunItems player) select _x) != "") then
+		{
 			_ret set[count _ret,((handgunItems player) select _x)];
 		};
 	} foreach [0,1,2];

@@ -369,60 +369,74 @@
 		<Key ID="STR_VAS_Prompt_selectSlotFail">
 			<Original>You didn't select a slot to delete!</Original>
 			<Italian>Non hai selezionato uno slot da cancellare</Italian>
+			<French>Aucun emplacement choisi pour être supprimé!</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteSlotNoInfo">
 			<Original>You can't delete that slot, it has no information!</Original>
 			<Italian>Non puoi cancellare questo slot, è già vuoto</Italian>
+			<French>Vous ne pouvez pas supprimer cette emplacement, aucun enregistrement détecté!</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteSlotWarning">
 			<Original>You are about to delete slot</Original>
 			<Italian>Stai per cancellare lo slot</Italian>
+			<French>Vous êtes sur le point de supprimer cet emplacement</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteCanelled">
 			<Original>You cancelled deleting slot</Original>
 			<Italian>Hai cancellato lo slot cancellandolo</Italian>
+			<French>Vous avez annulé la suppression de l'emplacement</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteSuccess">
 			<Original>You deleted slot</Original>
 			<Italian>Hai cancellato lo slot</Italian>
+			<French>Vous avez supprimé cet emplacement</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteYes">
 			<Original>Yes</Original>
 			<Italian>Sì</Italian>
 			<Spanish>Sì</Spanish>
+			<French>Oui</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_deleteNo">
 			<Original>No</Original>
 			<Italian>No</Italian>
 			<Spanish>No</Spanish>
+			<French>Non</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_slotNoInfo">
 			<Original>You didn't select a slot!</Original>
 			<Italian>Non hai selezionato uno slot!</Italian>
+			<French>Vous n'avez pas choisi d'emplacement!</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_onRespawnFail">
 			<Original>No slot was selected to be loaded upon respawn!</Original>
 			<Italian>Non hai selezionato nessuno slot da caricare al respawn!</Italian>
+			<French>Aucun emplacement n'a été sélectionné pour être chargé lors de la réapparition!</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_slotSelFail">
 			<Original>You didn't select a slot!</Original>
 			<Italian>Non hai selezionato uno slot</Italian>
+			<French>Vous n'avez pas choisi d'emplacement!</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_addToWeapon">
 			<Original>Weapon</Original>
 			<Italian>Armi</Italian>
+			<French>Armes</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_addToInv">
 			<Original>Inventory</Original>
 			<Italian>Inventario</Italian>
+			<French>Inventaire</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_acc1">
 			<Original>What do you want to do with that attachment?</Original>
 			<Italian>Cosa vuoi fare con questo accessorio?</Italian>
+			<French>Que voulez-vous faire avec cet emplacement?</French>
 		</Key>
 		<Key ID="STR_VAS_Prompt_acc2">
 			<Original>Please know that if you choose to add it to your weapon your current existing attachment in that slot will be lost.</Original>
 			<Italian>Attenzione, se attacchi l'accessorio alla tua arma, l'accessorio attaccato attualmente sarà sostituito.</Italian>
+			<French>Si vous choisissez de placer cette objet sur votre arme, sachez que l'objet actuellement placé sur l'arme sera automatiquement supprimé</French>
 		</Key>
 	</Package>
 </Project>

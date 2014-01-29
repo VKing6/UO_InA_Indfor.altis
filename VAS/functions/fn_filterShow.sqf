@@ -11,7 +11,8 @@ private["_req"];
 _req = _this select 0;
 _cur_filter = uiNamespace getVariable "VAS_UI_FILTER";
 
-switch(_req) do {
+switch(_req) do
+{
 	case "guns":
 	{
 		ctrlSetText[VAS_filter_1,localize "STR_VAS_Main_Rifles"];

@@ -10,36 +10,37 @@ class TAWVD_RscShortcutButton {
 	shadow = 1;
 	w = 0.183825;
 	h = "(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20)";
-	color[] = {1, 1, 1, 1.0};
-	color2[] = {0.95, 0.95, 0.95, 1};
-	colorDisabled[] = {1, 1, 1, 0.25};
-	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 1};
-	colorBackground2[] = {1, 1, 1, 1};
+	color[] = {1,1,1,1.0};
+	colorFocused[] = {1,1,1,1.0};
+	color2[] = {0.95,0.95,0.95,1};
+	colorDisabled[] = {1,1,1,0.25};
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",1};
+	colorBackgroundFocused[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",1};
+	colorBackground2[] = {1,1,1,1};
 	animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureNormal = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
-	animTextureDisabled = "\A3\ui_f\data\GUI\scCommon\RscShortcutButton\normal_ca.paa";
+	animTextureDisabled = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\normal_ca.paa";
 	animTextureOver = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\over_ca.paa";
 	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
 	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
-	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
 	periodFocus = 1.2;
 	periodOver = 0.8;
-	
-	class HitZone {
+	class HitZone
+	{
 		left = 0.0;
 		top = 0.0;
 		right = 0.0;
 		bottom = 0.0;
 	};
-	
-	class ShortcutPos {
+	class ShortcutPos
+	{
 		left = 0;
 		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		w = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		h = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	};
-	
-	class TextPos {
+	class TextPos
+	{
 		left = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
 		top = "(			(		(		((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
@@ -50,20 +51,20 @@ class TAWVD_RscShortcutButton {
 	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	text = "";
-	soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
-	soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
 	action = "";
-	
-	class Attributes {
+	class Attributes
+	{
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
 	};
-	
-	class AttributesImage {
+	class AttributesImage
+	{
 		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
@@ -106,45 +107,56 @@ class TAWVD_RscButtonMenu : TAWVD_RscShortcutButton {
 	h = 0.039216;
 	animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
-	animTextureOver = "#(argb,8,8,3)color(1,1,1,0.5)";
+	animTextureOver = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
 	animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
 	animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
-	colorBackground[] = {0, 0, 0, 0.8};
-	colorBackground2[] = {1, 1, 1, 0.5};
-	color[] = {1, 1, 1, 1};
-	color2[] = {1, 1, 1, 1};
-	colorText[] = {1, 1, 1, 1};
-	colorDisabled[] = {1, 1, 1, 0.25};
+	colorBackground[] = {0,0,0,0.8};
+	colorBackgroundFocused[] = {1,1,1,1};
+	colorBackground2[] = {0.75,0.75,0.75,1};
+	color[] = {1,1,1,1};
+	colorFocused[] = {0,0,0,1};
+	color2[] = {0,0,0,1};
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.25};
 	period = 1.2;
 	periodFocus = 1.2;
 	periodOver = 1.2;
 	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	
-	class TextPos {
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+	tooltipColorShade[] = {0,0,0,0.65};
+	class TextPos
+	{
 		left = "0.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 		top = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
 		right = 0.005;
 		bottom = 0.0;
 	};
-	
-	class Attributes {
+	class Attributes
+	{
 		font = "PuristaLight";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "false";
 	};
-	
-	class ShortcutPos {
+	class ShortcutPos
+	{
 		left = "(6.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
 		top = 0.005;
 		w = 0.0225;
 		h = 0.03;
 	};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter",0.09,1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick",0.09,1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape",0.09,1};
+	textureNoShortcut = "";
 };
 
-class TAWVD_RscXSliderH  {
+class TAWVD_RscXSliderH 
+{
 	style = 1024;
 	type = 43;
 	shadow = 2;
@@ -167,7 +179,8 @@ class TAWVD_RscXSliderH  {
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class TAWVD_activeText  {
+class TAWVD_activeText 
+{
 	idc = -1;
 	type = 11;
 	style = 0;
@@ -187,7 +200,8 @@ class TAWVD_activeText  {
 	text = "";
 };
 
-class TAW_VD  {
+class TAW_VD 
+{
 	idd = 2900;
 	name= "taw_vd";
 	movingEnable = false;
@@ -213,7 +227,8 @@ class TAW_VD  {
 			h = 0.4 - (22 / 250);
 		};
 		
-		class VDonFoot : TAWVD_RscText {
+		class VDonFoot : TAWVD_RscText
+		{
 			idc = -1;
 			text = "On Foot:";
 			
@@ -221,7 +236,8 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDinCar : TAWVD_RscText {
+		class VDinCar : TAWVD_RscText
+		{
 			idc = -1;
 			text = "In Car:";
 			
@@ -229,7 +245,8 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDinAir : TAWVD_RscText {
+		class VDinAir : TAWVD_RscText
+		{
 			idc = -1;
 			text = "In Air:";
 			
@@ -237,7 +254,8 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VDTerrSet : TAWVD_RscText {
+		class VDTerrSet : TAWVD_RscText
+		{
 			idc = -1;
 			text = "Grass Settings";
 			shadow = 0;
@@ -251,7 +269,8 @@ class TAW_VD  {
 
 	};
 	
-	class controls  {
+	class controls 
+	{
 		class Title : TAWVD_RscTitle {
 			colorBackground[] = {0, 0, 0, 0};
 			idc = -1;
@@ -262,10 +281,11 @@ class TAW_VD  {
 			h = (1 / 25);
 		};
 		
-		class VD_onfoot_slider : TAWVD_RscXSliderH  {
+		class VD_onfoot_slider : TAWVD_RscXSliderH 
+		{
 			idc = 2901;
 			text = "";
-			onSliderPosChanged = "[_this select 1] call fnc_vd_foot_onsliderchange";
+			onSliderPosChanged = "[0,_this select 1] call TAWVD_fnc_onSliderChange;";
 			tooltip = "View distance while on foot";
 			x = 0.42;
 			y = 0.30 - (1 / 25);
@@ -274,7 +294,8 @@ class TAW_VD  {
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_onfoot_value : TAWVD_RscText {
+		class VD_onfoot_value : TAWVD_RscText
+		{
 			idc = 2902;
 			text = "";
 			
@@ -282,10 +303,11 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_car_slider : TAWVD_RscXSliderH  {
+		class VD_car_slider : TAWVD_RscXSliderH 
+		{
 			idc = 2911;
 			text = "";
-			onSliderPosChanged = "[_this select 1] call fnc_vd_car_onsliderchange";
+			onSliderPosChanged = "[1,_this select 1] call TAWVD_fnc_onSliderChange;";
 			tooltip = "View distance while in a land vehicle";
 			x = 0.42;
 			y = 0.35 - (1 / 25);
@@ -294,7 +316,8 @@ class TAW_VD  {
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_car_value : TAWVD_RscText {
+		class VD_car_value : TAWVD_RscText
+		{
 			idc = 2912;
 			text = "";
 			
@@ -302,10 +325,11 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_air_slider : TAWVD_RscXSliderH  {
+		class VD_air_slider : TAWVD_RscXSliderH 
+		{
 			idc = 2921;
 			text = "";
-			onSliderPosChanged = "[_this select 1] call fnc_vd_air_onsliderchange";
+			onSliderPosChanged = "[2,_this select 1] call TAWVD_fnc_onSliderChange;";
 			tooltip = "View distance while in a air vehicle";
 			x = 0.42;
 			y = 0.40 - (1 / 25);
@@ -314,7 +338,8 @@ class TAW_VD  {
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class VD_air_value : TAWVD_RscText {
+		class VD_air_value : TAWVD_RscText
+		{
 			idc = 2922;
 			text = "";
 			
@@ -322,40 +347,44 @@ class TAW_VD  {
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_none : TAWVD_activeText {
+		class VD_terr_none : TAWVD_activeText
+		{
 			idc = -1;
 			text = "None";
-			action = "['none'] call fnc_terrainchange";
+			action = "['none'] call TAWVD_fnc_onTerrainChange;";
 			sizeEx = 0.04;
 			
 			x = 0.38; y = 0.50;
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_low : TAWVD_activeText {
+		class VD_terr_low : TAWVD_activeText
+		{
 			idc = -1;
 			text = "Low";
-			action = "['low'] call fnc_terrainchange";
+			action = "['low'] call TAWVD_fnc_onTerrainChange;";
 			sizeEx = 0.04;
 			
 			x = 0.47; y = 0.50;
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_normal : TAWVD_activeText {
+		class VD_terr_normal : TAWVD_activeText
+		{
 			idc = -1;
 			text = "Normal";
-			action = "['norm'] call fnc_terrainchange";
+			action = "['norm'] call TAWVD_fnc_onTerrainChange;";
 			sizeEx = 0.04;
 			
 			x = 0.56; y = 0.50;
 			w = 0.275; h = 0.04;
 		};
 		
-		class VD_terr_high : TAWVD_activeText {
+		class VD_terr_high : TAWVD_activeText
+		{
 			idc = -1;
 			text = "High";
-			action = "['high'] call fnc_terrainchange";
+			action = "['high'] call TAWVD_fnc_onTerrainChange;";
 			sizeEx = 0.04;
 			
 			x = 0.67; y = 0.50;
