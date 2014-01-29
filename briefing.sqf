@@ -116,7 +116,7 @@
 		<br/>
 		<br/>b. Composition:
 		<br/>
-		<br/>Enemy forces consist of mechanized and armored CSAT forces. 
+		<br/>Enemy forces consist of mechanized and armored CSAT forces. The enemy are likely to be operating both SPAAG and MANPAD air defences in the area.
 		<br/>
 		<br/>c. Strength:
 		<br/>
