@@ -3582,7 +3582,7 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="airTrigger_2_1";
+			name="airTrigger_1";
 			expCond="this and ((getPos (thisList select 0)) select 2 < 1)";
 			expActiv="_handle = [thisList,[2,1.0],1,1,true] execVM ""misc\serviceVehicle.sqf"";";
 			class Effects
@@ -3600,7 +3600,7 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="airTrigger_2_1_1";
+			name="airTrigger_2";
 			expCond="this and ((getPos (thisList select 0)) select 2 < 1)";
 			expActiv="_handle = [thisList,[2,1.0],1,1,true] execVM ""misc\serviceVehicle.sqf"";";
 			class Effects
@@ -3618,7 +3618,7 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="airTrigger_2_1_2";
+			name="airTrigger_3";
 			expCond="this and ((getPos (thisList select 0)) select 2 < 1)";
 			expActiv="_handle = [thisList,[2,1.0],1,1,true] execVM ""misc\serviceVehicle.sqf"";";
 			class Effects
