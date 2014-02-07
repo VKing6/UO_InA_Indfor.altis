@@ -171,13 +171,22 @@ while {_run} do {
 			_unit setVehicleVarName _unitname;
         };
 		
-		if (_unit isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};
+		if (_unit isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTextureGlobal [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};
 		
-		if (_unit isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTexture [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};
+		if (_unit isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTextureGlobal [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _unit] call CBA_fnc_globalExecute;};
 		
-		if (_unit isKindOf "I_Heli_light_03_unarmed_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa"]}, _unit] call CBA_fnc_globalExecute;};
+		if (_unit isKindOf "I_Heli_light_03_unarmed_F") then {[-1, {_this setObjectTextureGlobal [0,"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa"]}, _unit] call CBA_fnc_globalExecute;};
 		
 		if (_unit isKindOf "I_UAV_02_CAS_F" || _unit isKindOf "I_UGV_01_rcws_F") then {createVehicleCrew vehicle _unit};
+		
+		if (_unit isKindOf "I_Plane_Fighter_03_CAS_F") then {
+			_unit removeMagazine "2Rnd_GBU12_LGB_MI10";
+			_unit removeWeapon "GBU12BombLauncher";
+			_unit addMagazine "38Rnd_80mm_rockets";
+			_unit addWeapon "rockets_Skyfire";
+			_unit animate ["AddDar",1];
+			_unit animate ["AddGbu12",0];
+		};
 		
 		[_unit] call tin_vehiclePrep;
 		

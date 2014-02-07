@@ -51,8 +51,20 @@ private ["_veh","_vehName","_vehType","_vehVarname","_completeText","_reward","_
 	_rewardName = "reward_" + str(floor random 500000);
 	_reward SetVehicleVarName _rewardName;
 
-	if (_reward isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTexture [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};//littlebird tex
-	if (_reward isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTexture [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};//orca tex
+	if (_reward isKindOf "Heli_Light_01_base_F") then {[-1, {_this setObjectTextureGlobal [0,"\A3\Air_F\Heli_Light_01\Data\heli_light_01_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};//littlebird tex
+	if (_reward isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTextureGlobal [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};//orca tex
+	
+	if (_reward isKindOf "Heli_Light_02_base_F") then {[-1, {_this setObjectTextureGlobal [0,"A3\Air_F\Heli_Light_02\Data\heli_light_02_ext_indp_co.paa"]}, _reward] call CBA_fnc_globalExecute;};//orca tex
+	
+	if (_reward isKindOf "I_Plane_Fighter_03_CAS_F") then {
+		_reward removeMagazine "2Rnd_GBU12_LGB_MI10";
+		_reward removeWeapon "GBU12BombLauncher";
+		_reward addMagazine "38Rnd_80mm_rockets";
+		_reward addWeapon "rockets_Skyfire";
+		_reward animate ["AddDar",1];
+		_reward animate ["AddGbu12",0];
+	};
+	
 	_veh = [_reward, 600, 3600, 0, FALSE] execVM "vehicle.sqf";
 
 	GlobalHint = _completeText; publicVariable "GlobalHint"; hint parseText _completeText;
