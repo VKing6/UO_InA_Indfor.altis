@@ -54,6 +54,9 @@ Jack Williams (Rarek) for Ahoy World!
 			//clientInit = "call ('XEH_clientPreInit.sqf' call SLX_XEH_COMPILE)";
 			init = "call ('XEH_preInit.sqf' call SLX_XEH_COMPILE)";
 		};
+		class tb3 {
+			init = "call ('tb3\preInit.sqf' call SLX_XEH_COMPILE)";
+		};
 	};
 
 	class Extended_PostInit_EventHandlers {
@@ -78,6 +81,9 @@ Jack Williams (Rarek) for Ahoy World!
 		#include "VAS\cfgfunctions.hpp"
 		#include "taw_vd\CfgFunctions.hpp"
 	};
+	
+	// TB3
+	#include "tb3\loadouts.hpp"
 
 	/* View Distance includes */
 	#include "taw_vd\dialog.hpp"	

@@ -115,7 +115,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""PL""] call tb3_fLoadout;";
 					description="HQ Section | Platoon Leader";
 				};
 				class Item1
@@ -130,7 +130,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""PSG""] call tb3_fLoadout;";
 					description="HQ Section | Platoon Sergeant";
 				};
 				class Item2
@@ -145,7 +145,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""FAC1""] call tb3_fLoadout;";
 					description="HQ Section | FAC Officer";
 				};
 				class Item3
@@ -160,7 +160,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""FAC2""] call tb3_fLoadout;";
 					description="HQ Section | FAC SNCO";
 				};
 				class Item4
@@ -175,7 +175,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""Pio""] call tb3_fLoadout;";
 					description="HQ Section | Assault Pioneer";
 				};
 				class Item5
@@ -189,7 +189,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'0""];";
+					init="(group this) setGroupId [""Goshawk 1'0""]; [this,""INDinf"",""PCLS""] call tb3_fLoadout;";
 					description="HQ Section | Signaller / CLS";
 				};
 			};
