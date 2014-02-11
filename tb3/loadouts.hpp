@@ -63,7 +63,7 @@
 		};
 		class INDinf {
 			class PL {
-				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"};
+				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -98,7 +98,7 @@
 						{"FirstAidKit",1}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",2},
@@ -151,7 +151,7 @@
 						{"FirstAidKit",1}
 					};
 					
-				backpack[] = {"B_AssaultPack_blk"};
+				backpack[] = {"B_AssaultPack_rgr"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",2},
@@ -168,7 +168,7 @@
 				magazines[] = {}; items[] = {};
 			};
 			class FAC1 {
-				weapons[] = {"tb_arifle_mk21_m203","Laserdesignator"};
+				weapons[] = {"arifle_Mk20_GL_F","Laserdesignator"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -205,7 +205,7 @@
 						{"ACRE_PRC148_UHF",1}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",5},
 						{"30Rnd_556x45_Stanag_Tracer_Red",2},
@@ -304,7 +304,7 @@
 						{"FirstAidKit",1}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",2},
 						{"SmokeShellRed",2},
@@ -353,7 +353,7 @@
 						{"FirstAidKit",2}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",4},
 						{"SmokeShellYellow",2},
@@ -367,7 +367,7 @@
 			};
 			
 			class SL {
-				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"};
+				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -389,7 +389,7 @@
 					
 				vest[] = {"V_PlateCarrierIA2_dgtl"};
 					vestMagazines[] = {
-						{"30Rnd_556x45_Stanag",5},
+						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",1},
 						{"1Rnd_HE_Grenade_shell",7},
 						{"1Rnd_SmokeRed_Grenade_shell",2},
@@ -402,7 +402,7 @@
 						{"FirstAidKit",1}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",2},
@@ -411,7 +411,8 @@
 						{"SmokeShellGreen",2},
 						{"1Rnd_HE_Grenade_shell",6},
 						{"Chemlight_green",4},
-						{"tb_100Rnd_556x45_box_tracer_red",1}
+						{"tb_100Rnd_556x45_box_tracer_red",1},
+						{"tb_mk13_heat",1}
 					};
 					backpackItems[] = {
 						{"FirstAidKit",2}
@@ -420,7 +421,7 @@
 				magazines[] = {}; items[] = {};
 			};
 			class TL {
-				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"};
+				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -442,7 +443,7 @@
 					
 				vest[] = {"V_PlateCarrierIA2_dgtl"};
 					vestMagazines[] = {
-						{"30Rnd_556x45_Stanag",5},
+						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",1},
 						{"1Rnd_HE_Grenade_shell",7},
 						{"1Rnd_SmokeRed_Grenade_shell",2},
@@ -455,7 +456,7 @@
 						{"FirstAidKit",1}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",6},
 						{"30Rnd_556x45_Stanag_Tracer_Red",2},
@@ -464,7 +465,8 @@
 						{"SmokeShellGreen",2},
 						{"1Rnd_HE_Grenade_shell",6},
 						{"Chemlight_green",4},
-						{"tb_100Rnd_556x45_box_tracer_red",1}
+						{"tb_100Rnd_556x45_box_tracer_red",1},
+						{"tb_mk13_heat",1}
 					};
 					backpackItems[] = {
 						{"FirstAidKit",2}
@@ -473,16 +475,16 @@
 				magazines[] = {}; items[] = {};
 			};
 			class CLS {
-				weapons[] = {"tb_arifle_mk21"};
+				weapons[] = {"tb_arifle_mk21","launch_NLAW_F"};
 				priKit[] = {"optic_Holosight","acc_pointer_IR"};
 				secKit[] = {};
 				
-				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","ItemGPS","NVGoggles_INDEP"};
+				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","NVGoggles_INDEP"};
 				
 				headgear[] = {"H_HelmetIA_camo"};
 				goggles[] = {"G_Shades_Black"};
 				
-				uniform[] = {"U_I_CombatUniform"};
+				uniform[] = {"U_I_CombatUniform_shortsleeve"};
 					uniformMagazines[] = {
 						{"30Rnd_556x45_Stanag",3},
 						{"SmokeShell",2},
@@ -506,7 +508,7 @@
 						{"FirstAidKit",2}
 					};
 					
-				backpack[] = {"B_TacticalPack_blk"};
+				backpack[] = {"B_TacticalPack_oli"};
 					backpackMagazines[] = {
 						{"30Rnd_556x45_Stanag",4},
 						{"SmokeShellYellow",2},
@@ -518,11 +520,169 @@
 					
 				magazines[] = {}; items[] = {};
 			};
-			class AR {};
-			class R {};
+			class AR {
+				weapons[] = {"tb_lmg_mk23","hgun_ACPC2_F"};
+				priKit[] = {"optic_Hamr","acc_pointer_IR"};
+				secKit[] = {};
+				
+				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","NVGoggles_INDEP"};
+				
+				headgear[] = {"H_HelmetIA_net"};
+				goggles[] = {"G_Shades_Black"};
+				
+				uniform[] = {"U_I_CombatUniform"};
+					uniformMagazines[] = {
+						{"9Rnd_45ACP_Mag",4},
+						{"SmokeShell",2},
+						{"Chemlight_green",2}
+					};
+					uniformItems[] = {
+						{"FirstAidKit",1}
+					};
+					
+				vest[] = {"V_PlateCarrierIA2_dgtl"};
+					vestMagazines[] = {
+						{"tb_100Rnd_556x45_box_tracer_red",5},
+						{"HandGrenade",2},
+						{"Chemlight_green",4}
+					};
+					vestItems[] = {
+						{"FirstAidKit",1}
+					};
+					
+				backpack[] = {"B_AssaultPack_rgr"};
+					backpackMagazines[] = {
+						{"tb_100Rnd_556x45_box_tracer_red",4},
+						{"HandGrenade",2},
+						{"SmokeShell",2}
+					};
+					backpackItems[] = {
+						{"FirstAidKit",2}
+					};
+					
+				magazines[] = {}; items[] = {};
+			};
+			class R {
+				weapons[] = {"tb_arifle_mk21","tb_launcher_mk13"};
+				priKit[] = {"optic_Hamr","acc_pointer_IR"};
+				secKit[] = {};
+				
+				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","NVGoggles_INDEP"};
+				
+				headgear[] = {"H_HelmetIA"};
+				goggles[] = {"G_Shades_Black"};
+				
+				uniform[] = {"U_I_CombatUniform_shortsleeve"};
+					uniformMagazines[] = {
+						{"30Rnd_556x45_Stanag",3},
+						{"SmokeShell",2},
+						{"Chemlight_green",2}
+					};
+					uniformItems[] = {
+						{"FirstAidKit",1}
+					};
+					
+				vest[] = {"V_PlateCarrierIA2_dgtl"};
+					vestMagazines[] = {
+						{"30Rnd_556x45_Stanag",8},
+						{"30Rnd_556x45_Stanag_Tracer_Red",1},
+						{"HandGrenade",4},
+						{"Chemlight_green",4}
+					};
+					vestItems[] = {
+						{"FirstAidKit",1}
+					};
+					
+				backpack[] = {"B_AssaultPack_rgr"};
+					backpackMagazines[] = {
+						{"tb_mk13_heat",3}
+					};
+					backpackItems[] = {
+						{"FirstAidKit",2}
+					};
+					
+				magazines[] = {}; items[] = {};
+			};
 			
-			class VC {};
+			class VC {
+				weapons[] = {"arifle_TRG20_F","Binocular"};
+				priKit[] = {"optic_Holosight","acc_pointer_IR"};
+				secKit[] = {};
+				
+				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","ItemGPS","NVGoggles_INDEP"};
+				
+				headgear[] = {"H_HelmetCrew_I"};
+				goggles[] = {"G_Shades_Black"};
+				
+				uniform[] = {"U_I_CombatUniform"};
+					uniformMagazines[] = {
+						{"30Rnd_556x45_Stanag",3},
+						{"SmokeShell",2},
+						{"Chemlight_green",2}
+					};
+					uniformItems[] = {
+						{"FirstAidKit",1},
+						{"ACRE_PRC148",1}
+					};
+					
+				vest[] = {"V_TacVest_oli"};
+					vestMagazines[] = {
+						{"30Rnd_556x45_Stanag",5},
+						{"30Rnd_556x45_Stanag_Tracer_Red",1},
+						{"SmokeShellGreen",2},
+						{"Chemlight_Yellow",10},
+						{"I_IR_Grenade",1}
+					};
+					vestItems[] = {
+						{"FirstAidKit",2}
+					};
+					
+				backpack[] = {};
+					backpackMagazines[] = {};
+					backpackItems[] = {};
+					
+				magazines[] = {}; items[] = {};
+			};
 			
-			class Pilot {};
+			class Pilot {
+				weapons[] = {"arifle_TRG20_F","Binocular"};
+				priKit[] = {"optic_Holosight","acc_pointer_IR"};
+				secKit[] = {};
+				
+				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","ItemGPS","NVGoggles_INDEP"};
+				
+				headgear[] = {"H_PilotHelmetHeli_I"};
+				goggles[] = {"G_Shades_Black"};
+				
+				uniform[] = {"U_I_HeliPilotCoveralls"};
+					uniformMagazines[] = {
+						{"30Rnd_556x45_Stanag",3},
+						{"SmokeShell",2},
+						{"Chemlight_green",2}
+					};
+					uniformItems[] = {
+						{"FirstAidKit",1},
+						{"ACRE_PRC148",1}
+					};
+					
+				vest[] = {"V_TacVest_oli"};
+					vestMagazines[] = {
+						{"30Rnd_556x45_Stanag",5},
+						{"SmokeShellYellow",2},
+						{"SmokeShellGreen",2},
+						{"I_IR_Grenade",2},
+						{"Chemlight_yellow",5}
+					};
+					vestItems[] = {
+						{"FirstAidKit",2},
+						{"ACRE_PRC148_UHF",1}
+					};
+					
+				backpack[] = {};
+					backpackMagazines[] = {};
+					backpackItems[] = {};
+					
+				magazines[] = {}; items[] = {};
+			};
 		};	
 	};

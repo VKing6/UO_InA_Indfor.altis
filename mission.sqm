@@ -213,7 +213,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""];";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""SL""] call tb3_fLoadout;";
 					description="1 Section | Section Leader";
 				};
 				class Item1
@@ -227,7 +227,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""]; ";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="1 Section | Automatic Rifleman";
 				};
 				class Item2
@@ -241,7 +241,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""]; ";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""CLS""] call tb3_fLoadout;";
 					description="1 Section | Rifleman (CLS)";
 				};
 				class Item3
@@ -256,7 +256,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""];";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""TL""] call tb3_fLoadout;";
 					description="1 Section | Section 2IC";
 				};
 				class Item4
@@ -270,7 +270,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""]; ";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="1 Section | Automatic Rifleman";
 				};
 				class Item5
@@ -284,7 +284,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'1""]; ";
+					init="(group this) setGroupId [""Goshawk 1'1""]; [this,""INDinf"",""R""] call tb3_fLoadout;";
 					description="1 Section | Rifleman";
 				};
 			};
@@ -308,7 +308,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""];";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""SL""] call tb3_fLoadout;";
 					description="2 Section | Section Leader";
 				};
 				class Item1
@@ -322,7 +322,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""]; ";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="2 Section | Automatic Rifleman";
 				};
 				class Item2
@@ -336,7 +336,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""]; ";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""CLS""] call tb3_fLoadout;";
 					description="2 Section | Rifleman (CLS)";
 				};
 				class Item3
@@ -351,7 +351,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""];";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""TL""] call tb3_fLoadout;";
 					description="2 Section | Section 2IC";
 				};
 				class Item4
@@ -365,7 +365,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""]; ";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="2 Section | Automatic Rifleman";
 				};
 				class Item5
@@ -379,7 +379,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'2""]; ";
+					init="(group this) setGroupId [""Goshawk 1'2""]; [this,""INDinf"",""R""] call tb3_fLoadout;";
 					description="2 Section | Rifleman";
 				};
 			};
@@ -403,7 +403,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""];";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""SL""] call tb3_fLoadout;";
 					description="3 Section | Section Leader";
 				};
 				class Item1
@@ -417,7 +417,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""]; ";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="3 Section | Automatic Rifleman";
 				};
 				class Item2
@@ -431,7 +431,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""]; ";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""CLS""] call tb3_fLoadout;";
 					description="3 Section | Rifleman (CLS)";
 				};
 				class Item3
@@ -446,7 +446,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""];";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""TL""] call tb3_fLoadout;";
 					description="3 Section | Section 2IC";
 				};
 				class Item4
@@ -460,7 +460,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""]; ";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""AR""] call tb3_fLoadout;";
 					description="3 Section | Automatic Rifleman";
 				};
 				class Item5
@@ -474,7 +474,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'3""]; ";
+					init="(group this) setGroupId [""Goshawk 1'3""]; [this,""INDinf"",""R""] call tb3_fLoadout;";
 					description="3 Section | Rifleman";
 				};
 			};
@@ -498,7 +498,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="Section Leader, Vehicle 1 Commander";
 				};
 				class Item1
@@ -513,7 +513,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 1 Gunner";
 				};
 				class Item2
@@ -527,7 +527,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 1 Driver";
 				};
 				class Item3
@@ -542,7 +542,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description=" Vehicle 2 Commander";
 				};
 				class Item4
@@ -557,7 +557,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 2 Gunner";
 				};
 				class Item5
@@ -571,7 +571,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'A""];";
+					init="(group this) setGroupId [""Goshawk 1'A""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 2 Driver";
 				};
 			};
@@ -595,7 +595,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="Section Leader, Vehicle 3 Commander";
 				};
 				class Item1
@@ -610,7 +610,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="CORPORAL";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 3 Gunner";
 				};
 				class Item2
@@ -624,7 +624,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 3 Driver";
 				};
 				class Item3
@@ -639,7 +639,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description=" Vehicle 4 Commander";
 				};
 				class Item4
@@ -654,7 +654,7 @@ class Mission
 					lock="UNLOCKED";
 					rank="SERGEANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 4 Gunner";
 				};
 				class Item5
@@ -668,7 +668,7 @@ class Mission
 					player="PLAY CDG";
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Goshawk 1'B""];";
+					init="(group this) setGroupId [""Goshawk 1'B""]; [this,""INDinf"",""VC""] call tb3_fLoadout;";
 					description="  Vehicle 4 Driver";
 				};
 			};
@@ -691,7 +691,7 @@ class Mission
 					leader=1;
 					rank="CAPTAIN";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Mako 1""];";
+					init="(group this) setGroupId [""Mako 1""]; [this,""INDinf"",""Pilot""] call tb3_fLoadout;";
 					description="Pilot (Flight Lead)";
 				};
 				class Item1
@@ -705,7 +705,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Mako 1""];";
+					init="(group this) setGroupId [""Mako 1""]; [this,""INDinf"",""Pilot""] call tb3_fLoadout;";
 					description="Pilot";
 				};
 				class Item2
@@ -719,7 +719,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Mako 1""];";
+					init="(group this) setGroupId [""Mako 1""]; [this,""INDinf"",""Pilot""] call tb3_fLoadout;";
 					description="Pilot";
 				};
 				class Item3
@@ -733,7 +733,7 @@ class Mission
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="(group this) setGroupId [""Mako 1""];";
+					init="(group this) setGroupId [""Mako 1""]; [this,""INDinf"",""Pilot""] call tb3_fLoadout;";
 					description="Pilot";
 				};
 			};
