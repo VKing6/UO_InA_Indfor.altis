@@ -63,7 +63,7 @@
 		};
 		class INDinf {
 			class PL {
-				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
+				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -168,7 +168,7 @@
 				magazines[] = {}; items[] = {};
 			};
 			class FAC1 {
-				weapons[] = {"arifle_Mk20_GL_F","Laserdesignator"}; //"tb_arifle_mk21_m203"
+				weapons[] = {"tb_arifle_mk21_m203","Laserdesignator"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -367,7 +367,7 @@
 			};
 			
 			class SL {
-				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
+				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -421,7 +421,7 @@
 				magazines[] = {}; items[] = {};
 			};
 			class TL {
-				weapons[] = {"arifle_Mk20_GL_F","Rangefinder"}; //"tb_arifle_mk21_m203"
+				weapons[] = {"tb_arifle_mk21_m203","Rangefinder"}; //"tb_arifle_mk21_m203"
 				priKit[] = {"optic_Hamr","acc_pointer_IR"};
 				secKit[] = {};
 				
