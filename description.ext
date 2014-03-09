@@ -24,8 +24,6 @@ Jack Williams (Rarek) for Ahoy World!
 	  maxPlayers = 40;
 	};
 	
-	#include "=BTC=_revive\=BTC=_respawn.h"
-
 	author = Rarek [AW], TinfoilHate, Toadball, Vking;
 	onLoadName = "AW Invade & Annex";
 	loadScreen = "uoLogo.jpg";
@@ -80,6 +78,7 @@ Jack Williams (Rarek) for Ahoy World!
 	class CfgFunctions {
 		#include "VAS\cfgfunctions.hpp"
 		#include "taw_vd\CfgFunctions.hpp"
+		#include "ais_injury\cfgFunctionsAIS.hpp"
 	};
 	
 	// TB3
@@ -91,6 +90,7 @@ Jack Williams (Rarek) for Ahoy World!
 	class RscTitles {
 		//// crewlist ////
 		#include "scripts\crew\namesleft.hpp"
+		#include "ais_injury\dialogs\rscTitlesAIS.hpp"
 		#include "scripts\name_tag\rsctitles.hpp"
 	};	
 

@@ -46,9 +46,11 @@ class Mission
 		"a3_uav_f_characters_f_gamma",
 		"A3_Static_F_Gamma",
 		"A3_Air_F_Beta_Heli_Transport_02",
+		"A3_Air_F_EPB_Heli_Light_03",
 		"rve_wildcat",
 		"A3_Weapons_F_Beta_Ammoboxes",
 		"A3_Soft_F_MRAP_03",
+		"A3_Armor_F_EPB_APC_tracked_03",
 		"rve_warrior",
 		"A3_Soft_F_Quadbike",
 		"a3_soft_f_beta_quadbike",
@@ -71,7 +73,7 @@ class Mission
 	randomSeed=12935265;
 	class Intel
 	{
-		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.83";
+		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.xx2";
 		overviewText="Domi-esque Seeder Mission";
 		timeOfChanges=3600;
 		startWeather=0;
