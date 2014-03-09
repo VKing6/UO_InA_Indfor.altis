@@ -13,7 +13,7 @@ FNC_get_near_units = {
 	_nearUnits = nearestObjects [_player, ["CAManBase"], _displayDistance] - [_player];
 	_result = [];
 
-	_playerSide = _player getVariable "tin_unitSide";
+	_playerSide = _player getVariable ["tin_unitSide", side player];
 
 	{
 		if (isPlayer _x) then {

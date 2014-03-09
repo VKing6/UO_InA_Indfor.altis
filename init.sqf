@@ -160,7 +160,13 @@ if (isNil "radioTowerAlive") then {radioTowerAlive = false;};
 if (isNil "sideMissionUp") then {sideMissionUp = false;};
 if (isNil "currentAOUp") then {currentAOUp = false;};
 
-call compile preprocessFile "=BTC=_revive\=BTC=_revive_init.sqf";
+	[] spawn {
+		sleep 10;
+		if (!isDedicated) then {
+			TCB_AIS_PATH = "ais_injury\";
+			{[_x] call compile preprocessFile (TCB_AIS_PATH+"init_ais.sqf")} forEach (if (isMultiplayer) then {playableUnits} else {switchableUnits});
+		};
+	};
 
 [] spawn {
 	scriptName "initMission.hpp: mission start";
