@@ -229,7 +229,7 @@ while {true} do {
 				_minRange = ((_targetPos distance _flatPos) < 840);
 				_maxRange = false;
 			} else {
-				_minRange = false;
+				_minRange = ((_targetPos distance _flatPos) < 400);
 				_maxRange = ((_targetPos distance _flatPos) > 4075);
 			};
 			
