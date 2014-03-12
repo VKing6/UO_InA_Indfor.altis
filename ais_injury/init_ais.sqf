@@ -7,6 +7,77 @@ if (!isNil {_unit getVariable "tcb_ais_aisInit"}) exitWith {};	// prevent that a
 _unit setVariable ["tcb_ais_aisInit",true];
 #include "ais_setup.sqf"
 
+lynx_aisDrag = {
+	private ["_injured","_helper"];
+
+	_injured 	= _this select 0;
+	_helper 	= _this select 1;
+
+	if (local _injured) then {
+		_injured setVariable ["dragger",_helper,true];
+		_injured attachTo [_helper, [0, 1, 0.08]];
+		_injured setDir 180;
+	};
+};
+
+lynx_aisFirstAid = {
+	private ["_injured","_helper","_dir","_offset"];
+
+	_injured 	= _this select 0;
+	_helper 	= _this select 1;
+	_dir		= _this select 2;
+	_offset 	= _this select 3;
+
+	if (local _injured) then {
+		_injured attachTo [_helper,_offset];
+		_injured setDir _dir;
+	};
+};
+
+lynx_aisSwitchMove = {
+	private ["_unit","_move"];
+
+	_unit 	= _this select 0;
+	_move	= _this select 1;
+	
+	if (local _unit) then {_unit switchMove _move};
+};
+
+lynx_aisPlayMove = {
+	private ["_unit","_move"];
+
+	_unit 	= _this select 0;
+	_move	= _this select 1;
+	
+	if (local _unit) then {_unit playMoveNow _move};
+};
+
+lynx_aisPlayAction = {
+	private ["_unit","_action"];
+
+	_unit 	= _this select 0;
+	_action = _this select 1;
+	
+	if (local _unit) then {_unit playAction _action};
+};
+
+lynx_aisPlayActionNow = {
+	private ["_unit","_action"];
+
+	_unit 	= _this select 0;
+	_action = _this select 1;
+	
+	if (local _unit) then {_unit playActionNow _action};
+};
+
+["lynx_aisDrag", lynx_aisDrag] call CBA_fnc_addEventHandler;
+["lynx_aisFirstAid", lynx_aisFirstAid] call CBA_fnc_addEventHandler;
+["lynx_aisSwitchMove", lynx_aisSwitchMove] call CBA_fnc_addEventHandler;
+["lynx_aisPlayMove", lynx_aisPlayMove] call CBA_fnc_addEventHandler;
+["lynx_aisPlayAction", lynx_aisPlayAction] call CBA_fnc_addEventHandler;
+["lynx_aisPlayActionNow", lynx_aisPlayActionNow] call CBA_fnc_addEventHandler;
+//Raise event: ["lynx_aisFirstAid",[_injured,_helper]] call CBA_fnc_globalEvent;
+
 "tcb_ais_in_agony" addPublicVariableEventHandler {
 	_unit = (_this select 1) select 0;
 	_in_agony = (_this select 1) select 1;
@@ -45,19 +116,6 @@ _unit setVariable ["tcb_ais_unit_died", false];
 _unit setVariable ["tcb_ais_leader", false];
 _unit setVariable ["tcb_ais_fall_in_agony_time_delay", 999999];
 
-/*
-// work around since BI-devs are went to stupid 3.0...		<-- no longer needed
-_unit addEventHandler ["respawn", {
-	[_this select 0] spawn {
-		_unit = _this select 0;
-		_timeend = time + 2;
-		waitUntil {!BIS_respawnInProgress || {time > _timeend}};
-		_unit removeAllEventHandlers "handleDamage";
-		_handledamage = _unit addEventHandler ["HandleDamage",{_this call ((_this select 0) getVariable "ais_handleDamage")}];
-	};
-}];
-*/
-
 if (tcb_ais_show_3d_icons == 1) then {
 	_icons = addMissionEventHandler ["Draw3D", {
 		{
@@ -83,13 +141,6 @@ if (isPlayer _unit) then {
 	waitUntil {sleep 0.3; !isNull (findDisplay 46)};
 	(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call tcb_fnc_keyUnbind"];
 };
-
-
-/*	// add in a later version...
-if (count tcb_ais_addVIP > 0) then {
-	{[_x] execVM (TCB_AIS_PATH+"init_ais.sqf")} forEach tcb_ais_addVIP;
-};
-*/
 
 if (tcb_ais_dead_dialog == 1) then {
 	if (isNil "respawndelay") then {

@@ -9,10 +9,10 @@ _getADList = {
 	_retList = [];
 	_dist = 0;
 	_list = [] + adPositions;
-	
+
 	_sortedList = [_list,[_baseLoc],{_input0 distance getMarkerPos _x},"ASCEND",{(_input0 distance getMarkerPos _x < 2500)}] call BIS_fnc_sortBy;
 	TRACE_1("",_sortedList);
-	
+
 	if (count _sortedList > 0) then {
 		for "_i" from 0 to _n-1 do {
 			_retList set [_i,_sortedList select _i];
@@ -44,7 +44,7 @@ if (count _adList > 0) then {
 			_adVeh addEventHandler ["killed", {activeAD = activeAD - [(_this select 0) getVariable "adName"]; tin_fifo_bodies = tin_fifo_bodies + [(_this select 0)] + crew (_this select 0)}];
 			createVehicleCrew _adVeh;
 			// _x setMarkerType "o_unknown";
-			
+
 			// Spawn guard patrol
 			_randomPos = [[[getPos _adVeh, 30]],["water","out"]] call BIS_fnc_randomPos;
 			_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;

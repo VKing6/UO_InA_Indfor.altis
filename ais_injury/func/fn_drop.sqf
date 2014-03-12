@@ -8,8 +8,11 @@ detach _dragger;
 detach _dragee;
 
 _dragee setVariable ["dragger", ObjNull, true];
-_dragee playMove "AinjPpneMstpSnonWrflDb_release";
-_dragger playMove "amovpknlmstpsraswrfldnon"; //_dragger playAction "released";
+["lynx_aisPlayMove",[_dragee,"AinjPpneMstpSnonWrflDb_release"]] call CBA_fnc_globalEvent;
+["lynx_aisPlayMove",[_dragger,"amovpknlmstpsraswrfldnon"]] call CBA_fnc_globalEvent;
+
+//_dragee playMove "AinjPpneMstpSnonWrflDb_release";
+//_dragger playMove "amovpknlmstpsraswrfldnon"; //_dragger playAction "released";
 
 if (!isNil {_dragger getVariable "drop_action"}) then {
 	_dragger removeAction (_dragger getVariable "drop_action");

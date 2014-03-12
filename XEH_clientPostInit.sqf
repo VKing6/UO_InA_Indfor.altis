@@ -24,11 +24,6 @@
 	
 	player setVariable ["tin_unitSide", side player, true];
 
-	[] spawn {
-		//Nametag Scripts
-		[] execVM "scripts\name_tag\init.sqf";
-	};	
-
 	////// Vehicle / CVC Check /////////////
 	tin_vehicleCheck = [{
 		if (isNil "tin_hatStore") then {tin_hatStore = "H_Beret_blk"};
@@ -38,7 +33,7 @@
 			if ((vehicle player) isKindOf "Wheeled_APC_F" || (vehicle player) isKindOf "Tank_F") then {
 				if (typeOf player != "I_crew_F" && typeOf player != "I_support_Mort_F" && typeOf player != "I_support_AMort_F") then {
 					if ((vehicle player) isKindOf "Tank" || (vehicle player) isKindOf "Wheeled_APC_F") then {
-						if ((assignedVehicleRole player) select 0 != "Cargo") then {
+						if (assignedGunner (vehicle player) == player || assignedDriver (vehicle player) == player) then {
 							player action ["eject", (vehicle player)];
 							player action ["engineOff", (vehicle player)];
 							hint "You must be trained crew to operate armored vehicles!";
@@ -144,14 +139,6 @@
 
 	////// Weapon Check ////////////////////
 	tin_weaponCheck = [{
-		if ((player hasWeapon "launch_I_Titan_F") || (player hasWeapon "launch_I_Titan_short_F")) then {
-			if ((playerSide == west && typeOf player != "B_soldier_LAT_F") || (playerside == east && typeOf player != "O_soldier_LAT_F") || (playerside == resistance && typeOf player != "I_soldier_LAT_F")) then {
-				player removeWeapon "launch_I_Titan_F";
-				player removeWeapon "launch_I_Titan_short_F";
-				player globalChat "Only AT Soldiers are trained in missile launcher operations. Launcher removed.";
-			};
-		};
-
 		if ("B_UavTerminal" in (assignedItems player) || "I_UavTerminal" in (assignedItems player) || "O_UavTerminal" in (assignedItems player)) then {
 			if ((playerSide == west && typeOf player != "B_soldier_UAV_F") || (playerside == east && typeOf player != "O_soldier_UAV_F") || (playerside == resistance && typeOf player != "I_soldier_UAV_F")) then {
 				player unassignItem "B_UavTerminal";
@@ -191,6 +178,8 @@
 			}];
 		};
 	};
+	
+	[] execVM "scripts\nametags\init.sqf";
 
 	////// Player Markers //////////////////
 	/*

@@ -25,7 +25,7 @@ Jack Williams (Rarek) for Ahoy World!
     if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
 
 
-#define WELCOME_MESSAGE	"Welcome to Ahoy World's Invade & Annex ~ALTIS~\n" +\
+#define WELCOME_MESSAGE	"\n\nWelcome to Ahoy World's Invade & Annex ~ALTIS~\n" +\
 						"by Rarek (Ahoy World)\n\n" +\
 						"Modification for United Operations by TinfoilHate, Toadball, and VKing\n" +\
 						"www.unitedoperations.net\n\n"
@@ -149,10 +149,13 @@ enableSentences false;
 //create the Public Variable EventHandlers
 aPEH = [] execVM "scripts\addPublicVariableEventHandlers.sqf";
 
+//igiLoad Initialization
+_igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 
 /* =============================================== */
 /* ================ PLAYER SCRIPTS =============== */
 [player] execVM "scripts\crew\crew.sqf";
+
 //0 = [] execVM 'group_manager.sqf';
 //_null = [] execVM "taw_vd\init.sqf";
 

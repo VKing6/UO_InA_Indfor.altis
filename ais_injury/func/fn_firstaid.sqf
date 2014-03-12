@@ -9,7 +9,7 @@ if (!isPlayer _healer && {_healer distance _injuredperson > 4}) then {
 	_healer setBehaviour "AWARE";
 	_healer doMove (position _injuredperson);
 	_timenow = time;
-	WaitUntil {
+	waitUntil {
 		_healer distance _injuredperson <= 4		 		||
 		{!alive _injuredperson}			 					||
 		{!(_injuredperson getVariable "tcb_ais_agony")} 	||
@@ -59,7 +59,7 @@ if (isPlayer _healer) then {
 					if (time >= tcb_animDelay) then {tcb_healerStopped = true};
 				};
 			};
-		};	
+		};
 	}];
 };
 
@@ -67,8 +67,10 @@ _offset = [0,0,0]; _dir = 0;
 _relpos = _healer worldToModel position _injuredperson;
 if((_relpos select 0) < 0) then{_offset=[-0.2,0.7,0]; _dir=90} else{_offset=[0.2,0.7,0]; _dir=270};
 
-_injuredperson attachTo [_healer,_offset];
-_injuredperson setDir _dir;
+["lynx_aisFirstAid",[_injuredperson,_healer,_dir,_offset]] call CBA_fnc_globalEvent;
+//_injuredperson attachTo [_healer,_offset];
+//_injuredperson setDir _dir;
+
 _time = time;
 _damage = (damage _injuredperson * 50);
 sleep 1;
@@ -101,7 +103,7 @@ if (alive _healer && {!(_healer getVariable "tcb_ais_agony")}) then {
 	_healer playAction "medicStop";
 	_healer setBehaviour _behaviour;
 };
-if (!alive _injuredperson) exitWith {["It's already to late for this guy.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+if (!alive _injuredperson) exitWith {["It's already too late for this guy.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
 if (!alive _healer) exitWith {};
 _injuredperson setVariable ["healer",ObjNull,true];
 
@@ -119,5 +121,5 @@ if (!tcb_healerStopped) then {
 		_injuredperson setVariable ["tcb_ais_agony",false,true];
 	};
 } else {
-	["You has stopped the healing process.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText;
+	["You have stopped the healing process.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText;
 };
