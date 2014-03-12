@@ -6,7 +6,6 @@ class Mission
 		"A3_Structures_F_Mil_Helipads",
 		"A3_Structures_F_Walls",
 		"A3_Soft_F_Quadbike",
-		"A3_Static_F_Mortar_01",
 		"A3_Structures_F_System",
 		"A3_Air_F_Beta_Heli_Transport_02",
 		"a3_weapons_f_beta_ammoboxes",
@@ -73,7 +72,7 @@ class Mission
 	randomSeed=12935265;
 	class Intel
 	{
-		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.86";
+		briefingName="CO40 - Invade and Annex - INDFOR - UO/ACRE v1.xx7";
 		overviewText="Domi-esque Seeder Mission";
 		timeOfChanges=3600;
 		startWeather=0;
@@ -112,7 +111,7 @@ class Mission
 					id=0;
 					side="GUER";
 					vehicle="I_Soldier_SL_F";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					lock="UNLOCKED";
 					rank="LIEUTENANT";
@@ -1421,7 +1420,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=88;
+		items=92;
 		class Item0
 		{
 			position[]={11684.331,22.295689,11814.514};
@@ -1431,6 +1430,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_Heli_Transport_02_F";
 			leader=1;
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="heli_1";
 			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1444,6 +1444,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_Heli_light_03_F";
 			leader=1;
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="heli_2";
 			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1484,10 +1485,11 @@ class Mission
 		class Item5
 		{
 			position[]={11596.539,23.360451,12018.137};
-			azimut=121.40199;
+			azimut=121.402;
 			id=75;
 			side="EMPTY";
 			vehicle="I_MRAP_03_hmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_3";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1507,10 +1509,11 @@ class Mission
 		class Item7
 		{
 			position[]={11594.149,23.415026,12014.22};
-			azimut=121.40199;
+			azimut=121.402;
 			id=77;
 			side="EMPTY";
 			vehicle="I_MRAP_03_hmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_4";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1518,10 +1521,11 @@ class Mission
 		class Item8
 		{
 			position[]={11589.664,23.532391,12006.769};
-			azimut=121.40199;
+			azimut=121.402;
 			id=78;
 			side="EMPTY";
 			vehicle="I_MRAP_03_gmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_1";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1529,10 +1533,11 @@ class Mission
 		class Item9
 		{
 			position[]={11591.948,23.475298,12010.42};
-			azimut=121.40199;
+			azimut=121.402;
 			id=79;
 			side="EMPTY";
 			vehicle="I_MRAP_03_gmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_2";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1578,6 +1583,7 @@ class Mission
 			id=83;
 			side="EMPTY";
 			vehicle="I_Heli_light_03_unarmed_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="heli_3";
 			init="veh = [this, 300, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep; this setObjectTextureGlobal [0,""\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa""];";
@@ -1590,6 +1596,7 @@ class Mission
 			id=84;
 			side="EMPTY";
 			vehicle="I_Heli_light_03_unarmed_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="heli_4";
 			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep; this setObjectTextureGlobal [0,""\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa""];";
@@ -1641,6 +1648,7 @@ class Mission
 			id=88;
 			side="EMPTY";
 			vehicle="I_Heli_light_03_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="heli_5";
 			init="veh = [this, 30, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1783,10 +1791,11 @@ class Mission
 		class Item29
 		{
 			position[]={11601.188,23.283804,12025.979};
-			azimut=121.40199;
+			azimut=121.402;
 			id=99;
 			side="EMPTY";
 			vehicle="I_MRAP_03_hmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_3_1";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1794,10 +1803,11 @@ class Mission
 		class Item30
 		{
 			position[]={11598.902,23.317385,12022.05};
-			azimut=121.40199;
+			azimut=121.402;
 			id=100;
 			side="EMPTY";
 			vehicle="I_MRAP_03_hmg_F";
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="apc_4_1";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1810,6 +1820,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_Truck_02_transport_F";
 			leader=1;
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="truck4";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -1822,6 +1833,7 @@ class Mission
 			side="EMPTY";
 			vehicle="I_Truck_02_covered_F";
 			leader=1;
+			lock="UNLOCKED";
 			skill=0.60000002;
 			text="truck5";
 			init="veh = [this, 120, 3600, 0, FALSE] execVM ""vehicle.sqf""; [this] call tin_vehiclePrep;";
@@ -2531,6 +2543,50 @@ class Mission
 			skill=0.60000002;
 			init="this allowDamage false; ";
 			description="Platoon Leader";
+		};
+		class Item88
+		{
+			position[]={11689.977,22.28603,11809.998};
+			azimut=32.7962;
+			id=158;
+			side="EMPTY";
+			vehicle="B_supplyCrate_F";
+			skill=0.60000002;
+			text="stuffBox_01";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false;";
+		};
+		class Item89
+		{
+			position[]={11691.083,22.338013,11811.53};
+			azimut=32.7962;
+			id=159;
+			side="EMPTY";
+			vehicle="B_supplyCrate_F";
+			skill=0.60000002;
+			text="stuffBox_02";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false;";
+		};
+		class Item90
+		{
+			position[]={11733.907,22.713385,11828.196};
+			azimut=32.7962;
+			id=160;
+			side="EMPTY";
+			vehicle="B_supplyCrate_F";
+			skill=0.60000002;
+			text="stuffBox_04";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false;";
+		};
+		class Item91
+		{
+			position[]={11731.383,22.743557,11829.693};
+			azimut=32.7962;
+			id=161;
+			side="EMPTY";
+			vehicle="B_supplyCrate_F";
+			skill=0.60000002;
+			text="stuffBox_03";
+			init="clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this allowDamage false;";
 		};
 	};
 	class Markers

@@ -23,14 +23,14 @@ Jack Williams (Rarek) for Ahoy World!
 	  minPlayers = 1;
 	  maxPlayers = 40;
 	};
-	
+
 	author = Rarek [AW], TinfoilHate, Toadball, Vking;
 	onLoadName = "AW Invade & Annex";
 	loadScreen = "uoLogo.jpg";
 	OnLoadMission = "A domination-esque mission by Ahoy World's Rarek. Support them at www.ahoyworld.co.uk! This edition by United Operations @ www.unitedoperations.net. Be sure to join Teamspeak and have ACRE enabled!";
 
 	respawn = "BASE";
-	respawnDelay = 1;
+	respawnDelay = 5;
 	respawnDialog = 0;
 	disabledAI = true;
 	enableSaving = [false, false];
@@ -64,7 +64,7 @@ Jack Williams (Rarek) for Ahoy World!
 			init = "call ('XEH_postInit.sqf' call SLX_XEH_COMPILE)";
 		};
 	};
-	
+
 	class Extended_getIn_EventHandlers {
 		class Air {
 			class vk_rwr {
@@ -72,7 +72,7 @@ Jack Williams (Rarek) for Ahoy World!
 			};
 		};
 	};
-	
+
 	/* VAS includes */
 	#include "VAS\menu.hpp"
 	class CfgFunctions {
@@ -80,19 +80,18 @@ Jack Williams (Rarek) for Ahoy World!
 		#include "taw_vd\CfgFunctions.hpp"
 		#include "ais_injury\cfgFunctionsAIS.hpp"
 	};
-	
+
 	// TB3
 	#include "tb3\loadouts.hpp"
 
 	/* View Distance includes */
-	#include "taw_vd\dialog.hpp"	
+	#include "taw_vd\dialog.hpp"
 
 	class RscTitles {
-		//// crewlist ////
 		#include "scripts\crew\namesleft.hpp"
+		#include "scripts\nametags\rscTitles.hpp"
 		#include "ais_injury\dialogs\rscTitlesAIS.hpp"
-		#include "scripts\name_tag\rsctitles.hpp"
-	};	
+	};
 
 	class Params {
 		class Perpetual {
@@ -136,7 +135,7 @@ Jack Williams (Rarek) for Ahoy World!
 			texts[] = {"Enabled","Disabled"};
 			default = 1;
 		};
-		
+
 		class SMArea {
 			title = "Side missions appear in";
 			values[] = {0,1};
@@ -157,7 +156,7 @@ Jack Williams (Rarek) for Ahoy World!
 			default = 0;
 		};
 		*/
-		class AOSize { // Base on player count? 
+		class AOSize { // Base on player count?
 			title = "Main AO Diameter";
 			values[] = {200,300,400,500,600,700,800,900,1000};
 			texts[] = {"200m","300m","400m","500m","600m","700m","800m","900m","1,000m"};
@@ -170,7 +169,7 @@ Jack Williams (Rarek) for Ahoy World!
 			texts[] = {"Normal","High","Very High"};
 			default = 0;
 		};
-		
+
 		class Skybunker {
 			title = "SKYBUNKER?!";
 			values[] = {0,1};
