@@ -47,7 +47,12 @@ vas_weapons = [
 	// Binoculars
 	"Binocular","Laserdesignator","Rangefinder",
 	// Rifles
-	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_lmg_mk24","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
+	
+
+
+	
+	
+	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_Mk20_black_F","arifle_Mk20C_black_F","arifle_Mk20_GL_black_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_lmg_mk24","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
 	// Pistols
 	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
 	// Launchers
@@ -62,7 +67,7 @@ vas_magazines = [
 	// GL Magazines
 	"1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","1Rnd_SmokeGreen_Grenade_shell","1Rnd_SmokeYellow_Grenade_shell","1Rnd_SmokePurple_Grenade_shell","1Rnd_SmokeBlue_Grenade_shell","1Rnd_SmokeOrange_Grenade_shell","UGL_FlareWhite_F","UGL_FlareGreen_F","UGL_FlareRed_F","UGL_FlareYellow_F","UGL_FlareCIR_F",
 	// Launcher Magazines
-	"Titan_AA","Titan_AP","Titan_AT","tb_mk13_heat","tb_mk13_hedp",
+	"Titan_AA","Titan_AP","Titan_AT","tb_mk13_heat","tb_mk13_hedp","tb_mk13_smoke",
 	// Thrown
 	"HandGrenade","MiniGrenade","SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellYellow","SmokeShellPurple","SmokeShellBlue","SmokeShellOrange","Chemlight_green","Chemlight_red","Chemlight_yellow","Chemlight_blue","I_IR_Grenade",
 	// Put
