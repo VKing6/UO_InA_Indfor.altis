@@ -52,7 +52,7 @@ vas_weapons = [
 
 	
 	
-	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_Mk20_black_F","arifle_Mk20C_black_F","arifle_Mk20_GL_black_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_lmg_mk24","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
+	"tb_arifle_mk21","tb_arifle_mk21_m203","arifle_Mk20_F","arifle_Mk20C_F","arifle_Mk20_GL_F","arifle_Mk20_black_F","arifle_Mk20C_black_F","arifle_Mk20_GL_black_F","arifle_TRG20_F","arifle_TRG21_F","arifle_TRG21_GL_F","LMG_Mk200_F","tb_lmg_mk23","tb_lmg_mk24","tb_sgun_m1014","srifle_EBR_F","arifle_SDAR_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F",
 	// Pistols
 	"hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F",
 	// Launchers
@@ -84,9 +84,9 @@ vas_items = [
 	// Uniforms
 	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
 	// Vests
-	"V_BandollierB_rgr","V_BandollierB_blk","V_Chestrig_blk","V_Chestrig_oli","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_RebreatherIA","V_TacVest_oli",
+	"V_BandollierB_rgr","V_BandollierB_blk","V_Chestrig_blk","V_Chestrig_oli","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl","V_PlateCarrier_NOR_M98","V_PlateCarrier1_blk","V_RebreatherIA","V_TacVest_oli","V_TacVest_FR_black",
 	// Helmets
-	"H_Booniehat_dgtl","H_CrewHelmetHeli_I","H_HelmetB","H_HelmetB_camo","H_HelmetB_grass","H_HelmetB_light","H_HelmetCrew_I","H_HelmetIA","H_HelmetIA_camo","H_HelmetIA_net","H_MilCap_dgtl","H_PilotHelmetFighter_I","H_PilotHelmetHeli_I"
+	"H_Booniehat_dgtl","H_CrewHelmetHeli_I","H_HelmetB","H_HelmetB_camo","H_HelmetB_grass","H_HelmetB_light","H_HelmetB_nor_m98","H_HelmetB_ru_oli","H_HelmetCrew_I","H_HelmetIA","H_HelmetIA_camo","H_HelmetIA_net","H_MilCap_dgtl","H_PilotHelmetFighter_I","H_PilotHelmetHeli_I"
 ];
 //Want to limit backpacks? Place the classnames in the array!
 vas_backpacks = [
