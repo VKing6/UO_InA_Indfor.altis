@@ -313,43 +313,49 @@ call compile (preprocessFileLineNumbers "func\compile.sqf");
 skipTime PARAMS_TimeOfDay;
 
 //Set weather
-0 setWindForce random 1;
-0 setWindDir random 360;
-0 setGusts random 1;
-
 switch (PARAMS_Weather) do {
 	case 1: {
-		0 setOvercast 0;
+		0 setOvercast 0; skiptime 2; sleep 0.1; skiptime -2;
+		sleep 0.1;
+		simulWeatherSync;	
 		0 setRain 0;
 		0 setFog 0;
+
 	};
 
 	case 2: {
-		0 setOvercast 1;
+		0 setOvercast 1; skiptime 2; sleep 0.1; skiptime -2;
+		sleep 0.1;
+		simulWeatherSync;
 		0 setRain 1;
 		0 setFog 0.2;
 		0 setGusts 1;
 		0 setLightnings 1;
 		0 setWaves 1;
 		0 setWindForce 1;
+
 	};
 
 	case 3: {
-		0 setOvercast 0.7;
+		0 setOvercast 0.7; skiptime 2; sleep 0.1; skiptime -2;
+		sleep 0.1;
+		simulWeatherSync;
 		0 setRain 0;
 		0 setFog 0;
 		0 setGusts 0.7;
 		0 setWaves 0.7;
 		0 setWindForce 0.4;
+
 	};
 
 	case 4: {
-		0 setOvercast 0.7;
+		0 setOvercast 0.69; skiptime 2; sleep 0.1; skiptime -2;
+		sleep 0.1;
+		simulWeatherSync;
 		0 setRain 0;
-		0 setFog 0.7;
+		0 setFog [0.25,0.01,0.5];
 	};
 };
-
 //Begin generating side missions
 _null = [] execVM "sm\sideMissions.sqf";
 

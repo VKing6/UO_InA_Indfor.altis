@@ -1,5 +1,4 @@
-	class lynx_sys_nameHUD
-   	{
+	class lynx_sys_nameHUD {
 		idd=-1;
 		movingEnable=0;
 	  	fadein=0;
@@ -9,10 +8,8 @@
 		onLoad="uiNamespace setVariable ['lynx_sys_nameHUD',_this select 0]";
 		controlsBackground[]={};
 		objects[]={};
-		class controls
-		{
-			class hud1
-			{
+		class controls {
+			class hud1 {
 				type=0;
 				idc=23501;
 				style=2;
@@ -28,8 +25,7 @@
 				shadow=true;
 				text="";
 			};
-			class hud2 : hud1
-			{
+			class hud2 : hud1 {
 				idc=23502;
 			};
 			class hud3 : hud1

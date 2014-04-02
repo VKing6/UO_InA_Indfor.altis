@@ -16,3 +16,4 @@
 	} forEach [ammo1,ammo2,ammo3];
 	
 	_cargoCrates = execVM "func\tin_portableCrates.sqf";
+	
