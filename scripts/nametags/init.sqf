@@ -7,33 +7,30 @@
 	if (isNil "lynx_sys_nameHUD_enabled") then {lynx_sys_nameHUD_enabled = true};
 	if (isNil "lynx_sys_nameHUD_drawDistance") then {lynx_sys_nameHUD_drawDistance = 20};
 
-	call compile preprocessFileLineNumbers "scripts\nametags\functions.sqf";
+	call compile preprocessFileLineNumbers "nametags\functions.sqf";
 
-	[lynx_sys_nameHUD_drawDistance] spawn {
-		while {lynx_sys_nameHUD_enabled} do {
-			if (lynx_sys_nameHUD_enabled && alive player) then {
-				_nearUnits = [lynx_sys_nameHUD_drawDistance] call lynx_sys_nameHUD_get_near_units;
+	
+	[{
+		if (lynx_sys_nameHUD_enabled && alive player) then {
+			_nearUnits = [lynx_sys_nameHUD_drawDistance] call lynx_sys_nameHUD_get_near_units;
 
-				if (leader (group player) == player) then {
-					{
-						_unitTeam = _x getVariable ["lynx_sys_nameHUD_groupAssignment","MAIN"];
-						if (_unitTeam != assignedTeam _x) then {
-							_x setVariable ["lynx_sys_nameHUD_groupAssignment",assignedTeam _x,true];
-						};
-					} forEach units (group player);
-				} else {
-					{
-						_unitTeam = _x getVariable ["lynx_sys_nameHUD_groupAssignment","MAIN"];
-						if (_unitTeam != assignedTeam _x) then {
-							_x assignTeam _unitTeam;
-						};
-					} forEach units (group player);
-				};
+			if (leader (group player) == player) then {
+				{
+					_unitTeam = _x getVariable ["lynx_sys_nameHUD_groupAssignment","MAIN"];
+					if (_unitTeam != assignedTeam _x) then {
+						_x setVariable ["lynx_sys_nameHUD_groupAssignment",assignedTeam _x,true];
+					};
+				} forEach units (group player);
+			} else {
+				{
+					_unitTeam = _x getVariable ["lynx_sys_nameHUD_groupAssignment","MAIN"];
+					if (_unitTeam != assignedTeam _x) then {
+						_x assignTeam _unitTeam;
+					};
+				} forEach units (group player);
 			};
-
-			sleep 5;
 		};
-	};
+	}, 5] call CBA_fnc_addPerFrameHandler;
 
 	[{
 		if (lynx_sys_nameHUD_enabled && alive player) then {
