@@ -1,7 +1,8 @@
 // by psycho - dont edit!
+_unit = _this select 0;
+
 if (isDedicated && {isPlayer _unit}) exitWith {};				// no player unit controlled on a dedicated server
 if (!isDedicated && {!hasInterface}) exitWith {};				// no headless client
-_unit = _this select 0;
 if (isNil "_unit") exitWith {};
 if (!isNil {_unit getVariable "tcb_ais_aisInit"}) exitWith {};	// prevent that a unit run the init twice
 _unit setVariable ["tcb_ais_aisInit",true];

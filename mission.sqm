@@ -111,7 +111,7 @@ class Mission
 					id=0;
 					side="GUER";
 					vehicle="I_Soldier_SL_F";
-					player="PLAY CDG";
+					player="PLAYER COMMANDER";
 					leader=1;
 					lock="UNLOCKED";
 					rank="LIEUTENANT";

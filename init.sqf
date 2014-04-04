@@ -155,6 +155,12 @@ _igiload = execVM "IgiLoad\IgiLoadInit.sqf";
 /* =============================================== */
 /* ================ PLAYER SCRIPTS =============== */
 [player] execVM "scripts\crew\crew.sqf";
+[] execVM "scripts\tin_aiHearTalk.sqf";
+
+if (isNil {GAM_ppEffectsGoggles}) then {
+	GAM_ppEffectsGoggles = compile preProcessFileLineNumbers "scripts\GAM_ppEffectsGoggles.sqf";
+	GAM_ppEffectsGogglesInit = [false, false, 10] spawn GAM_ppEffectsGoggles;
+};
 
 //0 = [] execVM 'group_manager.sqf';
 //_null = [] execVM "taw_vd\init.sqf";
@@ -185,18 +191,18 @@ if (!isServer) then {
 				_x setMarkerPosLocal (getMarkerPos currentAO);
 			} forEach ["aoCircle","aoMarker"];
 			aoTrigger setPos getMarkerPos currentAO;
-			
+
 			"aoMarker" setMarkerTextLocal format["Take %1",currentAO];
-			
+
 			waitUntil {sleep 5; !currentAOUp};
-			
+
 			{
 				_x setMarkerPosLocal [0,0,0];
 			} forEach ["aoCircle","aoMarker"];
 			aoTrigger setPos [0,0,0];
 		};
-	};	
-	
+	};
+
 	[] spawn {
 		while {true} do {
 			waitUntil {sleep 5; radioTowerAlive};
@@ -204,14 +210,14 @@ if (!isServer) then {
 			"radioMarker" setMarkerPosLocal (getPos radioTower);
 			"radioMineCircle" setMarkerPosLocal (getPos radioTower);
 			"radioMarker" setMarkerTextLocal (markerText "radioMarker");
-			
+
 			waitUntil {sleep 5; !radioTowerAlive};
-			
+
 			"radioMarker" setMarkerPosLocal [0,0,0];
 			"radioMineCircle" setMarkerPosLocal [0,0,0];
 		};
-	};	
-	
+	};
+
 	[] spawn {
 		while {true} do {
 			waitUntil {sleep 5; sideMissionUp};
@@ -221,7 +227,7 @@ if (!isServer) then {
 			"sideMarker" setMarkerTextLocal format["Side Mission: %1",sideMarkerText];
 
 			waitUntil {sleep 5; !sideMissionUp};
-			
+
 			"sideMarker" setMarkerPosLocal [0,0,0];
 			"sideCircle" setMarkerPosLocal [0,0,0];
 		};
@@ -309,15 +315,12 @@ _unitSpawnMinus = _unitSpawnPlus - (_unitSpawnPlus * 2);
 //Compile all functions.
 call compile (preprocessFileLineNumbers "func\compile.sqf");
 
-//Set time of day
-skipTime PARAMS_TimeOfDay;
-
 //Set weather
 switch (PARAMS_Weather) do {
 	case 1: {
 		0 setOvercast 0; skiptime 2; sleep 0.1; skiptime -2;
 		sleep 0.1;
-		simulWeatherSync;	
+		simulWeatherSync;
 		0 setRain 0;
 		0 setFog 0;
 
@@ -355,6 +358,20 @@ switch (PARAMS_Weather) do {
 		0 setRain 0;
 		0 setFog [0.25,0.01,0.5];
 	};
+
+	case 5: {
+		0 setOvercast 0.5;
+		0 setRain 0;
+		0 setFog [0.5,0.05,0]; skiptime 2; sleep 0.1; skiptime -2;
+		simulWeatherSync;
+	};
+
+	case 6: {
+		0 setOvercast 0.5;
+		0 setRain 0;
+		0 setFog [1,0.15,0]; skiptime 2; sleep 0.1; skiptime -2;
+		simulWeatherSync;
+	};
 };
 //Begin generating side missions
 _null = [] execVM "sm\sideMissions.sqf";
@@ -364,6 +381,10 @@ _null = [] execVM "sm\priorityTargets.sqf";
 
 _firstTarget = true;
 _lastTarget = "Nothing";
+
+//Set time of day
+skipTime PARAMS_TimeOfDay;
+
 
 while {count _targets > 0} do {
 	sleep 10;
@@ -529,7 +550,7 @@ while {count _targets > 0} do {
 
 	{_x setMarkerPos [0,0,0];} forEach ["aoCircle","aoMarker","radioMineCircle"];
 	aoTrigger setPos [0,0,0];
-	
+
 	//Show global target completion hint
 	GlobalHint = _targetCompleteText; publicVariable "GlobalHint"; hint parseText GlobalHint;
 	showNotification = ["CompletedMain", currentAO]; publicVariable "showNotification";

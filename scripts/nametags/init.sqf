@@ -7,7 +7,7 @@
 	if (isNil "lynx_sys_nameHUD_enabled") then {lynx_sys_nameHUD_enabled = true};
 	if (isNil "lynx_sys_nameHUD_drawDistance") then {lynx_sys_nameHUD_drawDistance = 20};
 
-	call compile preprocessFileLineNumbers "nametags\functions.sqf";
+	call compile preprocessFileLineNumbers "scripts\nametags\functions.sqf";
 
 	
 	[{
