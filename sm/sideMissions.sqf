@@ -198,14 +198,7 @@ while {true} do {
 
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			//Spawn units to garrison nearby buildings
-			for "_i" from 0 to (_spawnLevel + 1) do {
-				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
-				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-				[_spawnGroup, PARAMS_AOSize, _flatPos] call tin_aiGarrison;
-
-				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
-			};			
+		
 
 			// Spawn area AAA
 			[_flatpos] call vk_addAirDefense;
@@ -332,14 +325,6 @@ while {true} do {
 				_randomPos = [[[getPos sideObj, 100]],["water","out"]] call BIS_fnc_randomPos;
 				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Motorized_MTP" >> "OIA_MotInf_Team")] call BIS_fnc_spawnGroup;
 				[_spawnGroup, _flatPos, 100] call bis_fnc_taskPatrol;
-
-				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
-			};
-			//Spawn units to garrison nearby buildings
-			for "_i" from 0 to (_spawnLevel + 1) do {
-				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
-				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-				[_spawnGroup, PARAMS_AOSize, _flatPos] call tin_aiGarrison;
 
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
@@ -488,15 +473,6 @@ while {true} do {
 
 				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
 			};
-			//Spawn units to garrison nearby buildings
-			for "_i" from 0 to (_spawnLevel + 1) do {
-				_randomPos = [[[getPos sideObj, 90]],["water","out"]] call BIS_fnc_randomPos;
-				_spawnGroup = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfTeam")] call BIS_fnc_spawnGroup;
-				[_spawnGroup, PARAMS_AOSize, _flatPos] call tin_aiGarrison;
-
-				_unitsArray = _unitsArray + [_spawnGroup]; {_x addEventHandler ["killed", {tin_fifo_bodies = tin_fifo_bodies + [_this select 0]}]} forEach (units _spawnGroup);
-			};
-
 
 			// Spawn area AAA
 			[_flatpos] call vk_addAirDefense;
