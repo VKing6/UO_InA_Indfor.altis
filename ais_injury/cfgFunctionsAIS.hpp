@@ -22,5 +22,17 @@ class tcb_ais {
 		addf(deadcam);
 		addf(lookingForWoundedMates);
 		addf(checklauncher);
+		addf(allowToHeal);
+		addf(medicEquipment);
+		addf(setDamage);
+		addf(arrayPushStack);
+		addf(garbage);
+		addf(bloodEffect);
+		addf(resetBleeding);
+		addf(setBleeding);
+		addf(help);
+		addf(impactEffect);
+		addf(callHelp);
+		addf(diary);
 	};
 };

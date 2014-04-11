@@ -1,15 +1,17 @@
 // by BonInf*
 // changed by psycho
-private ["_injuredperson","_healer","_behaviour","_timenow","_relpos","_dir","_offset","_time","_damage","_isMedic","_healed","_animChangeEVH"];
+private ["_injuredperson","_healer","_behaviour","_timenow","_relpos","_dir","_offset","_time","_damage","_isMedic","_healed","_animChangeEVH","_skill_factor"];
 _injuredperson = _this select 0;
 _healer = _this select 1;
 _behaviour = behaviour _healer;
 
-if (!isPlayer _healer && {_healer distance _injuredperson > 4}) then {
+if (_healer getVariable "tcb_ais_agony") exitWith {};
+
+if (!isPlayer _healer && {_healer distance _injuredperson > 6}) then {
 	_healer setBehaviour "AWARE";
 	_healer doMove (position _injuredperson);
 	_timenow = time;
-	waitUntil {
+	WaitUntil {
 		_healer distance _injuredperson <= 4		 		||
 		{!alive _injuredperson}			 					||
 		{!(_injuredperson getVariable "tcb_ais_agony")} 	||
@@ -19,14 +21,30 @@ if (!isPlayer _healer && {_healer distance _injuredperson > 4}) then {
 	};
 };
 
-if (_healer getVariable "tcb_ais_agony") exitWith {};
-
-if (_healer distance _injuredperson > 4) exitWith {
-	_healer setBehaviour _behaviour;
-	if (isPlayer _healer) then {[format ["%1 is too far away to be healed.", name _injuredperson],0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+if (isPlayer _healer) then {
+	if (_healer distance _injuredperson > 2.5) exitWith {
+		_healer setBehaviour _behaviour;
+		if (isPlayer _healer) then {[format ["%1 is too far away to be healed.", name _injuredperson],0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+	};
 };
 rtn = call tcb_fnc_isHealable;
 if (!rtn) exitWith {};
+
+_ableToHeal = [_healer] call tcb_fnc_allowToHeal;
+if (!_ableToHeal) exitWith {
+	if (tcb_ais_medical_education >= 2) then {
+		if (isPlayer _healer) then {[format ["Only medics are trained for the purpose!"],0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+	} else {
+		if (isPlayer _healer) then {[format ["You need medical euqipment for this action."],0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+	};
+	if (!isPlayer _healer) then {
+		_healer stop false;
+		_healer enableAI "MOVE";
+		_healer enableAI "TARGET";
+		_healer enableAI "AUTOTARGET";
+		_healer enableAI "ANIM";
+	};
+};
 
 _injuredperson setVariable ["healer", _healer, true];
 tcb_healerStopped = false;
@@ -59,7 +77,7 @@ if (isPlayer _healer) then {
 					if (time >= tcb_animDelay) then {tcb_healerStopped = true};
 				};
 			};
-		};
+		};	
 	}];
 };
 
@@ -67,12 +85,17 @@ _offset = [0,0,0]; _dir = 0;
 _relpos = _healer worldToModel position _injuredperson;
 if((_relpos select 0) < 0) then{_offset=[-0.2,0.7,0]; _dir=90} else{_offset=[0.2,0.7,0]; _dir=270};
 
-["lynx_aisFirstAid",[_injuredperson,_healer,_dir,_offset]] call CBA_fnc_globalEvent;
-//_injuredperson attachTo [_healer,_offset];
-//_injuredperson setDir _dir;
+if (isPlayer _healer) then {
+	[_healer, _injuredperson] call tcb_fnc_medicEquipment;
+};
 
+_injuredperson attachTo [_healer,_offset];
+_injuredperson setDir _dir;
 _time = time;
-_damage = (damage _injuredperson * 50);
+
+_skill_factor = if (_healer call tcb_fnc_isMedic) then {40+(random 10)} else {70+(random 10)};
+_damage = (damage _injuredperson * _skill_factor);
+if (_damage < 5) then {_damage = 5};
 sleep 1;
 while {
 	time - _time < _damage
@@ -103,23 +126,33 @@ if (alive _healer && {!(_healer getVariable "tcb_ais_agony")}) then {
 	_healer playAction "medicStop";
 	_healer setBehaviour _behaviour;
 };
-if (!alive _injuredperson) exitWith {["It's already too late for this guy.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
+if (!alive _injuredperson) exitWith {["It's already to late for this guy.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText};
 if (!alive _healer) exitWith {};
 _injuredperson setVariable ["healer",ObjNull,true];
+
+call tcb_fnc_garbage;
+
+_old_damage = damage _injuredperson;
 
 if (!tcb_healerStopped) then {
 	_isMedic = _healer call tcb_fnc_isMedic;
 	_healed = switch (true) do {
-		case (_isMedic && {(items _healer) find "Medikit" > -1}) : {0};
+		case (_isMedic && {(items _healer) find "Medikit" > -1}) : {0.05};
 		case (_isMedic && {(items _healer) find "FirstAidKit" >= 0}) : {_healer removeItem "FirstAidKit"; 0.25};
 		case (!_isMedic && {(items _healer) find "FirstAidKit" >= 0}) : {_healer removeItem "FirstAidKit"; _injuredperson setHit ["hands", 0.9]; 0.4};
 		default {_injuredperson setHit ["legs", 0.4]; _injuredperson setHit ["hands", 0.9]; 0.6};
 	};
 
 	if (time - _time > _damage) then {
-		_injuredperson setDamage _healed;
-		_injuredperson setVariable ["tcb_ais_agony",false,true];
+		//_old_damage = _injuredperson getVariable "tcb_ais_damageStore";
+		if (_healed > _old_damage) then {
+			_injuredperson setDamage _old_damage;
+		} else {
+			_injuredperson setDamage _healed;
+		};
+		_injuredperson setVariable ["tcb_ais_damageStore", damage _injuredperson];
+		_injuredperson setVariable ["tcb_ais_agony", false, true];
 	};
 } else {
-	["You have stopped the healing process.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText;
+	["You has stopped the healing process.",0, 0.035 * safezoneH + safezoneY,5,0.3] spawn BIS_fnc_dynamicText;
 };
