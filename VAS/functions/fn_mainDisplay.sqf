@@ -49,6 +49,8 @@ switch (_request) do
 			};
 		} foreach _info;
 		
+		lbSort _control;
+		
 		_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 		_info = [([] call VAS_fnc_fetchPlayerGear),[1,2,4,5,4096]] call VAS_fnc_filter;
 		
@@ -78,6 +80,8 @@ switch (_request) do
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
 			};
 		} foreach _info;
+		
+		lbSort _control;
 		
 		_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 		_info = [([] call VAS_fnc_fetchPlayerGear),"mag"] call VAS_fnc_filter;
@@ -116,6 +120,8 @@ switch (_request) do
 			};
 		} foreach _info;
 		
+		lbSort _control;
+		
 		_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 		_info = [([] call VAS_fnc_fetchPlayerGear),"items"] call VAS_fnc_filter;
 		
@@ -146,6 +152,8 @@ switch (_request) do
 			};
 		} foreach _info;
 		
+		lbSort _control;
+		
 		_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 		_info = [([] call VAS_fnc_fetchPlayerGear),"packs"] call VAS_fnc_filter;
 		
@@ -174,6 +182,8 @@ switch (_request) do
 				_control lbSetPicture [(lbSize _control)-1,(_details select 2)];
 			};
 		} foreach _info;
+		
+		lbSort _control;
 		
 		_control = VAS_getControl(VAS_Main_Display,VAS_unit_list);
 		_info = [([] call VAS_fnc_fetchPlayerGear),"glass"] call VAS_fnc_filter;

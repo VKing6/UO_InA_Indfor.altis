@@ -18,6 +18,8 @@ _toVest = [_this,6,false,[false]] call BIS_fnc_param; //Manual override to send 
 if(_item == "") exitWith {};
 _isgun = false;
 
+if((configname inheritsFrom (configFile >> "CfgWeapons" >> _item)) == "ItemRadio") then {_item == "ItemRadio"}; //Patch from nkey for radio mods like TFAR
+
 _details = [_item] call VAS_fnc_fetchCfgDetails;
 if(count _details == 0) exitWith {};
 

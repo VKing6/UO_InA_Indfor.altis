@@ -11,7 +11,8 @@ class VAS_Diag {
 	name= "Virtual_Ammobox_Sys";
 	movingEnable = 1;
 	enableSimulation = true;
-	onLoad = "['guns',false] spawn VAS_fnc_mainDisplay; ";
+	onLoad = "['guns',false] spawn VAS_fnc_mainDisplay; ctrlShow [2507,false]; ctrlShow [2508,false]; ctrlShow [2509,false]; ctrlShow [2850,false]; ctrlShow [2851,false]; ";
+	onUnload = "VAS_box_weapons = nil; VAS_box_magazines = nil; VAS_box_items = nil; VAS_box_backpacks = nil; VAS_box_goggles = nil;"; //When the dialog is gone set these back to nil.
 	
 	class controlsBackground {
 		class VAS_RscTitleBackground:VAS_RscText {
@@ -98,7 +99,7 @@ class VAS_Diag {
 		{
 			idc = 2962;
 			text = "";
-			onLBDrop = "_this call VAS_fnc_quickAddDrag;";
+			onLBDrop = " _this call VAS_fnc_quickAddDrag; ";
 			y = 0.55;
 		};
 		
@@ -333,6 +334,12 @@ class VAS_Diag {
 			y = 0.2;
 			w = 0.8;
 			h = (1 / 25);
+		};
+		
+		class VersionNumber : Title {
+			idc = 2404;
+			style = 1;
+			text = "v2.5";
 		};
 
 		class ButtonAddG : VAS_RscButtonMenu
