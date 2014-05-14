@@ -605,7 +605,7 @@
 			};
 			
 			class VC {
-				weapons[] = {"arifle_TRG20_F","Binocular"};
+				weapons[] = {"tb_arifle_mk21c","Binocular"};
 				priKit[] = {"optic_Holosight","acc_pointer_IR"};
 				secKit[] = {};
 				
@@ -645,8 +645,8 @@
 			};
 			
 			class Pilot {
-				weapons[] = {"arifle_TRG20_F","Binocular"};
-				priKit[] = {"optic_Holosight","acc_pointer_IR"};
+				weapons[] = {"tb_arifle_mk21c","Binocular"};
+				priKit[] = {"acc_pointer_IR"};
 				secKit[] = {};
 				
 				assignedItems[] = {"ItemRadio","ItemMap","ItemCompass","ItemWatch","ItemGPS","NVGoggles_INDEP"};

@@ -80,7 +80,7 @@ vas_items = [
 	// Items 
 	"FirstAidKit","I_UavTerminal","ItemCompass","ItemGPS","ItemMap","ItemRadio","ACRE_PRC148","ACRE_PRC119","ACRE_PRC117F","ItemWatch","Medikit","MineDetector","ToolKit",
 	// Accsessories
-	"tb_acc_c79","tb_acc_m145","tb_acc_commp4","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Arco","optic_MRCO","optic_Hamr","optic_DMS","optic_LRPS","optic_MRD","optic_NVS","optic_Yorris","acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","muzzle_snds_M","tmr_muzzle_snds_L_smg","tmr_muzzle_snds_acp_smg",
+	"tb_acc_c79","tb_acc_m145","tb_acc_commp4","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_Arco","optic_MRCO","optic_Hamr","optic_DMS","optic_LRPS","optic_MRD","optic_NVS","optic_Yorris","acc_flashlight","acc_pointer_IR","tmr_acc_bipod","muzzle_snds_acp","muzzle_snds_L","muzzle_snds_M","tmr_muzzle_snds_L_smg","tmr_muzzle_snds_acp_smg","tb_acc_suppressorLMG556","tb_acc_suppressorLMG762",
 	// Uniforms
 	"U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_I_CombatUniform_tshirt","U_I_GhillieSuit","U_I_HeliPilotCoveralls","U_I_pilotCoveralls","U_I_Wetsuit",
 	// Vests
