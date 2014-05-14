@@ -68,7 +68,8 @@ Jack Williams (Rarek) for Ahoy World!
 	class Extended_getIn_EventHandlers {
 		class Air {
 			class vk_rwr {
-				clientGetIn = "if (player == _this select 2) then {_this spawn vk_rwr}";
+				getin = "if (player == _this select 2) then {_this execVM 'func\VK_RWR.sqf'}";
+				// getin = "if (player == _this select 2) then {_this call VK_RWR}";
 			};
 		};
 	};
